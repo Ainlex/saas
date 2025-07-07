@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========================================
+// MODELOS BASE - MULTI-TENANT MODULAR
+// ========================================
+
+model Empresa {
+  id        String   @id @default(cuid())
+  nombre    String
+  ruc       String   @unique
+  plan      String   @default("basic") // basic, pro, enterprise
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  usuarios        Usuario[]
+  empresaModulos  EmpresaModulo[]
+  modulosRutas    ModuloRuta[]
+
+  @@map("empresas")
+}
+
+model Usuario {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  nombre    String
+  empresaId String
+  rolId     String
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  rol     Rol     @relation(fields: [rolId], references: [id])
+
+  @@map("usuarios")
+}
+
+// ========================================
+// SISTEMA DE MÓDULOS
+// ========================================
+
+model Modulo {
+  id           String   @id @default(cuid())
+  nombre       String   @unique
+  displayName  String
+  version      String   @default("1.0.0")
+  activo       Boolean  @default(true)
+  dependencias String[] // Array de nombres de módulos dependientes
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relaciones
+  empresaModulos     EmpresaModulo[]
+  moduloDependencias ModuloDependencia[] @relation("ModuloDependiente")
+  dependenciasDe     ModuloDependencia[] @relation("ModuloDependeDe")
+  modulosRutas       ModuloRuta[]
+  moduloPermisos     ModuloPermiso[]
+
+  @@map("modulos")
+}
+
+model EmpresaModulo {
+  id            String   @id @default(cuid())
+  empresaId     String
+  moduloId      String
+  activo        Boolean  @default(true)
+  configuracion Json?    // Configuración específica por empresa
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  modulo  Modulo  @relation(fields: [moduloId], references: [id], onDelete: Cascade)
+
+  @@unique([empresaId, moduloId])
+  @@map("empresa_modulos")
+}
+
+model ModuloDependencia {
+  id           String @id @default(cuid())
+  moduloId     String
+  dependeDeId  String
+  requerido    Boolean @default(true)
+  createdAt    DateTime @default(now())
+
+  // Relaciones
+  modulo    Modulo @relation("ModuloDependiente", fields: [moduloId], references: [id], onDelete: Cascade)
+  dependeDe Modulo @relation("ModuloDependeDe", fields: [dependeDeId], references: [id], onDelete: Cascade)
+
+  @@unique([moduloId, dependeDeId])
+  @@map("modulo_dependencias")
+}
+
+// ========================================
+// SISTEMA DE PERMISOS Y ROLES
+// ========================================
+
+model Rol {
+  id        String   @id @default(cuid())
+  nombre    String
+  empresaId String?
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  usuarios      Usuario[]
+  rolPermisos   RolPermiso[]
+
+  @@map("roles")
+}
+
+model ModuloPermiso {
+  id       String @id @default(cuid())
+  moduloId String
+  nombre   String
+  accion   String // create, read, update, delete, execute
+  activo   Boolean @default(true)
+
+  // Relaciones
+  modulo     Modulo      @relation(fields: [moduloId], references: [id], onDelete: Cascade)
+  rolPermisos RolPermiso[]
+
+  @@unique([moduloId, nombre, accion])
+  @@map("modulo_permisos")
+}
+
+model RolPermiso {
+  id              String @id @default(cuid())
+  rolId           String
+  moduloPermisoId String
+  activo          Boolean @default(true)
+
+  // Relaciones
+  rol           Rol           @relation(fields: [rolId], references: [id], onDelete: Cascade)
+  moduloPermiso ModuloPermiso @relation(fields: [moduloPermisoId], references: [id], onDelete: Cascade)
+
+  @@unique([rolId, moduloPermisoId])
+  @@map("rol_permisos")
+}
+
+// ========================================
+// RUTAS POR MÓDULO
+// ========================================
+
+model ModuloRuta {
+  id        String   @id @default(cuid())
+  moduloId  String
+  empresaId String?
+  ruta      String
+  metodo    String   @default("GET") // GET, POST, PUT, DELETE
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  modulo  Modulo  @relation(fields: [moduloId], references: [id], onDelete: Cascade)
+  empresa Empresa? @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  @@unique([moduloId, ruta, metodo])
+  @@map("modulo_rutas")
+} 
