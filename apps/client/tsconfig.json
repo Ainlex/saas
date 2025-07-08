@@ -1,14 +1,33 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "jsxImportSource": "react",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "@contafacil/database": ["../../packages/database/dist"],
+      "@contafacil/ui": ["../../packages/ui/dist"],
+      "@contafacil/modules": ["../../packages/modules/dist"],
+      "@contafacil/auth": ["../../packages/auth/dist"],
+      "@contafacil/shared": ["../../packages/shared/dist"]
+    },
+    "incremental": true,
+    "baseUrl": "."
   },
   "include": [
     "next-env.d.ts",
@@ -18,5 +37,12 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    { "path": "../../packages/database" },
+    { "path": "../../packages/ui" },
+    { "path": "../../packages/modules" },
+    { "path": "../../packages/auth" },
+    { "path": "../../packages/shared" }
   ]
-} 
+}

@@ -6,7 +6,6 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -14,32 +13,28 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "baseUrl": ".",
     "paths": {
-      "@contafacil/ui": ["./packages/ui/src"],
-      "@contafacil/ui/*": ["./packages/ui/src/*"],
-      "@contafacil/database": ["./packages/database/src"],
-      "@contafacil/database/*": ["./packages/database/src/*"],
-      "@contafacil/modules": ["./packages/modules/src"],
-      "@contafacil/modules/*": ["./packages/modules/src/*"],
-      "@contafacil/auth": ["./packages/auth/src"],
-      "@contafacil/auth/*": ["./packages/auth/src/*"],
-      "@contafacil/shared": ["./packages/shared/src"],
-      "@contafacil/shared/*": ["./packages/shared/src/*"]
+      "@contafacil/database": ["./packages/database/dist"],
+      "@contafacil/database/*": ["./packages/database/dist/*"],
+      "@contafacil/ui": ["./packages/ui/dist"],
+      "@contafacil/ui/*": ["./packages/ui/dist/*"],
+      "@contafacil/modules": ["./packages/modules/dist"],
+      "@contafacil/modules/*": ["./packages/modules/dist/*"],
+      "@contafacil/auth": ["./packages/auth/dist"],
+      "@contafacil/auth/*": ["./packages/auth/dist/*"],
+      "@contafacil/shared": ["./packages/shared/dist"],
+      "@contafacil/shared/*": ["./packages/shared/dist/*"]
     }
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "apps/**/.next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "packages/**/*"
   ]
 } 

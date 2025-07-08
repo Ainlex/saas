@@ -1,7 +1,66 @@
-// Re-export tipos generados por Prisma
-export * from './generated';
+// Re-export tipos desde generated (donde Prisma los crea)
+export type { 
+  Empresa, 
+  Usuario, 
+  Modulo, 
+  EmpresaModulo,
+  ModuloDependencia,
+  ModuloRuta,
+  ModuloPermiso,
+  Rol,
+  RolPermiso,
+  PlanType 
+} from './generated'
 
-// Tipos custom para la aplicación
+// Import PlanType for internal use
+import type { PlanType } from './generated'
+
+// Types custom para la arquitectura
+export type ModuloNombre = 
+  | 'facturacion' 
+  | 'pos' 
+  | 'inventario' 
+  | 'contabilidad' 
+  | 'crm' 
+  | 'reportes'
+
+// Tipo mejorado para usuario con empresa y rol completos
+export interface UserWithEmpresa {
+  id: string;
+  email: string;
+  nombre: string;
+  empresaId: string;
+  rolId: string;
+  empresa?: {
+    id: string;
+    nombre: string;
+    ruc: string;
+    plan: PlanType;
+    activo: boolean;
+  };
+  rol?: {
+    id: string;
+    nombre: string;
+    descripcion?: string;
+    activo: boolean;
+  };
+}
+
+export interface ModuleAccessResult {
+  hasAccess: boolean;
+  missingDependencies?: string[];
+  reason?: string;
+}
+
+export interface ModuleInfo {
+  nombre: string;
+  displayName: string;
+  activo: boolean;
+  icono?: string;
+  color?: string;
+  rutas: string[];
+}
+
 export interface DatabaseConfig {
   url: string;
   log?: boolean;
@@ -30,7 +89,7 @@ export interface ModuleRoute {
 
 // Tipos para configuración de empresa
 export interface EmpresaConfig {
-  plan: 'basic' | 'pro' | 'enterprise';
+  plan: 'STARTER' | 'PROFESIONAL' | 'EMPRESARIAL';
   modules: string[];
   settings: Record<string, any>;
 }

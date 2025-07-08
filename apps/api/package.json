@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "next": "^14.0.0",
+    "next-auth": "^4.24.0",
     "@contafacil/database": "workspace:*",
     "@contafacil/shared": "workspace:*",
     "@contafacil/auth": "workspace:*",

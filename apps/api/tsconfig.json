@@ -1,14 +1,27 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ],
+      "@contafacil/database": [
+        "../../packages/database/dist"
+      ],
+      "@contafacil/ui": [
+        "../../packages/ui/dist"
+      ],
+      "@contafacil/modules": [
+        "../../packages/modules/dist"
+      ],
+      "@contafacil/auth": [
+        "../../packages/auth/dist"
+      ],
+      "@contafacil/shared": [
+        "../../packages/shared/dist"
+      ]
+    },
+    "noEmit": true
   },
   "include": [
     "next-env.d.ts",
@@ -19,4 +32,4 @@
   "exclude": [
     "node_modules"
   ]
-} 
+}

@@ -9,11 +9,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        paraguay: {
+          red: '#D52B1E',
+          blue: '#0038A8', 
+          white: '#FFFFFF'
+        },
         primary: {
           50: '#eff6ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
+          500: '#0038A8', // Azul Paraguay
+          600: '#002c85',
+          700: '#002270'
         },
       },
     },

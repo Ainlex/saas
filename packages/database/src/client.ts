@@ -1,30 +1,9 @@
-// Database client configuration
-// This will be replaced with actual Prisma client setup
+import { PrismaClient } from './generated'
 
-import { PrismaClient } from './generated';
-
-// Cliente Prisma singleton para evitar múltiples conexiones
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
-};
-
-export const prisma = globalForPrisma.prisma ?? new PrismaClient({
-  log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-});
-
-if (process.env.NODE_ENV !== 'production') {
-  globalForPrisma.prisma = prisma;
+  prisma: PrismaClient | undefined
 }
 
-// Exportar el cliente como default
-export default prisma;
+export const prisma = globalForPrisma.prisma ?? new PrismaClient()
 
-export const db = {
-  // Placeholder for Prisma client
-  connect: async () => {
-    console.log('Database connected');
-  },
-  disconnect: async () => {
-    console.log('Database disconnected');
-  },
-}; 
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma

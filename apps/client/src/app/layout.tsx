@@ -1,22 +1,23 @@
-import type { Metadata } from 'next';
-import { APP_NAME } from '@contafacil/shared';
-import './globals.css';
+import './globals.css'
+import SessionProviderWrapper from './SessionProviderWrapper'
 
-export const metadata: Metadata = {
-  title: APP_NAME,
-  description: 'Plataforma de contabilidad para Paraguay',
-};
+export const metadata = {
+  title: 'ContaFácil Paraguay',
+  description: 'Sistema contable modular para PyMEs',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="es">
-      <body className="antialiased">
-        {children}
+      <body>
+        <SessionProviderWrapper>
+          {children}
+        </SessionProviderWrapper>
       </body>
     </html>
-  );
+  )
 } 

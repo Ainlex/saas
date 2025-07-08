@@ -1,0 +1,1 @@
+// Archivo base para checker de permisos (implementación futura) 

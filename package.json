@@ -1,33 +1,38 @@
 {
   "name": "contafacil-saas",
-  "version": "1.0.0",
-  "description": "ContaFácil Paraguay SaaS - Monorepo",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev",
     "build": "turbo run build",
+    "build:packages": "turbo run build --filter='./packages/*'",
+    "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test"
+    "clean:all": "if exist node_modules rmdir /s /q node_modules && for /d %i in (apps\\*) do if exist %i\\node_modules rmdir /s /q %i\\node_modules && for /d %i in (packages\\*) do if exist %i\\node_modules rmdir /s /q %i\\node_modules && for /d %i in (apps\\*) do if exist %i\\.next rmdir /s /q %i\\.next && for /d %i in (packages\\*) do if exist %i\\dist rmdir /s /q %i\\dist",
+    "db:generate": "cd packages/database && pnpm db:generate",
+    "db:push": "cd packages/database && pnpm db:push",
+    "install:clean": "pnpm clean:all && pnpm install"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "typescript": "^5.0.0",
-    "turbo": "^1.10.0",
-    "prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
     "eslint": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0"
+    "prettier": "^3.0.0",
+    "turbo": "latest",
+    "typescript": "^5.0.0"
   },
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
-} 
+}

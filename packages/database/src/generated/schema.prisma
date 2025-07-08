@@ -12,35 +12,53 @@ datasource db {
 }
 
 // ========================================
+// ENUMS
+// ========================================
+
+enum PlanType {
+  STARTER
+  PROFESIONAL
+  EMPRESARIAL
+}
+
+// ========================================
 // MODELOS BASE - MULTI-TENANT MODULAR
 // ========================================
 
 model Empresa {
-  id        String   @id @default(cuid())
-  nombre    String
-  ruc       String   @unique
-  plan      String   @default("basic") // basic, pro, enterprise
-  activo    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  nombre             String
+  ruc                String   @unique
+  email              String?
+  telefono           String?
+  direccion          String?
+  plan               PlanType @default(STARTER)
+  activo             Boolean  @default(true)
+  fechaCreacion      DateTime @default(now())
+  fechaActualizacion DateTime @updatedAt
 
   // Relaciones
   usuarios        Usuario[]
-  empresaModulos  EmpresaModulo[]
-  modulosRutas    ModuloRuta[]
+  modulosActivos  EmpresaModulo[]
+  configuraciones EmpresaConfiguracion[]
+
+  // Datos específicos por módulo (para futuro)
+  facturas        Factura[]
+  productos       Producto[]
+  clientes        Cliente[]
+  movimientosCaja MovimientoCaja[]
 
   @@map("empresas")
 }
 
 model Usuario {
-  id        String   @id @default(cuid())
-  email     String   @unique
+  id        String  @id @default(cuid())
+  email     String  @unique
   nombre    String
+  apellido  String?
+  activo    Boolean @default(true)
   empresaId String
   rolId     String
-  activo    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   // Relaciones
   empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
@@ -54,55 +72,71 @@ model Usuario {
 // ========================================
 
 model Modulo {
-  id           String   @id @default(cuid())
-  nombre       String   @unique
-  displayName  String
-  version      String   @default("1.0.0")
-  activo       Boolean  @default(true)
-  dependencias String[] // Array de nombres de módulos dependientes
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id          String  @id @default(cuid())
+  nombre      String  @unique // 'facturacion', 'pos', 'inventario', etc.
+  displayName String // 'Facturación Electrónica', 'Punto de Venta', etc.
+  descripcion String?
+  version     String  @default("1.0.0")
+  activo      Boolean @default(true)
+  orden       Int     @default(0)
+  icono       String?
+  color       String?
+
+  // Dependencias entre módulos
+  dependeDe       ModuloDependencia[] @relation("ModuloPrincipal")
+  esDependenciaDe ModuloDependencia[] @relation("ModuloDependiente")
 
   // Relaciones
-  empresaModulos     EmpresaModulo[]
-  moduloDependencias ModuloDependencia[] @relation("ModuloDependiente")
-  dependenciasDe     ModuloDependencia[] @relation("ModuloDependeDe")
-  modulosRutas       ModuloRuta[]
-  moduloPermisos     ModuloPermiso[]
+  empresasConModulo EmpresaModulo[]
+  permisos          ModuloPermiso[]
+  rutas             ModuloRuta[]
 
   @@map("modulos")
 }
 
 model EmpresaModulo {
-  id            String   @id @default(cuid())
-  empresaId     String
-  moduloId      String
-  activo        Boolean  @default(true)
-  configuracion Json?    // Configuración específica por empresa
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                 String    @id @default(cuid())
+  empresaId          String
+  moduloId           String
+  activo             Boolean   @default(true)
+  fechaActivacion    DateTime  @default(now())
+  fechaDesactivacion DateTime?
+  configuracion      Json? // Configuración específica por empresa
 
   // Relaciones
   empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  modulo  Modulo  @relation(fields: [moduloId], references: [id], onDelete: Cascade)
+  modulo  Modulo  @relation(fields: [moduloId], references: [id])
 
   @@unique([empresaId, moduloId])
   @@map("empresa_modulos")
 }
 
 model ModuloDependencia {
-  id           String @id @default(cuid())
-  moduloId     String
-  dependeDeId  String
-  requerido    Boolean @default(true)
-  createdAt    DateTime @default(now())
+  id          String  @id @default(cuid())
+  moduloId    String // Módulo principal
+  dependeDeId String // Módulo del que depende
+  requerido   Boolean @default(true) // Si es obligatorio o opcional
 
   // Relaciones
-  modulo    Modulo @relation("ModuloDependiente", fields: [moduloId], references: [id], onDelete: Cascade)
-  dependeDe Modulo @relation("ModuloDependeDe", fields: [dependeDeId], references: [id], onDelete: Cascade)
+  modulo    Modulo @relation("ModuloPrincipal", fields: [moduloId], references: [id])
+  dependeDe Modulo @relation("ModuloDependiente", fields: [dependeDeId], references: [id])
 
   @@unique([moduloId, dependeDeId])
   @@map("modulo_dependencias")
+}
+
+model ModuloRuta {
+  id          String  @id @default(cuid())
+  moduloId    String
+  ruta        String // '/facturacion', '/pos', etc.
+  nombre      String
+  descripcion String?
+  activo      Boolean @default(true)
+
+  // Relaciones
+  modulo Modulo @relation(fields: [moduloId], references: [id])
+
+  @@map("modulo_rutas")
 }
 
 // ========================================
@@ -110,67 +144,118 @@ model ModuloDependencia {
 // ========================================
 
 model Rol {
-  id        String   @id @default(cuid())
-  nombre    String
-  empresaId String?
-  activo    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String  @id @default(cuid())
+  nombre      String
+  descripcion String?
+  activo      Boolean @default(true)
 
   // Relaciones
-  usuarios      Usuario[]
-  rolPermisos   RolPermiso[]
+  usuarios Usuario[]
+  permisos RolPermiso[]
 
   @@map("roles")
 }
 
 model ModuloPermiso {
-  id       String @id @default(cuid())
-  moduloId String
-  nombre   String
-  accion   String // create, read, update, delete, execute
-  activo   Boolean @default(true)
+  id          String  @id @default(cuid())
+  moduloId    String
+  codigo      String // 'facturacion:crear', 'pos:vender', etc.
+  nombre      String
+  descripcion String?
 
   // Relaciones
-  modulo     Modulo      @relation(fields: [moduloId], references: [id], onDelete: Cascade)
-  rolPermisos RolPermiso[]
+  modulo Modulo       @relation(fields: [moduloId], references: [id])
+  roles  RolPermiso[]
 
-  @@unique([moduloId, nombre, accion])
+  @@unique([moduloId, codigo])
   @@map("modulo_permisos")
 }
 
 model RolPermiso {
-  id              String @id @default(cuid())
-  rolId           String
-  moduloPermisoId String
-  activo          Boolean @default(true)
+  id        String @id @default(cuid())
+  rolId     String
+  permisoId String
 
   // Relaciones
-  rol           Rol           @relation(fields: [rolId], references: [id], onDelete: Cascade)
-  moduloPermiso ModuloPermiso @relation(fields: [moduloPermisoId], references: [id], onDelete: Cascade)
+  rol     Rol           @relation(fields: [rolId], references: [id])
+  permiso ModuloPermiso @relation(fields: [permisoId], references: [id])
 
-  @@unique([rolId, moduloPermisoId])
+  @@unique([rolId, permisoId])
   @@map("rol_permisos")
 }
 
 // ========================================
-// RUTAS POR MÓDULO
+// MODELOS DE CONFIGURACIÓN
 // ========================================
 
-model ModuloRuta {
+model EmpresaConfiguracion {
   id        String   @id @default(cuid())
-  moduloId  String
-  empresaId String?
-  ruta      String
-  metodo    String   @default("GET") // GET, POST, PUT, DELETE
+  empresaId String
+  clave     String
+  valor     Json
   activo    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   // Relaciones
-  modulo  Modulo  @relation(fields: [moduloId], references: [id], onDelete: Cascade)
-  empresa Empresa? @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
-  @@unique([moduloId, ruta, metodo])
-  @@map("modulo_rutas")
-} 
+  @@unique([empresaId, clave])
+  @@map("empresa_configuraciones")
+}
+
+// ========================================
+// MODELOS DE MÓDULOS ESPECÍFICOS (PLACEHOLDER)
+// ========================================
+
+model Factura {
+  id        String   @id @default(cuid())
+  empresaId String
+  // Campos específicos del módulo facturación
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  @@map("facturas")
+}
+
+model Producto {
+  id        String   @id @default(cuid())
+  empresaId String
+  // Campos específicos del módulo inventario
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  @@map("productos")
+}
+
+model Cliente {
+  id        String   @id @default(cuid())
+  empresaId String
+  // Campos específicos del módulo CRM
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  @@map("clientes")
+}
+
+model MovimientoCaja {
+  id        String   @id @default(cuid())
+  empresaId String
+  // Campos específicos del módulo POS
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  @@map("movimientos_caja")
+}

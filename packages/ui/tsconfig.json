@@ -1,9 +1,23 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "paths": {
+      "@contafacil/database": ["../database/dist"],
+      "@contafacil/auth": ["../auth/dist"],
+      "@contafacil/shared": ["../shared/dist"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    { "path": "../database" },
+    { "path": "../auth" },
+    { "path": "../shared" }
+  ]
 } 

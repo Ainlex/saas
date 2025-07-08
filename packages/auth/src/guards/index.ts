@@ -1,0 +1,1 @@
+// Archivo limpiado para migración a NextAuth 
