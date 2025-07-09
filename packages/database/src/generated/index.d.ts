@@ -1979,23 +1979,23 @@ export namespace Prisma {
    */
 
   export type EmpresaCountOutputType = {
-    usuarios: number
-    modulosActivos: number
-    configuraciones: number
-    facturas: number
-    productos: number
     clientes: number
+    configuraciones: number
+    modulosActivos: number
+    facturas: number
     movimientosCaja: number
+    productos: number
+    usuarios: number
   }
 
   export type EmpresaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    usuarios?: boolean | EmpresaCountOutputTypeCountUsuariosArgs
-    modulosActivos?: boolean | EmpresaCountOutputTypeCountModulosActivosArgs
-    configuraciones?: boolean | EmpresaCountOutputTypeCountConfiguracionesArgs
-    facturas?: boolean | EmpresaCountOutputTypeCountFacturasArgs
-    productos?: boolean | EmpresaCountOutputTypeCountProductosArgs
     clientes?: boolean | EmpresaCountOutputTypeCountClientesArgs
+    configuraciones?: boolean | EmpresaCountOutputTypeCountConfiguracionesArgs
+    modulosActivos?: boolean | EmpresaCountOutputTypeCountModulosActivosArgs
+    facturas?: boolean | EmpresaCountOutputTypeCountFacturasArgs
     movimientosCaja?: boolean | EmpresaCountOutputTypeCountMovimientosCajaArgs
+    productos?: boolean | EmpresaCountOutputTypeCountProductosArgs
+    usuarios?: boolean | EmpresaCountOutputTypeCountUsuariosArgs
   }
 
   // Custom InputTypes
@@ -2012,15 +2012,8 @@ export namespace Prisma {
   /**
    * EmpresaCountOutputType without action
    */
-  export type EmpresaCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UsuarioWhereInput
-  }
-
-  /**
-   * EmpresaCountOutputType without action
-   */
-  export type EmpresaCountOutputTypeCountModulosActivosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmpresaModuloWhereInput
+  export type EmpresaCountOutputTypeCountClientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClienteWhereInput
   }
 
   /**
@@ -2033,8 +2026,22 @@ export namespace Prisma {
   /**
    * EmpresaCountOutputType without action
    */
+  export type EmpresaCountOutputTypeCountModulosActivosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmpresaModuloWhereInput
+  }
+
+  /**
+   * EmpresaCountOutputType without action
+   */
   export type EmpresaCountOutputTypeCountFacturasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FacturaWhereInput
+  }
+
+  /**
+   * EmpresaCountOutputType without action
+   */
+  export type EmpresaCountOutputTypeCountMovimientosCajaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovimientoCajaWhereInput
   }
 
   /**
@@ -2047,15 +2054,8 @@ export namespace Prisma {
   /**
    * EmpresaCountOutputType without action
    */
-  export type EmpresaCountOutputTypeCountClientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ClienteWhereInput
-  }
-
-  /**
-   * EmpresaCountOutputType without action
-   */
-  export type EmpresaCountOutputTypeCountMovimientosCajaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MovimientoCajaWhereInput
+  export type EmpresaCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsuarioWhereInput
   }
 
 
@@ -2064,17 +2064,17 @@ export namespace Prisma {
    */
 
   export type ModuloCountOutputType = {
-    dependeDe: number
-    esDependenciaDe: number
     empresasConModulo: number
+    esDependenciaDe: number
+    dependeDe: number
     permisos: number
     rutas: number
   }
 
   export type ModuloCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    dependeDe?: boolean | ModuloCountOutputTypeCountDependeDeArgs
-    esDependenciaDe?: boolean | ModuloCountOutputTypeCountEsDependenciaDeArgs
     empresasConModulo?: boolean | ModuloCountOutputTypeCountEmpresasConModuloArgs
+    esDependenciaDe?: boolean | ModuloCountOutputTypeCountEsDependenciaDeArgs
+    dependeDe?: boolean | ModuloCountOutputTypeCountDependeDeArgs
     permisos?: boolean | ModuloCountOutputTypeCountPermisosArgs
     rutas?: boolean | ModuloCountOutputTypeCountRutasArgs
   }
@@ -2093,8 +2093,8 @@ export namespace Prisma {
   /**
    * ModuloCountOutputType without action
    */
-  export type ModuloCountOutputTypeCountDependeDeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ModuloDependenciaWhereInput
+  export type ModuloCountOutputTypeCountEmpresasConModuloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmpresaModuloWhereInput
   }
 
   /**
@@ -2107,8 +2107,8 @@ export namespace Prisma {
   /**
    * ModuloCountOutputType without action
    */
-  export type ModuloCountOutputTypeCountEmpresasConModuloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmpresaModuloWhereInput
+  export type ModuloCountOutputTypeCountDependeDeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuloDependenciaWhereInput
   }
 
   /**
@@ -2131,13 +2131,13 @@ export namespace Prisma {
    */
 
   export type RolCountOutputType = {
-    usuarios: number
     permisos: number
+    usuarios: number
   }
 
   export type RolCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    usuarios?: boolean | RolCountOutputTypeCountUsuariosArgs
     permisos?: boolean | RolCountOutputTypeCountPermisosArgs
+    usuarios?: boolean | RolCountOutputTypeCountUsuariosArgs
   }
 
   // Custom InputTypes
@@ -2154,15 +2154,15 @@ export namespace Prisma {
   /**
    * RolCountOutputType without action
    */
-  export type RolCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UsuarioWhereInput
+  export type RolCountOutputTypeCountPermisosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RolPermisoWhereInput
   }
 
   /**
    * RolCountOutputType without action
    */
-  export type RolCountOutputTypeCountPermisosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RolPermisoWhereInput
+  export type RolCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsuarioWhereInput
   }
 
 
@@ -2215,39 +2215,39 @@ export namespace Prisma {
     id: string | null
     nombre: string | null
     ruc: string | null
-    email: string | null
-    telefono: string | null
-    direccion: string | null
-    plan: $Enums.PlanType | null
     activo: boolean | null
-    fechaCreacion: Date | null
+    direccion: string | null
+    email: string | null
     fechaActualizacion: Date | null
+    fechaCreacion: Date | null
+    telefono: string | null
+    plan: $Enums.PlanType | null
   }
 
   export type EmpresaMaxAggregateOutputType = {
     id: string | null
     nombre: string | null
     ruc: string | null
-    email: string | null
-    telefono: string | null
-    direccion: string | null
-    plan: $Enums.PlanType | null
     activo: boolean | null
-    fechaCreacion: Date | null
+    direccion: string | null
+    email: string | null
     fechaActualizacion: Date | null
+    fechaCreacion: Date | null
+    telefono: string | null
+    plan: $Enums.PlanType | null
   }
 
   export type EmpresaCountAggregateOutputType = {
     id: number
     nombre: number
     ruc: number
-    email: number
-    telefono: number
-    direccion: number
-    plan: number
     activo: number
-    fechaCreacion: number
+    direccion: number
+    email: number
     fechaActualizacion: number
+    fechaCreacion: number
+    telefono: number
+    plan: number
     _all: number
   }
 
@@ -2256,39 +2256,39 @@ export namespace Prisma {
     id?: true
     nombre?: true
     ruc?: true
-    email?: true
-    telefono?: true
-    direccion?: true
-    plan?: true
     activo?: true
-    fechaCreacion?: true
+    direccion?: true
+    email?: true
     fechaActualizacion?: true
+    fechaCreacion?: true
+    telefono?: true
+    plan?: true
   }
 
   export type EmpresaMaxAggregateInputType = {
     id?: true
     nombre?: true
     ruc?: true
-    email?: true
-    telefono?: true
-    direccion?: true
-    plan?: true
     activo?: true
-    fechaCreacion?: true
+    direccion?: true
+    email?: true
     fechaActualizacion?: true
+    fechaCreacion?: true
+    telefono?: true
+    plan?: true
   }
 
   export type EmpresaCountAggregateInputType = {
     id?: true
     nombre?: true
     ruc?: true
-    email?: true
-    telefono?: true
-    direccion?: true
-    plan?: true
     activo?: true
-    fechaCreacion?: true
+    direccion?: true
+    email?: true
     fechaActualizacion?: true
+    fechaCreacion?: true
+    telefono?: true
+    plan?: true
     _all?: true
   }
 
@@ -2368,13 +2368,13 @@ export namespace Prisma {
     id: string
     nombre: string
     ruc: string
-    email: string | null
-    telefono: string | null
-    direccion: string | null
-    plan: $Enums.PlanType
     activo: boolean
-    fechaCreacion: Date
+    direccion: string | null
+    email: string | null
     fechaActualizacion: Date
+    fechaCreacion: Date
+    telefono: string | null
+    plan: $Enums.PlanType
     _count: EmpresaCountAggregateOutputType | null
     _min: EmpresaMinAggregateOutputType | null
     _max: EmpresaMaxAggregateOutputType | null
@@ -2398,20 +2398,20 @@ export namespace Prisma {
     id?: boolean
     nombre?: boolean
     ruc?: boolean
-    email?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    plan?: boolean
     activo?: boolean
-    fechaCreacion?: boolean
+    direccion?: boolean
+    email?: boolean
     fechaActualizacion?: boolean
-    usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
-    modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
-    configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
-    facturas?: boolean | Empresa$facturasArgs<ExtArgs>
-    productos?: boolean | Empresa$productosArgs<ExtArgs>
+    fechaCreacion?: boolean
+    telefono?: boolean
+    plan?: boolean
     clientes?: boolean | Empresa$clientesArgs<ExtArgs>
+    configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
+    modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
+    facturas?: boolean | Empresa$facturasArgs<ExtArgs>
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
+    productos?: boolean | Empresa$productosArgs<ExtArgs>
+    usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
     _count?: boolean | EmpresaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["empresa"]>
 
@@ -2419,36 +2419,36 @@ export namespace Prisma {
     id?: boolean
     nombre?: boolean
     ruc?: boolean
-    email?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    plan?: boolean
     activo?: boolean
-    fechaCreacion?: boolean
+    direccion?: boolean
+    email?: boolean
     fechaActualizacion?: boolean
+    fechaCreacion?: boolean
+    telefono?: boolean
+    plan?: boolean
   }, ExtArgs["result"]["empresa"]>
 
   export type EmpresaSelectScalar = {
     id?: boolean
     nombre?: boolean
     ruc?: boolean
-    email?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    plan?: boolean
     activo?: boolean
-    fechaCreacion?: boolean
+    direccion?: boolean
+    email?: boolean
     fechaActualizacion?: boolean
+    fechaCreacion?: boolean
+    telefono?: boolean
+    plan?: boolean
   }
 
   export type EmpresaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
-    modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
-    configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
-    facturas?: boolean | Empresa$facturasArgs<ExtArgs>
-    productos?: boolean | Empresa$productosArgs<ExtArgs>
     clientes?: boolean | Empresa$clientesArgs<ExtArgs>
+    configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
+    modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
+    facturas?: boolean | Empresa$facturasArgs<ExtArgs>
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
+    productos?: boolean | Empresa$productosArgs<ExtArgs>
+    usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
     _count?: boolean | EmpresaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EmpresaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2456,25 +2456,25 @@ export namespace Prisma {
   export type $EmpresaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Empresa"
     objects: {
-      usuarios: Prisma.$UsuarioPayload<ExtArgs>[]
-      modulosActivos: Prisma.$EmpresaModuloPayload<ExtArgs>[]
-      configuraciones: Prisma.$EmpresaConfiguracionPayload<ExtArgs>[]
-      facturas: Prisma.$FacturaPayload<ExtArgs>[]
-      productos: Prisma.$ProductoPayload<ExtArgs>[]
       clientes: Prisma.$ClientePayload<ExtArgs>[]
+      configuraciones: Prisma.$EmpresaConfiguracionPayload<ExtArgs>[]
+      modulosActivos: Prisma.$EmpresaModuloPayload<ExtArgs>[]
+      facturas: Prisma.$FacturaPayload<ExtArgs>[]
       movimientosCaja: Prisma.$MovimientoCajaPayload<ExtArgs>[]
+      productos: Prisma.$ProductoPayload<ExtArgs>[]
+      usuarios: Prisma.$UsuarioPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nombre: string
       ruc: string
-      email: string | null
-      telefono: string | null
-      direccion: string | null
-      plan: $Enums.PlanType
       activo: boolean
-      fechaCreacion: Date
+      direccion: string | null
+      email: string | null
       fechaActualizacion: Date
+      fechaCreacion: Date
+      telefono: string | null
+      plan: $Enums.PlanType
     }, ExtArgs["result"]["empresa"]>
     composites: {}
   }
@@ -2839,13 +2839,13 @@ export namespace Prisma {
    */
   export interface Prisma__EmpresaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    usuarios<T extends Empresa$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany"> | Null>
-    modulosActivos<T extends Empresa$modulosActivosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$modulosActivosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaModuloPayload<ExtArgs>, T, "findMany"> | Null>
-    configuraciones<T extends Empresa$configuracionesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$configuracionesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaConfiguracionPayload<ExtArgs>, T, "findMany"> | Null>
-    facturas<T extends Empresa$facturasArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$facturasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FacturaPayload<ExtArgs>, T, "findMany"> | Null>
-    productos<T extends Empresa$productosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$productosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductoPayload<ExtArgs>, T, "findMany"> | Null>
     clientes<T extends Empresa$clientesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$clientesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findMany"> | Null>
+    configuraciones<T extends Empresa$configuracionesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$configuracionesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaConfiguracionPayload<ExtArgs>, T, "findMany"> | Null>
+    modulosActivos<T extends Empresa$modulosActivosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$modulosActivosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaModuloPayload<ExtArgs>, T, "findMany"> | Null>
+    facturas<T extends Empresa$facturasArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$facturasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FacturaPayload<ExtArgs>, T, "findMany"> | Null>
     movimientosCaja<T extends Empresa$movimientosCajaArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$movimientosCajaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovimientoCajaPayload<ExtArgs>, T, "findMany"> | Null>
+    productos<T extends Empresa$productosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$productosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductoPayload<ExtArgs>, T, "findMany"> | Null>
+    usuarios<T extends Empresa$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2878,13 +2878,13 @@ export namespace Prisma {
     readonly id: FieldRef<"Empresa", 'String'>
     readonly nombre: FieldRef<"Empresa", 'String'>
     readonly ruc: FieldRef<"Empresa", 'String'>
-    readonly email: FieldRef<"Empresa", 'String'>
-    readonly telefono: FieldRef<"Empresa", 'String'>
-    readonly direccion: FieldRef<"Empresa", 'String'>
-    readonly plan: FieldRef<"Empresa", 'PlanType'>
     readonly activo: FieldRef<"Empresa", 'Boolean'>
-    readonly fechaCreacion: FieldRef<"Empresa", 'DateTime'>
+    readonly direccion: FieldRef<"Empresa", 'String'>
+    readonly email: FieldRef<"Empresa", 'String'>
     readonly fechaActualizacion: FieldRef<"Empresa", 'DateTime'>
+    readonly fechaCreacion: FieldRef<"Empresa", 'DateTime'>
+    readonly telefono: FieldRef<"Empresa", 'String'>
+    readonly plan: FieldRef<"Empresa", 'PlanType'>
   }
     
 
@@ -3199,43 +3199,23 @@ export namespace Prisma {
   }
 
   /**
-   * Empresa.usuarios
+   * Empresa.clientes
    */
-  export type Empresa$usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Empresa$clientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Usuario
+     * Select specific fields to fetch from the Cliente
      */
-    select?: UsuarioSelect<ExtArgs> | null
+    select?: ClienteSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UsuarioInclude<ExtArgs> | null
-    where?: UsuarioWhereInput
-    orderBy?: UsuarioOrderByWithRelationInput | UsuarioOrderByWithRelationInput[]
-    cursor?: UsuarioWhereUniqueInput
+    include?: ClienteInclude<ExtArgs> | null
+    where?: ClienteWhereInput
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    cursor?: ClienteWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UsuarioScalarFieldEnum | UsuarioScalarFieldEnum[]
-  }
-
-  /**
-   * Empresa.modulosActivos
-   */
-  export type Empresa$modulosActivosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the EmpresaModulo
-     */
-    select?: EmpresaModuloSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: EmpresaModuloInclude<ExtArgs> | null
-    where?: EmpresaModuloWhereInput
-    orderBy?: EmpresaModuloOrderByWithRelationInput | EmpresaModuloOrderByWithRelationInput[]
-    cursor?: EmpresaModuloWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: EmpresaModuloScalarFieldEnum | EmpresaModuloScalarFieldEnum[]
+    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
   }
 
   /**
@@ -3259,6 +3239,26 @@ export namespace Prisma {
   }
 
   /**
+   * Empresa.modulosActivos
+   */
+  export type Empresa$modulosActivosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmpresaModulo
+     */
+    select?: EmpresaModuloSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmpresaModuloInclude<ExtArgs> | null
+    where?: EmpresaModuloWhereInput
+    orderBy?: EmpresaModuloOrderByWithRelationInput | EmpresaModuloOrderByWithRelationInput[]
+    cursor?: EmpresaModuloWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmpresaModuloScalarFieldEnum | EmpresaModuloScalarFieldEnum[]
+  }
+
+  /**
    * Empresa.facturas
    */
   export type Empresa$facturasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3276,6 +3276,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FacturaScalarFieldEnum | FacturaScalarFieldEnum[]
+  }
+
+  /**
+   * Empresa.movimientosCaja
+   */
+  export type Empresa$movimientosCajaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovimientoCaja
+     */
+    select?: MovimientoCajaSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovimientoCajaInclude<ExtArgs> | null
+    where?: MovimientoCajaWhereInput
+    orderBy?: MovimientoCajaOrderByWithRelationInput | MovimientoCajaOrderByWithRelationInput[]
+    cursor?: MovimientoCajaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MovimientoCajaScalarFieldEnum | MovimientoCajaScalarFieldEnum[]
   }
 
   /**
@@ -3299,43 +3319,23 @@ export namespace Prisma {
   }
 
   /**
-   * Empresa.clientes
+   * Empresa.usuarios
    */
-  export type Empresa$clientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Empresa$usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cliente
+     * Select specific fields to fetch from the Usuario
      */
-    select?: ClienteSelect<ExtArgs> | null
+    select?: UsuarioSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ClienteInclude<ExtArgs> | null
-    where?: ClienteWhereInput
-    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
-    cursor?: ClienteWhereUniqueInput
+    include?: UsuarioInclude<ExtArgs> | null
+    where?: UsuarioWhereInput
+    orderBy?: UsuarioOrderByWithRelationInput | UsuarioOrderByWithRelationInput[]
+    cursor?: UsuarioWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
-  }
-
-  /**
-   * Empresa.movimientosCaja
-   */
-  export type Empresa$movimientosCajaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MovimientoCaja
-     */
-    select?: MovimientoCajaSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovimientoCajaInclude<ExtArgs> | null
-    where?: MovimientoCajaWhereInput
-    orderBy?: MovimientoCajaOrderByWithRelationInput | MovimientoCajaOrderByWithRelationInput[]
-    cursor?: MovimientoCajaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MovimientoCajaScalarFieldEnum | MovimientoCajaScalarFieldEnum[]
+    distinct?: UsuarioScalarFieldEnum | UsuarioScalarFieldEnum[]
   }
 
   /**
@@ -3367,30 +3367,30 @@ export namespace Prisma {
     id: string | null
     email: string | null
     nombre: string | null
-    apellido: string | null
-    activo: boolean | null
     empresaId: string | null
     rolId: string | null
+    activo: boolean | null
+    apellido: string | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
     id: string | null
     email: string | null
     nombre: string | null
-    apellido: string | null
-    activo: boolean | null
     empresaId: string | null
     rolId: string | null
+    activo: boolean | null
+    apellido: string | null
   }
 
   export type UsuarioCountAggregateOutputType = {
     id: number
     email: number
     nombre: number
-    apellido: number
-    activo: number
     empresaId: number
     rolId: number
+    activo: number
+    apellido: number
     _all: number
   }
 
@@ -3399,30 +3399,30 @@ export namespace Prisma {
     id?: true
     email?: true
     nombre?: true
-    apellido?: true
-    activo?: true
     empresaId?: true
     rolId?: true
+    activo?: true
+    apellido?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
     id?: true
     email?: true
     nombre?: true
-    apellido?: true
-    activo?: true
     empresaId?: true
     rolId?: true
+    activo?: true
+    apellido?: true
   }
 
   export type UsuarioCountAggregateInputType = {
     id?: true
     email?: true
     nombre?: true
-    apellido?: true
-    activo?: true
     empresaId?: true
     rolId?: true
+    activo?: true
+    apellido?: true
     _all?: true
   }
 
@@ -3502,10 +3502,10 @@ export namespace Prisma {
     id: string
     email: string
     nombre: string
-    apellido: string | null
-    activo: boolean
     empresaId: string
     rolId: string
+    activo: boolean
+    apellido: string | null
     _count: UsuarioCountAggregateOutputType | null
     _min: UsuarioMinAggregateOutputType | null
     _max: UsuarioMaxAggregateOutputType | null
@@ -3529,10 +3529,10 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
-    apellido?: boolean
-    activo?: boolean
     empresaId?: boolean
     rolId?: boolean
+    activo?: boolean
+    apellido?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
@@ -3541,10 +3541,10 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
-    apellido?: boolean
-    activo?: boolean
     empresaId?: boolean
     rolId?: boolean
+    activo?: boolean
+    apellido?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
@@ -3553,10 +3553,10 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
-    apellido?: boolean
-    activo?: boolean
     empresaId?: boolean
     rolId?: boolean
+    activo?: boolean
+    apellido?: boolean
   }
 
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3578,10 +3578,10 @@ export namespace Prisma {
       id: string
       email: string
       nombre: string
-      apellido: string | null
-      activo: boolean
       empresaId: string
       rolId: string
+      activo: boolean
+      apellido: string | null
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -3980,10 +3980,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Usuario", 'String'>
     readonly email: FieldRef<"Usuario", 'String'>
     readonly nombre: FieldRef<"Usuario", 'String'>
-    readonly apellido: FieldRef<"Usuario", 'String'>
-    readonly activo: FieldRef<"Usuario", 'Boolean'>
     readonly empresaId: FieldRef<"Usuario", 'String'>
     readonly rolId: FieldRef<"Usuario", 'String'>
+    readonly activo: FieldRef<"Usuario", 'Boolean'>
+    readonly apellido: FieldRef<"Usuario", 'String'>
   }
     
 
@@ -4340,36 +4340,36 @@ export namespace Prisma {
     id: string | null
     nombre: string | null
     displayName: string | null
-    descripcion: string | null
     version: string | null
     activo: boolean | null
-    orden: number | null
-    icono: string | null
     color: string | null
+    descripcion: string | null
+    icono: string | null
+    orden: number | null
   }
 
   export type ModuloMaxAggregateOutputType = {
     id: string | null
     nombre: string | null
     displayName: string | null
-    descripcion: string | null
     version: string | null
     activo: boolean | null
-    orden: number | null
-    icono: string | null
     color: string | null
+    descripcion: string | null
+    icono: string | null
+    orden: number | null
   }
 
   export type ModuloCountAggregateOutputType = {
     id: number
     nombre: number
     displayName: number
-    descripcion: number
     version: number
     activo: number
-    orden: number
-    icono: number
     color: number
+    descripcion: number
+    icono: number
+    orden: number
     _all: number
   }
 
@@ -4386,36 +4386,36 @@ export namespace Prisma {
     id?: true
     nombre?: true
     displayName?: true
-    descripcion?: true
     version?: true
     activo?: true
-    orden?: true
-    icono?: true
     color?: true
+    descripcion?: true
+    icono?: true
+    orden?: true
   }
 
   export type ModuloMaxAggregateInputType = {
     id?: true
     nombre?: true
     displayName?: true
-    descripcion?: true
     version?: true
     activo?: true
-    orden?: true
-    icono?: true
     color?: true
+    descripcion?: true
+    icono?: true
+    orden?: true
   }
 
   export type ModuloCountAggregateInputType = {
     id?: true
     nombre?: true
     displayName?: true
-    descripcion?: true
     version?: true
     activo?: true
-    orden?: true
-    icono?: true
     color?: true
+    descripcion?: true
+    icono?: true
+    orden?: true
     _all?: true
   }
 
@@ -4509,12 +4509,12 @@ export namespace Prisma {
     id: string
     nombre: string
     displayName: string
-    descripcion: string | null
     version: string
     activo: boolean
-    orden: number
-    icono: string | null
     color: string | null
+    descripcion: string | null
+    icono: string | null
+    orden: number
     _count: ModuloCountAggregateOutputType | null
     _avg: ModuloAvgAggregateOutputType | null
     _sum: ModuloSumAggregateOutputType | null
@@ -4540,15 +4540,15 @@ export namespace Prisma {
     id?: boolean
     nombre?: boolean
     displayName?: boolean
-    descripcion?: boolean
     version?: boolean
     activo?: boolean
-    orden?: boolean
-    icono?: boolean
     color?: boolean
-    dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
-    esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
+    descripcion?: boolean
+    icono?: boolean
+    orden?: boolean
     empresasConModulo?: boolean | Modulo$empresasConModuloArgs<ExtArgs>
+    esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
+    dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
     permisos?: boolean | Modulo$permisosArgs<ExtArgs>
     rutas?: boolean | Modulo$rutasArgs<ExtArgs>
     _count?: boolean | ModuloCountOutputTypeDefaultArgs<ExtArgs>
@@ -4558,30 +4558,30 @@ export namespace Prisma {
     id?: boolean
     nombre?: boolean
     displayName?: boolean
-    descripcion?: boolean
     version?: boolean
     activo?: boolean
-    orden?: boolean
-    icono?: boolean
     color?: boolean
+    descripcion?: boolean
+    icono?: boolean
+    orden?: boolean
   }, ExtArgs["result"]["modulo"]>
 
   export type ModuloSelectScalar = {
     id?: boolean
     nombre?: boolean
     displayName?: boolean
-    descripcion?: boolean
     version?: boolean
     activo?: boolean
-    orden?: boolean
-    icono?: boolean
     color?: boolean
+    descripcion?: boolean
+    icono?: boolean
+    orden?: boolean
   }
 
   export type ModuloInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
-    esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
     empresasConModulo?: boolean | Modulo$empresasConModuloArgs<ExtArgs>
+    esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
+    dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
     permisos?: boolean | Modulo$permisosArgs<ExtArgs>
     rutas?: boolean | Modulo$rutasArgs<ExtArgs>
     _count?: boolean | ModuloCountOutputTypeDefaultArgs<ExtArgs>
@@ -4591,9 +4591,9 @@ export namespace Prisma {
   export type $ModuloPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Modulo"
     objects: {
-      dependeDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
-      esDependenciaDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
       empresasConModulo: Prisma.$EmpresaModuloPayload<ExtArgs>[]
+      esDependenciaDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
+      dependeDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
       permisos: Prisma.$ModuloPermisoPayload<ExtArgs>[]
       rutas: Prisma.$ModuloRutaPayload<ExtArgs>[]
     }
@@ -4601,12 +4601,12 @@ export namespace Prisma {
       id: string
       nombre: string
       displayName: string
-      descripcion: string | null
       version: string
       activo: boolean
-      orden: number
-      icono: string | null
       color: string | null
+      descripcion: string | null
+      icono: string | null
+      orden: number
     }, ExtArgs["result"]["modulo"]>
     composites: {}
   }
@@ -4971,9 +4971,9 @@ export namespace Prisma {
    */
   export interface Prisma__ModuloClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    dependeDe<T extends Modulo$dependeDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$dependeDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
-    esDependenciaDe<T extends Modulo$esDependenciaDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$esDependenciaDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
     empresasConModulo<T extends Modulo$empresasConModuloArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$empresasConModuloArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaModuloPayload<ExtArgs>, T, "findMany"> | Null>
+    esDependenciaDe<T extends Modulo$esDependenciaDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$esDependenciaDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
+    dependeDe<T extends Modulo$dependeDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$dependeDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
     permisos<T extends Modulo$permisosArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$permisosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloPermisoPayload<ExtArgs>, T, "findMany"> | Null>
     rutas<T extends Modulo$rutasArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$rutasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloRutaPayload<ExtArgs>, T, "findMany"> | Null>
     /**
@@ -5008,12 +5008,12 @@ export namespace Prisma {
     readonly id: FieldRef<"Modulo", 'String'>
     readonly nombre: FieldRef<"Modulo", 'String'>
     readonly displayName: FieldRef<"Modulo", 'String'>
-    readonly descripcion: FieldRef<"Modulo", 'String'>
     readonly version: FieldRef<"Modulo", 'String'>
     readonly activo: FieldRef<"Modulo", 'Boolean'>
-    readonly orden: FieldRef<"Modulo", 'Int'>
-    readonly icono: FieldRef<"Modulo", 'String'>
     readonly color: FieldRef<"Modulo", 'String'>
+    readonly descripcion: FieldRef<"Modulo", 'String'>
+    readonly icono: FieldRef<"Modulo", 'String'>
+    readonly orden: FieldRef<"Modulo", 'Int'>
   }
     
 
@@ -5328,23 +5328,23 @@ export namespace Prisma {
   }
 
   /**
-   * Modulo.dependeDe
+   * Modulo.empresasConModulo
    */
-  export type Modulo$dependeDeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Modulo$empresasConModuloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModuloDependencia
+     * Select specific fields to fetch from the EmpresaModulo
      */
-    select?: ModuloDependenciaSelect<ExtArgs> | null
+    select?: EmpresaModuloSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModuloDependenciaInclude<ExtArgs> | null
-    where?: ModuloDependenciaWhereInput
-    orderBy?: ModuloDependenciaOrderByWithRelationInput | ModuloDependenciaOrderByWithRelationInput[]
-    cursor?: ModuloDependenciaWhereUniqueInput
+    include?: EmpresaModuloInclude<ExtArgs> | null
+    where?: EmpresaModuloWhereInput
+    orderBy?: EmpresaModuloOrderByWithRelationInput | EmpresaModuloOrderByWithRelationInput[]
+    cursor?: EmpresaModuloWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ModuloDependenciaScalarFieldEnum | ModuloDependenciaScalarFieldEnum[]
+    distinct?: EmpresaModuloScalarFieldEnum | EmpresaModuloScalarFieldEnum[]
   }
 
   /**
@@ -5368,23 +5368,23 @@ export namespace Prisma {
   }
 
   /**
-   * Modulo.empresasConModulo
+   * Modulo.dependeDe
    */
-  export type Modulo$empresasConModuloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Modulo$dependeDeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmpresaModulo
+     * Select specific fields to fetch from the ModuloDependencia
      */
-    select?: EmpresaModuloSelect<ExtArgs> | null
+    select?: ModuloDependenciaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmpresaModuloInclude<ExtArgs> | null
-    where?: EmpresaModuloWhereInput
-    orderBy?: EmpresaModuloOrderByWithRelationInput | EmpresaModuloOrderByWithRelationInput[]
-    cursor?: EmpresaModuloWhereUniqueInput
+    include?: ModuloDependenciaInclude<ExtArgs> | null
+    where?: ModuloDependenciaWhereInput
+    orderBy?: ModuloDependenciaOrderByWithRelationInput | ModuloDependenciaOrderByWithRelationInput[]
+    cursor?: ModuloDependenciaWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: EmpresaModuloScalarFieldEnum | EmpresaModuloScalarFieldEnum[]
+    distinct?: ModuloDependenciaScalarFieldEnum | ModuloDependenciaScalarFieldEnum[]
   }
 
   /**
@@ -5475,9 +5475,9 @@ export namespace Prisma {
     empresaId: number
     moduloId: number
     activo: number
+    configuracion: number
     fechaActivacion: number
     fechaDesactivacion: number
-    configuracion: number
     _all: number
   }
 
@@ -5505,9 +5505,9 @@ export namespace Prisma {
     empresaId?: true
     moduloId?: true
     activo?: true
+    configuracion?: true
     fechaActivacion?: true
     fechaDesactivacion?: true
-    configuracion?: true
     _all?: true
   }
 
@@ -5588,9 +5588,9 @@ export namespace Prisma {
     empresaId: string
     moduloId: string
     activo: boolean
+    configuracion: JsonValue | null
     fechaActivacion: Date
     fechaDesactivacion: Date | null
-    configuracion: JsonValue | null
     _count: EmpresaModuloCountAggregateOutputType | null
     _min: EmpresaModuloMinAggregateOutputType | null
     _max: EmpresaModuloMaxAggregateOutputType | null
@@ -5615,9 +5615,9 @@ export namespace Prisma {
     empresaId?: boolean
     moduloId?: boolean
     activo?: boolean
+    configuracion?: boolean
     fechaActivacion?: boolean
     fechaDesactivacion?: boolean
-    configuracion?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["empresaModulo"]>
@@ -5627,9 +5627,9 @@ export namespace Prisma {
     empresaId?: boolean
     moduloId?: boolean
     activo?: boolean
+    configuracion?: boolean
     fechaActivacion?: boolean
     fechaDesactivacion?: boolean
-    configuracion?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["empresaModulo"]>
@@ -5639,9 +5639,9 @@ export namespace Prisma {
     empresaId?: boolean
     moduloId?: boolean
     activo?: boolean
+    configuracion?: boolean
     fechaActivacion?: boolean
     fechaDesactivacion?: boolean
-    configuracion?: boolean
   }
 
   export type EmpresaModuloInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5664,9 +5664,9 @@ export namespace Prisma {
       empresaId: string
       moduloId: string
       activo: boolean
+      configuracion: Prisma.JsonValue | null
       fechaActivacion: Date
       fechaDesactivacion: Date | null
-      configuracion: Prisma.JsonValue | null
     }, ExtArgs["result"]["empresaModulo"]>
     composites: {}
   }
@@ -6066,9 +6066,9 @@ export namespace Prisma {
     readonly empresaId: FieldRef<"EmpresaModulo", 'String'>
     readonly moduloId: FieldRef<"EmpresaModulo", 'String'>
     readonly activo: FieldRef<"EmpresaModulo", 'Boolean'>
+    readonly configuracion: FieldRef<"EmpresaModulo", 'Json'>
     readonly fechaActivacion: FieldRef<"EmpresaModulo", 'DateTime'>
     readonly fechaDesactivacion: FieldRef<"EmpresaModulo", 'DateTime'>
-    readonly configuracion: FieldRef<"EmpresaModulo", 'Json'>
   }
     
 
@@ -6557,8 +6557,8 @@ export namespace Prisma {
     moduloId?: boolean
     dependeDeId?: boolean
     requerido?: boolean
-    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
     dependeDe?: boolean | ModuloDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moduloDependencia"]>
 
   export type ModuloDependenciaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6566,8 +6566,8 @@ export namespace Prisma {
     moduloId?: boolean
     dependeDeId?: boolean
     requerido?: boolean
-    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
     dependeDe?: boolean | ModuloDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moduloDependencia"]>
 
   export type ModuloDependenciaSelectScalar = {
@@ -6578,19 +6578,19 @@ export namespace Prisma {
   }
 
   export type ModuloDependenciaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
     dependeDe?: boolean | ModuloDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }
   export type ModuloDependenciaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
     dependeDe?: boolean | ModuloDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }
 
   export type $ModuloDependenciaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ModuloDependencia"
     objects: {
-      modulo: Prisma.$ModuloPayload<ExtArgs>
       dependeDe: Prisma.$ModuloPayload<ExtArgs>
+      modulo: Prisma.$ModuloPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6961,8 +6961,8 @@ export namespace Prisma {
    */
   export interface Prisma__ModuloDependenciaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    modulo<T extends ModuloDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuloDefaultArgs<ExtArgs>>): Prisma__ModuloClient<$Result.GetResult<Prisma.$ModuloPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     dependeDe<T extends ModuloDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuloDefaultArgs<ExtArgs>>): Prisma__ModuloClient<$Result.GetResult<Prisma.$ModuloPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    modulo<T extends ModuloDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuloDefaultArgs<ExtArgs>>): Prisma__ModuloClient<$Result.GetResult<Prisma.$ModuloPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7342,27 +7342,27 @@ export namespace Prisma {
     id: string | null
     moduloId: string | null
     ruta: string | null
-    nombre: string | null
-    descripcion: string | null
     activo: boolean | null
+    descripcion: string | null
+    nombre: string | null
   }
 
   export type ModuloRutaMaxAggregateOutputType = {
     id: string | null
     moduloId: string | null
     ruta: string | null
-    nombre: string | null
-    descripcion: string | null
     activo: boolean | null
+    descripcion: string | null
+    nombre: string | null
   }
 
   export type ModuloRutaCountAggregateOutputType = {
     id: number
     moduloId: number
     ruta: number
-    nombre: number
-    descripcion: number
     activo: number
+    descripcion: number
+    nombre: number
     _all: number
   }
 
@@ -7371,27 +7371,27 @@ export namespace Prisma {
     id?: true
     moduloId?: true
     ruta?: true
-    nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
+    nombre?: true
   }
 
   export type ModuloRutaMaxAggregateInputType = {
     id?: true
     moduloId?: true
     ruta?: true
-    nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
+    nombre?: true
   }
 
   export type ModuloRutaCountAggregateInputType = {
     id?: true
     moduloId?: true
     ruta?: true
-    nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
+    nombre?: true
     _all?: true
   }
 
@@ -7471,9 +7471,9 @@ export namespace Prisma {
     id: string
     moduloId: string
     ruta: string
-    nombre: string
-    descripcion: string | null
     activo: boolean
+    descripcion: string | null
+    nombre: string
     _count: ModuloRutaCountAggregateOutputType | null
     _min: ModuloRutaMinAggregateOutputType | null
     _max: ModuloRutaMaxAggregateOutputType | null
@@ -7497,9 +7497,9 @@ export namespace Prisma {
     id?: boolean
     moduloId?: boolean
     ruta?: boolean
-    nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
+    descripcion?: boolean
+    nombre?: boolean
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moduloRuta"]>
 
@@ -7507,9 +7507,9 @@ export namespace Prisma {
     id?: boolean
     moduloId?: boolean
     ruta?: boolean
-    nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
+    descripcion?: boolean
+    nombre?: boolean
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moduloRuta"]>
 
@@ -7517,9 +7517,9 @@ export namespace Prisma {
     id?: boolean
     moduloId?: boolean
     ruta?: boolean
-    nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
+    descripcion?: boolean
+    nombre?: boolean
   }
 
   export type ModuloRutaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7538,9 +7538,9 @@ export namespace Prisma {
       id: string
       moduloId: string
       ruta: string
-      nombre: string
-      descripcion: string | null
       activo: boolean
+      descripcion: string | null
+      nombre: string
     }, ExtArgs["result"]["moduloRuta"]>
     composites: {}
   }
@@ -7938,9 +7938,9 @@ export namespace Prisma {
     readonly id: FieldRef<"ModuloRuta", 'String'>
     readonly moduloId: FieldRef<"ModuloRuta", 'String'>
     readonly ruta: FieldRef<"ModuloRuta", 'String'>
-    readonly nombre: FieldRef<"ModuloRuta", 'String'>
-    readonly descripcion: FieldRef<"ModuloRuta", 'String'>
     readonly activo: FieldRef<"ModuloRuta", 'Boolean'>
+    readonly descripcion: FieldRef<"ModuloRuta", 'String'>
+    readonly nombre: FieldRef<"ModuloRuta", 'String'>
   }
     
 
@@ -8286,22 +8286,22 @@ export namespace Prisma {
   export type RolMinAggregateOutputType = {
     id: string | null
     nombre: string | null
-    descripcion: string | null
     activo: boolean | null
+    descripcion: string | null
   }
 
   export type RolMaxAggregateOutputType = {
     id: string | null
     nombre: string | null
-    descripcion: string | null
     activo: boolean | null
+    descripcion: string | null
   }
 
   export type RolCountAggregateOutputType = {
     id: number
     nombre: number
-    descripcion: number
     activo: number
+    descripcion: number
     _all: number
   }
 
@@ -8309,22 +8309,22 @@ export namespace Prisma {
   export type RolMinAggregateInputType = {
     id?: true
     nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
   }
 
   export type RolMaxAggregateInputType = {
     id?: true
     nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
   }
 
   export type RolCountAggregateInputType = {
     id?: true
     nombre?: true
-    descripcion?: true
     activo?: true
+    descripcion?: true
     _all?: true
   }
 
@@ -8403,8 +8403,8 @@ export namespace Prisma {
   export type RolGroupByOutputType = {
     id: string
     nombre: string
-    descripcion: string | null
     activo: boolean
+    descripcion: string | null
     _count: RolCountAggregateOutputType | null
     _min: RolMinAggregateOutputType | null
     _max: RolMaxAggregateOutputType | null
@@ -8427,30 +8427,30 @@ export namespace Prisma {
   export type RolSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
-    usuarios?: boolean | Rol$usuariosArgs<ExtArgs>
+    descripcion?: boolean
     permisos?: boolean | Rol$permisosArgs<ExtArgs>
+    usuarios?: boolean | Rol$usuariosArgs<ExtArgs>
     _count?: boolean | RolCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rol"]>
 
   export type RolSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
+    descripcion?: boolean
   }, ExtArgs["result"]["rol"]>
 
   export type RolSelectScalar = {
     id?: boolean
     nombre?: boolean
-    descripcion?: boolean
     activo?: boolean
+    descripcion?: boolean
   }
 
   export type RolInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    usuarios?: boolean | Rol$usuariosArgs<ExtArgs>
     permisos?: boolean | Rol$permisosArgs<ExtArgs>
+    usuarios?: boolean | Rol$usuariosArgs<ExtArgs>
     _count?: boolean | RolCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type RolIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -8458,14 +8458,14 @@ export namespace Prisma {
   export type $RolPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Rol"
     objects: {
-      usuarios: Prisma.$UsuarioPayload<ExtArgs>[]
       permisos: Prisma.$RolPermisoPayload<ExtArgs>[]
+      usuarios: Prisma.$UsuarioPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nombre: string
-      descripcion: string | null
       activo: boolean
+      descripcion: string | null
     }, ExtArgs["result"]["rol"]>
     composites: {}
   }
@@ -8830,8 +8830,8 @@ export namespace Prisma {
    */
   export interface Prisma__RolClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    usuarios<T extends Rol$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Rol$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany"> | Null>
     permisos<T extends Rol$permisosArgs<ExtArgs> = {}>(args?: Subset<T, Rol$permisosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolPermisoPayload<ExtArgs>, T, "findMany"> | Null>
+    usuarios<T extends Rol$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Rol$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8863,8 +8863,8 @@ export namespace Prisma {
   interface RolFieldRefs {
     readonly id: FieldRef<"Rol", 'String'>
     readonly nombre: FieldRef<"Rol", 'String'>
-    readonly descripcion: FieldRef<"Rol", 'String'>
     readonly activo: FieldRef<"Rol", 'Boolean'>
+    readonly descripcion: FieldRef<"Rol", 'String'>
   }
     
 
@@ -9179,26 +9179,6 @@ export namespace Prisma {
   }
 
   /**
-   * Rol.usuarios
-   */
-  export type Rol$usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Usuario
-     */
-    select?: UsuarioSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UsuarioInclude<ExtArgs> | null
-    where?: UsuarioWhereInput
-    orderBy?: UsuarioOrderByWithRelationInput | UsuarioOrderByWithRelationInput[]
-    cursor?: UsuarioWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UsuarioScalarFieldEnum | UsuarioScalarFieldEnum[]
-  }
-
-  /**
    * Rol.permisos
    */
   export type Rol$permisosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9216,6 +9196,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: RolPermisoScalarFieldEnum | RolPermisoScalarFieldEnum[]
+  }
+
+  /**
+   * Rol.usuarios
+   */
+  export type Rol$usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Usuario
+     */
+    select?: UsuarioSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuarioInclude<ExtArgs> | null
+    where?: UsuarioWhereInput
+    orderBy?: UsuarioOrderByWithRelationInput | UsuarioOrderByWithRelationInput[]
+    cursor?: UsuarioWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsuarioScalarFieldEnum | UsuarioScalarFieldEnum[]
   }
 
   /**
@@ -9246,24 +9246,24 @@ export namespace Prisma {
   export type ModuloPermisoMinAggregateOutputType = {
     id: string | null
     moduloId: string | null
-    codigo: string | null
     nombre: string | null
+    codigo: string | null
     descripcion: string | null
   }
 
   export type ModuloPermisoMaxAggregateOutputType = {
     id: string | null
     moduloId: string | null
-    codigo: string | null
     nombre: string | null
+    codigo: string | null
     descripcion: string | null
   }
 
   export type ModuloPermisoCountAggregateOutputType = {
     id: number
     moduloId: number
-    codigo: number
     nombre: number
+    codigo: number
     descripcion: number
     _all: number
   }
@@ -9272,24 +9272,24 @@ export namespace Prisma {
   export type ModuloPermisoMinAggregateInputType = {
     id?: true
     moduloId?: true
-    codigo?: true
     nombre?: true
+    codigo?: true
     descripcion?: true
   }
 
   export type ModuloPermisoMaxAggregateInputType = {
     id?: true
     moduloId?: true
-    codigo?: true
     nombre?: true
+    codigo?: true
     descripcion?: true
   }
 
   export type ModuloPermisoCountAggregateInputType = {
     id?: true
     moduloId?: true
-    codigo?: true
     nombre?: true
+    codigo?: true
     descripcion?: true
     _all?: true
   }
@@ -9369,8 +9369,8 @@ export namespace Prisma {
   export type ModuloPermisoGroupByOutputType = {
     id: string
     moduloId: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion: string | null
     _count: ModuloPermisoCountAggregateOutputType | null
     _min: ModuloPermisoMinAggregateOutputType | null
@@ -9394,8 +9394,8 @@ export namespace Prisma {
   export type ModuloPermisoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     moduloId?: boolean
-    codigo?: boolean
     nombre?: boolean
+    codigo?: boolean
     descripcion?: boolean
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
     roles?: boolean | ModuloPermiso$rolesArgs<ExtArgs>
@@ -9405,8 +9405,8 @@ export namespace Prisma {
   export type ModuloPermisoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     moduloId?: boolean
-    codigo?: boolean
     nombre?: boolean
+    codigo?: boolean
     descripcion?: boolean
     modulo?: boolean | ModuloDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moduloPermiso"]>
@@ -9414,8 +9414,8 @@ export namespace Prisma {
   export type ModuloPermisoSelectScalar = {
     id?: boolean
     moduloId?: boolean
-    codigo?: boolean
     nombre?: boolean
+    codigo?: boolean
     descripcion?: boolean
   }
 
@@ -9437,8 +9437,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       moduloId: string
-      codigo: string
       nombre: string
+      codigo: string
       descripcion: string | null
     }, ExtArgs["result"]["moduloPermiso"]>
     composites: {}
@@ -9837,8 +9837,8 @@ export namespace Prisma {
   interface ModuloPermisoFieldRefs {
     readonly id: FieldRef<"ModuloPermiso", 'String'>
     readonly moduloId: FieldRef<"ModuloPermiso", 'String'>
-    readonly codigo: FieldRef<"ModuloPermiso", 'String'>
     readonly nombre: FieldRef<"ModuloPermiso", 'String'>
+    readonly codigo: FieldRef<"ModuloPermiso", 'String'>
     readonly descripcion: FieldRef<"ModuloPermiso", 'String'>
   }
     
@@ -10340,16 +10340,16 @@ export namespace Prisma {
     id?: boolean
     rolId?: boolean
     permisoId?: boolean
-    rol?: boolean | RolDefaultArgs<ExtArgs>
     permiso?: boolean | ModuloPermisoDefaultArgs<ExtArgs>
+    rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rolPermiso"]>
 
   export type RolPermisoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     rolId?: boolean
     permisoId?: boolean
-    rol?: boolean | RolDefaultArgs<ExtArgs>
     permiso?: boolean | ModuloPermisoDefaultArgs<ExtArgs>
+    rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rolPermiso"]>
 
   export type RolPermisoSelectScalar = {
@@ -10359,19 +10359,19 @@ export namespace Prisma {
   }
 
   export type RolPermisoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    rol?: boolean | RolDefaultArgs<ExtArgs>
     permiso?: boolean | ModuloPermisoDefaultArgs<ExtArgs>
+    rol?: boolean | RolDefaultArgs<ExtArgs>
   }
   export type RolPermisoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    rol?: boolean | RolDefaultArgs<ExtArgs>
     permiso?: boolean | ModuloPermisoDefaultArgs<ExtArgs>
+    rol?: boolean | RolDefaultArgs<ExtArgs>
   }
 
   export type $RolPermisoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RolPermiso"
     objects: {
-      rol: Prisma.$RolPayload<ExtArgs>
       permiso: Prisma.$ModuloPermisoPayload<ExtArgs>
+      rol: Prisma.$RolPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10741,8 +10741,8 @@ export namespace Prisma {
    */
   export interface Prisma__RolPermisoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    rol<T extends RolDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RolDefaultArgs<ExtArgs>>): Prisma__RolClient<$Result.GetResult<Prisma.$RolPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     permiso<T extends ModuloPermisoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuloPermisoDefaultArgs<ExtArgs>>): Prisma__ModuloPermisoClient<$Result.GetResult<Prisma.$ModuloPermisoPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    rol<T extends RolDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RolDefaultArgs<ExtArgs>>): Prisma__RolClient<$Result.GetResult<Prisma.$RolPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15762,13 +15762,13 @@ export namespace Prisma {
     id: 'id',
     nombre: 'nombre',
     ruc: 'ruc',
-    email: 'email',
-    telefono: 'telefono',
-    direccion: 'direccion',
-    plan: 'plan',
     activo: 'activo',
+    direccion: 'direccion',
+    email: 'email',
+    fechaActualizacion: 'fechaActualizacion',
     fechaCreacion: 'fechaCreacion',
-    fechaActualizacion: 'fechaActualizacion'
+    telefono: 'telefono',
+    plan: 'plan'
   };
 
   export type EmpresaScalarFieldEnum = (typeof EmpresaScalarFieldEnum)[keyof typeof EmpresaScalarFieldEnum]
@@ -15778,10 +15778,10 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     nombre: 'nombre',
-    apellido: 'apellido',
-    activo: 'activo',
     empresaId: 'empresaId',
-    rolId: 'rolId'
+    rolId: 'rolId',
+    activo: 'activo',
+    apellido: 'apellido'
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
@@ -15791,12 +15791,12 @@ export namespace Prisma {
     id: 'id',
     nombre: 'nombre',
     displayName: 'displayName',
-    descripcion: 'descripcion',
     version: 'version',
     activo: 'activo',
-    orden: 'orden',
+    color: 'color',
+    descripcion: 'descripcion',
     icono: 'icono',
-    color: 'color'
+    orden: 'orden'
   };
 
   export type ModuloScalarFieldEnum = (typeof ModuloScalarFieldEnum)[keyof typeof ModuloScalarFieldEnum]
@@ -15807,9 +15807,9 @@ export namespace Prisma {
     empresaId: 'empresaId',
     moduloId: 'moduloId',
     activo: 'activo',
+    configuracion: 'configuracion',
     fechaActivacion: 'fechaActivacion',
-    fechaDesactivacion: 'fechaDesactivacion',
-    configuracion: 'configuracion'
+    fechaDesactivacion: 'fechaDesactivacion'
   };
 
   export type EmpresaModuloScalarFieldEnum = (typeof EmpresaModuloScalarFieldEnum)[keyof typeof EmpresaModuloScalarFieldEnum]
@@ -15829,9 +15829,9 @@ export namespace Prisma {
     id: 'id',
     moduloId: 'moduloId',
     ruta: 'ruta',
-    nombre: 'nombre',
+    activo: 'activo',
     descripcion: 'descripcion',
-    activo: 'activo'
+    nombre: 'nombre'
   };
 
   export type ModuloRutaScalarFieldEnum = (typeof ModuloRutaScalarFieldEnum)[keyof typeof ModuloRutaScalarFieldEnum]
@@ -15840,8 +15840,8 @@ export namespace Prisma {
   export const RolScalarFieldEnum: {
     id: 'id',
     nombre: 'nombre',
-    descripcion: 'descripcion',
-    activo: 'activo'
+    activo: 'activo',
+    descripcion: 'descripcion'
   };
 
   export type RolScalarFieldEnum = (typeof RolScalarFieldEnum)[keyof typeof RolScalarFieldEnum]
@@ -15850,8 +15850,8 @@ export namespace Prisma {
   export const ModuloPermisoScalarFieldEnum: {
     id: 'id',
     moduloId: 'moduloId',
-    codigo: 'codigo',
     nombre: 'nombre',
+    codigo: 'codigo',
     descripcion: 'descripcion'
   };
 
@@ -15988,20 +15988,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'PlanType'
-   */
-  export type EnumPlanTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanType'>
-    
-
-
-  /**
-   * Reference to a field of type 'PlanType[]'
-   */
-  export type ListEnumPlanTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanType[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -16019,6 +16005,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'PlanType'
+   */
+  export type EnumPlanTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanType'>
+    
+
+
+  /**
+   * Reference to a field of type 'PlanType[]'
+   */
+  export type ListEnumPlanTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlanType[]'>
     
 
 
@@ -16067,40 +16067,40 @@ export namespace Prisma {
     id?: StringFilter<"Empresa"> | string
     nombre?: StringFilter<"Empresa"> | string
     ruc?: StringFilter<"Empresa"> | string
-    email?: StringNullableFilter<"Empresa"> | string | null
-    telefono?: StringNullableFilter<"Empresa"> | string | null
-    direccion?: StringNullableFilter<"Empresa"> | string | null
-    plan?: EnumPlanTypeFilter<"Empresa"> | $Enums.PlanType
     activo?: BoolFilter<"Empresa"> | boolean
-    fechaCreacion?: DateTimeFilter<"Empresa"> | Date | string
+    direccion?: StringNullableFilter<"Empresa"> | string | null
+    email?: StringNullableFilter<"Empresa"> | string | null
     fechaActualizacion?: DateTimeFilter<"Empresa"> | Date | string
-    usuarios?: UsuarioListRelationFilter
-    modulosActivos?: EmpresaModuloListRelationFilter
-    configuraciones?: EmpresaConfiguracionListRelationFilter
-    facturas?: FacturaListRelationFilter
-    productos?: ProductoListRelationFilter
+    fechaCreacion?: DateTimeFilter<"Empresa"> | Date | string
+    telefono?: StringNullableFilter<"Empresa"> | string | null
+    plan?: EnumPlanTypeFilter<"Empresa"> | $Enums.PlanType
     clientes?: ClienteListRelationFilter
+    configuraciones?: EmpresaConfiguracionListRelationFilter
+    modulosActivos?: EmpresaModuloListRelationFilter
+    facturas?: FacturaListRelationFilter
     movimientosCaja?: MovimientoCajaListRelationFilter
+    productos?: ProductoListRelationFilter
+    usuarios?: UsuarioListRelationFilter
   }
 
   export type EmpresaOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrder
     ruc?: SortOrder
-    email?: SortOrderInput | SortOrder
-    telefono?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
-    plan?: SortOrder
     activo?: SortOrder
-    fechaCreacion?: SortOrder
+    direccion?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
     fechaActualizacion?: SortOrder
-    usuarios?: UsuarioOrderByRelationAggregateInput
-    modulosActivos?: EmpresaModuloOrderByRelationAggregateInput
-    configuraciones?: EmpresaConfiguracionOrderByRelationAggregateInput
-    facturas?: FacturaOrderByRelationAggregateInput
-    productos?: ProductoOrderByRelationAggregateInput
+    fechaCreacion?: SortOrder
+    telefono?: SortOrderInput | SortOrder
+    plan?: SortOrder
     clientes?: ClienteOrderByRelationAggregateInput
+    configuraciones?: EmpresaConfiguracionOrderByRelationAggregateInput
+    modulosActivos?: EmpresaModuloOrderByRelationAggregateInput
+    facturas?: FacturaOrderByRelationAggregateInput
     movimientosCaja?: MovimientoCajaOrderByRelationAggregateInput
+    productos?: ProductoOrderByRelationAggregateInput
+    usuarios?: UsuarioOrderByRelationAggregateInput
   }
 
   export type EmpresaWhereUniqueInput = Prisma.AtLeast<{
@@ -16110,33 +16110,33 @@ export namespace Prisma {
     OR?: EmpresaWhereInput[]
     NOT?: EmpresaWhereInput | EmpresaWhereInput[]
     nombre?: StringFilter<"Empresa"> | string
-    email?: StringNullableFilter<"Empresa"> | string | null
-    telefono?: StringNullableFilter<"Empresa"> | string | null
-    direccion?: StringNullableFilter<"Empresa"> | string | null
-    plan?: EnumPlanTypeFilter<"Empresa"> | $Enums.PlanType
     activo?: BoolFilter<"Empresa"> | boolean
-    fechaCreacion?: DateTimeFilter<"Empresa"> | Date | string
+    direccion?: StringNullableFilter<"Empresa"> | string | null
+    email?: StringNullableFilter<"Empresa"> | string | null
     fechaActualizacion?: DateTimeFilter<"Empresa"> | Date | string
-    usuarios?: UsuarioListRelationFilter
-    modulosActivos?: EmpresaModuloListRelationFilter
-    configuraciones?: EmpresaConfiguracionListRelationFilter
-    facturas?: FacturaListRelationFilter
-    productos?: ProductoListRelationFilter
+    fechaCreacion?: DateTimeFilter<"Empresa"> | Date | string
+    telefono?: StringNullableFilter<"Empresa"> | string | null
+    plan?: EnumPlanTypeFilter<"Empresa"> | $Enums.PlanType
     clientes?: ClienteListRelationFilter
+    configuraciones?: EmpresaConfiguracionListRelationFilter
+    modulosActivos?: EmpresaModuloListRelationFilter
+    facturas?: FacturaListRelationFilter
     movimientosCaja?: MovimientoCajaListRelationFilter
+    productos?: ProductoListRelationFilter
+    usuarios?: UsuarioListRelationFilter
   }, "id" | "ruc">
 
   export type EmpresaOrderByWithAggregationInput = {
     id?: SortOrder
     nombre?: SortOrder
     ruc?: SortOrder
-    email?: SortOrderInput | SortOrder
-    telefono?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
-    plan?: SortOrder
     activo?: SortOrder
-    fechaCreacion?: SortOrder
+    direccion?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
     fechaActualizacion?: SortOrder
+    fechaCreacion?: SortOrder
+    telefono?: SortOrderInput | SortOrder
+    plan?: SortOrder
     _count?: EmpresaCountOrderByAggregateInput
     _max?: EmpresaMaxOrderByAggregateInput
     _min?: EmpresaMinOrderByAggregateInput
@@ -16149,13 +16149,13 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Empresa"> | string
     nombre?: StringWithAggregatesFilter<"Empresa"> | string
     ruc?: StringWithAggregatesFilter<"Empresa"> | string
-    email?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
-    telefono?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
-    direccion?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
-    plan?: EnumPlanTypeWithAggregatesFilter<"Empresa"> | $Enums.PlanType
     activo?: BoolWithAggregatesFilter<"Empresa"> | boolean
-    fechaCreacion?: DateTimeWithAggregatesFilter<"Empresa"> | Date | string
+    direccion?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
+    email?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
     fechaActualizacion?: DateTimeWithAggregatesFilter<"Empresa"> | Date | string
+    fechaCreacion?: DateTimeWithAggregatesFilter<"Empresa"> | Date | string
+    telefono?: StringNullableWithAggregatesFilter<"Empresa"> | string | null
+    plan?: EnumPlanTypeWithAggregatesFilter<"Empresa"> | $Enums.PlanType
   }
 
   export type UsuarioWhereInput = {
@@ -16165,10 +16165,10 @@ export namespace Prisma {
     id?: StringFilter<"Usuario"> | string
     email?: StringFilter<"Usuario"> | string
     nombre?: StringFilter<"Usuario"> | string
-    apellido?: StringNullableFilter<"Usuario"> | string | null
-    activo?: BoolFilter<"Usuario"> | boolean
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
+    activo?: BoolFilter<"Usuario"> | boolean
+    apellido?: StringNullableFilter<"Usuario"> | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
   }
@@ -16177,10 +16177,10 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
-    apellido?: SortOrderInput | SortOrder
-    activo?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
+    activo?: SortOrder
+    apellido?: SortOrderInput | SortOrder
     empresa?: EmpresaOrderByWithRelationInput
     rol?: RolOrderByWithRelationInput
   }
@@ -16192,10 +16192,10 @@ export namespace Prisma {
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
     nombre?: StringFilter<"Usuario"> | string
-    apellido?: StringNullableFilter<"Usuario"> | string | null
-    activo?: BoolFilter<"Usuario"> | boolean
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
+    activo?: BoolFilter<"Usuario"> | boolean
+    apellido?: StringNullableFilter<"Usuario"> | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
   }, "id" | "email">
@@ -16204,10 +16204,10 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
-    apellido?: SortOrderInput | SortOrder
-    activo?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
+    activo?: SortOrder
+    apellido?: SortOrderInput | SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _max?: UsuarioMaxOrderByAggregateInput
     _min?: UsuarioMinOrderByAggregateInput
@@ -16220,10 +16220,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Usuario"> | string
     email?: StringWithAggregatesFilter<"Usuario"> | string
     nombre?: StringWithAggregatesFilter<"Usuario"> | string
-    apellido?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
-    activo?: BoolWithAggregatesFilter<"Usuario"> | boolean
     empresaId?: StringWithAggregatesFilter<"Usuario"> | string
     rolId?: StringWithAggregatesFilter<"Usuario"> | string
+    activo?: BoolWithAggregatesFilter<"Usuario"> | boolean
+    apellido?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
   }
 
   export type ModuloWhereInput = {
@@ -16233,15 +16233,15 @@ export namespace Prisma {
     id?: StringFilter<"Modulo"> | string
     nombre?: StringFilter<"Modulo"> | string
     displayName?: StringFilter<"Modulo"> | string
-    descripcion?: StringNullableFilter<"Modulo"> | string | null
     version?: StringFilter<"Modulo"> | string
     activo?: BoolFilter<"Modulo"> | boolean
-    orden?: IntFilter<"Modulo"> | number
-    icono?: StringNullableFilter<"Modulo"> | string | null
     color?: StringNullableFilter<"Modulo"> | string | null
-    dependeDe?: ModuloDependenciaListRelationFilter
-    esDependenciaDe?: ModuloDependenciaListRelationFilter
+    descripcion?: StringNullableFilter<"Modulo"> | string | null
+    icono?: StringNullableFilter<"Modulo"> | string | null
+    orden?: IntFilter<"Modulo"> | number
     empresasConModulo?: EmpresaModuloListRelationFilter
+    esDependenciaDe?: ModuloDependenciaListRelationFilter
+    dependeDe?: ModuloDependenciaListRelationFilter
     permisos?: ModuloPermisoListRelationFilter
     rutas?: ModuloRutaListRelationFilter
   }
@@ -16250,15 +16250,15 @@ export namespace Prisma {
     id?: SortOrder
     nombre?: SortOrder
     displayName?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     version?: SortOrder
     activo?: SortOrder
-    orden?: SortOrder
-    icono?: SortOrderInput | SortOrder
     color?: SortOrderInput | SortOrder
-    dependeDe?: ModuloDependenciaOrderByRelationAggregateInput
-    esDependenciaDe?: ModuloDependenciaOrderByRelationAggregateInput
+    descripcion?: SortOrderInput | SortOrder
+    icono?: SortOrderInput | SortOrder
+    orden?: SortOrder
     empresasConModulo?: EmpresaModuloOrderByRelationAggregateInput
+    esDependenciaDe?: ModuloDependenciaOrderByRelationAggregateInput
+    dependeDe?: ModuloDependenciaOrderByRelationAggregateInput
     permisos?: ModuloPermisoOrderByRelationAggregateInput
     rutas?: ModuloRutaOrderByRelationAggregateInput
   }
@@ -16270,15 +16270,15 @@ export namespace Prisma {
     OR?: ModuloWhereInput[]
     NOT?: ModuloWhereInput | ModuloWhereInput[]
     displayName?: StringFilter<"Modulo"> | string
-    descripcion?: StringNullableFilter<"Modulo"> | string | null
     version?: StringFilter<"Modulo"> | string
     activo?: BoolFilter<"Modulo"> | boolean
-    orden?: IntFilter<"Modulo"> | number
-    icono?: StringNullableFilter<"Modulo"> | string | null
     color?: StringNullableFilter<"Modulo"> | string | null
-    dependeDe?: ModuloDependenciaListRelationFilter
-    esDependenciaDe?: ModuloDependenciaListRelationFilter
+    descripcion?: StringNullableFilter<"Modulo"> | string | null
+    icono?: StringNullableFilter<"Modulo"> | string | null
+    orden?: IntFilter<"Modulo"> | number
     empresasConModulo?: EmpresaModuloListRelationFilter
+    esDependenciaDe?: ModuloDependenciaListRelationFilter
+    dependeDe?: ModuloDependenciaListRelationFilter
     permisos?: ModuloPermisoListRelationFilter
     rutas?: ModuloRutaListRelationFilter
   }, "id" | "nombre">
@@ -16287,12 +16287,12 @@ export namespace Prisma {
     id?: SortOrder
     nombre?: SortOrder
     displayName?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     version?: SortOrder
     activo?: SortOrder
-    orden?: SortOrder
-    icono?: SortOrderInput | SortOrder
     color?: SortOrderInput | SortOrder
+    descripcion?: SortOrderInput | SortOrder
+    icono?: SortOrderInput | SortOrder
+    orden?: SortOrder
     _count?: ModuloCountOrderByAggregateInput
     _avg?: ModuloAvgOrderByAggregateInput
     _max?: ModuloMaxOrderByAggregateInput
@@ -16307,12 +16307,12 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Modulo"> | string
     nombre?: StringWithAggregatesFilter<"Modulo"> | string
     displayName?: StringWithAggregatesFilter<"Modulo"> | string
-    descripcion?: StringNullableWithAggregatesFilter<"Modulo"> | string | null
     version?: StringWithAggregatesFilter<"Modulo"> | string
     activo?: BoolWithAggregatesFilter<"Modulo"> | boolean
-    orden?: IntWithAggregatesFilter<"Modulo"> | number
-    icono?: StringNullableWithAggregatesFilter<"Modulo"> | string | null
     color?: StringNullableWithAggregatesFilter<"Modulo"> | string | null
+    descripcion?: StringNullableWithAggregatesFilter<"Modulo"> | string | null
+    icono?: StringNullableWithAggregatesFilter<"Modulo"> | string | null
+    orden?: IntWithAggregatesFilter<"Modulo"> | number
   }
 
   export type EmpresaModuloWhereInput = {
@@ -16323,9 +16323,9 @@ export namespace Prisma {
     empresaId?: StringFilter<"EmpresaModulo"> | string
     moduloId?: StringFilter<"EmpresaModulo"> | string
     activo?: BoolFilter<"EmpresaModulo"> | boolean
+    configuracion?: JsonNullableFilter<"EmpresaModulo">
     fechaActivacion?: DateTimeFilter<"EmpresaModulo"> | Date | string
     fechaDesactivacion?: DateTimeNullableFilter<"EmpresaModulo"> | Date | string | null
-    configuracion?: JsonNullableFilter<"EmpresaModulo">
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }
@@ -16335,9 +16335,9 @@ export namespace Prisma {
     empresaId?: SortOrder
     moduloId?: SortOrder
     activo?: SortOrder
+    configuracion?: SortOrderInput | SortOrder
     fechaActivacion?: SortOrder
     fechaDesactivacion?: SortOrderInput | SortOrder
-    configuracion?: SortOrderInput | SortOrder
     empresa?: EmpresaOrderByWithRelationInput
     modulo?: ModuloOrderByWithRelationInput
   }
@@ -16351,9 +16351,9 @@ export namespace Prisma {
     empresaId?: StringFilter<"EmpresaModulo"> | string
     moduloId?: StringFilter<"EmpresaModulo"> | string
     activo?: BoolFilter<"EmpresaModulo"> | boolean
+    configuracion?: JsonNullableFilter<"EmpresaModulo">
     fechaActivacion?: DateTimeFilter<"EmpresaModulo"> | Date | string
     fechaDesactivacion?: DateTimeNullableFilter<"EmpresaModulo"> | Date | string | null
-    configuracion?: JsonNullableFilter<"EmpresaModulo">
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }, "id" | "empresaId_moduloId">
@@ -16363,9 +16363,9 @@ export namespace Prisma {
     empresaId?: SortOrder
     moduloId?: SortOrder
     activo?: SortOrder
+    configuracion?: SortOrderInput | SortOrder
     fechaActivacion?: SortOrder
     fechaDesactivacion?: SortOrderInput | SortOrder
-    configuracion?: SortOrderInput | SortOrder
     _count?: EmpresaModuloCountOrderByAggregateInput
     _max?: EmpresaModuloMaxOrderByAggregateInput
     _min?: EmpresaModuloMinOrderByAggregateInput
@@ -16379,9 +16379,9 @@ export namespace Prisma {
     empresaId?: StringWithAggregatesFilter<"EmpresaModulo"> | string
     moduloId?: StringWithAggregatesFilter<"EmpresaModulo"> | string
     activo?: BoolWithAggregatesFilter<"EmpresaModulo"> | boolean
+    configuracion?: JsonNullableWithAggregatesFilter<"EmpresaModulo">
     fechaActivacion?: DateTimeWithAggregatesFilter<"EmpresaModulo"> | Date | string
     fechaDesactivacion?: DateTimeNullableWithAggregatesFilter<"EmpresaModulo"> | Date | string | null
-    configuracion?: JsonNullableWithAggregatesFilter<"EmpresaModulo">
   }
 
   export type ModuloDependenciaWhereInput = {
@@ -16392,8 +16392,8 @@ export namespace Prisma {
     moduloId?: StringFilter<"ModuloDependencia"> | string
     dependeDeId?: StringFilter<"ModuloDependencia"> | string
     requerido?: BoolFilter<"ModuloDependencia"> | boolean
-    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
     dependeDe?: XOR<ModuloRelationFilter, ModuloWhereInput>
+    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }
 
   export type ModuloDependenciaOrderByWithRelationInput = {
@@ -16401,8 +16401,8 @@ export namespace Prisma {
     moduloId?: SortOrder
     dependeDeId?: SortOrder
     requerido?: SortOrder
-    modulo?: ModuloOrderByWithRelationInput
     dependeDe?: ModuloOrderByWithRelationInput
+    modulo?: ModuloOrderByWithRelationInput
   }
 
   export type ModuloDependenciaWhereUniqueInput = Prisma.AtLeast<{
@@ -16414,8 +16414,8 @@ export namespace Prisma {
     moduloId?: StringFilter<"ModuloDependencia"> | string
     dependeDeId?: StringFilter<"ModuloDependencia"> | string
     requerido?: BoolFilter<"ModuloDependencia"> | boolean
-    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
     dependeDe?: XOR<ModuloRelationFilter, ModuloWhereInput>
+    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }, "id" | "moduloId_dependeDeId">
 
   export type ModuloDependenciaOrderByWithAggregationInput = {
@@ -16445,9 +16445,9 @@ export namespace Prisma {
     id?: StringFilter<"ModuloRuta"> | string
     moduloId?: StringFilter<"ModuloRuta"> | string
     ruta?: StringFilter<"ModuloRuta"> | string
-    nombre?: StringFilter<"ModuloRuta"> | string
-    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
     activo?: BoolFilter<"ModuloRuta"> | boolean
+    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
+    nombre?: StringFilter<"ModuloRuta"> | string
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }
 
@@ -16455,9 +16455,9 @@ export namespace Prisma {
     id?: SortOrder
     moduloId?: SortOrder
     ruta?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     activo?: SortOrder
+    descripcion?: SortOrderInput | SortOrder
+    nombre?: SortOrder
     modulo?: ModuloOrderByWithRelationInput
   }
 
@@ -16468,9 +16468,9 @@ export namespace Prisma {
     NOT?: ModuloRutaWhereInput | ModuloRutaWhereInput[]
     moduloId?: StringFilter<"ModuloRuta"> | string
     ruta?: StringFilter<"ModuloRuta"> | string
-    nombre?: StringFilter<"ModuloRuta"> | string
-    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
     activo?: BoolFilter<"ModuloRuta"> | boolean
+    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
+    nombre?: StringFilter<"ModuloRuta"> | string
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
   }, "id">
 
@@ -16478,9 +16478,9 @@ export namespace Prisma {
     id?: SortOrder
     moduloId?: SortOrder
     ruta?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     activo?: SortOrder
+    descripcion?: SortOrderInput | SortOrder
+    nombre?: SortOrder
     _count?: ModuloRutaCountOrderByAggregateInput
     _max?: ModuloRutaMaxOrderByAggregateInput
     _min?: ModuloRutaMinOrderByAggregateInput
@@ -16493,9 +16493,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"ModuloRuta"> | string
     moduloId?: StringWithAggregatesFilter<"ModuloRuta"> | string
     ruta?: StringWithAggregatesFilter<"ModuloRuta"> | string
-    nombre?: StringWithAggregatesFilter<"ModuloRuta"> | string
-    descripcion?: StringNullableWithAggregatesFilter<"ModuloRuta"> | string | null
     activo?: BoolWithAggregatesFilter<"ModuloRuta"> | boolean
+    descripcion?: StringNullableWithAggregatesFilter<"ModuloRuta"> | string | null
+    nombre?: StringWithAggregatesFilter<"ModuloRuta"> | string
   }
 
   export type RolWhereInput = {
@@ -16504,19 +16504,19 @@ export namespace Prisma {
     NOT?: RolWhereInput | RolWhereInput[]
     id?: StringFilter<"Rol"> | string
     nombre?: StringFilter<"Rol"> | string
-    descripcion?: StringNullableFilter<"Rol"> | string | null
     activo?: BoolFilter<"Rol"> | boolean
-    usuarios?: UsuarioListRelationFilter
+    descripcion?: StringNullableFilter<"Rol"> | string | null
     permisos?: RolPermisoListRelationFilter
+    usuarios?: UsuarioListRelationFilter
   }
 
   export type RolOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     activo?: SortOrder
-    usuarios?: UsuarioOrderByRelationAggregateInput
+    descripcion?: SortOrderInput | SortOrder
     permisos?: RolPermisoOrderByRelationAggregateInput
+    usuarios?: UsuarioOrderByRelationAggregateInput
   }
 
   export type RolWhereUniqueInput = Prisma.AtLeast<{
@@ -16525,17 +16525,17 @@ export namespace Prisma {
     OR?: RolWhereInput[]
     NOT?: RolWhereInput | RolWhereInput[]
     nombre?: StringFilter<"Rol"> | string
-    descripcion?: StringNullableFilter<"Rol"> | string | null
     activo?: BoolFilter<"Rol"> | boolean
-    usuarios?: UsuarioListRelationFilter
+    descripcion?: StringNullableFilter<"Rol"> | string | null
     permisos?: RolPermisoListRelationFilter
+    usuarios?: UsuarioListRelationFilter
   }, "id">
 
   export type RolOrderByWithAggregationInput = {
     id?: SortOrder
     nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
     activo?: SortOrder
+    descripcion?: SortOrderInput | SortOrder
     _count?: RolCountOrderByAggregateInput
     _max?: RolMaxOrderByAggregateInput
     _min?: RolMinOrderByAggregateInput
@@ -16547,8 +16547,8 @@ export namespace Prisma {
     NOT?: RolScalarWhereWithAggregatesInput | RolScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Rol"> | string
     nombre?: StringWithAggregatesFilter<"Rol"> | string
-    descripcion?: StringNullableWithAggregatesFilter<"Rol"> | string | null
     activo?: BoolWithAggregatesFilter<"Rol"> | boolean
+    descripcion?: StringNullableWithAggregatesFilter<"Rol"> | string | null
   }
 
   export type ModuloPermisoWhereInput = {
@@ -16557,8 +16557,8 @@ export namespace Prisma {
     NOT?: ModuloPermisoWhereInput | ModuloPermisoWhereInput[]
     id?: StringFilter<"ModuloPermiso"> | string
     moduloId?: StringFilter<"ModuloPermiso"> | string
-    codigo?: StringFilter<"ModuloPermiso"> | string
     nombre?: StringFilter<"ModuloPermiso"> | string
+    codigo?: StringFilter<"ModuloPermiso"> | string
     descripcion?: StringNullableFilter<"ModuloPermiso"> | string | null
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
     roles?: RolPermisoListRelationFilter
@@ -16567,8 +16567,8 @@ export namespace Prisma {
   export type ModuloPermisoOrderByWithRelationInput = {
     id?: SortOrder
     moduloId?: SortOrder
-    codigo?: SortOrder
     nombre?: SortOrder
+    codigo?: SortOrder
     descripcion?: SortOrderInput | SortOrder
     modulo?: ModuloOrderByWithRelationInput
     roles?: RolPermisoOrderByRelationAggregateInput
@@ -16581,8 +16581,8 @@ export namespace Prisma {
     OR?: ModuloPermisoWhereInput[]
     NOT?: ModuloPermisoWhereInput | ModuloPermisoWhereInput[]
     moduloId?: StringFilter<"ModuloPermiso"> | string
-    codigo?: StringFilter<"ModuloPermiso"> | string
     nombre?: StringFilter<"ModuloPermiso"> | string
+    codigo?: StringFilter<"ModuloPermiso"> | string
     descripcion?: StringNullableFilter<"ModuloPermiso"> | string | null
     modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
     roles?: RolPermisoListRelationFilter
@@ -16591,8 +16591,8 @@ export namespace Prisma {
   export type ModuloPermisoOrderByWithAggregationInput = {
     id?: SortOrder
     moduloId?: SortOrder
-    codigo?: SortOrder
     nombre?: SortOrder
+    codigo?: SortOrder
     descripcion?: SortOrderInput | SortOrder
     _count?: ModuloPermisoCountOrderByAggregateInput
     _max?: ModuloPermisoMaxOrderByAggregateInput
@@ -16605,8 +16605,8 @@ export namespace Prisma {
     NOT?: ModuloPermisoScalarWhereWithAggregatesInput | ModuloPermisoScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"ModuloPermiso"> | string
     moduloId?: StringWithAggregatesFilter<"ModuloPermiso"> | string
-    codigo?: StringWithAggregatesFilter<"ModuloPermiso"> | string
     nombre?: StringWithAggregatesFilter<"ModuloPermiso"> | string
+    codigo?: StringWithAggregatesFilter<"ModuloPermiso"> | string
     descripcion?: StringNullableWithAggregatesFilter<"ModuloPermiso"> | string | null
   }
 
@@ -16617,16 +16617,16 @@ export namespace Prisma {
     id?: StringFilter<"RolPermiso"> | string
     rolId?: StringFilter<"RolPermiso"> | string
     permisoId?: StringFilter<"RolPermiso"> | string
-    rol?: XOR<RolRelationFilter, RolWhereInput>
     permiso?: XOR<ModuloPermisoRelationFilter, ModuloPermisoWhereInput>
+    rol?: XOR<RolRelationFilter, RolWhereInput>
   }
 
   export type RolPermisoOrderByWithRelationInput = {
     id?: SortOrder
     rolId?: SortOrder
     permisoId?: SortOrder
-    rol?: RolOrderByWithRelationInput
     permiso?: ModuloPermisoOrderByWithRelationInput
+    rol?: RolOrderByWithRelationInput
   }
 
   export type RolPermisoWhereUniqueInput = Prisma.AtLeast<{
@@ -16637,8 +16637,8 @@ export namespace Prisma {
     NOT?: RolPermisoWhereInput | RolPermisoWhereInput[]
     rolId?: StringFilter<"RolPermiso"> | string
     permisoId?: StringFilter<"RolPermiso"> | string
-    rol?: XOR<RolRelationFilter, RolWhereInput>
     permiso?: XOR<ModuloPermisoRelationFilter, ModuloPermisoWhereInput>
+    rol?: XOR<RolRelationFilter, RolWhereInput>
   }, "id" | "rolId_permisoId">
 
   export type RolPermisoOrderByWithAggregationInput = {
@@ -16929,127 +16929,127 @@ export namespace Prisma {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateManyInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
   }
 
   export type EmpresaUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
   }
 
   export type EmpresaUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
   }
 
   export type UsuarioCreateInput = {
     id?: string
     email: string
     nombre: string
-    apellido?: string | null
     activo?: boolean
+    apellido?: string | null
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     rol: RolCreateNestedOneWithoutUsuariosInput
   }
@@ -17058,18 +17058,18 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
-    apellido?: string | null
-    activo?: boolean
     empresaId: string
     rolId: string
+    activo?: boolean
+    apellido?: string | null
   }
 
   export type UsuarioUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
   }
@@ -17078,53 +17078,53 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioCreateManyInput = {
     id?: string
     email: string
     nombre: string
-    apellido?: string | null
-    activo?: boolean
     empresaId: string
     rolId: string
+    activo?: boolean
+    apellido?: string | null
   }
 
   export type UsuarioUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ModuloCreateInput = {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
   }
@@ -17133,15 +17133,15 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
   }
@@ -17150,15 +17150,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
   }
@@ -17167,15 +17167,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
   }
@@ -17184,44 +17184,44 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
   }
 
   export type ModuloUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
   }
 
   export type ModuloUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
   }
 
   export type EmpresaModuloCreateInput = {
     id?: string
     activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: Date | string
     fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
     empresa: EmpresaCreateNestedOneWithoutModulosActivosInput
     modulo: ModuloCreateNestedOneWithoutEmpresasConModuloInput
   }
@@ -17231,17 +17231,17 @@ export namespace Prisma {
     empresaId: string
     moduloId: string
     activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: Date | string
     fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmpresaModuloUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
     empresa?: EmpresaUpdateOneRequiredWithoutModulosActivosNestedInput
     modulo?: ModuloUpdateOneRequiredWithoutEmpresasConModuloNestedInput
   }
@@ -17251,9 +17251,9 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmpresaModuloCreateManyInput = {
@@ -17261,17 +17261,17 @@ export namespace Prisma {
     empresaId: string
     moduloId: string
     activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: Date | string
     fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmpresaModuloUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmpresaModuloUncheckedUpdateManyInput = {
@@ -17279,16 +17279,16 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ModuloDependenciaCreateInput = {
     id?: string
     requerido?: boolean
-    modulo: ModuloCreateNestedOneWithoutDependeDeInput
     dependeDe: ModuloCreateNestedOneWithoutEsDependenciaDeInput
+    modulo: ModuloCreateNestedOneWithoutDependeDeInput
   }
 
   export type ModuloDependenciaUncheckedCreateInput = {
@@ -17301,8 +17301,8 @@ export namespace Prisma {
   export type ModuloDependenciaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     requerido?: BoolFieldUpdateOperationsInput | boolean
-    modulo?: ModuloUpdateOneRequiredWithoutDependeDeNestedInput
     dependeDe?: ModuloUpdateOneRequiredWithoutEsDependenciaDeNestedInput
+    modulo?: ModuloUpdateOneRequiredWithoutDependeDeNestedInput
   }
 
   export type ModuloDependenciaUncheckedUpdateInput = {
@@ -17334,9 +17334,9 @@ export namespace Prisma {
   export type ModuloRutaCreateInput = {
     id?: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
     modulo: ModuloCreateNestedOneWithoutRutasInput
   }
 
@@ -17344,17 +17344,17 @@ export namespace Prisma {
     id?: string
     moduloId: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
   }
 
   export type ModuloRutaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
     modulo?: ModuloUpdateOneRequiredWithoutRutasNestedInput
   }
 
@@ -17362,98 +17362,98 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type ModuloRutaCreateManyInput = {
     id?: string
     moduloId: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
   }
 
   export type ModuloRutaUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type ModuloRutaUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type RolCreateInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
-    usuarios?: UsuarioCreateNestedManyWithoutRolInput
+    descripcion?: string | null
     permisos?: RolPermisoCreateNestedManyWithoutRolInput
+    usuarios?: UsuarioCreateNestedManyWithoutRolInput
   }
 
   export type RolUncheckedCreateInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutRolInput
+    descripcion?: string | null
     permisos?: RolPermisoUncheckedCreateNestedManyWithoutRolInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutRolInput
   }
 
   export type RolUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
-    usuarios?: UsuarioUpdateManyWithoutRolNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     permisos?: RolPermisoUpdateManyWithoutRolNestedInput
+    usuarios?: UsuarioUpdateManyWithoutRolNestedInput
   }
 
   export type RolUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
-    usuarios?: UsuarioUncheckedUpdateManyWithoutRolNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     permisos?: RolPermisoUncheckedUpdateManyWithoutRolNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutRolNestedInput
   }
 
   export type RolCreateManyInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
   }
 
   export type RolUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RolUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ModuloPermisoCreateInput = {
     id?: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
     modulo: ModuloCreateNestedOneWithoutPermisosInput
     roles?: RolPermisoCreateNestedManyWithoutPermisoInput
@@ -17462,16 +17462,16 @@ export namespace Prisma {
   export type ModuloPermisoUncheckedCreateInput = {
     id?: string
     moduloId: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
     roles?: RolPermisoUncheckedCreateNestedManyWithoutPermisoInput
   }
 
   export type ModuloPermisoUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     modulo?: ModuloUpdateOneRequiredWithoutPermisosNestedInput
     roles?: RolPermisoUpdateManyWithoutPermisoNestedInput
@@ -17480,8 +17480,8 @@ export namespace Prisma {
   export type ModuloPermisoUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     roles?: RolPermisoUncheckedUpdateManyWithoutPermisoNestedInput
   }
@@ -17489,30 +17489,30 @@ export namespace Prisma {
   export type ModuloPermisoCreateManyInput = {
     id?: string
     moduloId: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
   }
 
   export type ModuloPermisoUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ModuloPermisoUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     moduloId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RolPermisoCreateInput = {
     id?: string
-    rol: RolCreateNestedOneWithoutPermisosInput
     permiso: ModuloPermisoCreateNestedOneWithoutRolesInput
+    rol: RolCreateNestedOneWithoutPermisosInput
   }
 
   export type RolPermisoUncheckedCreateInput = {
@@ -17523,8 +17523,8 @@ export namespace Prisma {
 
   export type RolPermisoUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    rol?: RolUpdateOneRequiredWithoutPermisosNestedInput
     permiso?: ModuloPermisoUpdateOneRequiredWithoutRolesNestedInput
+    rol?: RolUpdateOneRequiredWithoutPermisosNestedInput
   }
 
   export type RolPermisoUncheckedUpdateInput = {
@@ -17825,6 +17825,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -17840,18 +17845,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumPlanTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanTypeFilter<$PrismaModel> | $Enums.PlanType
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -17863,34 +17856,11 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type UsuarioListRelationFilter = {
-    every?: UsuarioWhereInput
-    some?: UsuarioWhereInput
-    none?: UsuarioWhereInput
-  }
-
-  export type EmpresaModuloListRelationFilter = {
-    every?: EmpresaModuloWhereInput
-    some?: EmpresaModuloWhereInput
-    none?: EmpresaModuloWhereInput
-  }
-
-  export type EmpresaConfiguracionListRelationFilter = {
-    every?: EmpresaConfiguracionWhereInput
-    some?: EmpresaConfiguracionWhereInput
-    none?: EmpresaConfiguracionWhereInput
-  }
-
-  export type FacturaListRelationFilter = {
-    every?: FacturaWhereInput
-    some?: FacturaWhereInput
-    none?: FacturaWhereInput
-  }
-
-  export type ProductoListRelationFilter = {
-    every?: ProductoWhereInput
-    some?: ProductoWhereInput
-    none?: ProductoWhereInput
+  export type EnumPlanTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPlanTypeFilter<$PrismaModel> | $Enums.PlanType
   }
 
   export type ClienteListRelationFilter = {
@@ -17899,10 +17869,40 @@ export namespace Prisma {
     none?: ClienteWhereInput
   }
 
+  export type EmpresaConfiguracionListRelationFilter = {
+    every?: EmpresaConfiguracionWhereInput
+    some?: EmpresaConfiguracionWhereInput
+    none?: EmpresaConfiguracionWhereInput
+  }
+
+  export type EmpresaModuloListRelationFilter = {
+    every?: EmpresaModuloWhereInput
+    some?: EmpresaModuloWhereInput
+    none?: EmpresaModuloWhereInput
+  }
+
+  export type FacturaListRelationFilter = {
+    every?: FacturaWhereInput
+    some?: FacturaWhereInput
+    none?: FacturaWhereInput
+  }
+
   export type MovimientoCajaListRelationFilter = {
     every?: MovimientoCajaWhereInput
     some?: MovimientoCajaWhereInput
     none?: MovimientoCajaWhereInput
+  }
+
+  export type ProductoListRelationFilter = {
+    every?: ProductoWhereInput
+    some?: ProductoWhereInput
+    none?: ProductoWhereInput
+  }
+
+  export type UsuarioListRelationFilter = {
+    every?: UsuarioWhereInput
+    some?: UsuarioWhereInput
+    none?: UsuarioWhereInput
   }
 
   export type SortOrderInput = {
@@ -17910,11 +17910,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type UsuarioOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type EmpresaModuloOrderByRelationAggregateInput = {
+  export type ClienteOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17922,15 +17918,11 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type EmpresaModuloOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type FacturaOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ProductoOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ClienteOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17938,43 +17930,51 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type ProductoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UsuarioOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type EmpresaCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
     ruc?: SortOrder
-    email?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    plan?: SortOrder
     activo?: SortOrder
-    fechaCreacion?: SortOrder
+    direccion?: SortOrder
+    email?: SortOrder
     fechaActualizacion?: SortOrder
+    fechaCreacion?: SortOrder
+    telefono?: SortOrder
+    plan?: SortOrder
   }
 
   export type EmpresaMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
     ruc?: SortOrder
-    email?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    plan?: SortOrder
     activo?: SortOrder
-    fechaCreacion?: SortOrder
+    direccion?: SortOrder
+    email?: SortOrder
     fechaActualizacion?: SortOrder
+    fechaCreacion?: SortOrder
+    telefono?: SortOrder
+    plan?: SortOrder
   }
 
   export type EmpresaMinOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
     ruc?: SortOrder
-    email?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    plan?: SortOrder
     activo?: SortOrder
-    fechaCreacion?: SortOrder
+    direccion?: SortOrder
+    email?: SortOrder
     fechaActualizacion?: SortOrder
+    fechaCreacion?: SortOrder
+    telefono?: SortOrder
+    plan?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -17995,6 +17995,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -18013,24 +18021,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumPlanTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlanType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumPlanTypeFilter<$PrismaModel>
-    _max?: NestedEnumPlanTypeFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -18043,6 +18033,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type EnumPlanTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlanType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPlanTypeFilter<$PrismaModel>
+    _max?: NestedEnumPlanTypeFilter<$PrismaModel>
   }
 
   export type EmpresaRelationFilter = {
@@ -18059,30 +18059,30 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
-    apellido?: SortOrder
-    activo?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
+    activo?: SortOrder
+    apellido?: SortOrder
   }
 
   export type UsuarioMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
-    apellido?: SortOrder
-    activo?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
+    activo?: SortOrder
+    apellido?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
-    apellido?: SortOrder
-    activo?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
+    activo?: SortOrder
+    apellido?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -18130,12 +18130,12 @@ export namespace Prisma {
     id?: SortOrder
     nombre?: SortOrder
     displayName?: SortOrder
-    descripcion?: SortOrder
     version?: SortOrder
     activo?: SortOrder
-    orden?: SortOrder
-    icono?: SortOrder
     color?: SortOrder
+    descripcion?: SortOrder
+    icono?: SortOrder
+    orden?: SortOrder
   }
 
   export type ModuloAvgOrderByAggregateInput = {
@@ -18146,24 +18146,24 @@ export namespace Prisma {
     id?: SortOrder
     nombre?: SortOrder
     displayName?: SortOrder
-    descripcion?: SortOrder
     version?: SortOrder
     activo?: SortOrder
-    orden?: SortOrder
-    icono?: SortOrder
     color?: SortOrder
+    descripcion?: SortOrder
+    icono?: SortOrder
+    orden?: SortOrder
   }
 
   export type ModuloMinOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
     displayName?: SortOrder
-    descripcion?: SortOrder
     version?: SortOrder
     activo?: SortOrder
-    orden?: SortOrder
-    icono?: SortOrder
     color?: SortOrder
+    descripcion?: SortOrder
+    icono?: SortOrder
+    orden?: SortOrder
   }
 
   export type ModuloSumOrderByAggregateInput = {
@@ -18184,17 +18184,6 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
   export type JsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -18219,6 +18208,17 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type ModuloRelationFilter = {
     is?: ModuloWhereInput
     isNot?: ModuloWhereInput
@@ -18234,9 +18234,9 @@ export namespace Prisma {
     empresaId?: SortOrder
     moduloId?: SortOrder
     activo?: SortOrder
+    configuracion?: SortOrder
     fechaActivacion?: SortOrder
     fechaDesactivacion?: SortOrder
-    configuracion?: SortOrder
   }
 
   export type EmpresaModuloMaxOrderByAggregateInput = {
@@ -18255,20 +18255,6 @@ export namespace Prisma {
     activo?: SortOrder
     fechaActivacion?: SortOrder
     fechaDesactivacion?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -18294,6 +18280,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type ModuloDependenciaModuloIdDependeDeIdCompoundUniqueInput = {
@@ -18326,27 +18326,27 @@ export namespace Prisma {
     id?: SortOrder
     moduloId?: SortOrder
     ruta?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
+    nombre?: SortOrder
   }
 
   export type ModuloRutaMaxOrderByAggregateInput = {
     id?: SortOrder
     moduloId?: SortOrder
     ruta?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
+    nombre?: SortOrder
   }
 
   export type ModuloRutaMinOrderByAggregateInput = {
     id?: SortOrder
     moduloId?: SortOrder
     ruta?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
+    nombre?: SortOrder
   }
 
   export type RolPermisoListRelationFilter = {
@@ -18362,22 +18362,22 @@ export namespace Prisma {
   export type RolCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
   }
 
   export type RolMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
   }
 
   export type RolMinOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
-    descripcion?: SortOrder
     activo?: SortOrder
+    descripcion?: SortOrder
   }
 
   export type ModuloPermisoModuloIdCodigoCompoundUniqueInput = {
@@ -18388,24 +18388,24 @@ export namespace Prisma {
   export type ModuloPermisoCountOrderByAggregateInput = {
     id?: SortOrder
     moduloId?: SortOrder
-    codigo?: SortOrder
     nombre?: SortOrder
+    codigo?: SortOrder
     descripcion?: SortOrder
   }
 
   export type ModuloPermisoMaxOrderByAggregateInput = {
     id?: SortOrder
     moduloId?: SortOrder
-    codigo?: SortOrder
     nombre?: SortOrder
+    codigo?: SortOrder
     descripcion?: SortOrder
   }
 
   export type ModuloPermisoMinOrderByAggregateInput = {
     id?: SortOrder
     moduloId?: SortOrder
-    codigo?: SortOrder
     nombre?: SortOrder
+    codigo?: SortOrder
     descripcion?: SortOrder
   }
 
@@ -18601,18 +18601,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type UsuarioCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
-    createMany?: UsuarioCreateManyEmpresaInputEnvelope
-    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-  }
-
-  export type EmpresaModuloCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
-    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  export type ClienteCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput> | ClienteCreateWithoutEmpresaInput[] | ClienteUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ClienteCreateOrConnectWithoutEmpresaInput | ClienteCreateOrConnectWithoutEmpresaInput[]
+    createMany?: ClienteCreateManyEmpresaInputEnvelope
+    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
   }
 
   export type EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput = {
@@ -18622,25 +18615,18 @@ export namespace Prisma {
     connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
   }
 
+  export type EmpresaModuloCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
+    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
   export type FacturaCreateNestedManyWithoutEmpresaInput = {
     create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
     createMany?: FacturaCreateManyEmpresaInputEnvelope
     connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-  }
-
-  export type ProductoCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
-    createMany?: ProductoCreateManyEmpresaInputEnvelope
-    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
-  }
-
-  export type ClienteCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput> | ClienteCreateWithoutEmpresaInput[] | ClienteUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: ClienteCreateOrConnectWithoutEmpresaInput | ClienteCreateOrConnectWithoutEmpresaInput[]
-    createMany?: ClienteCreateManyEmpresaInputEnvelope
-    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
   }
 
   export type MovimientoCajaCreateNestedManyWithoutEmpresaInput = {
@@ -18650,39 +18636,18 @@ export namespace Prisma {
     connect?: MovimientoCajaWhereUniqueInput | MovimientoCajaWhereUniqueInput[]
   }
 
-  export type UsuarioUncheckedCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
-    createMany?: UsuarioCreateManyEmpresaInputEnvelope
-    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-  }
-
-  export type EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
-    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-  }
-
-  export type EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
-    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
-    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-  }
-
-  export type FacturaUncheckedCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
-    createMany?: FacturaCreateManyEmpresaInputEnvelope
-    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-  }
-
-  export type ProductoUncheckedCreateNestedManyWithoutEmpresaInput = {
+  export type ProductoCreateNestedManyWithoutEmpresaInput = {
     create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
     createMany?: ProductoCreateManyEmpresaInputEnvelope
     connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+  }
+
+  export type UsuarioCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
+    createMany?: UsuarioCreateManyEmpresaInputEnvelope
+    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
   }
 
   export type ClienteUncheckedCreateNestedManyWithoutEmpresaInput = {
@@ -18692,6 +18657,27 @@ export namespace Prisma {
     connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
   }
 
+  export type EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
+    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
+    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+  }
+
+  export type EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
+    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
+  export type FacturaUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
+    createMany?: FacturaCreateManyEmpresaInputEnvelope
+    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+  }
+
   export type MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput = {
     create?: XOR<MovimientoCajaCreateWithoutEmpresaInput, MovimientoCajaUncheckedCreateWithoutEmpresaInput> | MovimientoCajaCreateWithoutEmpresaInput[] | MovimientoCajaUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: MovimientoCajaCreateOrConnectWithoutEmpresaInput | MovimientoCajaCreateOrConnectWithoutEmpresaInput[]
@@ -18699,94 +18685,38 @@ export namespace Prisma {
     connect?: MovimientoCajaWhereUniqueInput | MovimientoCajaWhereUniqueInput[]
   }
 
+  export type ProductoUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
+    createMany?: ProductoCreateManyEmpresaInputEnvelope
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+  }
+
+  export type UsuarioUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
+    createMany?: UsuarioCreateManyEmpresaInputEnvelope
+    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type EnumPlanTypeFieldUpdateOperationsInput = {
-    set?: $Enums.PlanType
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type UsuarioUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
-    upsert?: UsuarioUpsertWithWhereUniqueWithoutEmpresaInput | UsuarioUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: UsuarioCreateManyEmpresaInputEnvelope
-    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    update?: UsuarioUpdateWithWhereUniqueWithoutEmpresaInput | UsuarioUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: UsuarioUpdateManyWithWhereWithoutEmpresaInput | UsuarioUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
-  }
-
-  export type EmpresaModuloUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
-    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
-    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    update?: EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput | EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
-  }
-
-  export type EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
-    upsert?: EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
-    set?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    disconnect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    delete?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    update?: EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput | EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: EmpresaConfiguracionScalarWhereInput | EmpresaConfiguracionScalarWhereInput[]
-  }
-
-  export type FacturaUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
-    upsert?: FacturaUpsertWithWhereUniqueWithoutEmpresaInput | FacturaUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: FacturaCreateManyEmpresaInputEnvelope
-    set?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    disconnect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    delete?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    update?: FacturaUpdateWithWhereUniqueWithoutEmpresaInput | FacturaUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: FacturaUpdateManyWithWhereWithoutEmpresaInput | FacturaUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: FacturaScalarWhereInput | FacturaScalarWhereInput[]
-  }
-
-  export type ProductoUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
-    upsert?: ProductoUpsertWithWhereUniqueWithoutEmpresaInput | ProductoUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: ProductoCreateManyEmpresaInputEnvelope
-    set?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
-    disconnect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
-    delete?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
-    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
-    update?: ProductoUpdateWithWhereUniqueWithoutEmpresaInput | ProductoUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: ProductoUpdateManyWithWhereWithoutEmpresaInput | ProductoUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+  export type EnumPlanTypeFieldUpdateOperationsInput = {
+    set?: $Enums.PlanType
   }
 
   export type ClienteUpdateManyWithoutEmpresaNestedInput = {
@@ -18803,6 +18733,48 @@ export namespace Prisma {
     deleteMany?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
   }
 
+  export type EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
+    upsert?: EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
+    set?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    disconnect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    delete?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    update?: EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput | EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: EmpresaConfiguracionScalarWhereInput | EmpresaConfiguracionScalarWhereInput[]
+  }
+
+  export type EmpresaModuloUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
+    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
+    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    update?: EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput | EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  }
+
+  export type FacturaUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
+    upsert?: FacturaUpsertWithWhereUniqueWithoutEmpresaInput | FacturaUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: FacturaCreateManyEmpresaInputEnvelope
+    set?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    disconnect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    delete?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    update?: FacturaUpdateWithWhereUniqueWithoutEmpresaInput | FacturaUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: FacturaUpdateManyWithWhereWithoutEmpresaInput | FacturaUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: FacturaScalarWhereInput | FacturaScalarWhereInput[]
+  }
+
   export type MovimientoCajaUpdateManyWithoutEmpresaNestedInput = {
     create?: XOR<MovimientoCajaCreateWithoutEmpresaInput, MovimientoCajaUncheckedCreateWithoutEmpresaInput> | MovimientoCajaCreateWithoutEmpresaInput[] | MovimientoCajaUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: MovimientoCajaCreateOrConnectWithoutEmpresaInput | MovimientoCajaCreateOrConnectWithoutEmpresaInput[]
@@ -18817,63 +18789,7 @@ export namespace Prisma {
     deleteMany?: MovimientoCajaScalarWhereInput | MovimientoCajaScalarWhereInput[]
   }
 
-  export type UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
-    upsert?: UsuarioUpsertWithWhereUniqueWithoutEmpresaInput | UsuarioUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: UsuarioCreateManyEmpresaInputEnvelope
-    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    update?: UsuarioUpdateWithWhereUniqueWithoutEmpresaInput | UsuarioUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: UsuarioUpdateManyWithWhereWithoutEmpresaInput | UsuarioUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
-  }
-
-  export type EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
-    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
-    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    update?: EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput | EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
-  }
-
-  export type EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
-    upsert?: EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
-    set?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    disconnect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    delete?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
-    update?: EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput | EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: EmpresaConfiguracionScalarWhereInput | EmpresaConfiguracionScalarWhereInput[]
-  }
-
-  export type FacturaUncheckedUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
-    upsert?: FacturaUpsertWithWhereUniqueWithoutEmpresaInput | FacturaUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: FacturaCreateManyEmpresaInputEnvelope
-    set?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    disconnect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    delete?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
-    update?: FacturaUpdateWithWhereUniqueWithoutEmpresaInput | FacturaUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: FacturaUpdateManyWithWhereWithoutEmpresaInput | FacturaUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: FacturaScalarWhereInput | FacturaScalarWhereInput[]
-  }
-
-  export type ProductoUncheckedUpdateManyWithoutEmpresaNestedInput = {
+  export type ProductoUpdateManyWithoutEmpresaNestedInput = {
     create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
     upsert?: ProductoUpsertWithWhereUniqueWithoutEmpresaInput | ProductoUpsertWithWhereUniqueWithoutEmpresaInput[]
@@ -18885,6 +18801,20 @@ export namespace Prisma {
     update?: ProductoUpdateWithWhereUniqueWithoutEmpresaInput | ProductoUpdateWithWhereUniqueWithoutEmpresaInput[]
     updateMany?: ProductoUpdateManyWithWhereWithoutEmpresaInput | ProductoUpdateManyWithWhereWithoutEmpresaInput[]
     deleteMany?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+  }
+
+  export type UsuarioUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
+    upsert?: UsuarioUpsertWithWhereUniqueWithoutEmpresaInput | UsuarioUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: UsuarioCreateManyEmpresaInputEnvelope
+    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    update?: UsuarioUpdateWithWhereUniqueWithoutEmpresaInput | UsuarioUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: UsuarioUpdateManyWithWhereWithoutEmpresaInput | UsuarioUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
   export type ClienteUncheckedUpdateManyWithoutEmpresaNestedInput = {
@@ -18901,6 +18831,48 @@ export namespace Prisma {
     deleteMany?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
   }
 
+  export type EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<EmpresaConfiguracionCreateWithoutEmpresaInput, EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput> | EmpresaConfiguracionCreateWithoutEmpresaInput[] | EmpresaConfiguracionUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput | EmpresaConfiguracionCreateOrConnectWithoutEmpresaInput[]
+    upsert?: EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: EmpresaConfiguracionCreateManyEmpresaInputEnvelope
+    set?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    disconnect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    delete?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    connect?: EmpresaConfiguracionWhereUniqueInput | EmpresaConfiguracionWhereUniqueInput[]
+    update?: EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaConfiguracionUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput | EmpresaConfiguracionUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: EmpresaConfiguracionScalarWhereInput | EmpresaConfiguracionScalarWhereInput[]
+  }
+
+  export type EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput> | EmpresaModuloCreateWithoutEmpresaInput[] | EmpresaModuloUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
+    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
+    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    update?: EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput | EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  }
+
+  export type FacturaUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
+    upsert?: FacturaUpsertWithWhereUniqueWithoutEmpresaInput | FacturaUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: FacturaCreateManyEmpresaInputEnvelope
+    set?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    disconnect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    delete?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    connect?: FacturaWhereUniqueInput | FacturaWhereUniqueInput[]
+    update?: FacturaUpdateWithWhereUniqueWithoutEmpresaInput | FacturaUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: FacturaUpdateManyWithWhereWithoutEmpresaInput | FacturaUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: FacturaScalarWhereInput | FacturaScalarWhereInput[]
+  }
+
   export type MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput = {
     create?: XOR<MovimientoCajaCreateWithoutEmpresaInput, MovimientoCajaUncheckedCreateWithoutEmpresaInput> | MovimientoCajaCreateWithoutEmpresaInput[] | MovimientoCajaUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: MovimientoCajaCreateOrConnectWithoutEmpresaInput | MovimientoCajaCreateOrConnectWithoutEmpresaInput[]
@@ -18913,6 +18885,34 @@ export namespace Prisma {
     update?: MovimientoCajaUpdateWithWhereUniqueWithoutEmpresaInput | MovimientoCajaUpdateWithWhereUniqueWithoutEmpresaInput[]
     updateMany?: MovimientoCajaUpdateManyWithWhereWithoutEmpresaInput | MovimientoCajaUpdateManyWithWhereWithoutEmpresaInput[]
     deleteMany?: MovimientoCajaScalarWhereInput | MovimientoCajaScalarWhereInput[]
+  }
+
+  export type ProductoUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput> | ProductoCreateWithoutEmpresaInput[] | ProductoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutEmpresaInput | ProductoCreateOrConnectWithoutEmpresaInput[]
+    upsert?: ProductoUpsertWithWhereUniqueWithoutEmpresaInput | ProductoUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: ProductoCreateManyEmpresaInputEnvelope
+    set?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    disconnect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    delete?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    update?: ProductoUpdateWithWhereUniqueWithoutEmpresaInput | ProductoUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: ProductoUpdateManyWithWhereWithoutEmpresaInput | ProductoUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+  }
+
+  export type UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput> | UsuarioCreateWithoutEmpresaInput[] | UsuarioUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEmpresaInput | UsuarioCreateOrConnectWithoutEmpresaInput[]
+    upsert?: UsuarioUpsertWithWhereUniqueWithoutEmpresaInput | UsuarioUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: UsuarioCreateManyEmpresaInputEnvelope
+    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    update?: UsuarioUpdateWithWhereUniqueWithoutEmpresaInput | UsuarioUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: UsuarioUpdateManyWithWhereWithoutEmpresaInput | UsuarioUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
   export type EmpresaCreateNestedOneWithoutUsuariosInput = {
@@ -18943,11 +18943,11 @@ export namespace Prisma {
     update?: XOR<XOR<RolUpdateToOneWithWhereWithoutUsuariosInput, RolUpdateWithoutUsuariosInput>, RolUncheckedUpdateWithoutUsuariosInput>
   }
 
-  export type ModuloDependenciaCreateNestedManyWithoutModuloInput = {
-    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
-    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
-    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+  export type EmpresaModuloCreateNestedManyWithoutModuloInput = {
+    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
+    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
   }
 
   export type ModuloDependenciaCreateNestedManyWithoutDependeDeInput = {
@@ -18957,11 +18957,11 @@ export namespace Prisma {
     connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
   }
 
-  export type EmpresaModuloCreateNestedManyWithoutModuloInput = {
-    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
-    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  export type ModuloDependenciaCreateNestedManyWithoutModuloInput = {
+    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
+    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
+    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
   }
 
   export type ModuloPermisoCreateNestedManyWithoutModuloInput = {
@@ -18978,11 +18978,11 @@ export namespace Prisma {
     connect?: ModuloRutaWhereUniqueInput | ModuloRutaWhereUniqueInput[]
   }
 
-  export type ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput = {
-    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
-    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
-    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+  export type EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput = {
+    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
+    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
   }
 
   export type ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput = {
@@ -18992,11 +18992,11 @@ export namespace Prisma {
     connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
   }
 
-  export type EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput = {
-    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
-    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  export type ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput = {
+    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
+    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
+    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
   }
 
   export type ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput = {
@@ -19021,18 +19021,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ModuloDependenciaUpdateManyWithoutModuloNestedInput = {
-    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
-    upsert?: ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput[]
-    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
-    set?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    disconnect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    delete?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    update?: ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput[]
-    updateMany?: ModuloDependenciaUpdateManyWithWhereWithoutModuloInput | ModuloDependenciaUpdateManyWithWhereWithoutModuloInput[]
-    deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
+  export type EmpresaModuloUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
+    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput | EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
+    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
   }
 
   export type ModuloDependenciaUpdateManyWithoutDependeDeNestedInput = {
@@ -19049,18 +19049,18 @@ export namespace Prisma {
     deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
   }
 
-  export type EmpresaModuloUpdateManyWithoutModuloNestedInput = {
-    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
-    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput | EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput[]
-    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
-    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
-    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
-    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  export type ModuloDependenciaUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
+    upsert?: ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
+    set?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    disconnect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    delete?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    update?: ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: ModuloDependenciaUpdateManyWithWhereWithoutModuloInput | ModuloDependenciaUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
   }
 
   export type ModuloPermisoUpdateManyWithoutModuloNestedInput = {
@@ -19091,18 +19091,18 @@ export namespace Prisma {
     deleteMany?: ModuloRutaScalarWhereInput | ModuloRutaScalarWhereInput[]
   }
 
-  export type ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput = {
-    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
-    upsert?: ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput[]
-    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
-    set?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    disconnect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    delete?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
-    update?: ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput[]
-    updateMany?: ModuloDependenciaUpdateManyWithWhereWithoutModuloInput | ModuloDependenciaUpdateManyWithWhereWithoutModuloInput[]
-    deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
+  export type EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
+    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput | EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
+    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+    update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
   }
 
   export type ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput = {
@@ -19119,18 +19119,18 @@ export namespace Prisma {
     deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
   }
 
-  export type EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput = {
-    create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
-    connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
-    upsert?: EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput | EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput[]
-    createMany?: EmpresaModuloCreateManyModuloInputEnvelope
-    set?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    disconnect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    delete?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
-    update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
-    updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
-    deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  export type ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput> | ModuloDependenciaCreateWithoutModuloInput[] | ModuloDependenciaUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloDependenciaCreateOrConnectWithoutModuloInput | ModuloDependenciaCreateOrConnectWithoutModuloInput[]
+    upsert?: ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: ModuloDependenciaCreateManyModuloInputEnvelope
+    set?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    disconnect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    delete?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    connect?: ModuloDependenciaWhereUniqueInput | ModuloDependenciaWhereUniqueInput[]
+    update?: ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput | ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: ModuloDependenciaUpdateManyWithWhereWithoutModuloInput | ModuloDependenciaUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
   }
 
   export type ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput = {
@@ -19193,24 +19193,16 @@ export namespace Prisma {
     update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutEmpresasConModuloInput, ModuloUpdateWithoutEmpresasConModuloInput>, ModuloUncheckedUpdateWithoutEmpresasConModuloInput>
   }
 
-  export type ModuloCreateNestedOneWithoutDependeDeInput = {
-    create?: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
-    connectOrCreate?: ModuloCreateOrConnectWithoutDependeDeInput
-    connect?: ModuloWhereUniqueInput
-  }
-
   export type ModuloCreateNestedOneWithoutEsDependenciaDeInput = {
     create?: XOR<ModuloCreateWithoutEsDependenciaDeInput, ModuloUncheckedCreateWithoutEsDependenciaDeInput>
     connectOrCreate?: ModuloCreateOrConnectWithoutEsDependenciaDeInput
     connect?: ModuloWhereUniqueInput
   }
 
-  export type ModuloUpdateOneRequiredWithoutDependeDeNestedInput = {
+  export type ModuloCreateNestedOneWithoutDependeDeInput = {
     create?: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
     connectOrCreate?: ModuloCreateOrConnectWithoutDependeDeInput
-    upsert?: ModuloUpsertWithoutDependeDeInput
     connect?: ModuloWhereUniqueInput
-    update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutDependeDeInput, ModuloUpdateWithoutDependeDeInput>, ModuloUncheckedUpdateWithoutDependeDeInput>
   }
 
   export type ModuloUpdateOneRequiredWithoutEsDependenciaDeNestedInput = {
@@ -19219,6 +19211,14 @@ export namespace Prisma {
     upsert?: ModuloUpsertWithoutEsDependenciaDeInput
     connect?: ModuloWhereUniqueInput
     update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutEsDependenciaDeInput, ModuloUpdateWithoutEsDependenciaDeInput>, ModuloUncheckedUpdateWithoutEsDependenciaDeInput>
+  }
+
+  export type ModuloUpdateOneRequiredWithoutDependeDeNestedInput = {
+    create?: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
+    connectOrCreate?: ModuloCreateOrConnectWithoutDependeDeInput
+    upsert?: ModuloUpsertWithoutDependeDeInput
+    connect?: ModuloWhereUniqueInput
+    update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutDependeDeInput, ModuloUpdateWithoutDependeDeInput>, ModuloUncheckedUpdateWithoutDependeDeInput>
   }
 
   export type ModuloCreateNestedOneWithoutRutasInput = {
@@ -19235,13 +19235,6 @@ export namespace Prisma {
     update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutRutasInput, ModuloUpdateWithoutRutasInput>, ModuloUncheckedUpdateWithoutRutasInput>
   }
 
-  export type UsuarioCreateNestedManyWithoutRolInput = {
-    create?: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput> | UsuarioCreateWithoutRolInput[] | UsuarioUncheckedCreateWithoutRolInput[]
-    connectOrCreate?: UsuarioCreateOrConnectWithoutRolInput | UsuarioCreateOrConnectWithoutRolInput[]
-    createMany?: UsuarioCreateManyRolInputEnvelope
-    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-  }
-
   export type RolPermisoCreateNestedManyWithoutRolInput = {
     create?: XOR<RolPermisoCreateWithoutRolInput, RolPermisoUncheckedCreateWithoutRolInput> | RolPermisoCreateWithoutRolInput[] | RolPermisoUncheckedCreateWithoutRolInput[]
     connectOrCreate?: RolPermisoCreateOrConnectWithoutRolInput | RolPermisoCreateOrConnectWithoutRolInput[]
@@ -19249,7 +19242,7 @@ export namespace Prisma {
     connect?: RolPermisoWhereUniqueInput | RolPermisoWhereUniqueInput[]
   }
 
-  export type UsuarioUncheckedCreateNestedManyWithoutRolInput = {
+  export type UsuarioCreateNestedManyWithoutRolInput = {
     create?: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput> | UsuarioCreateWithoutRolInput[] | UsuarioUncheckedCreateWithoutRolInput[]
     connectOrCreate?: UsuarioCreateOrConnectWithoutRolInput | UsuarioCreateOrConnectWithoutRolInput[]
     createMany?: UsuarioCreateManyRolInputEnvelope
@@ -19263,18 +19256,11 @@ export namespace Prisma {
     connect?: RolPermisoWhereUniqueInput | RolPermisoWhereUniqueInput[]
   }
 
-  export type UsuarioUpdateManyWithoutRolNestedInput = {
+  export type UsuarioUncheckedCreateNestedManyWithoutRolInput = {
     create?: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput> | UsuarioCreateWithoutRolInput[] | UsuarioUncheckedCreateWithoutRolInput[]
     connectOrCreate?: UsuarioCreateOrConnectWithoutRolInput | UsuarioCreateOrConnectWithoutRolInput[]
-    upsert?: UsuarioUpsertWithWhereUniqueWithoutRolInput | UsuarioUpsertWithWhereUniqueWithoutRolInput[]
     createMany?: UsuarioCreateManyRolInputEnvelope
-    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
     connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
-    update?: UsuarioUpdateWithWhereUniqueWithoutRolInput | UsuarioUpdateWithWhereUniqueWithoutRolInput[]
-    updateMany?: UsuarioUpdateManyWithWhereWithoutRolInput | UsuarioUpdateManyWithWhereWithoutRolInput[]
-    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
   export type RolPermisoUpdateManyWithoutRolNestedInput = {
@@ -19291,7 +19277,7 @@ export namespace Prisma {
     deleteMany?: RolPermisoScalarWhereInput | RolPermisoScalarWhereInput[]
   }
 
-  export type UsuarioUncheckedUpdateManyWithoutRolNestedInput = {
+  export type UsuarioUpdateManyWithoutRolNestedInput = {
     create?: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput> | UsuarioCreateWithoutRolInput[] | UsuarioUncheckedCreateWithoutRolInput[]
     connectOrCreate?: UsuarioCreateOrConnectWithoutRolInput | UsuarioCreateOrConnectWithoutRolInput[]
     upsert?: UsuarioUpsertWithWhereUniqueWithoutRolInput | UsuarioUpsertWithWhereUniqueWithoutRolInput[]
@@ -19317,6 +19303,20 @@ export namespace Prisma {
     update?: RolPermisoUpdateWithWhereUniqueWithoutRolInput | RolPermisoUpdateWithWhereUniqueWithoutRolInput[]
     updateMany?: RolPermisoUpdateManyWithWhereWithoutRolInput | RolPermisoUpdateManyWithWhereWithoutRolInput[]
     deleteMany?: RolPermisoScalarWhereInput | RolPermisoScalarWhereInput[]
+  }
+
+  export type UsuarioUncheckedUpdateManyWithoutRolNestedInput = {
+    create?: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput> | UsuarioCreateWithoutRolInput[] | UsuarioUncheckedCreateWithoutRolInput[]
+    connectOrCreate?: UsuarioCreateOrConnectWithoutRolInput | UsuarioCreateOrConnectWithoutRolInput[]
+    upsert?: UsuarioUpsertWithWhereUniqueWithoutRolInput | UsuarioUpsertWithWhereUniqueWithoutRolInput[]
+    createMany?: UsuarioCreateManyRolInputEnvelope
+    set?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    disconnect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    delete?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+    update?: UsuarioUpdateWithWhereUniqueWithoutRolInput | UsuarioUpdateWithWhereUniqueWithoutRolInput[]
+    updateMany?: UsuarioUpdateManyWithWhereWithoutRolInput | UsuarioUpdateManyWithWhereWithoutRolInput[]
+    deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
   export type ModuloCreateNestedOneWithoutPermisosInput = {
@@ -19375,24 +19375,16 @@ export namespace Prisma {
     deleteMany?: RolPermisoScalarWhereInput | RolPermisoScalarWhereInput[]
   }
 
-  export type RolCreateNestedOneWithoutPermisosInput = {
-    create?: XOR<RolCreateWithoutPermisosInput, RolUncheckedCreateWithoutPermisosInput>
-    connectOrCreate?: RolCreateOrConnectWithoutPermisosInput
-    connect?: RolWhereUniqueInput
-  }
-
   export type ModuloPermisoCreateNestedOneWithoutRolesInput = {
     create?: XOR<ModuloPermisoCreateWithoutRolesInput, ModuloPermisoUncheckedCreateWithoutRolesInput>
     connectOrCreate?: ModuloPermisoCreateOrConnectWithoutRolesInput
     connect?: ModuloPermisoWhereUniqueInput
   }
 
-  export type RolUpdateOneRequiredWithoutPermisosNestedInput = {
+  export type RolCreateNestedOneWithoutPermisosInput = {
     create?: XOR<RolCreateWithoutPermisosInput, RolUncheckedCreateWithoutPermisosInput>
     connectOrCreate?: RolCreateOrConnectWithoutPermisosInput
-    upsert?: RolUpsertWithoutPermisosInput
     connect?: RolWhereUniqueInput
-    update?: XOR<XOR<RolUpdateToOneWithWhereWithoutPermisosInput, RolUpdateWithoutPermisosInput>, RolUncheckedUpdateWithoutPermisosInput>
   }
 
   export type ModuloPermisoUpdateOneRequiredWithoutRolesNestedInput = {
@@ -19401,6 +19393,14 @@ export namespace Prisma {
     upsert?: ModuloPermisoUpsertWithoutRolesInput
     connect?: ModuloPermisoWhereUniqueInput
     update?: XOR<XOR<ModuloPermisoUpdateToOneWithWhereWithoutRolesInput, ModuloPermisoUpdateWithoutRolesInput>, ModuloPermisoUncheckedUpdateWithoutRolesInput>
+  }
+
+  export type RolUpdateOneRequiredWithoutPermisosNestedInput = {
+    create?: XOR<RolCreateWithoutPermisosInput, RolUncheckedCreateWithoutPermisosInput>
+    connectOrCreate?: RolCreateOrConnectWithoutPermisosInput
+    upsert?: RolUpsertWithoutPermisosInput
+    connect?: RolWhereUniqueInput
+    update?: XOR<XOR<RolUpdateToOneWithWhereWithoutPermisosInput, RolUpdateWithoutPermisosInput>, RolUncheckedUpdateWithoutPermisosInput>
   }
 
   export type EmpresaCreateNestedOneWithoutConfiguracionesInput = {
@@ -19487,6 +19487,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -19501,18 +19506,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedEnumPlanTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanTypeFilter<$PrismaModel> | $Enums.PlanType
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -19522,6 +19515,13 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedEnumPlanTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPlanTypeFilter<$PrismaModel> | $Enums.PlanType
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -19552,6 +19552,14 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -19580,24 +19588,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlanType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumPlanTypeFilter<$PrismaModel>
-    _max?: NestedEnumPlanTypeFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -19610,6 +19600,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PlanType | EnumPlanTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PlanType[] | ListEnumPlanTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPlanTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlanType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPlanTypeFilter<$PrismaModel>
+    _max?: NestedEnumPlanTypeFilter<$PrismaModel>
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -19649,20 +19649,6 @@ export namespace Prisma {
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
   export type NestedJsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -19684,6 +19670,20 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
   export type NestedJsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -19708,59 +19708,25 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type UsuarioCreateWithoutEmpresaInput = {
+  export type ClienteCreateWithoutEmpresaInput = {
     id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    rol: RolCreateNestedOneWithoutUsuariosInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type UsuarioUncheckedCreateWithoutEmpresaInput = {
+  export type ClienteUncheckedCreateWithoutEmpresaInput = {
     id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    rolId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type UsuarioCreateOrConnectWithoutEmpresaInput = {
-    where: UsuarioWhereUniqueInput
-    create: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput>
+  export type ClienteCreateOrConnectWithoutEmpresaInput = {
+    where: ClienteWhereUniqueInput
+    create: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput>
   }
 
-  export type UsuarioCreateManyEmpresaInputEnvelope = {
-    data: UsuarioCreateManyEmpresaInput | UsuarioCreateManyEmpresaInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type EmpresaModuloCreateWithoutEmpresaInput = {
-    id?: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-    modulo: ModuloCreateNestedOneWithoutEmpresasConModuloInput
-  }
-
-  export type EmpresaModuloUncheckedCreateWithoutEmpresaInput = {
-    id?: string
-    moduloId: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-  }
-
-  export type EmpresaModuloCreateOrConnectWithoutEmpresaInput = {
-    where: EmpresaModuloWhereUniqueInput
-    create: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput>
-  }
-
-  export type EmpresaModuloCreateManyEmpresaInputEnvelope = {
-    data: EmpresaModuloCreateManyEmpresaInput | EmpresaModuloCreateManyEmpresaInput[]
+  export type ClienteCreateManyEmpresaInputEnvelope = {
+    data: ClienteCreateManyEmpresaInput | ClienteCreateManyEmpresaInput[]
     skipDuplicates?: boolean
   }
 
@@ -19792,6 +19758,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EmpresaModuloCreateWithoutEmpresaInput = {
+    id?: string
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
+    modulo: ModuloCreateNestedOneWithoutEmpresasConModuloInput
+  }
+
+  export type EmpresaModuloUncheckedCreateWithoutEmpresaInput = {
+    id?: string
+    moduloId: string
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
+  }
+
+  export type EmpresaModuloCreateOrConnectWithoutEmpresaInput = {
+    where: EmpresaModuloWhereUniqueInput
+    create: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type EmpresaModuloCreateManyEmpresaInputEnvelope = {
+    data: EmpresaModuloCreateManyEmpresaInput | EmpresaModuloCreateManyEmpresaInput[]
+    skipDuplicates?: boolean
+  }
+
   export type FacturaCreateWithoutEmpresaInput = {
     id?: string
     createdAt?: Date | string
@@ -19811,50 +19805,6 @@ export namespace Prisma {
 
   export type FacturaCreateManyEmpresaInputEnvelope = {
     data: FacturaCreateManyEmpresaInput | FacturaCreateManyEmpresaInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ProductoCreateWithoutEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProductoUncheckedCreateWithoutEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProductoCreateOrConnectWithoutEmpresaInput = {
-    where: ProductoWhereUniqueInput
-    create: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput>
-  }
-
-  export type ProductoCreateManyEmpresaInputEnvelope = {
-    data: ProductoCreateManyEmpresaInput | ProductoCreateManyEmpresaInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ClienteCreateWithoutEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClienteUncheckedCreateWithoutEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClienteCreateOrConnectWithoutEmpresaInput = {
-    where: ClienteWhereUniqueInput
-    create: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput>
-  }
-
-  export type ClienteCreateManyEmpresaInputEnvelope = {
-    data: ClienteCreateManyEmpresaInput | ClienteCreateManyEmpresaInput[]
     skipDuplicates?: boolean
   }
 
@@ -19880,62 +19830,80 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UsuarioUpsertWithWhereUniqueWithoutEmpresaInput = {
+  export type ProductoCreateWithoutEmpresaInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProductoUncheckedCreateWithoutEmpresaInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProductoCreateOrConnectWithoutEmpresaInput = {
+    where: ProductoWhereUniqueInput
+    create: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type ProductoCreateManyEmpresaInputEnvelope = {
+    data: ProductoCreateManyEmpresaInput | ProductoCreateManyEmpresaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UsuarioCreateWithoutEmpresaInput = {
+    id?: string
+    email: string
+    nombre: string
+    activo?: boolean
+    apellido?: string | null
+    rol: RolCreateNestedOneWithoutUsuariosInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutEmpresaInput = {
+    id?: string
+    email: string
+    nombre: string
+    rolId: string
+    activo?: boolean
+    apellido?: string | null
+  }
+
+  export type UsuarioCreateOrConnectWithoutEmpresaInput = {
     where: UsuarioWhereUniqueInput
-    update: XOR<UsuarioUpdateWithoutEmpresaInput, UsuarioUncheckedUpdateWithoutEmpresaInput>
     create: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput>
   }
 
-  export type UsuarioUpdateWithWhereUniqueWithoutEmpresaInput = {
-    where: UsuarioWhereUniqueInput
-    data: XOR<UsuarioUpdateWithoutEmpresaInput, UsuarioUncheckedUpdateWithoutEmpresaInput>
+  export type UsuarioCreateManyEmpresaInputEnvelope = {
+    data: UsuarioCreateManyEmpresaInput | UsuarioCreateManyEmpresaInput[]
+    skipDuplicates?: boolean
   }
 
-  export type UsuarioUpdateManyWithWhereWithoutEmpresaInput = {
-    where: UsuarioScalarWhereInput
-    data: XOR<UsuarioUpdateManyMutationInput, UsuarioUncheckedUpdateManyWithoutEmpresaInput>
+  export type ClienteUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: ClienteWhereUniqueInput
+    update: XOR<ClienteUpdateWithoutEmpresaInput, ClienteUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput>
   }
 
-  export type UsuarioScalarWhereInput = {
-    AND?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
-    OR?: UsuarioScalarWhereInput[]
-    NOT?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
-    id?: StringFilter<"Usuario"> | string
-    email?: StringFilter<"Usuario"> | string
-    nombre?: StringFilter<"Usuario"> | string
-    apellido?: StringNullableFilter<"Usuario"> | string | null
-    activo?: BoolFilter<"Usuario"> | boolean
-    empresaId?: StringFilter<"Usuario"> | string
-    rolId?: StringFilter<"Usuario"> | string
+  export type ClienteUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: ClienteWhereUniqueInput
+    data: XOR<ClienteUpdateWithoutEmpresaInput, ClienteUncheckedUpdateWithoutEmpresaInput>
   }
 
-  export type EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput = {
-    where: EmpresaModuloWhereUniqueInput
-    update: XOR<EmpresaModuloUpdateWithoutEmpresaInput, EmpresaModuloUncheckedUpdateWithoutEmpresaInput>
-    create: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput>
+  export type ClienteUpdateManyWithWhereWithoutEmpresaInput = {
+    where: ClienteScalarWhereInput
+    data: XOR<ClienteUpdateManyMutationInput, ClienteUncheckedUpdateManyWithoutEmpresaInput>
   }
 
-  export type EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput = {
-    where: EmpresaModuloWhereUniqueInput
-    data: XOR<EmpresaModuloUpdateWithoutEmpresaInput, EmpresaModuloUncheckedUpdateWithoutEmpresaInput>
-  }
-
-  export type EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput = {
-    where: EmpresaModuloScalarWhereInput
-    data: XOR<EmpresaModuloUpdateManyMutationInput, EmpresaModuloUncheckedUpdateManyWithoutEmpresaInput>
-  }
-
-  export type EmpresaModuloScalarWhereInput = {
-    AND?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
-    OR?: EmpresaModuloScalarWhereInput[]
-    NOT?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
-    id?: StringFilter<"EmpresaModulo"> | string
-    empresaId?: StringFilter<"EmpresaModulo"> | string
-    moduloId?: StringFilter<"EmpresaModulo"> | string
-    activo?: BoolFilter<"EmpresaModulo"> | boolean
-    fechaActivacion?: DateTimeFilter<"EmpresaModulo"> | Date | string
-    fechaDesactivacion?: DateTimeNullableFilter<"EmpresaModulo"> | Date | string | null
-    configuracion?: JsonNullableFilter<"EmpresaModulo">
+  export type ClienteScalarWhereInput = {
+    AND?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+    OR?: ClienteScalarWhereInput[]
+    NOT?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+    id?: StringFilter<"Cliente"> | string
+    empresaId?: StringFilter<"Cliente"> | string
+    createdAt?: DateTimeFilter<"Cliente"> | Date | string
+    updatedAt?: DateTimeFilter<"Cliente"> | Date | string
   }
 
   export type EmpresaConfiguracionUpsertWithWhereUniqueWithoutEmpresaInput = {
@@ -19967,6 +19935,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"EmpresaConfiguracion"> | Date | string
   }
 
+  export type EmpresaModuloUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: EmpresaModuloWhereUniqueInput
+    update: XOR<EmpresaModuloUpdateWithoutEmpresaInput, EmpresaModuloUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<EmpresaModuloCreateWithoutEmpresaInput, EmpresaModuloUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: EmpresaModuloWhereUniqueInput
+    data: XOR<EmpresaModuloUpdateWithoutEmpresaInput, EmpresaModuloUncheckedUpdateWithoutEmpresaInput>
+  }
+
+  export type EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput = {
+    where: EmpresaModuloScalarWhereInput
+    data: XOR<EmpresaModuloUpdateManyMutationInput, EmpresaModuloUncheckedUpdateManyWithoutEmpresaInput>
+  }
+
+  export type EmpresaModuloScalarWhereInput = {
+    AND?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+    OR?: EmpresaModuloScalarWhereInput[]
+    NOT?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+    id?: StringFilter<"EmpresaModulo"> | string
+    empresaId?: StringFilter<"EmpresaModulo"> | string
+    moduloId?: StringFilter<"EmpresaModulo"> | string
+    activo?: BoolFilter<"EmpresaModulo"> | boolean
+    configuracion?: JsonNullableFilter<"EmpresaModulo">
+    fechaActivacion?: DateTimeFilter<"EmpresaModulo"> | Date | string
+    fechaDesactivacion?: DateTimeNullableFilter<"EmpresaModulo"> | Date | string | null
+  }
+
   export type FacturaUpsertWithWhereUniqueWithoutEmpresaInput = {
     where: FacturaWhereUniqueInput
     update: XOR<FacturaUpdateWithoutEmpresaInput, FacturaUncheckedUpdateWithoutEmpresaInput>
@@ -19991,58 +19988,6 @@ export namespace Prisma {
     empresaId?: StringFilter<"Factura"> | string
     createdAt?: DateTimeFilter<"Factura"> | Date | string
     updatedAt?: DateTimeFilter<"Factura"> | Date | string
-  }
-
-  export type ProductoUpsertWithWhereUniqueWithoutEmpresaInput = {
-    where: ProductoWhereUniqueInput
-    update: XOR<ProductoUpdateWithoutEmpresaInput, ProductoUncheckedUpdateWithoutEmpresaInput>
-    create: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput>
-  }
-
-  export type ProductoUpdateWithWhereUniqueWithoutEmpresaInput = {
-    where: ProductoWhereUniqueInput
-    data: XOR<ProductoUpdateWithoutEmpresaInput, ProductoUncheckedUpdateWithoutEmpresaInput>
-  }
-
-  export type ProductoUpdateManyWithWhereWithoutEmpresaInput = {
-    where: ProductoScalarWhereInput
-    data: XOR<ProductoUpdateManyMutationInput, ProductoUncheckedUpdateManyWithoutEmpresaInput>
-  }
-
-  export type ProductoScalarWhereInput = {
-    AND?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
-    OR?: ProductoScalarWhereInput[]
-    NOT?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
-    id?: StringFilter<"Producto"> | string
-    empresaId?: StringFilter<"Producto"> | string
-    createdAt?: DateTimeFilter<"Producto"> | Date | string
-    updatedAt?: DateTimeFilter<"Producto"> | Date | string
-  }
-
-  export type ClienteUpsertWithWhereUniqueWithoutEmpresaInput = {
-    where: ClienteWhereUniqueInput
-    update: XOR<ClienteUpdateWithoutEmpresaInput, ClienteUncheckedUpdateWithoutEmpresaInput>
-    create: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput>
-  }
-
-  export type ClienteUpdateWithWhereUniqueWithoutEmpresaInput = {
-    where: ClienteWhereUniqueInput
-    data: XOR<ClienteUpdateWithoutEmpresaInput, ClienteUncheckedUpdateWithoutEmpresaInput>
-  }
-
-  export type ClienteUpdateManyWithWhereWithoutEmpresaInput = {
-    where: ClienteScalarWhereInput
-    data: XOR<ClienteUpdateManyMutationInput, ClienteUncheckedUpdateManyWithoutEmpresaInput>
-  }
-
-  export type ClienteScalarWhereInput = {
-    AND?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
-    OR?: ClienteScalarWhereInput[]
-    NOT?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
-    id?: StringFilter<"Cliente"> | string
-    empresaId?: StringFilter<"Cliente"> | string
-    createdAt?: DateTimeFilter<"Cliente"> | Date | string
-    updatedAt?: DateTimeFilter<"Cliente"> | Date | string
   }
 
   export type MovimientoCajaUpsertWithWhereUniqueWithoutEmpresaInput = {
@@ -20071,42 +20016,97 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"MovimientoCaja"> | Date | string
   }
 
+  export type ProductoUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: ProductoWhereUniqueInput
+    update: XOR<ProductoUpdateWithoutEmpresaInput, ProductoUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<ProductoCreateWithoutEmpresaInput, ProductoUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type ProductoUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: ProductoWhereUniqueInput
+    data: XOR<ProductoUpdateWithoutEmpresaInput, ProductoUncheckedUpdateWithoutEmpresaInput>
+  }
+
+  export type ProductoUpdateManyWithWhereWithoutEmpresaInput = {
+    where: ProductoScalarWhereInput
+    data: XOR<ProductoUpdateManyMutationInput, ProductoUncheckedUpdateManyWithoutEmpresaInput>
+  }
+
+  export type ProductoScalarWhereInput = {
+    AND?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+    OR?: ProductoScalarWhereInput[]
+    NOT?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+    id?: StringFilter<"Producto"> | string
+    empresaId?: StringFilter<"Producto"> | string
+    createdAt?: DateTimeFilter<"Producto"> | Date | string
+    updatedAt?: DateTimeFilter<"Producto"> | Date | string
+  }
+
+  export type UsuarioUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: UsuarioWhereUniqueInput
+    update: XOR<UsuarioUpdateWithoutEmpresaInput, UsuarioUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<UsuarioCreateWithoutEmpresaInput, UsuarioUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type UsuarioUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: UsuarioWhereUniqueInput
+    data: XOR<UsuarioUpdateWithoutEmpresaInput, UsuarioUncheckedUpdateWithoutEmpresaInput>
+  }
+
+  export type UsuarioUpdateManyWithWhereWithoutEmpresaInput = {
+    where: UsuarioScalarWhereInput
+    data: XOR<UsuarioUpdateManyMutationInput, UsuarioUncheckedUpdateManyWithoutEmpresaInput>
+  }
+
+  export type UsuarioScalarWhereInput = {
+    AND?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
+    OR?: UsuarioScalarWhereInput[]
+    NOT?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
+    id?: StringFilter<"Usuario"> | string
+    email?: StringFilter<"Usuario"> | string
+    nombre?: StringFilter<"Usuario"> | string
+    empresaId?: StringFilter<"Usuario"> | string
+    rolId?: StringFilter<"Usuario"> | string
+    activo?: BoolFilter<"Usuario"> | boolean
+    apellido?: StringNullableFilter<"Usuario"> | string | null
+  }
+
   export type EmpresaCreateWithoutUsuariosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutUsuariosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutUsuariosInput = {
@@ -20117,16 +20117,16 @@ export namespace Prisma {
   export type RolCreateWithoutUsuariosInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
     permisos?: RolPermisoCreateNestedManyWithoutRolInput
   }
 
   export type RolUncheckedCreateWithoutUsuariosInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
     permisos?: RolPermisoUncheckedCreateNestedManyWithoutRolInput
   }
 
@@ -20150,38 +20150,38 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutUsuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type RolUpsertWithoutUsuariosInput = {
@@ -20198,38 +20198,44 @@ export namespace Prisma {
   export type RolUpdateWithoutUsuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     permisos?: RolPermisoUpdateManyWithoutRolNestedInput
   }
 
   export type RolUncheckedUpdateWithoutUsuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     permisos?: RolPermisoUncheckedUpdateManyWithoutRolNestedInput
   }
 
-  export type ModuloDependenciaCreateWithoutModuloInput = {
+  export type EmpresaModuloCreateWithoutModuloInput = {
     id?: string
-    requerido?: boolean
-    dependeDe: ModuloCreateNestedOneWithoutEsDependenciaDeInput
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
+    empresa: EmpresaCreateNestedOneWithoutModulosActivosInput
   }
 
-  export type ModuloDependenciaUncheckedCreateWithoutModuloInput = {
+  export type EmpresaModuloUncheckedCreateWithoutModuloInput = {
     id?: string
-    dependeDeId: string
-    requerido?: boolean
+    empresaId: string
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
   }
 
-  export type ModuloDependenciaCreateOrConnectWithoutModuloInput = {
-    where: ModuloDependenciaWhereUniqueInput
-    create: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput>
+  export type EmpresaModuloCreateOrConnectWithoutModuloInput = {
+    where: EmpresaModuloWhereUniqueInput
+    create: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput>
   }
 
-  export type ModuloDependenciaCreateManyModuloInputEnvelope = {
-    data: ModuloDependenciaCreateManyModuloInput | ModuloDependenciaCreateManyModuloInput[]
+  export type EmpresaModuloCreateManyModuloInputEnvelope = {
+    data: EmpresaModuloCreateManyModuloInput | EmpresaModuloCreateManyModuloInput[]
     skipDuplicates?: boolean
   }
 
@@ -20255,46 +20261,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type EmpresaModuloCreateWithoutModuloInput = {
+  export type ModuloDependenciaCreateWithoutModuloInput = {
     id?: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-    empresa: EmpresaCreateNestedOneWithoutModulosActivosInput
+    requerido?: boolean
+    dependeDe: ModuloCreateNestedOneWithoutEsDependenciaDeInput
   }
 
-  export type EmpresaModuloUncheckedCreateWithoutModuloInput = {
+  export type ModuloDependenciaUncheckedCreateWithoutModuloInput = {
     id?: string
-    empresaId: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    dependeDeId: string
+    requerido?: boolean
   }
 
-  export type EmpresaModuloCreateOrConnectWithoutModuloInput = {
-    where: EmpresaModuloWhereUniqueInput
-    create: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput>
+  export type ModuloDependenciaCreateOrConnectWithoutModuloInput = {
+    where: ModuloDependenciaWhereUniqueInput
+    create: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput>
   }
 
-  export type EmpresaModuloCreateManyModuloInputEnvelope = {
-    data: EmpresaModuloCreateManyModuloInput | EmpresaModuloCreateManyModuloInput[]
+  export type ModuloDependenciaCreateManyModuloInputEnvelope = {
+    data: ModuloDependenciaCreateManyModuloInput | ModuloDependenciaCreateManyModuloInput[]
     skipDuplicates?: boolean
   }
 
   export type ModuloPermisoCreateWithoutModuloInput = {
     id?: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
     roles?: RolPermisoCreateNestedManyWithoutPermisoInput
   }
 
   export type ModuloPermisoUncheckedCreateWithoutModuloInput = {
     id?: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
     roles?: RolPermisoUncheckedCreateNestedManyWithoutPermisoInput
   }
@@ -20312,17 +20312,17 @@ export namespace Prisma {
   export type ModuloRutaCreateWithoutModuloInput = {
     id?: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
   }
 
   export type ModuloRutaUncheckedCreateWithoutModuloInput = {
     id?: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
   }
 
   export type ModuloRutaCreateOrConnectWithoutModuloInput = {
@@ -20335,30 +20335,20 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput = {
-    where: ModuloDependenciaWhereUniqueInput
-    update: XOR<ModuloDependenciaUpdateWithoutModuloInput, ModuloDependenciaUncheckedUpdateWithoutModuloInput>
-    create: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput>
+  export type EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput = {
+    where: EmpresaModuloWhereUniqueInput
+    update: XOR<EmpresaModuloUpdateWithoutModuloInput, EmpresaModuloUncheckedUpdateWithoutModuloInput>
+    create: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput>
   }
 
-  export type ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput = {
-    where: ModuloDependenciaWhereUniqueInput
-    data: XOR<ModuloDependenciaUpdateWithoutModuloInput, ModuloDependenciaUncheckedUpdateWithoutModuloInput>
+  export type EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput = {
+    where: EmpresaModuloWhereUniqueInput
+    data: XOR<EmpresaModuloUpdateWithoutModuloInput, EmpresaModuloUncheckedUpdateWithoutModuloInput>
   }
 
-  export type ModuloDependenciaUpdateManyWithWhereWithoutModuloInput = {
-    where: ModuloDependenciaScalarWhereInput
-    data: XOR<ModuloDependenciaUpdateManyMutationInput, ModuloDependenciaUncheckedUpdateManyWithoutModuloInput>
-  }
-
-  export type ModuloDependenciaScalarWhereInput = {
-    AND?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
-    OR?: ModuloDependenciaScalarWhereInput[]
-    NOT?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
-    id?: StringFilter<"ModuloDependencia"> | string
-    moduloId?: StringFilter<"ModuloDependencia"> | string
-    dependeDeId?: StringFilter<"ModuloDependencia"> | string
-    requerido?: BoolFilter<"ModuloDependencia"> | boolean
+  export type EmpresaModuloUpdateManyWithWhereWithoutModuloInput = {
+    where: EmpresaModuloScalarWhereInput
+    data: XOR<EmpresaModuloUpdateManyMutationInput, EmpresaModuloUncheckedUpdateManyWithoutModuloInput>
   }
 
   export type ModuloDependenciaUpsertWithWhereUniqueWithoutDependeDeInput = {
@@ -20377,20 +20367,30 @@ export namespace Prisma {
     data: XOR<ModuloDependenciaUpdateManyMutationInput, ModuloDependenciaUncheckedUpdateManyWithoutDependeDeInput>
   }
 
-  export type EmpresaModuloUpsertWithWhereUniqueWithoutModuloInput = {
-    where: EmpresaModuloWhereUniqueInput
-    update: XOR<EmpresaModuloUpdateWithoutModuloInput, EmpresaModuloUncheckedUpdateWithoutModuloInput>
-    create: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput>
+  export type ModuloDependenciaScalarWhereInput = {
+    AND?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
+    OR?: ModuloDependenciaScalarWhereInput[]
+    NOT?: ModuloDependenciaScalarWhereInput | ModuloDependenciaScalarWhereInput[]
+    id?: StringFilter<"ModuloDependencia"> | string
+    moduloId?: StringFilter<"ModuloDependencia"> | string
+    dependeDeId?: StringFilter<"ModuloDependencia"> | string
+    requerido?: BoolFilter<"ModuloDependencia"> | boolean
   }
 
-  export type EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput = {
-    where: EmpresaModuloWhereUniqueInput
-    data: XOR<EmpresaModuloUpdateWithoutModuloInput, EmpresaModuloUncheckedUpdateWithoutModuloInput>
+  export type ModuloDependenciaUpsertWithWhereUniqueWithoutModuloInput = {
+    where: ModuloDependenciaWhereUniqueInput
+    update: XOR<ModuloDependenciaUpdateWithoutModuloInput, ModuloDependenciaUncheckedUpdateWithoutModuloInput>
+    create: XOR<ModuloDependenciaCreateWithoutModuloInput, ModuloDependenciaUncheckedCreateWithoutModuloInput>
   }
 
-  export type EmpresaModuloUpdateManyWithWhereWithoutModuloInput = {
-    where: EmpresaModuloScalarWhereInput
-    data: XOR<EmpresaModuloUpdateManyMutationInput, EmpresaModuloUncheckedUpdateManyWithoutModuloInput>
+  export type ModuloDependenciaUpdateWithWhereUniqueWithoutModuloInput = {
+    where: ModuloDependenciaWhereUniqueInput
+    data: XOR<ModuloDependenciaUpdateWithoutModuloInput, ModuloDependenciaUncheckedUpdateWithoutModuloInput>
+  }
+
+  export type ModuloDependenciaUpdateManyWithWhereWithoutModuloInput = {
+    where: ModuloDependenciaScalarWhereInput
+    data: XOR<ModuloDependenciaUpdateManyMutationInput, ModuloDependenciaUncheckedUpdateManyWithoutModuloInput>
   }
 
   export type ModuloPermisoUpsertWithWhereUniqueWithoutModuloInput = {
@@ -20415,8 +20415,8 @@ export namespace Prisma {
     NOT?: ModuloPermisoScalarWhereInput | ModuloPermisoScalarWhereInput[]
     id?: StringFilter<"ModuloPermiso"> | string
     moduloId?: StringFilter<"ModuloPermiso"> | string
-    codigo?: StringFilter<"ModuloPermiso"> | string
     nombre?: StringFilter<"ModuloPermiso"> | string
+    codigo?: StringFilter<"ModuloPermiso"> | string
     descripcion?: StringNullableFilter<"ModuloPermiso"> | string | null
   }
 
@@ -20443,47 +20443,47 @@ export namespace Prisma {
     id?: StringFilter<"ModuloRuta"> | string
     moduloId?: StringFilter<"ModuloRuta"> | string
     ruta?: StringFilter<"ModuloRuta"> | string
-    nombre?: StringFilter<"ModuloRuta"> | string
-    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
     activo?: BoolFilter<"ModuloRuta"> | boolean
+    descripcion?: StringNullableFilter<"ModuloRuta"> | string | null
+    nombre?: StringFilter<"ModuloRuta"> | string
   }
 
   export type EmpresaCreateWithoutModulosActivosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutModulosActivosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutModulosActivosInput = {
@@ -20495,14 +20495,14 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
   }
@@ -20511,14 +20511,14 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
   }
@@ -20543,38 +20543,38 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutModulosActivosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type ModuloUpsertWithoutEmpresasConModuloInput = {
@@ -20592,14 +20592,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
   }
@@ -20608,67 +20608,30 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
-  }
-
-  export type ModuloCreateWithoutDependeDeInput = {
-    id?: string
-    nombre: string
-    displayName: string
-    descripcion?: string | null
-    version?: string
-    activo?: boolean
-    orden?: number
-    icono?: string | null
-    color?: string | null
-    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
-    empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
-    permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
-    rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
-  }
-
-  export type ModuloUncheckedCreateWithoutDependeDeInput = {
-    id?: string
-    nombre: string
-    displayName: string
-    descripcion?: string | null
-    version?: string
-    activo?: boolean
-    orden?: number
-    icono?: string | null
-    color?: string | null
-    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
-    empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
-    permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
-    rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
-  }
-
-  export type ModuloCreateOrConnectWithoutDependeDeInput = {
-    where: ModuloWhereUniqueInput
-    create: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
   }
 
   export type ModuloCreateWithoutEsDependenciaDeInput = {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
   }
@@ -20677,14 +20640,14 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
   }
@@ -20694,47 +20657,41 @@ export namespace Prisma {
     create: XOR<ModuloCreateWithoutEsDependenciaDeInput, ModuloUncheckedCreateWithoutEsDependenciaDeInput>
   }
 
-  export type ModuloUpsertWithoutDependeDeInput = {
-    update: XOR<ModuloUpdateWithoutDependeDeInput, ModuloUncheckedUpdateWithoutDependeDeInput>
+  export type ModuloCreateWithoutDependeDeInput = {
+    id?: string
+    nombre: string
+    displayName: string
+    version?: string
+    activo?: boolean
+    color?: string | null
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
+    empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
+    rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
+  }
+
+  export type ModuloUncheckedCreateWithoutDependeDeInput = {
+    id?: string
+    nombre: string
+    displayName: string
+    version?: string
+    activo?: boolean
+    color?: string | null
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
+    empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
+    rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
+  }
+
+  export type ModuloCreateOrConnectWithoutDependeDeInput = {
+    where: ModuloWhereUniqueInput
     create: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
-    where?: ModuloWhereInput
-  }
-
-  export type ModuloUpdateToOneWithWhereWithoutDependeDeInput = {
-    where?: ModuloWhereInput
-    data: XOR<ModuloUpdateWithoutDependeDeInput, ModuloUncheckedUpdateWithoutDependeDeInput>
-  }
-
-  export type ModuloUpdateWithoutDependeDeInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    version?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
-    color?: NullableStringFieldUpdateOperationsInput | string | null
-    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
-    empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
-    permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
-    rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
-  }
-
-  export type ModuloUncheckedUpdateWithoutDependeDeInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    version?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
-    color?: NullableStringFieldUpdateOperationsInput | string | null
-    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
-    empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
-    permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
-    rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
   }
 
   export type ModuloUpsertWithoutEsDependenciaDeInput = {
@@ -20752,14 +20709,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
   }
@@ -20768,14 +20725,57 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
+    permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
+    rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
+  }
+
+  export type ModuloUpsertWithoutDependeDeInput = {
+    update: XOR<ModuloUpdateWithoutDependeDeInput, ModuloUncheckedUpdateWithoutDependeDeInput>
+    create: XOR<ModuloCreateWithoutDependeDeInput, ModuloUncheckedCreateWithoutDependeDeInput>
+    where?: ModuloWhereInput
+  }
+
+  export type ModuloUpdateToOneWithWhereWithoutDependeDeInput = {
+    where?: ModuloWhereInput
+    data: XOR<ModuloUpdateWithoutDependeDeInput, ModuloUncheckedUpdateWithoutDependeDeInput>
+  }
+
+  export type ModuloUpdateWithoutDependeDeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    displayName?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
+    empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
+    rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
+  }
+
+  export type ModuloUncheckedUpdateWithoutDependeDeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    displayName?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
+    empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
   }
@@ -20784,15 +20784,15 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
   }
 
@@ -20800,15 +20800,15 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
   }
 
@@ -20832,15 +20832,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
   }
 
@@ -20848,44 +20848,16 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
-  }
-
-  export type UsuarioCreateWithoutRolInput = {
-    id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    empresa: EmpresaCreateNestedOneWithoutUsuariosInput
-  }
-
-  export type UsuarioUncheckedCreateWithoutRolInput = {
-    id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    empresaId: string
-  }
-
-  export type UsuarioCreateOrConnectWithoutRolInput = {
-    where: UsuarioWhereUniqueInput
-    create: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput>
-  }
-
-  export type UsuarioCreateManyRolInputEnvelope = {
-    data: UsuarioCreateManyRolInput | UsuarioCreateManyRolInput[]
-    skipDuplicates?: boolean
   }
 
   export type RolPermisoCreateWithoutRolInput = {
@@ -20908,20 +20880,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UsuarioUpsertWithWhereUniqueWithoutRolInput = {
+  export type UsuarioCreateWithoutRolInput = {
+    id?: string
+    email: string
+    nombre: string
+    activo?: boolean
+    apellido?: string | null
+    empresa: EmpresaCreateNestedOneWithoutUsuariosInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutRolInput = {
+    id?: string
+    email: string
+    nombre: string
+    empresaId: string
+    activo?: boolean
+    apellido?: string | null
+  }
+
+  export type UsuarioCreateOrConnectWithoutRolInput = {
     where: UsuarioWhereUniqueInput
-    update: XOR<UsuarioUpdateWithoutRolInput, UsuarioUncheckedUpdateWithoutRolInput>
     create: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput>
   }
 
-  export type UsuarioUpdateWithWhereUniqueWithoutRolInput = {
-    where: UsuarioWhereUniqueInput
-    data: XOR<UsuarioUpdateWithoutRolInput, UsuarioUncheckedUpdateWithoutRolInput>
-  }
-
-  export type UsuarioUpdateManyWithWhereWithoutRolInput = {
-    where: UsuarioScalarWhereInput
-    data: XOR<UsuarioUpdateManyMutationInput, UsuarioUncheckedUpdateManyWithoutRolInput>
+  export type UsuarioCreateManyRolInputEnvelope = {
+    data: UsuarioCreateManyRolInput | UsuarioCreateManyRolInput[]
+    skipDuplicates?: boolean
   }
 
   export type RolPermisoUpsertWithWhereUniqueWithoutRolInput = {
@@ -20949,19 +20933,35 @@ export namespace Prisma {
     permisoId?: StringFilter<"RolPermiso"> | string
   }
 
+  export type UsuarioUpsertWithWhereUniqueWithoutRolInput = {
+    where: UsuarioWhereUniqueInput
+    update: XOR<UsuarioUpdateWithoutRolInput, UsuarioUncheckedUpdateWithoutRolInput>
+    create: XOR<UsuarioCreateWithoutRolInput, UsuarioUncheckedCreateWithoutRolInput>
+  }
+
+  export type UsuarioUpdateWithWhereUniqueWithoutRolInput = {
+    where: UsuarioWhereUniqueInput
+    data: XOR<UsuarioUpdateWithoutRolInput, UsuarioUncheckedUpdateWithoutRolInput>
+  }
+
+  export type UsuarioUpdateManyWithWhereWithoutRolInput = {
+    where: UsuarioScalarWhereInput
+    data: XOR<UsuarioUpdateManyMutationInput, UsuarioUncheckedUpdateManyWithoutRolInput>
+  }
+
   export type ModuloCreateWithoutPermisosInput = {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
   }
 
@@ -20969,15 +20969,15 @@ export namespace Prisma {
     id?: string
     nombre: string
     displayName: string
-    descripcion?: string | null
     version?: string
     activo?: boolean
-    orden?: number
-    icono?: string | null
     color?: string | null
-    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
-    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
   }
 
@@ -21021,15 +21021,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
   }
 
@@ -21037,15 +21037,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     version?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    orden?: IntFieldUpdateOperationsInput | number
-    icono?: NullableStringFieldUpdateOperationsInput | string | null
     color?: NullableStringFieldUpdateOperationsInput | string | null
-    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
-    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
   }
 
@@ -21065,19 +21065,40 @@ export namespace Prisma {
     data: XOR<RolPermisoUpdateManyMutationInput, RolPermisoUncheckedUpdateManyWithoutPermisoInput>
   }
 
+  export type ModuloPermisoCreateWithoutRolesInput = {
+    id?: string
+    nombre: string
+    codigo: string
+    descripcion?: string | null
+    modulo: ModuloCreateNestedOneWithoutPermisosInput
+  }
+
+  export type ModuloPermisoUncheckedCreateWithoutRolesInput = {
+    id?: string
+    moduloId: string
+    nombre: string
+    codigo: string
+    descripcion?: string | null
+  }
+
+  export type ModuloPermisoCreateOrConnectWithoutRolesInput = {
+    where: ModuloPermisoWhereUniqueInput
+    create: XOR<ModuloPermisoCreateWithoutRolesInput, ModuloPermisoUncheckedCreateWithoutRolesInput>
+  }
+
   export type RolCreateWithoutPermisosInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
     usuarios?: UsuarioCreateNestedManyWithoutRolInput
   }
 
   export type RolUncheckedCreateWithoutPermisosInput = {
     id?: string
     nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutRolInput
   }
 
@@ -21086,25 +21107,31 @@ export namespace Prisma {
     create: XOR<RolCreateWithoutPermisosInput, RolUncheckedCreateWithoutPermisosInput>
   }
 
-  export type ModuloPermisoCreateWithoutRolesInput = {
-    id?: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    modulo: ModuloCreateNestedOneWithoutPermisosInput
-  }
-
-  export type ModuloPermisoUncheckedCreateWithoutRolesInput = {
-    id?: string
-    moduloId: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-  }
-
-  export type ModuloPermisoCreateOrConnectWithoutRolesInput = {
-    where: ModuloPermisoWhereUniqueInput
+  export type ModuloPermisoUpsertWithoutRolesInput = {
+    update: XOR<ModuloPermisoUpdateWithoutRolesInput, ModuloPermisoUncheckedUpdateWithoutRolesInput>
     create: XOR<ModuloPermisoCreateWithoutRolesInput, ModuloPermisoUncheckedCreateWithoutRolesInput>
+    where?: ModuloPermisoWhereInput
+  }
+
+  export type ModuloPermisoUpdateToOneWithWhereWithoutRolesInput = {
+    where?: ModuloPermisoWhereInput
+    data: XOR<ModuloPermisoUpdateWithoutRolesInput, ModuloPermisoUncheckedUpdateWithoutRolesInput>
+  }
+
+  export type ModuloPermisoUpdateWithoutRolesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    modulo?: ModuloUpdateOneRequiredWithoutPermisosNestedInput
+  }
+
+  export type ModuloPermisoUncheckedUpdateWithoutRolesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RolUpsertWithoutPermisosInput = {
@@ -21121,82 +21148,55 @@ export namespace Prisma {
   export type RolUpdateWithoutPermisosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     usuarios?: UsuarioUpdateManyWithoutRolNestedInput
   }
 
   export type RolUncheckedUpdateWithoutPermisosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     usuarios?: UsuarioUncheckedUpdateManyWithoutRolNestedInput
-  }
-
-  export type ModuloPermisoUpsertWithoutRolesInput = {
-    update: XOR<ModuloPermisoUpdateWithoutRolesInput, ModuloPermisoUncheckedUpdateWithoutRolesInput>
-    create: XOR<ModuloPermisoCreateWithoutRolesInput, ModuloPermisoUncheckedCreateWithoutRolesInput>
-    where?: ModuloPermisoWhereInput
-  }
-
-  export type ModuloPermisoUpdateToOneWithWhereWithoutRolesInput = {
-    where?: ModuloPermisoWhereInput
-    data: XOR<ModuloPermisoUpdateWithoutRolesInput, ModuloPermisoUncheckedUpdateWithoutRolesInput>
-  }
-
-  export type ModuloPermisoUpdateWithoutRolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    modulo?: ModuloUpdateOneRequiredWithoutPermisosNestedInput
-  }
-
-  export type ModuloPermisoUncheckedUpdateWithoutRolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    moduloId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmpresaCreateWithoutConfiguracionesInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutConfiguracionesInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutConfiguracionesInput = {
@@ -21219,76 +21219,76 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutConfiguracionesInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutFacturasInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutFacturasInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutFacturasInput = {
@@ -21311,76 +21311,76 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutFacturasInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutProductosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutProductosInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
-    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
-    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutProductosInput = {
@@ -21403,76 +21403,76 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutProductosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
-    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
-    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutClientesInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutClientesInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
-    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutClientesInput = {
@@ -21495,76 +21495,76 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutClientesInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
-    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutMovimientosCajaInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutMovimientosCajaInput = {
     id?: string
     nombre: string
     ruc: string
-    email?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    plan?: $Enums.PlanType
     activo?: boolean
-    fechaCreacion?: Date | string
+    direccion?: string | null
+    email?: string | null
     fechaActualizacion?: Date | string
-    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
-    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutMovimientosCajaInput = {
@@ -21587,56 +21587,44 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutMovimientosCajaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
-    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
-  export type UsuarioCreateManyEmpresaInput = {
+  export type ClienteCreateManyEmpresaInput = {
     id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    rolId: string
-  }
-
-  export type EmpresaModuloCreateManyEmpresaInput = {
-    id?: string
-    moduloId: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type EmpresaConfiguracionCreateManyEmpresaInput = {
@@ -21648,19 +21636,16 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type EmpresaModuloCreateManyEmpresaInput = {
+    id?: string
+    moduloId: string
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
+  }
+
   export type FacturaCreateManyEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProductoCreateManyEmpresaInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClienteCreateManyEmpresaInput = {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -21672,58 +21657,37 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type UsuarioUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
+  export type ProductoCreateManyEmpresaInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type UsuarioUncheckedUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    rolId?: StringFieldUpdateOperationsInput | string
+  export type UsuarioCreateManyEmpresaInput = {
+    id?: string
+    email: string
+    nombre: string
+    rolId: string
+    activo?: boolean
+    apellido?: string | null
   }
 
-  export type UsuarioUncheckedUpdateManyWithoutEmpresaInput = {
+  export type ClienteUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    rolId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type EmpresaModuloUpdateWithoutEmpresaInput = {
+  export type ClienteUncheckedUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-    modulo?: ModuloUpdateOneRequiredWithoutEmpresasConModuloNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type EmpresaModuloUncheckedUpdateWithoutEmpresaInput = {
+  export type ClienteUncheckedUpdateManyWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
-    moduloId?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-  }
-
-  export type EmpresaModuloUncheckedUpdateManyWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    moduloId?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type EmpresaConfiguracionUpdateWithoutEmpresaInput = {
@@ -21753,6 +21717,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type EmpresaModuloUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    modulo?: ModuloUpdateOneRequiredWithoutEmpresasConModuloNestedInput
+  }
+
+  export type EmpresaModuloUncheckedUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmpresaModuloUncheckedUpdateManyWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type FacturaUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21766,42 +21757,6 @@ export namespace Prisma {
   }
 
   export type FacturaUncheckedUpdateManyWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProductoUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProductoUncheckedUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProductoUncheckedUpdateManyWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClienteUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClienteUncheckedUpdateWithoutEmpresaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClienteUncheckedUpdateManyWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21825,10 +21780,58 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModuloDependenciaCreateManyModuloInput = {
+  export type ProductoUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductoUncheckedUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProductoUncheckedUpdateManyWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsuarioUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    rolId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UsuarioUncheckedUpdateManyWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    rolId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EmpresaModuloCreateManyModuloInput = {
     id?: string
-    dependeDeId: string
-    requerido?: boolean
+    empresaId: string
+    activo?: boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: Date | string
+    fechaDesactivacion?: Date | string | null
   }
 
   export type ModuloDependenciaCreateManyDependeDeInput = {
@@ -21837,46 +21840,52 @@ export namespace Prisma {
     requerido?: boolean
   }
 
-  export type EmpresaModuloCreateManyModuloInput = {
+  export type ModuloDependenciaCreateManyModuloInput = {
     id?: string
-    empresaId: string
-    activo?: boolean
-    fechaActivacion?: Date | string
-    fechaDesactivacion?: Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    dependeDeId: string
+    requerido?: boolean
   }
 
   export type ModuloPermisoCreateManyModuloInput = {
     id?: string
-    codigo: string
     nombre: string
+    codigo: string
     descripcion?: string | null
   }
 
   export type ModuloRutaCreateManyModuloInput = {
     id?: string
     ruta: string
-    nombre: string
-    descripcion?: string | null
     activo?: boolean
+    descripcion?: string | null
+    nombre: string
   }
 
-  export type ModuloDependenciaUpdateWithoutModuloInput = {
+  export type EmpresaModuloUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    requerido?: BoolFieldUpdateOperationsInput | boolean
-    dependeDe?: ModuloUpdateOneRequiredWithoutEsDependenciaDeNestedInput
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    empresa?: EmpresaUpdateOneRequiredWithoutModulosActivosNestedInput
   }
 
-  export type ModuloDependenciaUncheckedUpdateWithoutModuloInput = {
+  export type EmpresaModuloUncheckedUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    dependeDeId?: StringFieldUpdateOperationsInput | string
-    requerido?: BoolFieldUpdateOperationsInput | boolean
+    empresaId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type ModuloDependenciaUncheckedUpdateManyWithoutModuloInput = {
+  export type EmpresaModuloUncheckedUpdateManyWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    dependeDeId?: StringFieldUpdateOperationsInput | string
-    requerido?: BoolFieldUpdateOperationsInput | boolean
+    empresaId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ModuloDependenciaUpdateWithoutDependeDeInput = {
@@ -21897,87 +21906,69 @@ export namespace Prisma {
     requerido?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type EmpresaModuloUpdateWithoutModuloInput = {
+  export type ModuloDependenciaUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
-    empresa?: EmpresaUpdateOneRequiredWithoutModulosActivosNestedInput
+    requerido?: BoolFieldUpdateOperationsInput | boolean
+    dependeDe?: ModuloUpdateOneRequiredWithoutEsDependenciaDeNestedInput
   }
 
-  export type EmpresaModuloUncheckedUpdateWithoutModuloInput = {
+  export type ModuloDependenciaUncheckedUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    dependeDeId?: StringFieldUpdateOperationsInput | string
+    requerido?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type EmpresaModuloUncheckedUpdateManyWithoutModuloInput = {
+  export type ModuloDependenciaUncheckedUpdateManyWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    configuracion?: NullableJsonNullValueInput | InputJsonValue
+    dependeDeId?: StringFieldUpdateOperationsInput | string
+    requerido?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ModuloPermisoUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     roles?: RolPermisoUpdateManyWithoutPermisoNestedInput
   }
 
   export type ModuloPermisoUncheckedUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     roles?: RolPermisoUncheckedUpdateManyWithoutPermisoNestedInput
   }
 
   export type ModuloPermisoUncheckedUpdateManyWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ModuloRutaUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type ModuloRutaUncheckedUpdateWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type ModuloRutaUncheckedUpdateManyWithoutModuloInput = {
     id?: StringFieldUpdateOperationsInput | string
     ruta?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type UsuarioCreateManyRolInput = {
-    id?: string
-    email: string
-    nombre: string
-    apellido?: string | null
-    activo?: boolean
-    empresaId: string
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    nombre?: StringFieldUpdateOperationsInput | string
   }
 
   export type RolPermisoCreateManyRolInput = {
@@ -21985,31 +21976,13 @@ export namespace Prisma {
     permisoId: string
   }
 
-  export type UsuarioUpdateWithoutRolInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
-  }
-
-  export type UsuarioUncheckedUpdateWithoutRolInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    empresaId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UsuarioUncheckedUpdateManyWithoutRolInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    empresaId?: StringFieldUpdateOperationsInput | string
+  export type UsuarioCreateManyRolInput = {
+    id?: string
+    email: string
+    nombre: string
+    empresaId: string
+    activo?: boolean
+    apellido?: string | null
   }
 
   export type RolPermisoUpdateWithoutRolInput = {
@@ -22025,6 +21998,33 @@ export namespace Prisma {
   export type RolPermisoUncheckedUpdateManyWithoutRolInput = {
     id?: StringFieldUpdateOperationsInput | string
     permisoId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UsuarioUpdateWithoutRolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutRolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type UsuarioUncheckedUpdateManyWithoutRolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RolPermisoCreateManyPermisoInput = {
