@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* Theme paraguayo establecido en Tarea 4 */
+:root {
+  --primary-blue: #0066CC;
+  --primary-red: #E60026;
+  --gray-50: #F9FAFB;
+  --gray-900: #111827;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--gray-50);
+}
+
+/* Variables de color para Tailwind */
+@layer base {
+  :root {
+    --color-primary-blue: 0 102 204;
+    --color-primary-red: 230 0 38;
+  }
+}
+
+@layer components {
+  .text-primary-blue {
+    color: rgb(var(--color-primary-blue));
+  }
+  
+  .bg-primary-blue {
+    background-color: rgb(var(--color-primary-blue));
+  }
+  
+  .border-primary-blue {
+    border-color: rgb(var(--color-primary-blue));
+  }
+} 
