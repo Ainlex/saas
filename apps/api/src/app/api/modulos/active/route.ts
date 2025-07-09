@@ -1,26 +1,13 @@
-import { NextRequest } from 'next/server'
-
-export const dynamic = 'force-dynamic'
+import { NextRequest, NextResponse } from 'next/server';
+import { getCurrentUserFromHeaders } from '../../../../utils/auth';
+import { prisma } from '@contafacil/database';
 
 export async function GET(request: NextRequest) {
   try {
-    // Solo importar en runtime para evitar problemas de build
-    const { getCurrentUser } = await import('@contafacil/auth')
-    const { prisma } = await import('@contafacil/database')
+    const user = await getCurrentUserFromHeaders(request);
     
-    const user = await getCurrentUser(request)
-    // NOTA: Eliminar estos logs cuando todo esté al 100%
-    console.log('🔍 USER obtenido de Clerk:', user)
-
-    if (!user || !user.empresaId) {
-      console.log('⚠️ Usuario no autenticado o sin empresaId')
-      return Response.json([], { status: 200 })
-    }
-
-    // Obtener módulos activos para la empresa
-    // NOTA: Eliminar estos logs cuando todo esté al 100%
-    console.log('🔎 Buscando módulos activos para empresaId:', user.empresaId)
-    const empresaModulos = await prisma.empresaModulo.findMany({
+    // Obtener módulos activos de la empresa
+    const modulosActivos = await prisma.empresaModulo.findMany({
       where: {
         empresaId: user.empresaId,
         activo: true,
@@ -40,32 +27,30 @@ export async function GET(request: NextRequest) {
           orden: 'asc'
         }
       }
-    })
-    // NOTA: Eliminar estos logs cuando todo esté al 100%
-    console.log('✅ Resultado empresaModulos:', empresaModulos)
+    });
 
-    const modules = empresaModulos.map((em: any) => ({
+    const modulos = modulosActivos.map(em => ({
+      id: em.modulo.id,
       nombre: em.modulo.nombre,
       displayName: em.modulo.displayName,
-      activo: em.activo,
+      descripcion: em.modulo.descripcion,
       icono: em.modulo.icono,
       color: em.modulo.color,
-      rutas: em.modulo.rutas.map((r: any) => r.ruta)
-    }))
-    // NOTA: Eliminar estos logs cuando todo esté al 100%
-    console.log('📦 Modules a retornar:', modules)
+      activo: em.activo,
+      fechaActivacion: em.fechaActivacion,
+      rutas: em.modulo.rutas.map(r => ({
+        ruta: r.ruta,
+        nombre: r.nombre,
+        activo: r.activo
+      }))
+    }));
 
-    return Response.json(modules)
+    return NextResponse.json({ modulos });
+    
   } catch (error) {
-    // NOTA: Eliminar estos logs cuando todo esté al 100%
-    console.error('❌ Error en /api/modulos/active:', error)
-    return Response.json(
-      { 
-        error: (error as Error).message,
-        stack: (error as Error).stack,
-        full: JSON.stringify(error)
-      }, 
+    return NextResponse.json(
+      { error: (error as Error).message },
       { status: 500 }
-    )
+    );
   }
 } 

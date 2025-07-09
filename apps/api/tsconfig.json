@@ -1,24 +1,14 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@contafacil/database": [
-        "../../packages/database/dist"
-      ],
-      "@contafacil/ui": [
-        "../../packages/ui/dist"
-      ],
-      "@contafacil/modules": [
-        "../../packages/modules/dist"
-      ],
-      "@contafacil/auth": [
-        "../../packages/auth/dist"
-      ],
-      "@contafacil/shared": [
-        "../../packages/shared/dist"
       ]
     },
     "noEmit": true

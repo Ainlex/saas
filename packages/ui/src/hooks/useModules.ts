@@ -53,7 +53,16 @@ export function useModules(options: UseModulesOptions = {}) {
         throw new Error(`Error fetching modules: ${response.statusText}`)
       }
       const data = await response.json()
-      setModules(data.modules || data || [])
+      // Aseguramos que siempre sea un array
+      if (Array.isArray(data.modulos)) {
+        setModules(data.modulos)
+      } else if (Array.isArray(data.modules)) {
+        setModules(data.modules)
+      } else if (Array.isArray(data)) {
+        setModules(data)
+      } else {
+        setModules([])
+      }
     } catch (error) {
       console.error('Error fetching modules:', error)
       setError(error instanceof Error ? error.message : 'Error desconocido')
