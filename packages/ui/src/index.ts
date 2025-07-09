@@ -1,27 +1,23 @@
-// UI package exports
-export * from './components'
-export * from './hooks'
-export * from './utils/cn'
-export * from './types'
-
-// Components - Common
+// Components
 export { Button } from './components/common/Button'
 export { Input } from './components/common/Input'
-export { Modal } from './components/common/Modal'
 export { LoadingSpinner } from './components/common/LoadingSpinner'
+export { ModuleNotAvailable } from './components/common/ModuleNotAvailable'
+export { Card } from './components/common/Card'
 
-// Components - Forms
-export { Form } from './components/forms/Form'
-export { FormField } from './components/forms/FormField'
-
-// Components - Layouts
+// Layouts
 export { AppLayout } from './components/layouts/AppLayout'
 export { ModuleNavigation } from './components/layouts/ModuleNavigation'
 export { Sidebar } from './components/layouts/Sidebar'
+export { Header } from './components/layouts/Header'
 
 // Hooks
 export { useModules } from './hooks/useModules'
 export { useAuth } from './hooks/useAuth'
 
-// Types (si existen)
-export type { ModuleInfo } from './hooks/useModules' 
+// Utils
+export { cn } from './utils/cn'
+
+// Types
+export type { ModuleInfo, ModuleRoute } from './hooks/useModules'
+export type { AuthUser } from './hooks/useAuth' 

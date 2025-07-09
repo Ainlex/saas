@@ -1,55 +1,45 @@
 "use client";
 import React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../utils/cn'
+import { clsx } from 'clsx'
 
-const inputVariants = cva(
-  'flex w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        default: 'border-gray-300',
-        error: 'border-danger-500 focus-visible:ring-danger-500',
-        success: 'border-success-500 focus-visible:ring-success-500',
-      },
-      size: {
-        default: 'h-10 px-3 py-2',
-        sm: 'h-8 px-2 py-1 text-xs',
-        lg: 'h-12 px-4 py-3 text-base',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-)
-
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof inputVariants> {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string
   error?: string
-  success?: boolean
+  helpText?: string
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, size, error, success, ...props }, ref) => {
-    const inputVariant = error ? 'error' : success ? 'success' : variant
+export function Input({ 
+  label, 
+  error, 
+  helpText, 
+  className, 
+  id,
+  ...props 
+}: InputProps) {
+  const inputId = id || label?.toLowerCase().replace(/\s+/g, '-')
 
-    return (
-      <div className="relative">
-        <input
-          className={cn(inputVariants({ variant: inputVariant, size, className }))}
-          ref={ref}
-          {...props}
-        />
-        {error && (
-          <p className="mt-1 text-xs text-danger-500">{error}</p>
+  return (
+    <div className="space-y-1">
+      {label && (
+        <label htmlFor={inputId} className="block text-sm font-medium text-gray-700">
+          {label}
+        </label>
+      )}
+      <input
+        id={inputId}
+        className={clsx(
+          'block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm',
+          error && 'border-error-500 focus:ring-error-500 focus:border-error-500',
+          className
         )}
-      </div>
-    )
-  }
-)
-Input.displayName = 'Input'
-
-export { Input, inputVariants } 
+        {...props}
+      />
+      {error && (
+        <p className="text-sm text-error-600">{error}</p>
+      )}
+      {helpText && !error && (
+        <p className="text-sm text-gray-500">{helpText}</p>
+      )}
+    </div>
+  )
+} 

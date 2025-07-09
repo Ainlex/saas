@@ -8,49 +8,31 @@ const spinnerVariants = cva(
   {
     variants: {
       size: {
-        sm: 'h-4 w-4',
-        default: 'h-6 w-6',
-        lg: 'h-8 w-8',
-        xl: 'h-12 w-12',
+        sm: 'h-4 w-4 border-2',
+        md: 'h-6 w-6 border-2',
+        lg: 'h-8 w-8 border-3'
       },
       color: {
-        default: 'border-primary-500 border-t-transparent',
-        white: 'border-white border-t-transparent',
-        gray: 'border-gray-500 border-t-transparent',
-      },
+        primary: 'border-t-primary-600',
+        secondary: 'border-t-secondary-600',
+        white: 'border-t-white'
+      }
     },
     defaultVariants: {
-      size: 'default',
-      color: 'default',
-    },
+      size: 'md',
+      color: 'primary'
+    }
   }
 )
 
-export interface LoadingSpinnerProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
-    VariantProps<typeof spinnerVariants> {
-  text?: string
-  textClassName?: string
+export interface LoadingSpinnerProps extends VariantProps<typeof spinnerVariants> {
+  className?: string
 }
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
-  className,
-  size,
-  color,
-  text,
-  textClassName,
-  ...props
-}) => {
+export function LoadingSpinner({ size, color, className }: LoadingSpinnerProps) {
   return (
-    <div className={cn('flex flex-col items-center justify-center', className)} {...props}>
-      <div className={cn(spinnerVariants({ size, color }))} />
-      {text && (
-        <p className={cn('mt-2 text-sm text-gray-600', textClassName)}>
-          {text}
-        </p>
-      )}
+    <div className={cn(spinnerVariants({ size, color }), className)}>
+      <div className="sr-only">Cargando...</div>
     </div>
   )
-}
-
-export { LoadingSpinner, spinnerVariants } 
+} 

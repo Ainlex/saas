@@ -1,32 +1,30 @@
 "use client";
 
-import { useUser } from '@clerk/nextjs'
+import { useSession } from 'next-auth/react'
 
 export interface AuthUser {
   id: string
   email: string
-  firstName?: string
-  lastName?: string
+  name: string
   empresaId: string
-  isSignedIn: boolean
+  rol: string
 }
 
 export function useAuth() {
-  const { user, isLoaded, isSignedIn } = useUser()
+  const { data: session, status } = useSession()
   
-  const authUser: AuthUser | null = user ? {
-    id: user.id,
-    email: user.emailAddresses[0]?.emailAddress || '',
-    firstName: user.firstName || undefined,
-    lastName: user.lastName || undefined,
-    empresaId: user.publicMetadata?.empresaId as string || '',
-    isSignedIn: isSignedIn
+  const user: AuthUser | null = session?.user ? {
+    id: (session.user as any).id || '',
+    email: session.user.email || '',
+    name: session.user.name || '',
+    empresaId: (session.user as any).empresaId || '',
+    rol: (session.user as any).rol || ''
   } : null
-
+  
   return {
-    user: authUser,
-    isSignedIn: isSignedIn,
-    isLoaded: isLoaded,
-    empresaId: authUser?.empresaId || '',
+    user,
+    isLoading: status === 'loading',
+    isAuthenticated: !!session,
+    empresaId: user?.empresaId || null
   }
 } 

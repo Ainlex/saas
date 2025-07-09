@@ -37,28 +37,54 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null
+        console.log('🔑 Intentando login con:', credentials);
+
+        if (!credentials?.email || !credentials?.password) {
+          console.log('❌ Faltan credenciales');
+          return null;
+        }
         
-        // VALIDAR: Verificar que prisma.usuario exista antes de usar
-        if (!prisma.usuario) throw new Error('prisma.usuario no existe')
-        const usuario = await prisma.usuario.findUnique({
-          where: { email: credentials.email },
-          include: { 
-            empresa: true,
-            rol: true 
+        try {
+          // VALIDAR: Verificar que prisma.usuario exista antes de usar
+          if (!prisma.usuario) {
+            console.log('❌ prisma.usuario no existe');
+            throw new Error('prisma.usuario no existe')
           }
-        })
-        
-        if (!usuario || !usuario.activo) return null
-        
-        // TODO: Validar password (agregar hash después)
-        
-        return {
-          id: usuario.id,
-          email: usuario.email,
-          name: usuario.nombre,
-          empresaId: usuario.empresaId,
-          rol: usuario.rol.nombre
+          
+          console.log('🔍 Buscando usuario con email:', credentials.email);
+          const usuario = await prisma.usuario.findUnique({
+            where: { email: credentials.email },
+            include: { 
+              empresa: true,
+              rol: true 
+            }
+          })
+          
+          console.log('👤 Usuario encontrado:', usuario);
+
+          if (!usuario) {
+            console.log('❌ Usuario no encontrado');
+            return null;
+          }
+          
+          if (!usuario.activo) {
+            console.log('❌ Usuario inactivo');
+            return null;
+          }
+          
+          console.log('✅ Usuario válido, retornando datos');
+          // TODO: Validar password (agregar hash después)
+          
+          return {
+            id: usuario.id,
+            email: usuario.email,
+            name: usuario.nombre,
+            empresaId: usuario.empresaId,
+            rol: usuario.rol.nombre
+          }
+        } catch (error) {
+          console.error('💥 Error en authorize:', error);
+          throw error;
         }
       }
     })

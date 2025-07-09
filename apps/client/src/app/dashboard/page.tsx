@@ -3,8 +3,7 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { useModules } from '@contafacil/ui'
-import { Card, Button, LoadingSpinner } from '@contafacil/ui'
+import { useModules, AppLayout, Card, Button, LoadingSpinner } from '@contafacil/ui'
 
 export default function DashboardPage() {
   const { data: session, status } = useSession()
@@ -34,7 +33,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <AppLayout>
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           {/* Header */}
@@ -136,6 +135,6 @@ export default function DashboardPage() {
           )}
         </div>
       </div>
-    </div>
+    </AppLayout>
   )
 } 
