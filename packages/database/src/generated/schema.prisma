@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated"
@@ -11,42 +8,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ========================================
-// ENUMS
-// ========================================
-
-enum PlanType {
-  STARTER
-  PROFESIONAL
-  EMPRESARIAL
-}
-
-// ========================================
-// MODELOS BASE - MULTI-TENANT MODULAR
-// ========================================
-
 model Empresa {
-  id                 String   @id @default(cuid())
+  id                 String                 @id @default(cuid())
   nombre             String
-  ruc                String   @unique
-  email              String?
-  telefono           String?
+  ruc                String                 @unique
+  activo             Boolean                @default(true)
   direccion          String?
-  plan               PlanType @default(STARTER)
-  activo             Boolean  @default(true)
-  fechaCreacion      DateTime @default(now())
-  fechaActualizacion DateTime @updatedAt
-
-  // Relaciones
-  usuarios        Usuario[]
-  modulosActivos  EmpresaModulo[]
-  configuraciones EmpresaConfiguracion[]
-
-  // Datos específicos por módulo (para futuro)
-  facturas        Factura[]
-  productos       Producto[]
-  clientes        Cliente[]
-  movimientosCaja MovimientoCaja[]
+  email              String?
+  fechaActualizacion DateTime               @updatedAt
+  fechaCreacion      DateTime               @default(now())
+  telefono           String?
+  plan               PlanType               @default(STARTER)
+  clientes           Cliente[]
+  configuraciones    EmpresaConfiguracion[]
+  modulosActivos     EmpresaModulo[]
+  facturas           Factura[]
+  movimientosCaja    MovimientoCaja[]
+  productos          Producto[]
+  usuarios           Usuario[]
 
   @@map("empresas")
 }
@@ -55,39 +34,29 @@ model Usuario {
   id        String  @id @default(cuid())
   email     String  @unique
   nombre    String
-  apellido  String?
-  activo    Boolean @default(true)
   empresaId String
   rolId     String
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  rol     Rol     @relation(fields: [rolId], references: [id])
+  activo    Boolean @default(true)
+  apellido  String?
+  empresa   Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  rol       Rol     @relation(fields: [rolId], references: [id])
 
   @@map("usuarios")
 }
 
-// ========================================
-// SISTEMA DE MÓDULOS
-// ========================================
-
 model Modulo {
-  id          String  @id @default(cuid())
-  nombre      String  @unique // 'facturacion', 'pos', 'inventario', etc.
-  displayName String // 'Facturación Electrónica', 'Punto de Venta', etc.
-  descripcion String?
-  version     String  @default("1.0.0")
-  activo      Boolean @default(true)
-  orden       Int     @default(0)
-  icono       String?
-  color       String?
-
-  // Dependencias entre módulos
-  dependeDe       ModuloDependencia[] @relation("ModuloPrincipal")
-  esDependenciaDe ModuloDependencia[] @relation("ModuloDependiente")
-
-  // Relaciones
+  id                String              @id @default(cuid())
+  nombre            String              @unique
+  displayName       String
+  version           String              @default("1.0.0")
+  activo            Boolean             @default(true)
+  color             String?
+  descripcion       String?
+  icono             String?
+  orden             Int                 @default(0)
   empresasConModulo EmpresaModulo[]
+  esDependenciaDe   ModuloDependencia[] @relation("ModuloDependiente")
+  dependeDe         ModuloDependencia[] @relation("ModuloPrincipal")
   permisos          ModuloPermiso[]
   rutas             ModuloRuta[]
 
@@ -99,13 +68,11 @@ model EmpresaModulo {
   empresaId          String
   moduloId           String
   activo             Boolean   @default(true)
+  configuracion      Json?
   fechaActivacion    DateTime  @default(now())
   fechaDesactivacion DateTime?
-  configuracion      Json? // Configuración específica por empresa
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  modulo  Modulo  @relation(fields: [moduloId], references: [id])
+  empresa            Empresa   @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  modulo             Modulo    @relation(fields: [moduloId], references: [id])
 
   @@unique([empresaId, moduloId])
   @@map("empresa_modulos")
@@ -113,13 +80,11 @@ model EmpresaModulo {
 
 model ModuloDependencia {
   id          String  @id @default(cuid())
-  moduloId    String // Módulo principal
-  dependeDeId String // Módulo del que depende
-  requerido   Boolean @default(true) // Si es obligatorio o opcional
-
-  // Relaciones
-  modulo    Modulo @relation("ModuloPrincipal", fields: [moduloId], references: [id])
-  dependeDe Modulo @relation("ModuloDependiente", fields: [dependeDeId], references: [id])
+  moduloId    String
+  dependeDeId String
+  requerido   Boolean @default(true)
+  dependeDe   Modulo  @relation("ModuloDependiente", fields: [dependeDeId], references: [id])
+  modulo      Modulo  @relation("ModuloPrincipal", fields: [moduloId], references: [id])
 
   @@unique([moduloId, dependeDeId])
   @@map("modulo_dependencias")
@@ -128,65 +93,49 @@ model ModuloDependencia {
 model ModuloRuta {
   id          String  @id @default(cuid())
   moduloId    String
-  ruta        String // '/facturacion', '/pos', etc.
-  nombre      String
-  descripcion String?
+  ruta        String
   activo      Boolean @default(true)
-
-  // Relaciones
-  modulo Modulo @relation(fields: [moduloId], references: [id])
+  descripcion String?
+  nombre      String
+  modulo      Modulo  @relation(fields: [moduloId], references: [id])
 
   @@map("modulo_rutas")
 }
 
-// ========================================
-// SISTEMA DE PERMISOS Y ROLES
-// ========================================
-
 model Rol {
-  id          String  @id @default(cuid())
+  id          String       @id @default(cuid())
   nombre      String
+  activo      Boolean      @default(true)
   descripcion String?
-  activo      Boolean @default(true)
-
-  // Relaciones
-  usuarios Usuario[]
-  permisos RolPermiso[]
+  permisos    RolPermiso[]
+  usuarios    Usuario[]
 
   @@map("roles")
 }
 
 model ModuloPermiso {
-  id          String  @id @default(cuid())
+  id          String       @id @default(cuid())
   moduloId    String
-  codigo      String // 'facturacion:crear', 'pos:vender', etc.
   nombre      String
+  codigo      String
   descripcion String?
-
-  // Relaciones
-  modulo Modulo       @relation(fields: [moduloId], references: [id])
-  roles  RolPermiso[]
+  modulo      Modulo       @relation(fields: [moduloId], references: [id])
+  roles       RolPermiso[]
 
   @@unique([moduloId, codigo])
   @@map("modulo_permisos")
 }
 
 model RolPermiso {
-  id        String @id @default(cuid())
+  id        String        @id @default(cuid())
   rolId     String
   permisoId String
-
-  // Relaciones
-  rol     Rol           @relation(fields: [rolId], references: [id])
-  permiso ModuloPermiso @relation(fields: [permisoId], references: [id])
+  permiso   ModuloPermiso @relation(fields: [permisoId], references: [id])
+  rol       Rol           @relation(fields: [rolId], references: [id])
 
   @@unique([rolId, permisoId])
   @@map("rol_permisos")
 }
-
-// ========================================
-// MODELOS DE CONFIGURACIÓN
-// ========================================
 
 model EmpresaConfiguracion {
   id        String   @id @default(cuid())
@@ -196,27 +145,18 @@ model EmpresaConfiguracion {
   activo    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@unique([empresaId, clave])
   @@map("empresa_configuraciones")
 }
 
-// ========================================
-// MODELOS DE MÓDULOS ESPECÍFICOS (PLACEHOLDER)
-// ========================================
-
 model Factura {
   id        String   @id @default(cuid())
   empresaId String
-  // Campos específicos del módulo facturación
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@map("facturas")
 }
@@ -224,12 +164,9 @@ model Factura {
 model Producto {
   id        String   @id @default(cuid())
   empresaId String
-  // Campos específicos del módulo inventario
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@map("productos")
 }
@@ -237,12 +174,9 @@ model Producto {
 model Cliente {
   id        String   @id @default(cuid())
   empresaId String
-  // Campos específicos del módulo CRM
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@map("clientes")
 }
@@ -250,12 +184,15 @@ model Cliente {
 model MovimientoCaja {
   id        String   @id @default(cuid())
   empresaId String
-  // Campos específicos del módulo POS
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relaciones
-  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@map("movimientos_caja")
+}
+
+enum PlanType {
+  STARTER
+  PROFESIONAL
+  EMPRESARIAL
 }

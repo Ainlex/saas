@@ -1,6 +1,29 @@
-// Modules package exports
-export * from './core';
-export * from './core/module-events'
-export * from './core/module-manager'
-export * from './core/base-module'
-export * from './types/events' 
+// Core classes
+export { ModuleEventBus, eventBus } from './core/module-events'
+export { ModuleManager, moduleManager } from './core/module-manager'
+export { BaseModule } from './core/base-module'
+
+// Types
+export * from './types'
+
+// Utils
+export { ValidationUtils } from './utils/validation'
+
+// Re-export commonly used types
+export type { 
+  BaseModuleEvent,
+  ModuleEvent,
+  VentaCompletadaEvent,
+  FacturaEmitidaEvent,
+  StockActualizadoEvent,
+  AsientoCreado,
+  ClienteCreadoEvent
+} from './types/events'
+
+export type {
+  ModuloNombre,
+  ModuleConfig,
+  ModuleContext,
+  ModuleActionResult,
+  BaseModuleInterface
+} from './types/modules' 

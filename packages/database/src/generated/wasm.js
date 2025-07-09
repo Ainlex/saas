@@ -126,35 +126,35 @@ exports.Prisma.EmpresaScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
   ruc: 'ruc',
-  email: 'email',
-  telefono: 'telefono',
-  direccion: 'direccion',
-  plan: 'plan',
   activo: 'activo',
+  direccion: 'direccion',
+  email: 'email',
+  fechaActualizacion: 'fechaActualizacion',
   fechaCreacion: 'fechaCreacion',
-  fechaActualizacion: 'fechaActualizacion'
+  telefono: 'telefono',
+  plan: 'plan'
 };
 
 exports.Prisma.UsuarioScalarFieldEnum = {
   id: 'id',
   email: 'email',
   nombre: 'nombre',
-  apellido: 'apellido',
-  activo: 'activo',
   empresaId: 'empresaId',
-  rolId: 'rolId'
+  rolId: 'rolId',
+  activo: 'activo',
+  apellido: 'apellido'
 };
 
 exports.Prisma.ModuloScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
   displayName: 'displayName',
-  descripcion: 'descripcion',
   version: 'version',
   activo: 'activo',
-  orden: 'orden',
+  color: 'color',
+  descripcion: 'descripcion',
   icono: 'icono',
-  color: 'color'
+  orden: 'orden'
 };
 
 exports.Prisma.EmpresaModuloScalarFieldEnum = {
@@ -162,9 +162,9 @@ exports.Prisma.EmpresaModuloScalarFieldEnum = {
   empresaId: 'empresaId',
   moduloId: 'moduloId',
   activo: 'activo',
+  configuracion: 'configuracion',
   fechaActivacion: 'fechaActivacion',
-  fechaDesactivacion: 'fechaDesactivacion',
-  configuracion: 'configuracion'
+  fechaDesactivacion: 'fechaDesactivacion'
 };
 
 exports.Prisma.ModuloDependenciaScalarFieldEnum = {
@@ -178,23 +178,23 @@ exports.Prisma.ModuloRutaScalarFieldEnum = {
   id: 'id',
   moduloId: 'moduloId',
   ruta: 'ruta',
-  nombre: 'nombre',
+  activo: 'activo',
   descripcion: 'descripcion',
-  activo: 'activo'
+  nombre: 'nombre'
 };
 
 exports.Prisma.RolScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
-  descripcion: 'descripcion',
-  activo: 'activo'
+  activo: 'activo',
+  descripcion: 'descripcion'
 };
 
 exports.Prisma.ModuloPermisoScalarFieldEnum = {
   id: 'id',
   moduloId: 'moduloId',
-  codigo: 'codigo',
   nombre: 'nombre',
+  codigo: 'codigo',
   descripcion: 'descripcion'
 };
 
