@@ -1,32 +1,13 @@
 {
-  "extends": "../../tsconfig.packages.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "module": "CommonJS",
-    "target": "ES2020",
-    "incremental": true,
-    "tsBuildInfoFile": "./dist/.tsbuildinfo",
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@contafacil/database": ["../database/dist"],
-      "@contafacil/shared": ["../shared/dist"]
-    }
+    "sourceMap": true,
+    "composite": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.test.ts"
-  ],
-  "references": [
-    { "path": "../database" },
-    { "path": "../shared" }
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 } 
