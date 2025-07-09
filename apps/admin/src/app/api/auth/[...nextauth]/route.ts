@@ -5,7 +5,7 @@ const handler = NextAuth({
   ...authOptions,
   cookies: {
     sessionToken: {
-      name: 'contafacil-client-session',
+      name: 'contafacil-admin-session',
       options: {
         httpOnly: true,
         sameSite: 'lax',

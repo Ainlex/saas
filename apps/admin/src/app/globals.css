@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* Theme admin específico */
+:root {
+  --admin-primary: #7C3AED;
+  --admin-secondary: #A855F7;
+  --admin-danger: #EF4444;
+  --admin-success: #10B981;
+  --gray-50: #F9FAFB;
+  --gray-900: #111827;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--gray-50);
+}
+
+.admin-primary {
+  background-color: var(--admin-primary);
+}
+
+.admin-text-primary {
+  color: var(--admin-primary);
+} 

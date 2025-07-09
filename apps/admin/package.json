@@ -1,33 +1,38 @@
 {
   "name": "@contafacil/admin",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next"
+    "clean": "rm -rf .next",
+    "test:admin": "tsx scripts/test-admin.ts",
+    "test:integration": "tsx scripts/test-integration.ts"
   },
   "dependencies": {
-    "next": "^14.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "@contafacil/ui": "workspace:*",
-    "@contafacil/shared": "workspace:*",
-    "@contafacil/auth": "workspace:*",
-    "@contafacil/modules": "workspace:*"
+    "@contafacil/auth": "*",
+    "@contafacil/database": "*",
+    "@contafacil/shared": "*",
+    "@contafacil/ui": "*",
+    "next": "14.2.3",
+    "next-auth": "^4.24.5",
+    "puppeteer": "^24.12.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "typescript": "^5.0.0",
-    "tailwindcss": "^3.3.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.3.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   }
-} 
+}

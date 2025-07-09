@@ -1,11 +1,10 @@
-import type { Metadata } from 'next';
-import { APP_NAME } from '@contafacil/shared';
+'use client';
+
+import { Inter } from 'next/font/google';
+import { SessionProvider } from 'next-auth/react';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: `${APP_NAME} - Admin`,
-  description: 'Panel de administración SaaS',
-};
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -14,8 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="antialiased">
-        {children}
+      <body className={inter.className}>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );
