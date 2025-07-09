@@ -118,6 +118,22 @@ async function createDemoData() {
 
     console.log('✅ Roles creados')
 
+    // Crear usuario admin
+    const usuarioAdmin = await prisma.usuario.upsert({
+      where: { email: 'admin@contafacil.com' },
+      update: {},
+      create: {
+        email: 'admin@contafacil.com',
+        nombre: 'Administrador',
+        apellido: 'Sistema',
+        empresaId: empresa.id,
+        rolId: rolAdmin.id,
+        activo: true
+      }
+    })
+
+    console.log('✅ Usuario admin creado:', usuarioAdmin.email)
+
     // Activar todos los módulos para la empresa demo
     const empresaModulos = await Promise.all(
       modulos.map(async modulo => {
