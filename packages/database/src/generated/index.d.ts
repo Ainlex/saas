@@ -83,6 +83,11 @@ export type Cliente = $Result.DefaultSelection<Prisma.$ClientePayload>
  * 
  */
 export type MovimientoCaja = $Result.DefaultSelection<Prisma.$MovimientoCajaPayload>
+/**
+ * Model ModuloHistorico
+ * 
+ */
+export type ModuloHistorico = $Result.DefaultSelection<Prisma.$ModuloHistoricoPayload>
 
 /**
  * Enums
@@ -364,6 +369,16 @@ export class PrismaClient<
     * ```
     */
   get movimientoCaja(): Prisma.MovimientoCajaDelegate<ExtArgs>;
+
+  /**
+   * `prisma.moduloHistorico`: Exposes CRUD operations for the **ModuloHistorico** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ModuloHistoricos
+    * const moduloHistoricos = await prisma.moduloHistorico.findMany()
+    * ```
+    */
+  get moduloHistorico(): Prisma.ModuloHistoricoDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -818,7 +833,8 @@ export namespace Prisma {
     Factura: 'Factura',
     Producto: 'Producto',
     Cliente: 'Cliente',
-    MovimientoCaja: 'MovimientoCaja'
+    MovimientoCaja: 'MovimientoCaja',
+    ModuloHistorico: 'ModuloHistorico'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -834,7 +850,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "empresa" | "usuario" | "modulo" | "empresaModulo" | "moduloDependencia" | "moduloRuta" | "rol" | "moduloPermiso" | "rolPermiso" | "empresaConfiguracion" | "factura" | "producto" | "cliente" | "movimientoCaja"
+      modelProps: "empresa" | "usuario" | "modulo" | "empresaModulo" | "moduloDependencia" | "moduloRuta" | "rol" | "moduloPermiso" | "rolPermiso" | "empresaConfiguracion" | "factura" | "producto" | "cliente" | "movimientoCaja" | "moduloHistorico"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1818,6 +1834,76 @@ export namespace Prisma {
           }
         }
       }
+      ModuloHistorico: {
+        payload: Prisma.$ModuloHistoricoPayload<ExtArgs>
+        fields: Prisma.ModuloHistoricoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ModuloHistoricoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ModuloHistoricoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          findFirst: {
+            args: Prisma.ModuloHistoricoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ModuloHistoricoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          findMany: {
+            args: Prisma.ModuloHistoricoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>[]
+          }
+          create: {
+            args: Prisma.ModuloHistoricoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          createMany: {
+            args: Prisma.ModuloHistoricoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ModuloHistoricoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>[]
+          }
+          delete: {
+            args: Prisma.ModuloHistoricoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          update: {
+            args: Prisma.ModuloHistoricoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          deleteMany: {
+            args: Prisma.ModuloHistoricoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ModuloHistoricoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ModuloHistoricoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModuloHistoricoPayload>
+          }
+          aggregate: {
+            args: Prisma.ModuloHistoricoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateModuloHistorico>
+          }
+          groupBy: {
+            args: Prisma.ModuloHistoricoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ModuloHistoricoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ModuloHistoricoCountArgs<ExtArgs>
+            result: $Utils.Optional<ModuloHistoricoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1982,6 +2068,7 @@ export namespace Prisma {
     clientes: number
     configuraciones: number
     modulosActivos: number
+    moduloHistorico: number
     facturas: number
     movimientosCaja: number
     productos: number
@@ -1992,6 +2079,7 @@ export namespace Prisma {
     clientes?: boolean | EmpresaCountOutputTypeCountClientesArgs
     configuraciones?: boolean | EmpresaCountOutputTypeCountConfiguracionesArgs
     modulosActivos?: boolean | EmpresaCountOutputTypeCountModulosActivosArgs
+    moduloHistorico?: boolean | EmpresaCountOutputTypeCountModuloHistoricoArgs
     facturas?: boolean | EmpresaCountOutputTypeCountFacturasArgs
     movimientosCaja?: boolean | EmpresaCountOutputTypeCountMovimientosCajaArgs
     productos?: boolean | EmpresaCountOutputTypeCountProductosArgs
@@ -2033,6 +2121,13 @@ export namespace Prisma {
   /**
    * EmpresaCountOutputType without action
    */
+  export type EmpresaCountOutputTypeCountModuloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuloHistoricoWhereInput
+  }
+
+  /**
+   * EmpresaCountOutputType without action
+   */
   export type EmpresaCountOutputTypeCountFacturasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FacturaWhereInput
   }
@@ -2060,11 +2155,43 @@ export namespace Prisma {
 
 
   /**
+   * Count Type UsuarioCountOutputType
+   */
+
+  export type UsuarioCountOutputType = {
+    moduloHistorico: number
+  }
+
+  export type UsuarioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    moduloHistorico?: boolean | UsuarioCountOutputTypeCountModuloHistoricoArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UsuarioCountOutputType without action
+   */
+  export type UsuarioCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsuarioCountOutputType
+     */
+    select?: UsuarioCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UsuarioCountOutputType without action
+   */
+  export type UsuarioCountOutputTypeCountModuloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuloHistoricoWhereInput
+  }
+
+
+  /**
    * Count Type ModuloCountOutputType
    */
 
   export type ModuloCountOutputType = {
     empresasConModulo: number
+    moduloHistorico: number
     esDependenciaDe: number
     dependeDe: number
     permisos: number
@@ -2073,6 +2200,7 @@ export namespace Prisma {
 
   export type ModuloCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresasConModulo?: boolean | ModuloCountOutputTypeCountEmpresasConModuloArgs
+    moduloHistorico?: boolean | ModuloCountOutputTypeCountModuloHistoricoArgs
     esDependenciaDe?: boolean | ModuloCountOutputTypeCountEsDependenciaDeArgs
     dependeDe?: boolean | ModuloCountOutputTypeCountDependeDeArgs
     permisos?: boolean | ModuloCountOutputTypeCountPermisosArgs
@@ -2095,6 +2223,13 @@ export namespace Prisma {
    */
   export type ModuloCountOutputTypeCountEmpresasConModuloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EmpresaModuloWhereInput
+  }
+
+  /**
+   * ModuloCountOutputType without action
+   */
+  export type ModuloCountOutputTypeCountModuloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuloHistoricoWhereInput
   }
 
   /**
@@ -2408,6 +2543,7 @@ export namespace Prisma {
     clientes?: boolean | Empresa$clientesArgs<ExtArgs>
     configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
     modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
+    moduloHistorico?: boolean | Empresa$moduloHistoricoArgs<ExtArgs>
     facturas?: boolean | Empresa$facturasArgs<ExtArgs>
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
     productos?: boolean | Empresa$productosArgs<ExtArgs>
@@ -2445,6 +2581,7 @@ export namespace Prisma {
     clientes?: boolean | Empresa$clientesArgs<ExtArgs>
     configuraciones?: boolean | Empresa$configuracionesArgs<ExtArgs>
     modulosActivos?: boolean | Empresa$modulosActivosArgs<ExtArgs>
+    moduloHistorico?: boolean | Empresa$moduloHistoricoArgs<ExtArgs>
     facturas?: boolean | Empresa$facturasArgs<ExtArgs>
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
     productos?: boolean | Empresa$productosArgs<ExtArgs>
@@ -2459,6 +2596,7 @@ export namespace Prisma {
       clientes: Prisma.$ClientePayload<ExtArgs>[]
       configuraciones: Prisma.$EmpresaConfiguracionPayload<ExtArgs>[]
       modulosActivos: Prisma.$EmpresaModuloPayload<ExtArgs>[]
+      moduloHistorico: Prisma.$ModuloHistoricoPayload<ExtArgs>[]
       facturas: Prisma.$FacturaPayload<ExtArgs>[]
       movimientosCaja: Prisma.$MovimientoCajaPayload<ExtArgs>[]
       productos: Prisma.$ProductoPayload<ExtArgs>[]
@@ -2842,6 +2980,7 @@ export namespace Prisma {
     clientes<T extends Empresa$clientesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$clientesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findMany"> | Null>
     configuraciones<T extends Empresa$configuracionesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$configuracionesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaConfiguracionPayload<ExtArgs>, T, "findMany"> | Null>
     modulosActivos<T extends Empresa$modulosActivosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$modulosActivosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaModuloPayload<ExtArgs>, T, "findMany"> | Null>
+    moduloHistorico<T extends Empresa$moduloHistoricoArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$moduloHistoricoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findMany"> | Null>
     facturas<T extends Empresa$facturasArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$facturasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FacturaPayload<ExtArgs>, T, "findMany"> | Null>
     movimientosCaja<T extends Empresa$movimientosCajaArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$movimientosCajaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovimientoCajaPayload<ExtArgs>, T, "findMany"> | Null>
     productos<T extends Empresa$productosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$productosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductoPayload<ExtArgs>, T, "findMany"> | Null>
@@ -3259,6 +3398,26 @@ export namespace Prisma {
   }
 
   /**
+   * Empresa.moduloHistorico
+   */
+  export type Empresa$moduloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    where?: ModuloHistoricoWhereInput
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    cursor?: ModuloHistoricoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
+  }
+
+  /**
    * Empresa.facturas
    */
   export type Empresa$facturasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3543,6 +3702,8 @@ export namespace Prisma {
     activo?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
+    moduloHistorico?: boolean | Usuario$moduloHistoricoArgs<ExtArgs>
+    _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3572,6 +3733,8 @@ export namespace Prisma {
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
+    moduloHistorico?: boolean | Usuario$moduloHistoricoArgs<ExtArgs>
+    _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsuarioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
@@ -3583,6 +3746,7 @@ export namespace Prisma {
     objects: {
       empresa: Prisma.$EmpresaPayload<ExtArgs>
       rol: Prisma.$RolPayload<ExtArgs>
+      moduloHistorico: Prisma.$ModuloHistoricoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3959,6 +4123,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     empresa<T extends EmpresaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmpresaDefaultArgs<ExtArgs>>): Prisma__EmpresaClient<$Result.GetResult<Prisma.$EmpresaPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     rol<T extends RolDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RolDefaultArgs<ExtArgs>>): Prisma__RolClient<$Result.GetResult<Prisma.$RolPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    moduloHistorico<T extends Usuario$moduloHistoricoArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$moduloHistoricoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4314,6 +4479,26 @@ export namespace Prisma {
   }
 
   /**
+   * Usuario.moduloHistorico
+   */
+  export type Usuario$moduloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    where?: ModuloHistoricoWhereInput
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    cursor?: ModuloHistoricoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
+  }
+
+  /**
    * Usuario without action
    */
   export type UsuarioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4559,6 +4744,7 @@ export namespace Prisma {
     icono?: boolean
     orden?: boolean
     empresasConModulo?: boolean | Modulo$empresasConModuloArgs<ExtArgs>
+    moduloHistorico?: boolean | Modulo$moduloHistoricoArgs<ExtArgs>
     esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
     dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
     permisos?: boolean | Modulo$permisosArgs<ExtArgs>
@@ -4592,6 +4778,7 @@ export namespace Prisma {
 
   export type ModuloInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresasConModulo?: boolean | Modulo$empresasConModuloArgs<ExtArgs>
+    moduloHistorico?: boolean | Modulo$moduloHistoricoArgs<ExtArgs>
     esDependenciaDe?: boolean | Modulo$esDependenciaDeArgs<ExtArgs>
     dependeDe?: boolean | Modulo$dependeDeArgs<ExtArgs>
     permisos?: boolean | Modulo$permisosArgs<ExtArgs>
@@ -4604,6 +4791,7 @@ export namespace Prisma {
     name: "Modulo"
     objects: {
       empresasConModulo: Prisma.$EmpresaModuloPayload<ExtArgs>[]
+      moduloHistorico: Prisma.$ModuloHistoricoPayload<ExtArgs>[]
       esDependenciaDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
       dependeDe: Prisma.$ModuloDependenciaPayload<ExtArgs>[]
       permisos: Prisma.$ModuloPermisoPayload<ExtArgs>[]
@@ -4984,6 +5172,7 @@ export namespace Prisma {
   export interface Prisma__ModuloClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     empresasConModulo<T extends Modulo$empresasConModuloArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$empresasConModuloArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmpresaModuloPayload<ExtArgs>, T, "findMany"> | Null>
+    moduloHistorico<T extends Modulo$moduloHistoricoArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$moduloHistoricoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findMany"> | Null>
     esDependenciaDe<T extends Modulo$esDependenciaDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$esDependenciaDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
     dependeDe<T extends Modulo$dependeDeArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$dependeDeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloDependenciaPayload<ExtArgs>, T, "findMany"> | Null>
     permisos<T extends Modulo$permisosArgs<ExtArgs> = {}>(args?: Subset<T, Modulo$permisosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloPermisoPayload<ExtArgs>, T, "findMany"> | Null>
@@ -5357,6 +5546,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EmpresaModuloScalarFieldEnum | EmpresaModuloScalarFieldEnum[]
+  }
+
+  /**
+   * Modulo.moduloHistorico
+   */
+  export type Modulo$moduloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    where?: ModuloHistoricoWhereInput
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    cursor?: ModuloHistoricoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
   }
 
   /**
@@ -15757,6 +15966,975 @@ export namespace Prisma {
 
 
   /**
+   * Model ModuloHistorico
+   */
+
+  export type AggregateModuloHistorico = {
+    _count: ModuloHistoricoCountAggregateOutputType | null
+    _min: ModuloHistoricoMinAggregateOutputType | null
+    _max: ModuloHistoricoMaxAggregateOutputType | null
+  }
+
+  export type ModuloHistoricoMinAggregateOutputType = {
+    id: string | null
+    empresaId: string | null
+    moduloId: string | null
+    accion: string | null
+    usuarioId: string | null
+    razon: string | null
+    fechaCreacion: Date | null
+  }
+
+  export type ModuloHistoricoMaxAggregateOutputType = {
+    id: string | null
+    empresaId: string | null
+    moduloId: string | null
+    accion: string | null
+    usuarioId: string | null
+    razon: string | null
+    fechaCreacion: Date | null
+  }
+
+  export type ModuloHistoricoCountAggregateOutputType = {
+    id: number
+    empresaId: number
+    moduloId: number
+    accion: number
+    usuarioId: number
+    razon: number
+    fechaCreacion: number
+    _all: number
+  }
+
+
+  export type ModuloHistoricoMinAggregateInputType = {
+    id?: true
+    empresaId?: true
+    moduloId?: true
+    accion?: true
+    usuarioId?: true
+    razon?: true
+    fechaCreacion?: true
+  }
+
+  export type ModuloHistoricoMaxAggregateInputType = {
+    id?: true
+    empresaId?: true
+    moduloId?: true
+    accion?: true
+    usuarioId?: true
+    razon?: true
+    fechaCreacion?: true
+  }
+
+  export type ModuloHistoricoCountAggregateInputType = {
+    id?: true
+    empresaId?: true
+    moduloId?: true
+    accion?: true
+    usuarioId?: true
+    razon?: true
+    fechaCreacion?: true
+    _all?: true
+  }
+
+  export type ModuloHistoricoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ModuloHistorico to aggregate.
+     */
+    where?: ModuloHistoricoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModuloHistoricos to fetch.
+     */
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ModuloHistoricoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModuloHistoricos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModuloHistoricos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ModuloHistoricos
+    **/
+    _count?: true | ModuloHistoricoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ModuloHistoricoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ModuloHistoricoMaxAggregateInputType
+  }
+
+  export type GetModuloHistoricoAggregateType<T extends ModuloHistoricoAggregateArgs> = {
+        [P in keyof T & keyof AggregateModuloHistorico]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateModuloHistorico[P]>
+      : GetScalarType<T[P], AggregateModuloHistorico[P]>
+  }
+
+
+
+
+  export type ModuloHistoricoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuloHistoricoWhereInput
+    orderBy?: ModuloHistoricoOrderByWithAggregationInput | ModuloHistoricoOrderByWithAggregationInput[]
+    by: ModuloHistoricoScalarFieldEnum[] | ModuloHistoricoScalarFieldEnum
+    having?: ModuloHistoricoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ModuloHistoricoCountAggregateInputType | true
+    _min?: ModuloHistoricoMinAggregateInputType
+    _max?: ModuloHistoricoMaxAggregateInputType
+  }
+
+  export type ModuloHistoricoGroupByOutputType = {
+    id: string
+    empresaId: string
+    moduloId: string
+    accion: string
+    usuarioId: string
+    razon: string | null
+    fechaCreacion: Date
+    _count: ModuloHistoricoCountAggregateOutputType | null
+    _min: ModuloHistoricoMinAggregateOutputType | null
+    _max: ModuloHistoricoMaxAggregateOutputType | null
+  }
+
+  type GetModuloHistoricoGroupByPayload<T extends ModuloHistoricoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ModuloHistoricoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ModuloHistoricoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ModuloHistoricoGroupByOutputType[P]>
+            : GetScalarType<T[P], ModuloHistoricoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ModuloHistoricoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    empresaId?: boolean
+    moduloId?: boolean
+    accion?: boolean
+    usuarioId?: boolean
+    razon?: boolean
+    fechaCreacion?: boolean
+    empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["moduloHistorico"]>
+
+  export type ModuloHistoricoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    empresaId?: boolean
+    moduloId?: boolean
+    accion?: boolean
+    usuarioId?: boolean
+    razon?: boolean
+    fechaCreacion?: boolean
+    empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["moduloHistorico"]>
+
+  export type ModuloHistoricoSelectScalar = {
+    id?: boolean
+    empresaId?: boolean
+    moduloId?: boolean
+    accion?: boolean
+    usuarioId?: boolean
+    razon?: boolean
+    fechaCreacion?: boolean
+  }
+
+  export type ModuloHistoricoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+  export type ModuloHistoricoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
+    modulo?: boolean | ModuloDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+
+  export type $ModuloHistoricoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ModuloHistorico"
+    objects: {
+      empresa: Prisma.$EmpresaPayload<ExtArgs>
+      modulo: Prisma.$ModuloPayload<ExtArgs>
+      usuario: Prisma.$UsuarioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      empresaId: string
+      moduloId: string
+      accion: string
+      usuarioId: string
+      razon: string | null
+      fechaCreacion: Date
+    }, ExtArgs["result"]["moduloHistorico"]>
+    composites: {}
+  }
+
+  type ModuloHistoricoGetPayload<S extends boolean | null | undefined | ModuloHistoricoDefaultArgs> = $Result.GetResult<Prisma.$ModuloHistoricoPayload, S>
+
+  type ModuloHistoricoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ModuloHistoricoFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ModuloHistoricoCountAggregateInputType | true
+    }
+
+  export interface ModuloHistoricoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ModuloHistorico'], meta: { name: 'ModuloHistorico' } }
+    /**
+     * Find zero or one ModuloHistorico that matches the filter.
+     * @param {ModuloHistoricoFindUniqueArgs} args - Arguments to find a ModuloHistorico
+     * @example
+     * // Get one ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ModuloHistoricoFindUniqueArgs>(args: SelectSubset<T, ModuloHistoricoFindUniqueArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ModuloHistorico that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ModuloHistoricoFindUniqueOrThrowArgs} args - Arguments to find a ModuloHistorico
+     * @example
+     * // Get one ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ModuloHistoricoFindUniqueOrThrowArgs>(args: SelectSubset<T, ModuloHistoricoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ModuloHistorico that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoFindFirstArgs} args - Arguments to find a ModuloHistorico
+     * @example
+     * // Get one ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ModuloHistoricoFindFirstArgs>(args?: SelectSubset<T, ModuloHistoricoFindFirstArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ModuloHistorico that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoFindFirstOrThrowArgs} args - Arguments to find a ModuloHistorico
+     * @example
+     * // Get one ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ModuloHistoricoFindFirstOrThrowArgs>(args?: SelectSubset<T, ModuloHistoricoFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ModuloHistoricos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ModuloHistoricos
+     * const moduloHistoricos = await prisma.moduloHistorico.findMany()
+     * 
+     * // Get first 10 ModuloHistoricos
+     * const moduloHistoricos = await prisma.moduloHistorico.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const moduloHistoricoWithIdOnly = await prisma.moduloHistorico.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ModuloHistoricoFindManyArgs>(args?: SelectSubset<T, ModuloHistoricoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ModuloHistorico.
+     * @param {ModuloHistoricoCreateArgs} args - Arguments to create a ModuloHistorico.
+     * @example
+     * // Create one ModuloHistorico
+     * const ModuloHistorico = await prisma.moduloHistorico.create({
+     *   data: {
+     *     // ... data to create a ModuloHistorico
+     *   }
+     * })
+     * 
+     */
+    create<T extends ModuloHistoricoCreateArgs>(args: SelectSubset<T, ModuloHistoricoCreateArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ModuloHistoricos.
+     * @param {ModuloHistoricoCreateManyArgs} args - Arguments to create many ModuloHistoricos.
+     * @example
+     * // Create many ModuloHistoricos
+     * const moduloHistorico = await prisma.moduloHistorico.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ModuloHistoricoCreateManyArgs>(args?: SelectSubset<T, ModuloHistoricoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ModuloHistoricos and returns the data saved in the database.
+     * @param {ModuloHistoricoCreateManyAndReturnArgs} args - Arguments to create many ModuloHistoricos.
+     * @example
+     * // Create many ModuloHistoricos
+     * const moduloHistorico = await prisma.moduloHistorico.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ModuloHistoricos and only return the `id`
+     * const moduloHistoricoWithIdOnly = await prisma.moduloHistorico.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ModuloHistoricoCreateManyAndReturnArgs>(args?: SelectSubset<T, ModuloHistoricoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ModuloHistorico.
+     * @param {ModuloHistoricoDeleteArgs} args - Arguments to delete one ModuloHistorico.
+     * @example
+     * // Delete one ModuloHistorico
+     * const ModuloHistorico = await prisma.moduloHistorico.delete({
+     *   where: {
+     *     // ... filter to delete one ModuloHistorico
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ModuloHistoricoDeleteArgs>(args: SelectSubset<T, ModuloHistoricoDeleteArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ModuloHistorico.
+     * @param {ModuloHistoricoUpdateArgs} args - Arguments to update one ModuloHistorico.
+     * @example
+     * // Update one ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ModuloHistoricoUpdateArgs>(args: SelectSubset<T, ModuloHistoricoUpdateArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ModuloHistoricos.
+     * @param {ModuloHistoricoDeleteManyArgs} args - Arguments to filter ModuloHistoricos to delete.
+     * @example
+     * // Delete a few ModuloHistoricos
+     * const { count } = await prisma.moduloHistorico.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ModuloHistoricoDeleteManyArgs>(args?: SelectSubset<T, ModuloHistoricoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ModuloHistoricos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ModuloHistoricos
+     * const moduloHistorico = await prisma.moduloHistorico.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ModuloHistoricoUpdateManyArgs>(args: SelectSubset<T, ModuloHistoricoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ModuloHistorico.
+     * @param {ModuloHistoricoUpsertArgs} args - Arguments to update or create a ModuloHistorico.
+     * @example
+     * // Update or create a ModuloHistorico
+     * const moduloHistorico = await prisma.moduloHistorico.upsert({
+     *   create: {
+     *     // ... data to create a ModuloHistorico
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ModuloHistorico we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ModuloHistoricoUpsertArgs>(args: SelectSubset<T, ModuloHistoricoUpsertArgs<ExtArgs>>): Prisma__ModuloHistoricoClient<$Result.GetResult<Prisma.$ModuloHistoricoPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ModuloHistoricos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoCountArgs} args - Arguments to filter ModuloHistoricos to count.
+     * @example
+     * // Count the number of ModuloHistoricos
+     * const count = await prisma.moduloHistorico.count({
+     *   where: {
+     *     // ... the filter for the ModuloHistoricos we want to count
+     *   }
+     * })
+    **/
+    count<T extends ModuloHistoricoCountArgs>(
+      args?: Subset<T, ModuloHistoricoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ModuloHistoricoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ModuloHistorico.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ModuloHistoricoAggregateArgs>(args: Subset<T, ModuloHistoricoAggregateArgs>): Prisma.PrismaPromise<GetModuloHistoricoAggregateType<T>>
+
+    /**
+     * Group by ModuloHistorico.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuloHistoricoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ModuloHistoricoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ModuloHistoricoGroupByArgs['orderBy'] }
+        : { orderBy?: ModuloHistoricoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ModuloHistoricoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModuloHistoricoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ModuloHistorico model
+   */
+  readonly fields: ModuloHistoricoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ModuloHistorico.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ModuloHistoricoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    empresa<T extends EmpresaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmpresaDefaultArgs<ExtArgs>>): Prisma__EmpresaClient<$Result.GetResult<Prisma.$EmpresaPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    modulo<T extends ModuloDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuloDefaultArgs<ExtArgs>>): Prisma__ModuloClient<$Result.GetResult<Prisma.$ModuloPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ModuloHistorico model
+   */ 
+  interface ModuloHistoricoFieldRefs {
+    readonly id: FieldRef<"ModuloHistorico", 'String'>
+    readonly empresaId: FieldRef<"ModuloHistorico", 'String'>
+    readonly moduloId: FieldRef<"ModuloHistorico", 'String'>
+    readonly accion: FieldRef<"ModuloHistorico", 'String'>
+    readonly usuarioId: FieldRef<"ModuloHistorico", 'String'>
+    readonly razon: FieldRef<"ModuloHistorico", 'String'>
+    readonly fechaCreacion: FieldRef<"ModuloHistorico", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ModuloHistorico findUnique
+   */
+  export type ModuloHistoricoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter, which ModuloHistorico to fetch.
+     */
+    where: ModuloHistoricoWhereUniqueInput
+  }
+
+  /**
+   * ModuloHistorico findUniqueOrThrow
+   */
+  export type ModuloHistoricoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter, which ModuloHistorico to fetch.
+     */
+    where: ModuloHistoricoWhereUniqueInput
+  }
+
+  /**
+   * ModuloHistorico findFirst
+   */
+  export type ModuloHistoricoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter, which ModuloHistorico to fetch.
+     */
+    where?: ModuloHistoricoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModuloHistoricos to fetch.
+     */
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ModuloHistoricos.
+     */
+    cursor?: ModuloHistoricoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModuloHistoricos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModuloHistoricos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ModuloHistoricos.
+     */
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
+  }
+
+  /**
+   * ModuloHistorico findFirstOrThrow
+   */
+  export type ModuloHistoricoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter, which ModuloHistorico to fetch.
+     */
+    where?: ModuloHistoricoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModuloHistoricos to fetch.
+     */
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ModuloHistoricos.
+     */
+    cursor?: ModuloHistoricoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModuloHistoricos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModuloHistoricos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ModuloHistoricos.
+     */
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
+  }
+
+  /**
+   * ModuloHistorico findMany
+   */
+  export type ModuloHistoricoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter, which ModuloHistoricos to fetch.
+     */
+    where?: ModuloHistoricoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModuloHistoricos to fetch.
+     */
+    orderBy?: ModuloHistoricoOrderByWithRelationInput | ModuloHistoricoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ModuloHistoricos.
+     */
+    cursor?: ModuloHistoricoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModuloHistoricos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModuloHistoricos.
+     */
+    skip?: number
+    distinct?: ModuloHistoricoScalarFieldEnum | ModuloHistoricoScalarFieldEnum[]
+  }
+
+  /**
+   * ModuloHistorico create
+   */
+  export type ModuloHistoricoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ModuloHistorico.
+     */
+    data: XOR<ModuloHistoricoCreateInput, ModuloHistoricoUncheckedCreateInput>
+  }
+
+  /**
+   * ModuloHistorico createMany
+   */
+  export type ModuloHistoricoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ModuloHistoricos.
+     */
+    data: ModuloHistoricoCreateManyInput | ModuloHistoricoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ModuloHistorico createManyAndReturn
+   */
+  export type ModuloHistoricoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ModuloHistoricos.
+     */
+    data: ModuloHistoricoCreateManyInput | ModuloHistoricoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ModuloHistorico update
+   */
+  export type ModuloHistoricoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ModuloHistorico.
+     */
+    data: XOR<ModuloHistoricoUpdateInput, ModuloHistoricoUncheckedUpdateInput>
+    /**
+     * Choose, which ModuloHistorico to update.
+     */
+    where: ModuloHistoricoWhereUniqueInput
+  }
+
+  /**
+   * ModuloHistorico updateMany
+   */
+  export type ModuloHistoricoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ModuloHistoricos.
+     */
+    data: XOR<ModuloHistoricoUpdateManyMutationInput, ModuloHistoricoUncheckedUpdateManyInput>
+    /**
+     * Filter which ModuloHistoricos to update
+     */
+    where?: ModuloHistoricoWhereInput
+  }
+
+  /**
+   * ModuloHistorico upsert
+   */
+  export type ModuloHistoricoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ModuloHistorico to update in case it exists.
+     */
+    where: ModuloHistoricoWhereUniqueInput
+    /**
+     * In case the ModuloHistorico found by the `where` argument doesn't exist, create a new ModuloHistorico with this data.
+     */
+    create: XOR<ModuloHistoricoCreateInput, ModuloHistoricoUncheckedCreateInput>
+    /**
+     * In case the ModuloHistorico was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ModuloHistoricoUpdateInput, ModuloHistoricoUncheckedUpdateInput>
+  }
+
+  /**
+   * ModuloHistorico delete
+   */
+  export type ModuloHistoricoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+    /**
+     * Filter which ModuloHistorico to delete.
+     */
+    where: ModuloHistoricoWhereUniqueInput
+  }
+
+  /**
+   * ModuloHistorico deleteMany
+   */
+  export type ModuloHistoricoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ModuloHistoricos to delete
+     */
+    where?: ModuloHistoricoWhereInput
+  }
+
+  /**
+   * ModuloHistorico without action
+   */
+  export type ModuloHistoricoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuloHistorico
+     */
+    select?: ModuloHistoricoSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuloHistoricoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -15933,6 +17111,19 @@ export namespace Prisma {
   export type MovimientoCajaScalarFieldEnum = (typeof MovimientoCajaScalarFieldEnum)[keyof typeof MovimientoCajaScalarFieldEnum]
 
 
+  export const ModuloHistoricoScalarFieldEnum: {
+    id: 'id',
+    empresaId: 'empresaId',
+    moduloId: 'moduloId',
+    accion: 'accion',
+    usuarioId: 'usuarioId',
+    razon: 'razon',
+    fechaCreacion: 'fechaCreacion'
+  };
+
+  export type ModuloHistoricoScalarFieldEnum = (typeof ModuloHistoricoScalarFieldEnum)[keyof typeof ModuloHistoricoScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -16090,6 +17281,7 @@ export namespace Prisma {
     clientes?: ClienteListRelationFilter
     configuraciones?: EmpresaConfiguracionListRelationFilter
     modulosActivos?: EmpresaModuloListRelationFilter
+    moduloHistorico?: ModuloHistoricoListRelationFilter
     facturas?: FacturaListRelationFilter
     movimientosCaja?: MovimientoCajaListRelationFilter
     productos?: ProductoListRelationFilter
@@ -16110,6 +17302,7 @@ export namespace Prisma {
     clientes?: ClienteOrderByRelationAggregateInput
     configuraciones?: EmpresaConfiguracionOrderByRelationAggregateInput
     modulosActivos?: EmpresaModuloOrderByRelationAggregateInput
+    moduloHistorico?: ModuloHistoricoOrderByRelationAggregateInput
     facturas?: FacturaOrderByRelationAggregateInput
     movimientosCaja?: MovimientoCajaOrderByRelationAggregateInput
     productos?: ProductoOrderByRelationAggregateInput
@@ -16133,6 +17326,7 @@ export namespace Prisma {
     clientes?: ClienteListRelationFilter
     configuraciones?: EmpresaConfiguracionListRelationFilter
     modulosActivos?: EmpresaModuloListRelationFilter
+    moduloHistorico?: ModuloHistoricoListRelationFilter
     facturas?: FacturaListRelationFilter
     movimientosCaja?: MovimientoCajaListRelationFilter
     productos?: ProductoListRelationFilter
@@ -16185,6 +17379,7 @@ export namespace Prisma {
     activo?: BoolFilter<"Usuario"> | boolean
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
+    moduloHistorico?: ModuloHistoricoListRelationFilter
   }
 
   export type UsuarioOrderByWithRelationInput = {
@@ -16198,6 +17393,7 @@ export namespace Prisma {
     activo?: SortOrder
     empresa?: EmpresaOrderByWithRelationInput
     rol?: RolOrderByWithRelationInput
+    moduloHistorico?: ModuloHistoricoOrderByRelationAggregateInput
   }
 
   export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
@@ -16214,6 +17410,7 @@ export namespace Prisma {
     activo?: BoolFilter<"Usuario"> | boolean
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
+    moduloHistorico?: ModuloHistoricoListRelationFilter
   }, "id" | "email">
 
   export type UsuarioOrderByWithAggregationInput = {
@@ -16258,6 +17455,7 @@ export namespace Prisma {
     icono?: StringNullableFilter<"Modulo"> | string | null
     orden?: IntFilter<"Modulo"> | number
     empresasConModulo?: EmpresaModuloListRelationFilter
+    moduloHistorico?: ModuloHistoricoListRelationFilter
     esDependenciaDe?: ModuloDependenciaListRelationFilter
     dependeDe?: ModuloDependenciaListRelationFilter
     permisos?: ModuloPermisoListRelationFilter
@@ -16275,6 +17473,7 @@ export namespace Prisma {
     icono?: SortOrderInput | SortOrder
     orden?: SortOrder
     empresasConModulo?: EmpresaModuloOrderByRelationAggregateInput
+    moduloHistorico?: ModuloHistoricoOrderByRelationAggregateInput
     esDependenciaDe?: ModuloDependenciaOrderByRelationAggregateInput
     dependeDe?: ModuloDependenciaOrderByRelationAggregateInput
     permisos?: ModuloPermisoOrderByRelationAggregateInput
@@ -16295,6 +17494,7 @@ export namespace Prisma {
     icono?: StringNullableFilter<"Modulo"> | string | null
     orden?: IntFilter<"Modulo"> | number
     empresasConModulo?: EmpresaModuloListRelationFilter
+    moduloHistorico?: ModuloHistoricoListRelationFilter
     esDependenciaDe?: ModuloDependenciaListRelationFilter
     dependeDe?: ModuloDependenciaListRelationFilter
     permisos?: ModuloPermisoListRelationFilter
@@ -16943,6 +18143,77 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"MovimientoCaja"> | Date | string
   }
 
+  export type ModuloHistoricoWhereInput = {
+    AND?: ModuloHistoricoWhereInput | ModuloHistoricoWhereInput[]
+    OR?: ModuloHistoricoWhereInput[]
+    NOT?: ModuloHistoricoWhereInput | ModuloHistoricoWhereInput[]
+    id?: StringFilter<"ModuloHistorico"> | string
+    empresaId?: StringFilter<"ModuloHistorico"> | string
+    moduloId?: StringFilter<"ModuloHistorico"> | string
+    accion?: StringFilter<"ModuloHistorico"> | string
+    usuarioId?: StringFilter<"ModuloHistorico"> | string
+    razon?: StringNullableFilter<"ModuloHistorico"> | string | null
+    fechaCreacion?: DateTimeFilter<"ModuloHistorico"> | Date | string
+    empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
+    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
+    usuario?: XOR<UsuarioRelationFilter, UsuarioWhereInput>
+  }
+
+  export type ModuloHistoricoOrderByWithRelationInput = {
+    id?: SortOrder
+    empresaId?: SortOrder
+    moduloId?: SortOrder
+    accion?: SortOrder
+    usuarioId?: SortOrder
+    razon?: SortOrderInput | SortOrder
+    fechaCreacion?: SortOrder
+    empresa?: EmpresaOrderByWithRelationInput
+    modulo?: ModuloOrderByWithRelationInput
+    usuario?: UsuarioOrderByWithRelationInput
+  }
+
+  export type ModuloHistoricoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ModuloHistoricoWhereInput | ModuloHistoricoWhereInput[]
+    OR?: ModuloHistoricoWhereInput[]
+    NOT?: ModuloHistoricoWhereInput | ModuloHistoricoWhereInput[]
+    empresaId?: StringFilter<"ModuloHistorico"> | string
+    moduloId?: StringFilter<"ModuloHistorico"> | string
+    accion?: StringFilter<"ModuloHistorico"> | string
+    usuarioId?: StringFilter<"ModuloHistorico"> | string
+    razon?: StringNullableFilter<"ModuloHistorico"> | string | null
+    fechaCreacion?: DateTimeFilter<"ModuloHistorico"> | Date | string
+    empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
+    modulo?: XOR<ModuloRelationFilter, ModuloWhereInput>
+    usuario?: XOR<UsuarioRelationFilter, UsuarioWhereInput>
+  }, "id">
+
+  export type ModuloHistoricoOrderByWithAggregationInput = {
+    id?: SortOrder
+    empresaId?: SortOrder
+    moduloId?: SortOrder
+    accion?: SortOrder
+    usuarioId?: SortOrder
+    razon?: SortOrderInput | SortOrder
+    fechaCreacion?: SortOrder
+    _count?: ModuloHistoricoCountOrderByAggregateInput
+    _max?: ModuloHistoricoMaxOrderByAggregateInput
+    _min?: ModuloHistoricoMinOrderByAggregateInput
+  }
+
+  export type ModuloHistoricoScalarWhereWithAggregatesInput = {
+    AND?: ModuloHistoricoScalarWhereWithAggregatesInput | ModuloHistoricoScalarWhereWithAggregatesInput[]
+    OR?: ModuloHistoricoScalarWhereWithAggregatesInput[]
+    NOT?: ModuloHistoricoScalarWhereWithAggregatesInput | ModuloHistoricoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ModuloHistorico"> | string
+    empresaId?: StringWithAggregatesFilter<"ModuloHistorico"> | string
+    moduloId?: StringWithAggregatesFilter<"ModuloHistorico"> | string
+    accion?: StringWithAggregatesFilter<"ModuloHistorico"> | string
+    usuarioId?: StringWithAggregatesFilter<"ModuloHistorico"> | string
+    razon?: StringNullableWithAggregatesFilter<"ModuloHistorico"> | string | null
+    fechaCreacion?: DateTimeWithAggregatesFilter<"ModuloHistorico"> | Date | string
+  }
+
   export type EmpresaCreateInput = {
     id?: string
     nombre: string
@@ -16957,6 +18228,7 @@ export namespace Prisma {
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
@@ -16977,6 +18249,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
@@ -16997,6 +18270,7 @@ export namespace Prisma {
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
@@ -17017,6 +18291,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -17071,6 +18346,7 @@ export namespace Prisma {
     activo?: boolean
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     rol: RolCreateNestedOneWithoutUsuariosInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateInput = {
@@ -17082,6 +18358,7 @@ export namespace Prisma {
     empresaId: string
     rolId: string
     activo?: boolean
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUpdateInput = {
@@ -17093,6 +18370,7 @@ export namespace Prisma {
     activo?: BoolFieldUpdateOperationsInput | boolean
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateInput = {
@@ -17104,6 +18382,7 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioCreateManyInput = {
@@ -17148,6 +18427,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
@@ -17165,6 +18445,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
@@ -17182,6 +18463,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
@@ -17199,6 +18481,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
@@ -17835,6 +19118,73 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ModuloHistoricoCreateInput = {
+    id?: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+    empresa: EmpresaCreateNestedOneWithoutModuloHistoricoInput
+    modulo: ModuloCreateNestedOneWithoutModuloHistoricoInput
+    usuario: UsuarioCreateNestedOneWithoutModuloHistoricoInput
+  }
+
+  export type ModuloHistoricoUncheckedCreateInput = {
+    id?: string
+    empresaId: string
+    moduloId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    empresa?: EmpresaUpdateOneRequiredWithoutModuloHistoricoNestedInput
+    modulo?: ModuloUpdateOneRequiredWithoutModuloHistoricoNestedInput
+    usuario?: UsuarioUpdateOneRequiredWithoutModuloHistoricoNestedInput
+  }
+
+  export type ModuloHistoricoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModuloHistoricoCreateManyInput = {
+    id?: string
+    empresaId: string
+    moduloId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -17906,6 +19256,12 @@ export namespace Prisma {
     none?: EmpresaModuloWhereInput
   }
 
+  export type ModuloHistoricoListRelationFilter = {
+    every?: ModuloHistoricoWhereInput
+    some?: ModuloHistoricoWhereInput
+    none?: ModuloHistoricoWhereInput
+  }
+
   export type FacturaListRelationFilter = {
     every?: FacturaWhereInput
     some?: FacturaWhereInput
@@ -17944,6 +19300,10 @@ export namespace Prisma {
   }
 
   export type EmpresaModuloOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ModuloHistoricoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -18629,6 +19989,41 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type UsuarioRelationFilter = {
+    is?: UsuarioWhereInput
+    isNot?: UsuarioWhereInput
+  }
+
+  export type ModuloHistoricoCountOrderByAggregateInput = {
+    id?: SortOrder
+    empresaId?: SortOrder
+    moduloId?: SortOrder
+    accion?: SortOrder
+    usuarioId?: SortOrder
+    razon?: SortOrder
+    fechaCreacion?: SortOrder
+  }
+
+  export type ModuloHistoricoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    empresaId?: SortOrder
+    moduloId?: SortOrder
+    accion?: SortOrder
+    usuarioId?: SortOrder
+    razon?: SortOrder
+    fechaCreacion?: SortOrder
+  }
+
+  export type ModuloHistoricoMinOrderByAggregateInput = {
+    id?: SortOrder
+    empresaId?: SortOrder
+    moduloId?: SortOrder
+    accion?: SortOrder
+    usuarioId?: SortOrder
+    razon?: SortOrder
+    fechaCreacion?: SortOrder
+  }
+
   export type ClienteCreateNestedManyWithoutEmpresaInput = {
     create?: XOR<ClienteCreateWithoutEmpresaInput, ClienteUncheckedCreateWithoutEmpresaInput> | ClienteCreateWithoutEmpresaInput[] | ClienteUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: ClienteCreateOrConnectWithoutEmpresaInput | ClienteCreateOrConnectWithoutEmpresaInput[]
@@ -18648,6 +20043,13 @@ export namespace Prisma {
     connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
     createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
     connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
+  export type ModuloHistoricoCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput> | ModuloHistoricoCreateWithoutEmpresaInput[] | ModuloHistoricoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutEmpresaInput | ModuloHistoricoCreateOrConnectWithoutEmpresaInput[]
+    createMany?: ModuloHistoricoCreateManyEmpresaInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
   }
 
   export type FacturaCreateNestedManyWithoutEmpresaInput = {
@@ -18697,6 +20099,13 @@ export namespace Prisma {
     connectOrCreate?: EmpresaModuloCreateOrConnectWithoutEmpresaInput | EmpresaModuloCreateOrConnectWithoutEmpresaInput[]
     createMany?: EmpresaModuloCreateManyEmpresaInputEnvelope
     connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
+  export type ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput> | ModuloHistoricoCreateWithoutEmpresaInput[] | ModuloHistoricoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutEmpresaInput | ModuloHistoricoCreateOrConnectWithoutEmpresaInput[]
+    createMany?: ModuloHistoricoCreateManyEmpresaInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
   }
 
   export type FacturaUncheckedCreateNestedManyWithoutEmpresaInput = {
@@ -18787,6 +20196,20 @@ export namespace Prisma {
     update?: EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput | EmpresaModuloUpdateWithWhereUniqueWithoutEmpresaInput[]
     updateMany?: EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput | EmpresaModuloUpdateManyWithWhereWithoutEmpresaInput[]
     deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  }
+
+  export type ModuloHistoricoUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput> | ModuloHistoricoCreateWithoutEmpresaInput[] | ModuloHistoricoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutEmpresaInput | ModuloHistoricoCreateOrConnectWithoutEmpresaInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutEmpresaInput | ModuloHistoricoUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: ModuloHistoricoCreateManyEmpresaInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutEmpresaInput | ModuloHistoricoUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutEmpresaInput | ModuloHistoricoUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
   }
 
   export type FacturaUpdateManyWithoutEmpresaNestedInput = {
@@ -18887,6 +20310,20 @@ export namespace Prisma {
     deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
   }
 
+  export type ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput> | ModuloHistoricoCreateWithoutEmpresaInput[] | ModuloHistoricoUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutEmpresaInput | ModuloHistoricoCreateOrConnectWithoutEmpresaInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutEmpresaInput | ModuloHistoricoUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: ModuloHistoricoCreateManyEmpresaInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutEmpresaInput | ModuloHistoricoUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutEmpresaInput | ModuloHistoricoUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
+  }
+
   export type FacturaUncheckedUpdateManyWithoutEmpresaNestedInput = {
     create?: XOR<FacturaCreateWithoutEmpresaInput, FacturaUncheckedCreateWithoutEmpresaInput> | FacturaCreateWithoutEmpresaInput[] | FacturaUncheckedCreateWithoutEmpresaInput[]
     connectOrCreate?: FacturaCreateOrConnectWithoutEmpresaInput | FacturaCreateOrConnectWithoutEmpresaInput[]
@@ -18955,6 +20392,20 @@ export namespace Prisma {
     connect?: RolWhereUniqueInput
   }
 
+  export type ModuloHistoricoCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput> | ModuloHistoricoCreateWithoutUsuarioInput[] | ModuloHistoricoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutUsuarioInput | ModuloHistoricoCreateOrConnectWithoutUsuarioInput[]
+    createMany?: ModuloHistoricoCreateManyUsuarioInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+  }
+
+  export type ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput> | ModuloHistoricoCreateWithoutUsuarioInput[] | ModuloHistoricoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutUsuarioInput | ModuloHistoricoCreateOrConnectWithoutUsuarioInput[]
+    createMany?: ModuloHistoricoCreateManyUsuarioInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+  }
+
   export type EmpresaUpdateOneRequiredWithoutUsuariosNestedInput = {
     create?: XOR<EmpresaCreateWithoutUsuariosInput, EmpresaUncheckedCreateWithoutUsuariosInput>
     connectOrCreate?: EmpresaCreateOrConnectWithoutUsuariosInput
@@ -18971,11 +20422,46 @@ export namespace Prisma {
     update?: XOR<XOR<RolUpdateToOneWithWhereWithoutUsuariosInput, RolUpdateWithoutUsuariosInput>, RolUncheckedUpdateWithoutUsuariosInput>
   }
 
+  export type ModuloHistoricoUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput> | ModuloHistoricoCreateWithoutUsuarioInput[] | ModuloHistoricoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutUsuarioInput | ModuloHistoricoCreateOrConnectWithoutUsuarioInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutUsuarioInput | ModuloHistoricoUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: ModuloHistoricoCreateManyUsuarioInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutUsuarioInput | ModuloHistoricoUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutUsuarioInput | ModuloHistoricoUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput> | ModuloHistoricoCreateWithoutUsuarioInput[] | ModuloHistoricoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutUsuarioInput | ModuloHistoricoCreateOrConnectWithoutUsuarioInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutUsuarioInput | ModuloHistoricoUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: ModuloHistoricoCreateManyUsuarioInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutUsuarioInput | ModuloHistoricoUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutUsuarioInput | ModuloHistoricoUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
+  }
+
   export type EmpresaModuloCreateNestedManyWithoutModuloInput = {
     create?: XOR<EmpresaModuloCreateWithoutModuloInput, EmpresaModuloUncheckedCreateWithoutModuloInput> | EmpresaModuloCreateWithoutModuloInput[] | EmpresaModuloUncheckedCreateWithoutModuloInput[]
     connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
     createMany?: EmpresaModuloCreateManyModuloInputEnvelope
     connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
+  export type ModuloHistoricoCreateNestedManyWithoutModuloInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput> | ModuloHistoricoCreateWithoutModuloInput[] | ModuloHistoricoUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutModuloInput | ModuloHistoricoCreateOrConnectWithoutModuloInput[]
+    createMany?: ModuloHistoricoCreateManyModuloInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
   }
 
   export type ModuloDependenciaCreateNestedManyWithoutDependeDeInput = {
@@ -19011,6 +20497,13 @@ export namespace Prisma {
     connectOrCreate?: EmpresaModuloCreateOrConnectWithoutModuloInput | EmpresaModuloCreateOrConnectWithoutModuloInput[]
     createMany?: EmpresaModuloCreateManyModuloInputEnvelope
     connect?: EmpresaModuloWhereUniqueInput | EmpresaModuloWhereUniqueInput[]
+  }
+
+  export type ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput> | ModuloHistoricoCreateWithoutModuloInput[] | ModuloHistoricoUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutModuloInput | ModuloHistoricoCreateOrConnectWithoutModuloInput[]
+    createMany?: ModuloHistoricoCreateManyModuloInputEnvelope
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
   }
 
   export type ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput = {
@@ -19061,6 +20554,20 @@ export namespace Prisma {
     update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
     updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
     deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  }
+
+  export type ModuloHistoricoUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput> | ModuloHistoricoCreateWithoutModuloInput[] | ModuloHistoricoUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutModuloInput | ModuloHistoricoCreateOrConnectWithoutModuloInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutModuloInput | ModuloHistoricoUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: ModuloHistoricoCreateManyModuloInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutModuloInput | ModuloHistoricoUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutModuloInput | ModuloHistoricoUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
   }
 
   export type ModuloDependenciaUpdateManyWithoutDependeDeNestedInput = {
@@ -19131,6 +20638,20 @@ export namespace Prisma {
     update?: EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput | EmpresaModuloUpdateWithWhereUniqueWithoutModuloInput[]
     updateMany?: EmpresaModuloUpdateManyWithWhereWithoutModuloInput | EmpresaModuloUpdateManyWithWhereWithoutModuloInput[]
     deleteMany?: EmpresaModuloScalarWhereInput | EmpresaModuloScalarWhereInput[]
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput = {
+    create?: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput> | ModuloHistoricoCreateWithoutModuloInput[] | ModuloHistoricoUncheckedCreateWithoutModuloInput[]
+    connectOrCreate?: ModuloHistoricoCreateOrConnectWithoutModuloInput | ModuloHistoricoCreateOrConnectWithoutModuloInput[]
+    upsert?: ModuloHistoricoUpsertWithWhereUniqueWithoutModuloInput | ModuloHistoricoUpsertWithWhereUniqueWithoutModuloInput[]
+    createMany?: ModuloHistoricoCreateManyModuloInputEnvelope
+    set?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    disconnect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    delete?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
+    update?: ModuloHistoricoUpdateWithWhereUniqueWithoutModuloInput | ModuloHistoricoUpdateWithWhereUniqueWithoutModuloInput[]
+    updateMany?: ModuloHistoricoUpdateManyWithWhereWithoutModuloInput | ModuloHistoricoUpdateManyWithWhereWithoutModuloInput[]
+    deleteMany?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
   }
 
   export type ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput = {
@@ -19501,6 +21022,48 @@ export namespace Prisma {
     update?: XOR<XOR<EmpresaUpdateToOneWithWhereWithoutMovimientosCajaInput, EmpresaUpdateWithoutMovimientosCajaInput>, EmpresaUncheckedUpdateWithoutMovimientosCajaInput>
   }
 
+  export type EmpresaCreateNestedOneWithoutModuloHistoricoInput = {
+    create?: XOR<EmpresaCreateWithoutModuloHistoricoInput, EmpresaUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: EmpresaCreateOrConnectWithoutModuloHistoricoInput
+    connect?: EmpresaWhereUniqueInput
+  }
+
+  export type ModuloCreateNestedOneWithoutModuloHistoricoInput = {
+    create?: XOR<ModuloCreateWithoutModuloHistoricoInput, ModuloUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: ModuloCreateOrConnectWithoutModuloHistoricoInput
+    connect?: ModuloWhereUniqueInput
+  }
+
+  export type UsuarioCreateNestedOneWithoutModuloHistoricoInput = {
+    create?: XOR<UsuarioCreateWithoutModuloHistoricoInput, UsuarioUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutModuloHistoricoInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type EmpresaUpdateOneRequiredWithoutModuloHistoricoNestedInput = {
+    create?: XOR<EmpresaCreateWithoutModuloHistoricoInput, EmpresaUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: EmpresaCreateOrConnectWithoutModuloHistoricoInput
+    upsert?: EmpresaUpsertWithoutModuloHistoricoInput
+    connect?: EmpresaWhereUniqueInput
+    update?: XOR<XOR<EmpresaUpdateToOneWithWhereWithoutModuloHistoricoInput, EmpresaUpdateWithoutModuloHistoricoInput>, EmpresaUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
+  export type ModuloUpdateOneRequiredWithoutModuloHistoricoNestedInput = {
+    create?: XOR<ModuloCreateWithoutModuloHistoricoInput, ModuloUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: ModuloCreateOrConnectWithoutModuloHistoricoInput
+    upsert?: ModuloUpsertWithoutModuloHistoricoInput
+    connect?: ModuloWhereUniqueInput
+    update?: XOR<XOR<ModuloUpdateToOneWithWhereWithoutModuloHistoricoInput, ModuloUpdateWithoutModuloHistoricoInput>, ModuloUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
+  export type UsuarioUpdateOneRequiredWithoutModuloHistoricoNestedInput = {
+    create?: XOR<UsuarioCreateWithoutModuloHistoricoInput, UsuarioUncheckedCreateWithoutModuloHistoricoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutModuloHistoricoInput
+    upsert?: UsuarioUpsertWithoutModuloHistoricoInput
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutModuloHistoricoInput, UsuarioUpdateWithoutModuloHistoricoInput>, UsuarioUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -19814,6 +21377,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ModuloHistoricoCreateWithoutEmpresaInput = {
+    id?: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+    modulo: ModuloCreateNestedOneWithoutModuloHistoricoInput
+    usuario: UsuarioCreateNestedOneWithoutModuloHistoricoInput
+  }
+
+  export type ModuloHistoricoUncheckedCreateWithoutEmpresaInput = {
+    id?: string
+    moduloId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoCreateOrConnectWithoutEmpresaInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    create: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type ModuloHistoricoCreateManyEmpresaInputEnvelope = {
+    data: ModuloHistoricoCreateManyEmpresaInput | ModuloHistoricoCreateManyEmpresaInput[]
+    skipDuplicates?: boolean
+  }
+
   export type FacturaCreateWithoutEmpresaInput = {
     id?: string
     createdAt?: Date | string
@@ -19888,6 +21479,7 @@ export namespace Prisma {
     password: string
     activo?: boolean
     rol: RolCreateNestedOneWithoutUsuariosInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutEmpresaInput = {
@@ -19898,6 +21490,7 @@ export namespace Prisma {
     password: string
     rolId: string
     activo?: boolean
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioCreateOrConnectWithoutEmpresaInput = {
@@ -19992,6 +21585,35 @@ export namespace Prisma {
     configuracion?: JsonNullableFilter<"EmpresaModulo">
     fechaActivacion?: DateTimeFilter<"EmpresaModulo"> | Date | string
     fechaDesactivacion?: DateTimeNullableFilter<"EmpresaModulo"> | Date | string | null
+  }
+
+  export type ModuloHistoricoUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    update: XOR<ModuloHistoricoUpdateWithoutEmpresaInput, ModuloHistoricoUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<ModuloHistoricoCreateWithoutEmpresaInput, ModuloHistoricoUncheckedCreateWithoutEmpresaInput>
+  }
+
+  export type ModuloHistoricoUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    data: XOR<ModuloHistoricoUpdateWithoutEmpresaInput, ModuloHistoricoUncheckedUpdateWithoutEmpresaInput>
+  }
+
+  export type ModuloHistoricoUpdateManyWithWhereWithoutEmpresaInput = {
+    where: ModuloHistoricoScalarWhereInput
+    data: XOR<ModuloHistoricoUpdateManyMutationInput, ModuloHistoricoUncheckedUpdateManyWithoutEmpresaInput>
+  }
+
+  export type ModuloHistoricoScalarWhereInput = {
+    AND?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
+    OR?: ModuloHistoricoScalarWhereInput[]
+    NOT?: ModuloHistoricoScalarWhereInput | ModuloHistoricoScalarWhereInput[]
+    id?: StringFilter<"ModuloHistorico"> | string
+    empresaId?: StringFilter<"ModuloHistorico"> | string
+    moduloId?: StringFilter<"ModuloHistorico"> | string
+    accion?: StringFilter<"ModuloHistorico"> | string
+    usuarioId?: StringFilter<"ModuloHistorico"> | string
+    razon?: StringNullableFilter<"ModuloHistorico"> | string | null
+    fechaCreacion?: DateTimeFilter<"ModuloHistorico"> | Date | string
   }
 
   export type FacturaUpsertWithWhereUniqueWithoutEmpresaInput = {
@@ -20116,6 +21738,7 @@ export namespace Prisma {
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
@@ -20135,6 +21758,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
@@ -20166,6 +21790,34 @@ export namespace Prisma {
     create: XOR<RolCreateWithoutUsuariosInput, RolUncheckedCreateWithoutUsuariosInput>
   }
 
+  export type ModuloHistoricoCreateWithoutUsuarioInput = {
+    id?: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+    empresa: EmpresaCreateNestedOneWithoutModuloHistoricoInput
+    modulo: ModuloCreateNestedOneWithoutModuloHistoricoInput
+  }
+
+  export type ModuloHistoricoUncheckedCreateWithoutUsuarioInput = {
+    id?: string
+    empresaId: string
+    moduloId: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoCreateOrConnectWithoutUsuarioInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    create: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type ModuloHistoricoCreateManyUsuarioInputEnvelope = {
+    data: ModuloHistoricoCreateManyUsuarioInput | ModuloHistoricoCreateManyUsuarioInput[]
+    skipDuplicates?: boolean
+  }
+
   export type EmpresaUpsertWithoutUsuariosInput = {
     update: XOR<EmpresaUpdateWithoutUsuariosInput, EmpresaUncheckedUpdateWithoutUsuariosInput>
     create: XOR<EmpresaCreateWithoutUsuariosInput, EmpresaUncheckedCreateWithoutUsuariosInput>
@@ -20191,6 +21843,7 @@ export namespace Prisma {
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
@@ -20210,6 +21863,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -20242,6 +21896,22 @@ export namespace Prisma {
     permisos?: RolPermisoUncheckedUpdateManyWithoutRolNestedInput
   }
 
+  export type ModuloHistoricoUpsertWithWhereUniqueWithoutUsuarioInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    update: XOR<ModuloHistoricoUpdateWithoutUsuarioInput, ModuloHistoricoUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<ModuloHistoricoCreateWithoutUsuarioInput, ModuloHistoricoUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type ModuloHistoricoUpdateWithWhereUniqueWithoutUsuarioInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    data: XOR<ModuloHistoricoUpdateWithoutUsuarioInput, ModuloHistoricoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type ModuloHistoricoUpdateManyWithWhereWithoutUsuarioInput = {
+    where: ModuloHistoricoScalarWhereInput
+    data: XOR<ModuloHistoricoUpdateManyMutationInput, ModuloHistoricoUncheckedUpdateManyWithoutUsuarioInput>
+  }
+
   export type EmpresaModuloCreateWithoutModuloInput = {
     id?: string
     activo?: boolean
@@ -20267,6 +21937,34 @@ export namespace Prisma {
 
   export type EmpresaModuloCreateManyModuloInputEnvelope = {
     data: EmpresaModuloCreateManyModuloInput | EmpresaModuloCreateManyModuloInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ModuloHistoricoCreateWithoutModuloInput = {
+    id?: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+    empresa: EmpresaCreateNestedOneWithoutModuloHistoricoInput
+    usuario: UsuarioCreateNestedOneWithoutModuloHistoricoInput
+  }
+
+  export type ModuloHistoricoUncheckedCreateWithoutModuloInput = {
+    id?: string
+    empresaId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoCreateOrConnectWithoutModuloInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    create: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput>
+  }
+
+  export type ModuloHistoricoCreateManyModuloInputEnvelope = {
+    data: ModuloHistoricoCreateManyModuloInput | ModuloHistoricoCreateManyModuloInput[]
     skipDuplicates?: boolean
   }
 
@@ -20382,6 +22080,22 @@ export namespace Prisma {
     data: XOR<EmpresaModuloUpdateManyMutationInput, EmpresaModuloUncheckedUpdateManyWithoutModuloInput>
   }
 
+  export type ModuloHistoricoUpsertWithWhereUniqueWithoutModuloInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    update: XOR<ModuloHistoricoUpdateWithoutModuloInput, ModuloHistoricoUncheckedUpdateWithoutModuloInput>
+    create: XOR<ModuloHistoricoCreateWithoutModuloInput, ModuloHistoricoUncheckedCreateWithoutModuloInput>
+  }
+
+  export type ModuloHistoricoUpdateWithWhereUniqueWithoutModuloInput = {
+    where: ModuloHistoricoWhereUniqueInput
+    data: XOR<ModuloHistoricoUpdateWithoutModuloInput, ModuloHistoricoUncheckedUpdateWithoutModuloInput>
+  }
+
+  export type ModuloHistoricoUpdateManyWithWhereWithoutModuloInput = {
+    where: ModuloHistoricoScalarWhereInput
+    data: XOR<ModuloHistoricoUpdateManyMutationInput, ModuloHistoricoUncheckedUpdateManyWithoutModuloInput>
+  }
+
   export type ModuloDependenciaUpsertWithWhereUniqueWithoutDependeDeInput = {
     where: ModuloDependenciaWhereUniqueInput
     update: XOR<ModuloDependenciaUpdateWithoutDependeDeInput, ModuloDependenciaUncheckedUpdateWithoutDependeDeInput>
@@ -20492,6 +22206,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
@@ -20511,6 +22226,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
@@ -20532,6 +22248,7 @@ export namespace Prisma {
     descripcion?: string | null
     icono?: string | null
     orden?: number
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
@@ -20548,6 +22265,7 @@ export namespace Prisma {
     descripcion?: string | null
     icono?: string | null
     orden?: number
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
@@ -20583,6 +22301,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
@@ -20602,6 +22321,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -20629,6 +22349,7 @@ export namespace Prisma {
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
@@ -20645,6 +22366,7 @@ export namespace Prisma {
     descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
@@ -20662,6 +22384,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
@@ -20678,6 +22401,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
@@ -20699,6 +22423,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
@@ -20715,6 +22440,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
@@ -20747,6 +22473,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
@@ -20763,6 +22490,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
@@ -20790,6 +22518,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
@@ -20806,6 +22535,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
@@ -20822,6 +22552,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
@@ -20838,6 +22569,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
@@ -20870,6 +22602,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
@@ -20886,6 +22619,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
@@ -20919,6 +22653,7 @@ export namespace Prisma {
     password: string
     activo?: boolean
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutRolInput = {
@@ -20929,6 +22664,7 @@ export namespace Prisma {
     password: string
     empresaId: string
     activo?: boolean
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioCreateOrConnectWithoutRolInput = {
@@ -20993,6 +22729,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
@@ -21009,6 +22746,7 @@ export namespace Prisma {
     icono?: string | null
     orden?: number
     empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutModuloInput
     esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
     dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
     rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
@@ -21061,6 +22799,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
@@ -21077,6 +22816,7 @@ export namespace Prisma {
     icono?: NullableStringFieldUpdateOperationsInput | string | null
     orden?: IntFieldUpdateOperationsInput | number
     empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutModuloNestedInput
     esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
     dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
     rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
@@ -21207,6 +22947,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
@@ -21226,6 +22967,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
@@ -21261,6 +23003,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
@@ -21280,6 +23023,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -21300,6 +23044,7 @@ export namespace Prisma {
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
@@ -21319,6 +23064,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
@@ -21354,6 +23100,7 @@ export namespace Prisma {
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
@@ -21373,6 +23120,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -21392,6 +23140,7 @@ export namespace Prisma {
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
@@ -21411,6 +23160,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
@@ -21446,6 +23196,7 @@ export namespace Prisma {
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
@@ -21465,6 +23216,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -21483,6 +23235,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
@@ -21502,6 +23255,7 @@ export namespace Prisma {
     plan?: $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
@@ -21537,6 +23291,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
@@ -21556,6 +23311,7 @@ export namespace Prisma {
     plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
@@ -21576,6 +23332,7 @@ export namespace Prisma {
     clientes?: ClienteCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
@@ -21595,6 +23352,7 @@ export namespace Prisma {
     clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
     configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
     modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutEmpresaInput
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
@@ -21630,6 +23388,7 @@ export namespace Prisma {
     clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
@@ -21649,9 +23408,250 @@ export namespace Prisma {
     clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
     configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
     modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutEmpresaNestedInput
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
+  }
+
+  export type EmpresaCreateWithoutModuloHistoricoInput = {
+    id?: string
+    nombre: string
+    ruc: string
+    activo?: boolean
+    direccion?: string | null
+    email?: string | null
+    fechaActualizacion?: Date | string
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaCreateNestedManyWithoutEmpresaInput
+    movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
+  }
+
+  export type EmpresaUncheckedCreateWithoutModuloHistoricoInput = {
+    id?: string
+    nombre: string
+    ruc: string
+    activo?: boolean
+    direccion?: string | null
+    email?: string | null
+    fechaActualizacion?: Date | string
+    fechaCreacion?: Date | string
+    telefono?: string | null
+    plan?: $Enums.PlanType
+    clientes?: ClienteUncheckedCreateNestedManyWithoutEmpresaInput
+    configuraciones?: EmpresaConfiguracionUncheckedCreateNestedManyWithoutEmpresaInput
+    modulosActivos?: EmpresaModuloUncheckedCreateNestedManyWithoutEmpresaInput
+    facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
+    movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
+    productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
+    usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
+  }
+
+  export type EmpresaCreateOrConnectWithoutModuloHistoricoInput = {
+    where: EmpresaWhereUniqueInput
+    create: XOR<EmpresaCreateWithoutModuloHistoricoInput, EmpresaUncheckedCreateWithoutModuloHistoricoInput>
+  }
+
+  export type ModuloCreateWithoutModuloHistoricoInput = {
+    id?: string
+    nombre: string
+    displayName: string
+    version?: string
+    activo?: boolean
+    color?: string | null
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
+    empresasConModulo?: EmpresaModuloCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaCreateNestedManyWithoutModuloInput
+    permisos?: ModuloPermisoCreateNestedManyWithoutModuloInput
+    rutas?: ModuloRutaCreateNestedManyWithoutModuloInput
+  }
+
+  export type ModuloUncheckedCreateWithoutModuloHistoricoInput = {
+    id?: string
+    nombre: string
+    displayName: string
+    version?: string
+    activo?: boolean
+    color?: string | null
+    descripcion?: string | null
+    icono?: string | null
+    orden?: number
+    empresasConModulo?: EmpresaModuloUncheckedCreateNestedManyWithoutModuloInput
+    esDependenciaDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutDependeDeInput
+    dependeDe?: ModuloDependenciaUncheckedCreateNestedManyWithoutModuloInput
+    permisos?: ModuloPermisoUncheckedCreateNestedManyWithoutModuloInput
+    rutas?: ModuloRutaUncheckedCreateNestedManyWithoutModuloInput
+  }
+
+  export type ModuloCreateOrConnectWithoutModuloHistoricoInput = {
+    where: ModuloWhereUniqueInput
+    create: XOR<ModuloCreateWithoutModuloHistoricoInput, ModuloUncheckedCreateWithoutModuloHistoricoInput>
+  }
+
+  export type UsuarioCreateWithoutModuloHistoricoInput = {
+    id?: string
+    email: string
+    nombre: string
+    apellido?: string | null
+    password: string
+    activo?: boolean
+    empresa: EmpresaCreateNestedOneWithoutUsuariosInput
+    rol: RolCreateNestedOneWithoutUsuariosInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutModuloHistoricoInput = {
+    id?: string
+    email: string
+    nombre: string
+    apellido?: string | null
+    password: string
+    empresaId: string
+    rolId: string
+    activo?: boolean
+  }
+
+  export type UsuarioCreateOrConnectWithoutModuloHistoricoInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutModuloHistoricoInput, UsuarioUncheckedCreateWithoutModuloHistoricoInput>
+  }
+
+  export type EmpresaUpsertWithoutModuloHistoricoInput = {
+    update: XOR<EmpresaUpdateWithoutModuloHistoricoInput, EmpresaUncheckedUpdateWithoutModuloHistoricoInput>
+    create: XOR<EmpresaCreateWithoutModuloHistoricoInput, EmpresaUncheckedCreateWithoutModuloHistoricoInput>
+    where?: EmpresaWhereInput
+  }
+
+  export type EmpresaUpdateToOneWithWhereWithoutModuloHistoricoInput = {
+    where?: EmpresaWhereInput
+    data: XOR<EmpresaUpdateWithoutModuloHistoricoInput, EmpresaUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
+  export type EmpresaUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    ruc?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
+    movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
+  }
+
+  export type EmpresaUncheckedUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    ruc?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    plan?: EnumPlanTypeFieldUpdateOperationsInput | $Enums.PlanType
+    clientes?: ClienteUncheckedUpdateManyWithoutEmpresaNestedInput
+    configuraciones?: EmpresaConfiguracionUncheckedUpdateManyWithoutEmpresaNestedInput
+    modulosActivos?: EmpresaModuloUncheckedUpdateManyWithoutEmpresaNestedInput
+    facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
+    movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
+    productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
+    usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
+  }
+
+  export type ModuloUpsertWithoutModuloHistoricoInput = {
+    update: XOR<ModuloUpdateWithoutModuloHistoricoInput, ModuloUncheckedUpdateWithoutModuloHistoricoInput>
+    create: XOR<ModuloCreateWithoutModuloHistoricoInput, ModuloUncheckedCreateWithoutModuloHistoricoInput>
+    where?: ModuloWhereInput
+  }
+
+  export type ModuloUpdateToOneWithWhereWithoutModuloHistoricoInput = {
+    where?: ModuloWhereInput
+    data: XOR<ModuloUpdateWithoutModuloHistoricoInput, ModuloUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
+  export type ModuloUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    displayName?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
+    empresasConModulo?: EmpresaModuloUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUpdateManyWithoutModuloNestedInput
+    permisos?: ModuloPermisoUpdateManyWithoutModuloNestedInput
+    rutas?: ModuloRutaUpdateManyWithoutModuloNestedInput
+  }
+
+  export type ModuloUncheckedUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    displayName?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    icono?: NullableStringFieldUpdateOperationsInput | string | null
+    orden?: IntFieldUpdateOperationsInput | number
+    empresasConModulo?: EmpresaModuloUncheckedUpdateManyWithoutModuloNestedInput
+    esDependenciaDe?: ModuloDependenciaUncheckedUpdateManyWithoutDependeDeNestedInput
+    dependeDe?: ModuloDependenciaUncheckedUpdateManyWithoutModuloNestedInput
+    permisos?: ModuloPermisoUncheckedUpdateManyWithoutModuloNestedInput
+    rutas?: ModuloRutaUncheckedUpdateManyWithoutModuloNestedInput
+  }
+
+  export type UsuarioUpsertWithoutModuloHistoricoInput = {
+    update: XOR<UsuarioUpdateWithoutModuloHistoricoInput, UsuarioUncheckedUpdateWithoutModuloHistoricoInput>
+    create: XOR<UsuarioCreateWithoutModuloHistoricoInput, UsuarioUncheckedCreateWithoutModuloHistoricoInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutModuloHistoricoInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutModuloHistoricoInput, UsuarioUncheckedUpdateWithoutModuloHistoricoInput>
+  }
+
+  export type UsuarioUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
+    rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutModuloHistoricoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    rolId?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ClienteCreateManyEmpresaInput = {
@@ -21676,6 +23676,15 @@ export namespace Prisma {
     configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: Date | string
     fechaDesactivacion?: Date | string | null
+  }
+
+  export type ModuloHistoricoCreateManyEmpresaInput = {
+    id?: string
+    moduloId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
   }
 
   export type FacturaCreateManyEmpresaInput = {
@@ -21778,6 +23787,33 @@ export namespace Prisma {
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ModuloHistoricoUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    modulo?: ModuloUpdateOneRequiredWithoutModuloHistoricoNestedInput
+    usuario?: UsuarioUpdateOneRequiredWithoutModuloHistoricoNestedInput
+  }
+
+  export type ModuloHistoricoUncheckedUpdateWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyWithoutEmpresaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type FacturaUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21840,6 +23876,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutEmpresaInput = {
@@ -21850,6 +23887,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateManyWithoutEmpresaInput = {
@@ -21862,6 +23900,42 @@ export namespace Prisma {
     activo?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type ModuloHistoricoCreateManyUsuarioInput = {
+    id?: string
+    empresaId: string
+    moduloId: string
+    accion: string
+    razon?: string | null
+    fechaCreacion?: Date | string
+  }
+
+  export type ModuloHistoricoUpdateWithoutUsuarioInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    empresa?: EmpresaUpdateOneRequiredWithoutModuloHistoricoNestedInput
+    modulo?: ModuloUpdateOneRequiredWithoutModuloHistoricoNestedInput
+  }
+
+  export type ModuloHistoricoUncheckedUpdateWithoutUsuarioInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyWithoutUsuarioInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    moduloId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type EmpresaModuloCreateManyModuloInput = {
     id?: string
     empresaId: string
@@ -21869,6 +23943,15 @@ export namespace Prisma {
     configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: Date | string
     fechaDesactivacion?: Date | string | null
+  }
+
+  export type ModuloHistoricoCreateManyModuloInput = {
+    id?: string
+    empresaId: string
+    accion: string
+    usuarioId: string
+    razon?: string | null
+    fechaCreacion?: Date | string
   }
 
   export type ModuloDependenciaCreateManyDependeDeInput = {
@@ -21923,6 +24006,33 @@ export namespace Prisma {
     configuracion?: NullableJsonNullValueInput | InputJsonValue
     fechaActivacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaDesactivacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ModuloHistoricoUpdateWithoutModuloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    empresa?: EmpresaUpdateOneRequiredWithoutModuloHistoricoNestedInput
+    usuario?: UsuarioUpdateOneRequiredWithoutModuloHistoricoNestedInput
+  }
+
+  export type ModuloHistoricoUncheckedUpdateWithoutModuloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModuloHistoricoUncheckedUpdateManyWithoutModuloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    accion?: StringFieldUpdateOperationsInput | string
+    usuarioId?: StringFieldUpdateOperationsInput | string
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ModuloDependenciaUpdateWithoutDependeDeInput = {
@@ -22046,6 +24156,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
+    moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutRolInput = {
@@ -22056,6 +24167,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateManyWithoutRolInput = {
@@ -22097,6 +24209,10 @@ export namespace Prisma {
      * @deprecated Use EmpresaCountOutputTypeDefaultArgs instead
      */
     export type EmpresaCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EmpresaCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UsuarioCountOutputTypeDefaultArgs instead
+     */
+    export type UsuarioCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UsuarioCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ModuloCountOutputTypeDefaultArgs instead
      */
@@ -22165,6 +24281,10 @@ export namespace Prisma {
      * @deprecated Use MovimientoCajaDefaultArgs instead
      */
     export type MovimientoCajaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = MovimientoCajaDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ModuloHistoricoDefaultArgs instead
+     */
+    export type ModuloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ModuloHistoricoDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

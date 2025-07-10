@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@contafacil/ui';
+import Link from 'next/link';
 
 interface Empresa {
   id: string;
@@ -143,6 +144,15 @@ export function EmpresaTable({ empresas, onEdit, onRefresh }: EmpresaTableProps)
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex justify-end space-x-2">
+                      <Link href={`/admin/empresas/${empresa.id}/modulos`}>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          Módulos
+                        </Button>
+                      </Link>
                       <Button
                         size="sm"
                         variant="secondary"

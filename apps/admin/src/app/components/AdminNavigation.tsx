@@ -28,13 +28,7 @@ export function AdminNavigation() {
       ruta: '/admin/usuarios',
       descripcion: 'CRUD completo de usuarios'
     },
-    { 
-      slug: 'modulos', 
-      nombre: 'Módulos', 
-      icono: '🧩', 
-      ruta: '/admin/modulos',
-      descripcion: 'Gestión de módulos (próximamente)'
-    },
+
     { 
       slug: 'analytics', 
       nombre: 'Analytics', 
