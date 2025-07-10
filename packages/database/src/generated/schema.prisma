@@ -32,17 +32,19 @@ model Empresa {
 }
 
 model Usuario {
-  id              String            @id @default(cuid())
-  email           String            @unique
-  nombre          String
-  apellido        String?
-  password        String
-  empresaId       String
-  rolId           String
-  activo          Boolean           @default(true)
-  empresa         Empresa           @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-  rol             Rol               @relation(fields: [rolId], references: [id])
-  moduloHistorico ModuloHistorico[]
+  id                String            @id @default(cuid())
+  email             String            @unique
+  nombre            String
+  apellido          String?
+  password          String
+  empresaId         String
+  rolId             String
+  activo            Boolean           @default(true)
+  resetToken        String?
+  resetTokenExpires DateTime?
+  empresa           Empresa           @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  rol               Rol               @relation(fields: [rolId], references: [id])
+  moduloHistorico   ModuloHistorico[]
 
   @@map("usuarios")
 }

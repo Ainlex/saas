@@ -40,6 +40,8 @@ model Usuario {
   empresaId String
   rolId     String
   activo    Boolean @default(true)
+  resetToken         String?   
+  resetTokenExpires  DateTime?
   empresa   Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
   rol       Rol     @relation(fields: [rolId], references: [id])
   moduloHistorico ModuloHistorico[]

@@ -143,7 +143,9 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   password: 'password',
   empresaId: 'empresaId',
   rolId: 'rolId',
-  activo: 'activo'
+  activo: 'activo',
+  resetToken: 'resetToken',
+  resetTokenExpires: 'resetTokenExpires'
 };
 
 exports.Prisma.ModuloScalarFieldEnum = {

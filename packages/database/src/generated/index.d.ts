@@ -3531,6 +3531,8 @@ export namespace Prisma {
     empresaId: string | null
     rolId: string | null
     activo: boolean | null
+    resetToken: string | null
+    resetTokenExpires: Date | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
@@ -3542,6 +3544,8 @@ export namespace Prisma {
     empresaId: string | null
     rolId: string | null
     activo: boolean | null
+    resetToken: string | null
+    resetTokenExpires: Date | null
   }
 
   export type UsuarioCountAggregateOutputType = {
@@ -3553,6 +3557,8 @@ export namespace Prisma {
     empresaId: number
     rolId: number
     activo: number
+    resetToken: number
+    resetTokenExpires: number
     _all: number
   }
 
@@ -3566,6 +3572,8 @@ export namespace Prisma {
     empresaId?: true
     rolId?: true
     activo?: true
+    resetToken?: true
+    resetTokenExpires?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
@@ -3577,6 +3585,8 @@ export namespace Prisma {
     empresaId?: true
     rolId?: true
     activo?: true
+    resetToken?: true
+    resetTokenExpires?: true
   }
 
   export type UsuarioCountAggregateInputType = {
@@ -3588,6 +3598,8 @@ export namespace Prisma {
     empresaId?: true
     rolId?: true
     activo?: true
+    resetToken?: true
+    resetTokenExpires?: true
     _all?: true
   }
 
@@ -3672,6 +3684,8 @@ export namespace Prisma {
     empresaId: string
     rolId: string
     activo: boolean
+    resetToken: string | null
+    resetTokenExpires: Date | null
     _count: UsuarioCountAggregateOutputType | null
     _min: UsuarioMinAggregateOutputType | null
     _max: UsuarioMaxAggregateOutputType | null
@@ -3700,6 +3714,8 @@ export namespace Prisma {
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
+    resetToken?: boolean
+    resetTokenExpires?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
     moduloHistorico?: boolean | Usuario$moduloHistoricoArgs<ExtArgs>
@@ -3715,6 +3731,8 @@ export namespace Prisma {
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
+    resetToken?: boolean
+    resetTokenExpires?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
@@ -3728,6 +3746,8 @@ export namespace Prisma {
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
+    resetToken?: boolean
+    resetTokenExpires?: boolean
   }
 
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3757,6 +3777,8 @@ export namespace Prisma {
       empresaId: string
       rolId: string
       activo: boolean
+      resetToken: string | null
+      resetTokenExpires: Date | null
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -4161,6 +4183,8 @@ export namespace Prisma {
     readonly empresaId: FieldRef<"Usuario", 'String'>
     readonly rolId: FieldRef<"Usuario", 'String'>
     readonly activo: FieldRef<"Usuario", 'Boolean'>
+    readonly resetToken: FieldRef<"Usuario", 'String'>
+    readonly resetTokenExpires: FieldRef<"Usuario", 'DateTime'>
   }
     
 
@@ -16972,7 +16996,9 @@ export namespace Prisma {
     password: 'password',
     empresaId: 'empresaId',
     rolId: 'rolId',
-    activo: 'activo'
+    activo: 'activo',
+    resetToken: 'resetToken',
+    resetTokenExpires: 'resetTokenExpires'
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
@@ -17377,6 +17403,8 @@ export namespace Prisma {
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
+    resetToken?: StringNullableFilter<"Usuario"> | string | null
+    resetTokenExpires?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
     moduloHistorico?: ModuloHistoricoListRelationFilter
@@ -17391,6 +17419,8 @@ export namespace Prisma {
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
+    resetToken?: SortOrderInput | SortOrder
+    resetTokenExpires?: SortOrderInput | SortOrder
     empresa?: EmpresaOrderByWithRelationInput
     rol?: RolOrderByWithRelationInput
     moduloHistorico?: ModuloHistoricoOrderByRelationAggregateInput
@@ -17408,6 +17438,8 @@ export namespace Prisma {
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
+    resetToken?: StringNullableFilter<"Usuario"> | string | null
+    resetTokenExpires?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
     moduloHistorico?: ModuloHistoricoListRelationFilter
@@ -17422,6 +17454,8 @@ export namespace Prisma {
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
+    resetToken?: SortOrderInput | SortOrder
+    resetTokenExpires?: SortOrderInput | SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _max?: UsuarioMaxOrderByAggregateInput
     _min?: UsuarioMinOrderByAggregateInput
@@ -17439,6 +17473,8 @@ export namespace Prisma {
     empresaId?: StringWithAggregatesFilter<"Usuario"> | string
     rolId?: StringWithAggregatesFilter<"Usuario"> | string
     activo?: BoolWithAggregatesFilter<"Usuario"> | boolean
+    resetToken?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
+    resetTokenExpires?: DateTimeNullableWithAggregatesFilter<"Usuario"> | Date | string | null
   }
 
   export type ModuloWhereInput = {
@@ -18344,6 +18380,8 @@ export namespace Prisma {
     apellido?: string | null
     password: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     rol: RolCreateNestedOneWithoutUsuariosInput
     moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
@@ -18358,6 +18396,8 @@ export namespace Prisma {
     empresaId: string
     rolId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
@@ -18368,6 +18408,8 @@ export namespace Prisma {
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
     moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
@@ -18382,6 +18424,8 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
@@ -18394,6 +18438,8 @@ export namespace Prisma {
     empresaId: string
     rolId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
   }
 
   export type UsuarioUpdateManyMutationInput = {
@@ -18403,6 +18449,8 @@ export namespace Prisma {
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UsuarioUncheckedUpdateManyInput = {
@@ -18414,6 +18462,8 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ModuloCreateInput = {
@@ -19430,6 +19480,17 @@ export namespace Prisma {
     _max?: NestedEnumPlanTypeFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type EmpresaRelationFilter = {
     is?: EmpresaWhereInput
     isNot?: EmpresaWhereInput
@@ -19449,6 +19510,8 @@ export namespace Prisma {
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpires?: SortOrder
   }
 
   export type UsuarioMaxOrderByAggregateInput = {
@@ -19460,6 +19523,8 @@ export namespace Prisma {
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpires?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
@@ -19471,6 +19536,22 @@ export namespace Prisma {
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpires?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -19596,17 +19677,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type ModuloRelationFilter = {
     is?: ModuloWhereInput
     isNot?: ModuloWhereInput
@@ -19668,20 +19738,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type ModuloDependenciaModuloIdDependeDeIdCompoundUniqueInput = {
@@ -20406,6 +20462,10 @@ export namespace Prisma {
     connect?: ModuloHistoricoWhereUniqueInput | ModuloHistoricoWhereUniqueInput[]
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type EmpresaUpdateOneRequiredWithoutUsuariosNestedInput = {
     create?: XOR<EmpresaCreateWithoutUsuariosInput, EmpresaUncheckedCreateWithoutUsuariosInput>
     connectOrCreate?: EmpresaCreateOrConnectWithoutUsuariosInput
@@ -20720,10 +20780,6 @@ export namespace Prisma {
     create?: XOR<ModuloCreateWithoutEmpresasConModuloInput, ModuloUncheckedCreateWithoutEmpresasConModuloInput>
     connectOrCreate?: ModuloCreateOrConnectWithoutEmpresasConModuloInput
     connect?: ModuloWhereUniqueInput
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type EmpresaUpdateOneRequiredWithoutModulosActivosNestedInput = {
@@ -21203,6 +21259,31 @@ export namespace Prisma {
     _max?: NestedEnumPlanTypeFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -21229,17 +21310,6 @@ export namespace Prisma {
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
   }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
   export type NestedJsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -21261,20 +21331,6 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
   export type NestedJsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -21478,6 +21534,8 @@ export namespace Prisma {
     apellido?: string | null
     password: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     rol: RolCreateNestedOneWithoutUsuariosInput
     moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
   }
@@ -21490,6 +21548,8 @@ export namespace Prisma {
     password: string
     rolId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
@@ -21722,6 +21782,8 @@ export namespace Prisma {
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
+    resetToken?: StringNullableFilter<"Usuario"> | string | null
+    resetTokenExpires?: DateTimeNullableFilter<"Usuario"> | Date | string | null
   }
 
   export type EmpresaCreateWithoutUsuariosInput = {
@@ -22652,6 +22714,8 @@ export namespace Prisma {
     apellido?: string | null
     password: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     moduloHistorico?: ModuloHistoricoCreateNestedManyWithoutUsuarioInput
   }
@@ -22664,6 +22728,8 @@ export namespace Prisma {
     password: string
     empresaId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
@@ -23505,6 +23571,8 @@ export namespace Prisma {
     apellido?: string | null
     password: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     rol: RolCreateNestedOneWithoutUsuariosInput
   }
@@ -23518,6 +23586,8 @@ export namespace Prisma {
     empresaId: string
     rolId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
   }
 
   export type UsuarioCreateOrConnectWithoutModuloHistoricoInput = {
@@ -23639,6 +23709,8 @@ export namespace Prisma {
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
   }
@@ -23652,6 +23724,8 @@ export namespace Prisma {
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ClienteCreateManyEmpresaInput = {
@@ -23713,6 +23787,8 @@ export namespace Prisma {
     password: string
     rolId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
   }
 
   export type ClienteUpdateWithoutEmpresaInput = {
@@ -23875,6 +23951,8 @@ export namespace Prisma {
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
     moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
   }
@@ -23887,6 +23965,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
@@ -23898,6 +23978,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ModuloHistoricoCreateManyUsuarioInput = {
@@ -24131,6 +24213,8 @@ export namespace Prisma {
     password: string
     empresaId: string
     activo?: boolean
+    resetToken?: string | null
+    resetTokenExpires?: Date | string | null
   }
 
   export type RolPermisoUpdateWithoutRolInput = {
@@ -24155,6 +24239,8 @@ export namespace Prisma {
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     moduloHistorico?: ModuloHistoricoUpdateManyWithoutUsuarioNestedInput
   }
@@ -24167,6 +24253,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     moduloHistorico?: ModuloHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
@@ -24178,6 +24266,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type RolPermisoCreateManyPermisoInput = {
