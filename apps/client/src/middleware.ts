@@ -6,8 +6,8 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Permitir rutas públicas
-  const publicRoutes = ['/login', '/unauthorized', '/error', '/'];
-  if (publicRoutes.includes(pathname)) {
+  const publicRoutes = ['/login', '/unauthorized', '/error', '/reset-password', '/'];
+  if (publicRoutes.includes(pathname) || pathname.startsWith('/reset-password')) {
     return NextResponse.next();
   }
 
@@ -42,6 +42,7 @@ export async function middleware(request: NextRequest) {
         }
         // Otro error inesperado
         const errorUrl = new URL('/error', request.url);
+        errorUrl.searchParams.set('code', 'MODULE_ERROR');
         errorUrl.searchParams.set('message', 'Error verificando módulos activos');
         return NextResponse.redirect(errorUrl);
       }
@@ -54,6 +55,7 @@ export async function middleware(request: NextRequest) {
       }
     } catch (error) {
       const errorUrl = new URL('/error', request.url);
+      errorUrl.searchParams.set('code', 'NETWORK_ERROR');
       errorUrl.searchParams.set('message', 'Error verificando módulos activos');
       return NextResponse.redirect(errorUrl);
     }
