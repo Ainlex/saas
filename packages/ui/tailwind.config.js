@@ -34,6 +34,7 @@ module.exports = {
         error: {
           500: '#ef4444',
           600: '#dc2626',
+          700: '#b91c1c', // Agregado para el hover del botón danger
         }
       },
       fontFamily: {

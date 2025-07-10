@@ -139,10 +139,11 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   id: 'id',
   email: 'email',
   nombre: 'nombre',
+  apellido: 'apellido',
+  password: 'password',
   empresaId: 'empresaId',
   rolId: 'rolId',
-  activo: 'activo',
-  apellido: 'apellido'
+  activo: 'activo'
 };
 
 exports.Prisma.ModuloScalarFieldEnum = {

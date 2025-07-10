@@ -34,10 +34,11 @@ model Usuario {
   id        String  @id @default(cuid())
   email     String  @unique
   nombre    String
+  apellido  String?
+  password  String
   empresaId String
   rolId     String
   activo    Boolean @default(true)
-  apellido  String?
   empresa   Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
   rol       Rol     @relation(fields: [rolId], references: [id])
 

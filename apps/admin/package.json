@@ -10,7 +10,8 @@
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next",
     "test:admin": "tsx scripts/test-admin.ts",
-    "test:integration": "tsx scripts/test-integration.ts"
+    "test:integration": "tsx scripts/test-integration.ts",
+    "test:crud": "tsx scripts/test-crud.ts"
   },
   "dependencies": {
     "@contafacil/auth": "*",
