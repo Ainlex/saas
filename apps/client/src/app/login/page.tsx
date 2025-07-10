@@ -1,13 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-import { signIn, getSession } from 'next-auth/react'
+import { useState, useEffect } from 'react'
+import { signIn, useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button, Input, LoadingSpinner } from '@contafacil/ui'
 
 export default function LoginPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { data: session, status } = useSession()
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
   
   const [formData, setFormData] = useState({
@@ -16,6 +17,13 @@ export default function LoginPage() {
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // ✅ VERIFICACIÓN AUTOMÁTICA - ESTO SOLUCIONA EL PROBLEMA
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push(callbackUrl) // Redirect si ya logueado
+    }
+  }, [status, router, callbackUrl])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,13 +40,7 @@ export default function LoginPage() {
       if (result?.error) {
         setError('Credenciales incorrectas. Verifica tu email y contraseña.')
       } else {
-        // Verificar que la sesión se creó correctamente
-        const session = await getSession()
-        if (session?.user?.empresaId) {
-          router.push(callbackUrl)
-        } else {
-          setError('Error al inicializar sesión. Contacta al administrador.')
-        }
+        // NextAuth redirigirá automáticamente con el useEffect
       }
     } catch (error) {
       setError('Error de conexión. Intenta nuevamente.')
@@ -52,6 +54,15 @@ export default function LoginPage() {
       ...prev,
       [e.target.name]: e.target.value
     }))
+  }
+
+  // Mostrar loading mientras verifica sesión
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center">
+        <LoadingSpinner size="lg" />
+      </div>
+    )
   }
 
   return (
@@ -128,10 +139,10 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center">
-            <a
+          <a
               href="/reset-password"
               className="text-sm text-blue-600 hover:text-blue-800"
-            >
+           >
               ¿Olvidaste tu contraseña?
             </a>
           </div>
@@ -145,4 +156,4 @@ export default function LoginPage() {
       </div>
     </div>
   )
-} 
+}

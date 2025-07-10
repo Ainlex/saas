@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 
 export function AppHeader() {
   const { data: session } = useSession();
@@ -24,10 +24,7 @@ export function AppHeader() {
           </span>
           <button
             className="inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500 px-3 py-1.5 text-sm rounded-md"
-            onClick={() => {
-              // @ts-ignore
-              window.location.href = '/api/auth/signout?callbackUrl=/login';
-            }}
+            onClick={() => signOut({ callbackUrl: '/login' })}
           >
             Salir
           </button>
@@ -35,4 +32,4 @@ export function AppHeader() {
       </div>
     </header>
   );
-} 
+}
