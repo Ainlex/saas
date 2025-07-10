@@ -128,7 +128,8 @@ async function createDemoData() {
         apellido: 'Sistema',
         empresaId: empresa.id,
         rolId: rolAdmin.id,
-        activo: true
+        activo: true,
+        password: 'admin1234'
       }
     })
 

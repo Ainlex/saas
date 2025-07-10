@@ -3367,30 +3367,33 @@ export namespace Prisma {
     id: string | null
     email: string | null
     nombre: string | null
+    apellido: string | null
+    password: string | null
     empresaId: string | null
     rolId: string | null
     activo: boolean | null
-    apellido: string | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
     id: string | null
     email: string | null
     nombre: string | null
+    apellido: string | null
+    password: string | null
     empresaId: string | null
     rolId: string | null
     activo: boolean | null
-    apellido: string | null
   }
 
   export type UsuarioCountAggregateOutputType = {
     id: number
     email: number
     nombre: number
+    apellido: number
+    password: number
     empresaId: number
     rolId: number
     activo: number
-    apellido: number
     _all: number
   }
 
@@ -3399,30 +3402,33 @@ export namespace Prisma {
     id?: true
     email?: true
     nombre?: true
+    apellido?: true
+    password?: true
     empresaId?: true
     rolId?: true
     activo?: true
-    apellido?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
     id?: true
     email?: true
     nombre?: true
+    apellido?: true
+    password?: true
     empresaId?: true
     rolId?: true
     activo?: true
-    apellido?: true
   }
 
   export type UsuarioCountAggregateInputType = {
     id?: true
     email?: true
     nombre?: true
+    apellido?: true
+    password?: true
     empresaId?: true
     rolId?: true
     activo?: true
-    apellido?: true
     _all?: true
   }
 
@@ -3502,10 +3508,11 @@ export namespace Prisma {
     id: string
     email: string
     nombre: string
+    apellido: string | null
+    password: string
     empresaId: string
     rolId: string
     activo: boolean
-    apellido: string | null
     _count: UsuarioCountAggregateOutputType | null
     _min: UsuarioMinAggregateOutputType | null
     _max: UsuarioMaxAggregateOutputType | null
@@ -3529,10 +3536,11 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
+    apellido?: boolean
+    password?: boolean
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
-    apellido?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
@@ -3541,10 +3549,11 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
+    apellido?: boolean
+    password?: boolean
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
-    apellido?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
     rol?: boolean | RolDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
@@ -3553,10 +3562,11 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     nombre?: boolean
+    apellido?: boolean
+    password?: boolean
     empresaId?: boolean
     rolId?: boolean
     activo?: boolean
-    apellido?: boolean
   }
 
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3578,10 +3588,11 @@ export namespace Prisma {
       id: string
       email: string
       nombre: string
+      apellido: string | null
+      password: string
       empresaId: string
       rolId: string
       activo: boolean
-      apellido: string | null
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -3980,10 +3991,11 @@ export namespace Prisma {
     readonly id: FieldRef<"Usuario", 'String'>
     readonly email: FieldRef<"Usuario", 'String'>
     readonly nombre: FieldRef<"Usuario", 'String'>
+    readonly apellido: FieldRef<"Usuario", 'String'>
+    readonly password: FieldRef<"Usuario", 'String'>
     readonly empresaId: FieldRef<"Usuario", 'String'>
     readonly rolId: FieldRef<"Usuario", 'String'>
     readonly activo: FieldRef<"Usuario", 'Boolean'>
-    readonly apellido: FieldRef<"Usuario", 'String'>
   }
     
 
@@ -15778,10 +15790,11 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     nombre: 'nombre',
+    apellido: 'apellido',
+    password: 'password',
     empresaId: 'empresaId',
     rolId: 'rolId',
-    activo: 'activo',
-    apellido: 'apellido'
+    activo: 'activo'
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
@@ -16165,10 +16178,11 @@ export namespace Prisma {
     id?: StringFilter<"Usuario"> | string
     email?: StringFilter<"Usuario"> | string
     nombre?: StringFilter<"Usuario"> | string
+    apellido?: StringNullableFilter<"Usuario"> | string | null
+    password?: StringFilter<"Usuario"> | string
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
-    apellido?: StringNullableFilter<"Usuario"> | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
   }
@@ -16177,10 +16191,11 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
+    apellido?: SortOrderInput | SortOrder
+    password?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
-    apellido?: SortOrderInput | SortOrder
     empresa?: EmpresaOrderByWithRelationInput
     rol?: RolOrderByWithRelationInput
   }
@@ -16192,10 +16207,11 @@ export namespace Prisma {
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
     nombre?: StringFilter<"Usuario"> | string
+    apellido?: StringNullableFilter<"Usuario"> | string | null
+    password?: StringFilter<"Usuario"> | string
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
-    apellido?: StringNullableFilter<"Usuario"> | string | null
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
     rol?: XOR<RolRelationFilter, RolWhereInput>
   }, "id" | "email">
@@ -16204,10 +16220,11 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
+    apellido?: SortOrderInput | SortOrder
+    password?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
-    apellido?: SortOrderInput | SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _max?: UsuarioMaxOrderByAggregateInput
     _min?: UsuarioMinOrderByAggregateInput
@@ -16220,10 +16237,11 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Usuario"> | string
     email?: StringWithAggregatesFilter<"Usuario"> | string
     nombre?: StringWithAggregatesFilter<"Usuario"> | string
+    apellido?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
+    password?: StringWithAggregatesFilter<"Usuario"> | string
     empresaId?: StringWithAggregatesFilter<"Usuario"> | string
     rolId?: StringWithAggregatesFilter<"Usuario"> | string
     activo?: BoolWithAggregatesFilter<"Usuario"> | boolean
-    apellido?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
   }
 
   export type ModuloWhereInput = {
@@ -17048,8 +17066,9 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
-    activo?: boolean
     apellido?: string | null
+    password: string
+    activo?: boolean
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
     rol: RolCreateNestedOneWithoutUsuariosInput
   }
@@ -17058,18 +17077,20 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     empresaId: string
     rolId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type UsuarioUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
   }
@@ -17078,38 +17099,42 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioCreateManyInput = {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     empresaId: string
     rolId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type UsuarioUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UsuarioUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ModuloCreateInput = {
@@ -18059,30 +18084,33 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
+    apellido?: SortOrder
+    password?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
-    apellido?: SortOrder
   }
 
   export type UsuarioMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
+    apellido?: SortOrder
+    password?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
-    apellido?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     nombre?: SortOrder
+    apellido?: SortOrder
+    password?: SortOrder
     empresaId?: SortOrder
     rolId?: SortOrder
     activo?: SortOrder
-    apellido?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -19856,8 +19884,9 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
-    activo?: boolean
     apellido?: string | null
+    password: string
+    activo?: boolean
     rol: RolCreateNestedOneWithoutUsuariosInput
   }
 
@@ -19865,9 +19894,10 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     rolId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type UsuarioCreateOrConnectWithoutEmpresaInput = {
@@ -20065,10 +20095,11 @@ export namespace Prisma {
     id?: StringFilter<"Usuario"> | string
     email?: StringFilter<"Usuario"> | string
     nombre?: StringFilter<"Usuario"> | string
+    apellido?: StringNullableFilter<"Usuario"> | string | null
+    password?: StringFilter<"Usuario"> | string
     empresaId?: StringFilter<"Usuario"> | string
     rolId?: StringFilter<"Usuario"> | string
     activo?: BoolFilter<"Usuario"> | boolean
-    apellido?: StringNullableFilter<"Usuario"> | string | null
   }
 
   export type EmpresaCreateWithoutUsuariosInput = {
@@ -20884,8 +20915,9 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
-    activo?: boolean
     apellido?: string | null
+    password: string
+    activo?: boolean
     empresa: EmpresaCreateNestedOneWithoutUsuariosInput
   }
 
@@ -20893,9 +20925,10 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     empresaId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type UsuarioCreateOrConnectWithoutRolInput = {
@@ -21667,9 +21700,10 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     rolId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type ClienteUpdateWithoutEmpresaInput = {
@@ -21802,8 +21836,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
     rol?: RolUpdateOneRequiredWithoutUsuariosNestedInput
   }
 
@@ -21811,18 +21846,20 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioUncheckedUpdateManyWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     rolId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmpresaModuloCreateManyModuloInput = {
@@ -21980,9 +22017,10 @@ export namespace Prisma {
     id?: string
     email: string
     nombre: string
+    apellido?: string | null
+    password: string
     empresaId: string
     activo?: boolean
-    apellido?: string | null
   }
 
   export type RolPermisoUpdateWithoutRolInput = {
@@ -22004,8 +22042,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
-    activo?: BoolFieldUpdateOperationsInput | boolean
     apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    activo?: BoolFieldUpdateOperationsInput | boolean
     empresa?: EmpresaUpdateOneRequiredWithoutUsuariosNestedInput
   }
 
@@ -22013,18 +22052,20 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioUncheckedUpdateManyWithoutRolInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     activo?: BoolFieldUpdateOperationsInput | boolean
-    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RolPermisoCreateManyPermisoInput = {

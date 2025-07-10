@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { prisma } from '@contafacil/database'
+import bcrypt from 'bcryptjs';
 
 // Extender tipos de NextAuth
 declare module "next-auth" {
@@ -71,10 +72,21 @@ export const authOptions: NextAuthOptions = {
             console.log('❌ Usuario inactivo');
             return null;
           }
+
+          // 🚨 Validar empresa activa
+          if (!usuario.empresa?.activo) {
+            console.log('❌ Empresa inactiva');
+            return null;
+          }
+
+          // ✅ Validar password con bcrypt
+          const validPassword = await bcrypt.compare(credentials.password, usuario.password);
+          if (!validPassword) {
+            console.log('❌ Contraseña incorrecta');
+            return null;
+          }
           
-          console.log('✅ Usuario válido, retornando datos');
-          // TODO: Validar password (agregar hash después)
-          
+          console.log('✅ Usuario y contraseña válidos, retornando datos');
           return {
             id: usuario.id,
             email: usuario.email,
@@ -101,11 +113,22 @@ export const authOptions: NextAuthOptions = {
       return token
     },
     async session({ session, token }) {
-      if (session.user) {
-        session.user.empresaId = token.empresaId as string
-        session.user.rol = token.rol as string
+      const email = session.user.email || '';
+      const usuario = await prisma.usuario.findUnique({
+        where: { email },
+        include: { empresa: true, rol: true }
+      }) as import('@contafacil/database').UserWithEmpresa | null;
+      console.log('🛡️ [SESSION CALLBACK] Email:', email);
+      console.log('🛡️ [SESSION CALLBACK] Usuario:', usuario);
+      console.log('🛡️ [SESSION CALLBACK] Empresa:', usuario?.empresa);
+      if (!usuario || !usuario.empresa || !usuario.empresa.activo) {
+        console.log('❌ [SESSION CALLBACK] Sesión invalidada para:', email);
+        throw new Error('Empresa no activa');
       }
-      return session
+      session.user.empresaId = usuario.empresaId;
+      session.user.rol = usuario.rol?.nombre || '';
+      console.log('✅ [SESSION CALLBACK] Sesión válida para:', email);
+      return session;
     }
   },
   pages: {

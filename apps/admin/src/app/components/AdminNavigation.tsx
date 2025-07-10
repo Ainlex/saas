@@ -19,14 +19,14 @@ export function AdminNavigation() {
       nombre: 'Empresas', 
       icono: '🏢', 
       ruta: '/admin/empresas',
-      descripcion: 'Gestión de empresas (próximamente)'
+      descripcion: 'CRUD completo de empresas'
     },
     { 
       slug: 'usuarios', 
       nombre: 'Usuarios', 
       icono: '👥', 
       ruta: '/admin/usuarios',
-      descripcion: 'Gestión de usuarios (próximamente)'
+      descripcion: 'CRUD completo de usuarios'
     },
     { 
       slug: 'modulos', 

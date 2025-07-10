@@ -1,11 +1,9 @@
-// Re-export types from hooks
-export type { ModuleInfo } from './hooks/useModules'
-export type { AuthUser } from './hooks/useAuth'
-
 // Common component props
-export interface BaseComponentProps {
+export interface ButtonProps {
+  children: React.ReactNode
+  onClick?: () => void
   className?: string
-  children?: React.ReactNode
+  disabled?: boolean
 }
 
 // Module types

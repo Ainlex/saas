@@ -9,7 +9,7 @@ const handler = NextAuth({
       options: {
         httpOnly: true,
         sameSite: 'lax',
-        path: '/',
+        path: '/admin', // ← Cambiado para aislar la cookie del admin
       }
     }
   }
