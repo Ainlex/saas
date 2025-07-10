@@ -22,6 +22,7 @@ model Empresa {
   clientes           Cliente[]
   configuraciones    EmpresaConfiguracion[]
   modulosActivos     EmpresaModulo[]
+  moduloHistorico    ModuloHistorico[]
   facturas           Factura[]
   movimientosCaja    MovimientoCaja[]
   productos          Producto[]
@@ -41,6 +42,7 @@ model Usuario {
   activo    Boolean @default(true)
   empresa   Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
   rol       Rol     @relation(fields: [rolId], references: [id])
+  moduloHistorico ModuloHistorico[]
 
   @@map("usuarios")
 }
@@ -56,6 +58,7 @@ model Modulo {
   icono             String?
   orden             Int                 @default(0)
   empresasConModulo EmpresaModulo[]
+  moduloHistorico   ModuloHistorico[]
   esDependenciaDe   ModuloDependencia[] @relation("ModuloDependiente")
   dependeDe         ModuloDependencia[] @relation("ModuloPrincipal")
   permisos          ModuloPermiso[]
@@ -190,6 +193,23 @@ model MovimientoCaja {
   empresa   Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
 
   @@map("movimientos_caja")
+}
+
+model ModuloHistorico {
+  id            String   @id @default(cuid())
+  empresaId     String
+  moduloId      String
+  accion        String   // ACTIVADO, DESACTIVADO
+  usuarioId     String
+  razon         String?
+  fechaCreacion DateTime @default(now())
+
+  // Relaciones
+  empresa Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  modulo  Modulo  @relation(fields: [moduloId], references: [id])
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+
+  @@map("modulo_historico")
 }
 
 enum PlanType {

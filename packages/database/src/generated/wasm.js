@@ -243,6 +243,16 @@ exports.Prisma.MovimientoCajaScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ModuloHistoricoScalarFieldEnum = {
+  id: 'id',
+  empresaId: 'empresaId',
+  moduloId: 'moduloId',
+  accion: 'accion',
+  usuarioId: 'usuarioId',
+  razon: 'razon',
+  fechaCreacion: 'fechaCreacion'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -292,7 +302,8 @@ exports.Prisma.ModelName = {
   Factura: 'Factura',
   Producto: 'Producto',
   Cliente: 'Cliente',
-  MovimientoCaja: 'MovimientoCaja'
+  MovimientoCaja: 'MovimientoCaja',
+  ModuloHistorico: 'ModuloHistorico'
 };
 
 /**
