@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCurrentUserFromHeaders } from '../../../../utils/auth';
+import { getCurrentUser } from '@contafacil/auth';
 import { prisma } from '@contafacil/database';
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     if (user.rol !== 'ADMIN') {
       return NextResponse.json({ error: 'Acceso denegado' }, { status: 403 });

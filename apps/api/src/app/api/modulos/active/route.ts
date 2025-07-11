@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCurrentUserFromHeaders } from '../../../../utils/auth';
+import { getCurrentUser } from '@contafacil/auth';
 import { prisma } from '@contafacil/database';
 
 // Función para generar slug
@@ -17,7 +17,7 @@ function generateSlug(name: string): string {
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     // Obtener módulos activos de la empresa
     const modulosActivos = await prisma.empresaModulo.findMany({

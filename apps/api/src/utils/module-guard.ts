@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { getCurrentUserFromHeaders } from './auth';
+import { getCurrentUser } from '@contafacil/auth';
 import { prisma } from '@contafacil/database';
 
 export class ApiModuleGuard {
@@ -7,7 +7,7 @@ export class ApiModuleGuard {
     request: NextRequest, 
     moduleNombre: string
   ): Promise<{ user: any; hasAccess: boolean }> {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     const moduleAccess = await prisma.empresaModulo.findFirst({
       where: {
