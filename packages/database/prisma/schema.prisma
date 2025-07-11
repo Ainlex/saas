@@ -27,6 +27,7 @@ model Empresa {
   movimientosCaja    MovimientoCaja[]
   productos          Producto[]
   usuarios           Usuario[]
+  cuentasContables   CuentaContable[]
 
   @@map("empresas")
 }
@@ -218,4 +219,35 @@ enum PlanType {
   STARTER
   PROFESIONAL
   EMPRESARIAL
+}
+
+model CuentaContable {
+  id                  String   @id @default(cuid())
+  empresaId          String   // Multi-tenant OBLIGATORIO
+  codigo             String   // "1.1.01.001"
+  nombre             String   // "Caja"
+  descripcion        String?
+  tipo               TipoCuenta
+  nivel              Int      // 1,2,3,4 jerarquía
+  cuentaPadreId      String?
+  esMovimiento       Boolean  @default(true)
+  activo             Boolean  @default(true)
+  fechaCreacion      DateTime @default(now())
+  fechaActualizacion DateTime @updatedAt
+  
+  // Relaciones
+  empresa            Empresa          @relation(fields: [empresaId], references: [id])
+  cuentaPadre        CuentaContable?  @relation("CuentaHijos", fields: [cuentaPadreId], references: [id])
+  cuentasHijas       CuentaContable[] @relation("CuentaHijos")
+  
+  @@unique([empresaId, codigo])
+  @@map("cuentas_contables")
+}
+
+enum TipoCuenta {
+  ACTIVO
+  PASIVO
+  PATRIMONIO
+  INGRESO
+  GASTO
 }

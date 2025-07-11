@@ -1,10 +1,11 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { Button } from '@contafacil/ui'
+import { Button, LoadingSpinner } from '@contafacil/ui'
 import { useState } from 'react'
 
-export default function ErrorPage() {
+function ErrorContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [reportSent, setReportSent] = useState(false)
@@ -146,5 +147,17 @@ export default function ErrorPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ErrorPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <LoadingSpinner size="lg" />
+      </div>
+    }>
+      <ErrorContent />
+    </Suspense>
   )
 } 

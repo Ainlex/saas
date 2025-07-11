@@ -1,1 +1,2 @@
-// (vacío o solo hooks visuales si existen) 
+export { useAuth } from './useAuth'
+export { useModules } from './useModules' 

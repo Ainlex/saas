@@ -1,36 +1,29 @@
 {
   "name": "@contafacil/client",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev --port 3000",
     "build": "next build",
-    "start": "next start -p 3000",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next",
-    "test:routing": "tsx scripts/test-routing.ts",
-    "check:integration": "tsx scripts/check-integration.ts"
+    "start": "next start --port 3000"
   },
   "dependencies": {
     "next": "14.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "next-auth": "^4.24.5",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0",
     "@contafacil/ui": "workspace:*",
     "@contafacil/auth": "workspace:*",
+    "@contafacil/database": "workspace:*",
     "@contafacil/shared": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "autoprefixer": "^10.4.0",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
-    "postcss": "^8.4.0",
-    "tailwindcss": "^3.3.0",
     "typescript": "^5.0.0",
-    "tsx": "^4.0.0"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0"
   }
 }

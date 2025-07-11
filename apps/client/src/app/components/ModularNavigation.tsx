@@ -42,7 +42,8 @@ export function ModularNavigation() {
     }
   };
 
-  const menuItems = [
+  // Crear lista de items disponibles (filtrar antes del render)
+  const availableMenuItems = [
     { slug: 'dashboard', nombre: 'Dashboard', icono: '📊', ruta: '/dashboard' },
     ...modulos.map(modulo => ({
       slug: modulo.slug,
@@ -58,7 +59,7 @@ export function ModularNavigation() {
         <div className="p-4">
           <div className="animate-pulse space-y-3">
             {[1, 2, 3].map(i => (
-              <div key={i} className="h-10 bg-gray-200 rounded"></div>
+              <div key={`skeleton-${i}`} className="h-10 bg-gray-200 rounded"></div>
             ))}
           </div>
         </div>
@@ -70,35 +71,10 @@ export function ModularNavigation() {
     <aside className="w-64 bg-white shadow-sm border-r border-gray-200">
       <div className="p-4">
         <nav className="space-y-2">
-          {menuItems.map((item) => {
-            // Dashboard siempre visible
-            if (item.slug === 'dashboard') {
-              const isActive = pathname === item.ruta;
-
-              return (
-                <Link
-                  key={item.slug}
-                  href={item.ruta}
-                  className={`
-                    flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors
-                    ${isActive 
-                      ? 'bg-primary-blue text-white' 
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                    }
-                  `}
-                >
-                  <span className="text-xl">{item.icono}</span>
-                  <span className="font-medium">{item.nombre}</span>
-                </Link>
-              );
-            }
-
-            // Verificar acceso al módulo
-            if (!modulos.some(m => m.slug === item.slug)) {
-              return null;
-            }
-
-            const isActive = pathname.startsWith(item.ruta);
+          {availableMenuItems.map((item) => {
+            const isActive = item.slug === 'dashboard' 
+              ? pathname === item.ruta 
+              : pathname.startsWith(item.ruta);
 
             return (
               <Link
@@ -107,7 +83,7 @@ export function ModularNavigation() {
                 className={`
                   flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors
                   ${isActive 
-                    ? 'bg-primary-blue text-white' 
+                    ? 'bg-blue-600 text-white' 
                     : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                   }
                 `}
