@@ -1,38 +1,22 @@
 "use client";
 import React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../utils/cn'
 
-const spinnerVariants = cva(
-  'animate-spin rounded-full border-2 border-gray-200',
-  {
-    variants: {
-      size: {
-        sm: 'h-4 w-4 border-2',
-        md: 'h-6 w-6 border-2',
-        lg: 'h-8 w-8 border-3'
-      },
-      color: {
-        primary: 'border-t-primary-600',
-        secondary: 'border-t-secondary-600',
-        white: 'border-t-white'
-      }
-    },
-    defaultVariants: {
-      size: 'md',
-      color: 'primary'
-    }
-  }
-)
-
-export interface LoadingSpinnerProps extends VariantProps<typeof spinnerVariants> {
+interface LoadingSpinnerProps {
+  size?: 'sm' | 'md' | 'lg' | 'xl'
   className?: string
 }
 
-export function LoadingSpinner({ size, color, className }: LoadingSpinnerProps) {
+export function LoadingSpinner({ size = 'md', className = '' }: LoadingSpinnerProps) {
+  const sizeClasses = {
+    sm: 'h-4 w-4',
+    md: 'h-8 w-8', 
+    lg: 'h-12 w-12',
+    xl: 'h-16 w-16'
+  }
+
   return (
-    <div className={cn(spinnerVariants({ size, color }), className)}>
-      <div className="sr-only">Cargando...</div>
+    <div className={`flex justify-center items-center ${className}`}>
+      <div className={`animate-spin rounded-full border-b-2 border-blue-600 ${sizeClasses[size]}`}></div>
     </div>
   )
 } 

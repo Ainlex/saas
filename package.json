@@ -1,40 +1,21 @@
 {
   "name": "contafacil-saas",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "build": "turbo run build",
-    "build:packages": "turbo run build --filter='./packages/*'",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "type-check": "turbo run type-check",
-    "clean": "turbo run clean",
-    "clean:all": "if exist node_modules rmdir /s /q node_modules && for /d %i in (apps\\*) do if exist %i\\node_modules rmdir /s /q %i\\node_modules && for /d %i in (packages\\*) do if exist %i\\node_modules rmdir /s /q %i\\node_modules && for /d %i in (apps\\*) do if exist %i\\.next rmdir /s /q %i\\.next && for /d %i in (packages\\*) do if exist %i\\dist rmdir /s /q %i\\dist",
-    "db:generate": "cd packages/database && pnpm db:generate",
-    "db:push": "cd packages/database && pnpm db:push",
-    "install:clean": "pnpm clean:all && pnpm install"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "db:push": "cd packages/database && npx prisma db push",
+    "db:migrate": "cd packages/database && npx prisma migrate dev",
+    "db:generate": "cd packages/database && npx prisma generate"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.36.0",
-    "@typescript-eslint/parser": "^8.36.0",
-    "eslint": "^8.0.0",
-    "prettier": "^3.0.0",
     "turbo": "latest",
     "typescript": "^5.0.0"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
-  },
-  "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "node-fetch": "^3.3.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "node": ">=18"
   }
 }

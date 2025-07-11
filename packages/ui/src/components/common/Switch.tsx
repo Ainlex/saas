@@ -1,60 +1,27 @@
 "use client";
 import React from 'react'
-import { clsx } from 'clsx'
 
 interface SwitchProps {
   checked: boolean
   onChange: (checked: boolean) => void
   disabled?: boolean
   className?: string
-  size?: 'sm' | 'md' | 'lg'
 }
 
-export function Switch({ 
-  checked, 
-  onChange, 
-  disabled = false,
-  className,
-  size = 'md'
-}: SwitchProps) {
-  const sizes = {
-    sm: 'w-8 h-4',
-    md: 'w-11 h-6',
-    lg: 'w-14 h-7'
-  }
-
-  const dotSizes = {
-    sm: 'w-3 h-3',
-    md: 'w-4 h-4',
-    lg: 'w-5 h-5'
-  }
-
+export function Switch({ checked, onChange, disabled = false, className = '' }: SwitchProps) {
   return (
     <button
       type="button"
-      role="switch"
-      aria-checked={checked}
       disabled={disabled}
       onClick={() => onChange(!checked)}
-      className={clsx(
-        'relative inline-flex items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2',
-        sizes[size],
-        checked 
-          ? 'bg-primary-600' 
-          : 'bg-gray-200',
-        disabled && 'opacity-50 cursor-not-allowed',
-        !disabled && 'cursor-pointer',
-        className
-      )}
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+        checked ? 'bg-blue-600' : 'bg-gray-200'
+      } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${className}`}
     >
       <span
-        className={clsx(
-          'inline-block transform transition-transform bg-white rounded-full shadow-sm',
-          dotSizes[size],
-          checked 
-            ? size === 'sm' ? 'translate-x-4' : size === 'md' ? 'translate-x-5' : 'translate-x-7'
-            : 'translate-x-0.5'
-        )}
+        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+          checked ? 'translate-x-6' : 'translate-x-1'
+        }`}
       />
     </button>
   )

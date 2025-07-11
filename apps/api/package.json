@@ -1,34 +1,26 @@
 {
   "name": "@contafacil/api",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "next dev --port 3002",
     "build": "next build",
-    "start": "next start -p 3002",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next",
-    "test:api": "tsx scripts/test-api.ts",
-    "verify": "tsx scripts/verify-setup.ts"
+    "start": "next start --port 3002"
   },
   "dependencies": {
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "bcryptjs": "^2.4.3",
+    "next-auth": "^4.24.5",
+    "zod": "^3.22.0",
     "@contafacil/auth": "workspace:*",
     "@contafacil/database": "workspace:*",
-    "@contafacil/modules": "workspace:*",
-    "@contafacil/shared": "workspace:*",
-    "@types/bcryptjs": "^3.0.0",
-    "bcryptjs": "^3.0.2",
-    "next": "^14.0.0",
-    "next-auth": "^4.24.0",
-    "zod": "^3.22.4"
+    "@contafacil/shared": "workspace:*"
   },
   "devDependencies": {
+    "typescript": "^5.0.0",
     "@types/node": "^20.0.0",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
-    "node-fetch": "^3.3.2",
-    "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "@types/react": "^18.2.0",
+    "@types/bcryptjs": "^2.4.2"
   }
 }
