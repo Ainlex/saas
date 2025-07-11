@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCurrentUserFromHeaders } from '../../../../../utils/auth';
+import { getCurrentUser } from '@contafacil/auth';
 import { prisma } from '@contafacil/database';
 import { z } from 'zod';
 
@@ -12,11 +12,11 @@ const EmpresaUpdateSchema = z.object({
 });
 
 export async function GET(
-  request: NextRequest, 
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     if (user.rol !== 'ADMIN') {
       return NextResponse.json({ error: 'Acceso denegado' }, { status: 403 });
@@ -54,11 +54,11 @@ export async function GET(
 }
 
 export async function PUT(
-  request: NextRequest, 
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     if (user.rol !== 'ADMIN') {
       return NextResponse.json({ error: 'Acceso denegado' }, { status: 403 });
@@ -91,11 +91,11 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextRequest, 
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     if (user.rol !== 'ADMIN') {
       return NextResponse.json({ error: 'Acceso denegado' }, { status: 403 });

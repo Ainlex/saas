@@ -2,10 +2,10 @@
 
 import { signIn, getSession, useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { Button, Input, LoadingSpinner } from '@contafacil/ui';
 
-export default function AdminLoginPage() {
+function LoginContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -102,5 +102,26 @@ export default function AdminLoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold admin-text-primary">Panel Admin</h1>
+            <p className="mt-2 text-gray-600">ContaFácil Paraguay</p>
+          </div>
+          <div className="text-center">
+            <LoadingSpinner />
+            <p className="mt-2 text-gray-600">Cargando...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   );
 } 

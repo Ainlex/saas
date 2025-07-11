@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '@contafacil/ui';
 import { useEffect, useState } from 'react';
 
 export default function DashboardPage() {

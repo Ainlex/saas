@@ -3,7 +3,7 @@
 import { Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Button, LoadingSpinner } from '@contafacil/ui'
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '@contafacil/ui'
 
 function UnauthorizedContent() {
   const router = useRouter()

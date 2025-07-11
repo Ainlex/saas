@@ -3,8 +3,9 @@
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@contafacil/ui';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
-export default function AdminUnauthorizedPage() {
+function UnauthorizedContent() {
   const searchParams = useSearchParams();
   const reason = searchParams.get('reason');
 
@@ -41,5 +42,25 @@ export default function AdminUnauthorizedPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminUnauthorizedPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full space-y-6 p-8 bg-white rounded-lg shadow-md text-center">
+          <div className="text-6xl">🚫</div>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Acceso Denegado
+          </h1>
+          <p className="text-gray-600">
+            Cargando...
+          </p>
+        </div>
+      </div>
+    }>
+      <UnauthorizedContent />
+    </Suspense>
   );
 } 

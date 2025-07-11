@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCurrentUserFromHeaders } from '../../../../utils/auth';
+import { getCurrentUser } from '@contafacil/auth';
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await getCurrentUserFromHeaders(request);
+    const user = await getCurrentUser(request);
     
     return NextResponse.json({
       user: {
