@@ -89,10 +89,10 @@ export type MovimientoCaja = $Result.DefaultSelection<Prisma.$MovimientoCajaPayl
  */
 export type ModuloHistorico = $Result.DefaultSelection<Prisma.$ModuloHistoricoPayload>
 /**
- * Model CuentaContable
+ * Model PlanCuentas
  * 
  */
-export type CuentaContable = $Result.DefaultSelection<Prisma.$CuentaContablePayload>
+export type PlanCuentas = $Result.DefaultSelection<Prisma.$PlanCuentasPayload>
 
 /**
  * Enums
@@ -106,26 +106,11 @@ export namespace $Enums {
 
 export type PlanType = (typeof PlanType)[keyof typeof PlanType]
 
-
-export const TipoCuenta: {
-  ACTIVO: 'ACTIVO',
-  PASIVO: 'PASIVO',
-  PATRIMONIO: 'PATRIMONIO',
-  INGRESO: 'INGRESO',
-  GASTO: 'GASTO'
-};
-
-export type TipoCuenta = (typeof TipoCuenta)[keyof typeof TipoCuenta]
-
 }
 
 export type PlanType = $Enums.PlanType
 
 export const PlanType: typeof $Enums.PlanType
-
-export type TipoCuenta = $Enums.TipoCuenta
-
-export const TipoCuenta: typeof $Enums.TipoCuenta
 
 /**
  * ##  Prisma Client ʲˢ
@@ -401,14 +386,14 @@ export class PrismaClient<
   get moduloHistorico(): Prisma.ModuloHistoricoDelegate<ExtArgs>;
 
   /**
-   * `prisma.cuentaContable`: Exposes CRUD operations for the **CuentaContable** model.
+   * `prisma.planCuentas`: Exposes CRUD operations for the **PlanCuentas** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more CuentaContables
-    * const cuentaContables = await prisma.cuentaContable.findMany()
+    * // Fetch zero or more PlanCuentas
+    * const planCuentas = await prisma.planCuentas.findMany()
     * ```
     */
-  get cuentaContable(): Prisma.CuentaContableDelegate<ExtArgs>;
+  get planCuentas(): Prisma.PlanCuentasDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -865,7 +850,7 @@ export namespace Prisma {
     Cliente: 'Cliente',
     MovimientoCaja: 'MovimientoCaja',
     ModuloHistorico: 'ModuloHistorico',
-    CuentaContable: 'CuentaContable'
+    PlanCuentas: 'PlanCuentas'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -881,7 +866,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "empresa" | "usuario" | "modulo" | "empresaModulo" | "moduloDependencia" | "moduloRuta" | "rol" | "moduloPermiso" | "rolPermiso" | "empresaConfiguracion" | "factura" | "producto" | "cliente" | "movimientoCaja" | "moduloHistorico" | "cuentaContable"
+      modelProps: "empresa" | "usuario" | "modulo" | "empresaModulo" | "moduloDependencia" | "moduloRuta" | "rol" | "moduloPermiso" | "rolPermiso" | "empresaConfiguracion" | "factura" | "producto" | "cliente" | "movimientoCaja" | "moduloHistorico" | "planCuentas"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1935,73 +1920,73 @@ export namespace Prisma {
           }
         }
       }
-      CuentaContable: {
-        payload: Prisma.$CuentaContablePayload<ExtArgs>
-        fields: Prisma.CuentaContableFieldRefs
+      PlanCuentas: {
+        payload: Prisma.$PlanCuentasPayload<ExtArgs>
+        fields: Prisma.PlanCuentasFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CuentaContableFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload> | null
+            args: Prisma.PlanCuentasFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CuentaContableFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           findFirst: {
-            args: Prisma.CuentaContableFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload> | null
+            args: Prisma.PlanCuentasFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CuentaContableFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           findMany: {
-            args: Prisma.CuentaContableFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>[]
+            args: Prisma.PlanCuentasFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>[]
           }
           create: {
-            args: Prisma.CuentaContableCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           createMany: {
-            args: Prisma.CuentaContableCreateManyArgs<ExtArgs>
+            args: Prisma.PlanCuentasCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CuentaContableCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>[]
+            args: Prisma.PlanCuentasCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>[]
           }
           delete: {
-            args: Prisma.CuentaContableDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           update: {
-            args: Prisma.CuentaContableUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           deleteMany: {
-            args: Prisma.CuentaContableDeleteManyArgs<ExtArgs>
+            args: Prisma.PlanCuentasDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CuentaContableUpdateManyArgs<ExtArgs>
+            args: Prisma.PlanCuentasUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.CuentaContableUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CuentaContablePayload>
+            args: Prisma.PlanCuentasUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PlanCuentasPayload>
           }
           aggregate: {
-            args: Prisma.CuentaContableAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCuentaContable>
+            args: Prisma.PlanCuentasAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePlanCuentas>
           }
           groupBy: {
-            args: Prisma.CuentaContableGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CuentaContableGroupByOutputType>[]
+            args: Prisma.PlanCuentasGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PlanCuentasGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CuentaContableCountArgs<ExtArgs>
-            result: $Utils.Optional<CuentaContableCountAggregateOutputType> | number
+            args: Prisma.PlanCuentasCountArgs<ExtArgs>
+            result: $Utils.Optional<PlanCuentasCountAggregateOutputType> | number
           }
         }
       }
@@ -2174,7 +2159,7 @@ export namespace Prisma {
     movimientosCaja: number
     productos: number
     usuarios: number
-    cuentasContables: number
+    planCuentas: number
   }
 
   export type EmpresaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2186,7 +2171,7 @@ export namespace Prisma {
     movimientosCaja?: boolean | EmpresaCountOutputTypeCountMovimientosCajaArgs
     productos?: boolean | EmpresaCountOutputTypeCountProductosArgs
     usuarios?: boolean | EmpresaCountOutputTypeCountUsuariosArgs
-    cuentasContables?: boolean | EmpresaCountOutputTypeCountCuentasContablesArgs
+    planCuentas?: boolean | EmpresaCountOutputTypeCountPlanCuentasArgs
   }
 
   // Custom InputTypes
@@ -2259,8 +2244,8 @@ export namespace Prisma {
   /**
    * EmpresaCountOutputType without action
    */
-  export type EmpresaCountOutputTypeCountCuentasContablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CuentaContableWhereInput
+  export type EmpresaCountOutputTypeCountPlanCuentasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlanCuentasWhereInput
   }
 
 
@@ -2439,37 +2424,6 @@ export namespace Prisma {
    */
   export type ModuloPermisoCountOutputTypeCountRolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RolPermisoWhereInput
-  }
-
-
-  /**
-   * Count Type CuentaContableCountOutputType
-   */
-
-  export type CuentaContableCountOutputType = {
-    cuentasHijas: number
-  }
-
-  export type CuentaContableCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cuentasHijas?: boolean | CuentaContableCountOutputTypeCountCuentasHijasArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * CuentaContableCountOutputType without action
-   */
-  export type CuentaContableCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CuentaContableCountOutputType
-     */
-    select?: CuentaContableCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * CuentaContableCountOutputType without action
-   */
-  export type CuentaContableCountOutputTypeCountCuentasHijasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CuentaContableWhereInput
   }
 
 
@@ -2689,7 +2643,7 @@ export namespace Prisma {
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
     productos?: boolean | Empresa$productosArgs<ExtArgs>
     usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
-    cuentasContables?: boolean | Empresa$cuentasContablesArgs<ExtArgs>
+    planCuentas?: boolean | Empresa$planCuentasArgs<ExtArgs>
     _count?: boolean | EmpresaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["empresa"]>
 
@@ -2728,7 +2682,7 @@ export namespace Prisma {
     movimientosCaja?: boolean | Empresa$movimientosCajaArgs<ExtArgs>
     productos?: boolean | Empresa$productosArgs<ExtArgs>
     usuarios?: boolean | Empresa$usuariosArgs<ExtArgs>
-    cuentasContables?: boolean | Empresa$cuentasContablesArgs<ExtArgs>
+    planCuentas?: boolean | Empresa$planCuentasArgs<ExtArgs>
     _count?: boolean | EmpresaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EmpresaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2744,7 +2698,7 @@ export namespace Prisma {
       movimientosCaja: Prisma.$MovimientoCajaPayload<ExtArgs>[]
       productos: Prisma.$ProductoPayload<ExtArgs>[]
       usuarios: Prisma.$UsuarioPayload<ExtArgs>[]
-      cuentasContables: Prisma.$CuentaContablePayload<ExtArgs>[]
+      planCuentas: Prisma.$PlanCuentasPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3129,7 +3083,7 @@ export namespace Prisma {
     movimientosCaja<T extends Empresa$movimientosCajaArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$movimientosCajaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovimientoCajaPayload<ExtArgs>, T, "findMany"> | Null>
     productos<T extends Empresa$productosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$productosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductoPayload<ExtArgs>, T, "findMany"> | Null>
     usuarios<T extends Empresa$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany"> | Null>
-    cuentasContables<T extends Empresa$cuentasContablesArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$cuentasContablesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findMany"> | Null>
+    planCuentas<T extends Empresa$planCuentasArgs<ExtArgs> = {}>(args?: Subset<T, Empresa$planCuentasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3643,23 +3597,23 @@ export namespace Prisma {
   }
 
   /**
-   * Empresa.cuentasContables
+   * Empresa.planCuentas
    */
-  export type Empresa$cuentasContablesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Empresa$planCuentasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
-    where?: CuentaContableWhereInput
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
-    cursor?: CuentaContableWhereUniqueInput
+    include?: PlanCuentasInclude<ExtArgs> | null
+    where?: PlanCuentasWhereInput
+    orderBy?: PlanCuentasOrderByWithRelationInput | PlanCuentasOrderByWithRelationInput[]
+    cursor?: PlanCuentasWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CuentaContableScalarFieldEnum | CuentaContableScalarFieldEnum[]
+    distinct?: PlanCuentasScalarFieldEnum | PlanCuentasScalarFieldEnum[]
   }
 
   /**
@@ -17124,65 +17078,100 @@ export namespace Prisma {
 
 
   /**
-   * Model CuentaContable
+   * Model PlanCuentas
    */
 
-  export type AggregateCuentaContable = {
-    _count: CuentaContableCountAggregateOutputType | null
-    _avg: CuentaContableAvgAggregateOutputType | null
-    _sum: CuentaContableSumAggregateOutputType | null
-    _min: CuentaContableMinAggregateOutputType | null
-    _max: CuentaContableMaxAggregateOutputType | null
+  export type AggregatePlanCuentas = {
+    _count: PlanCuentasCountAggregateOutputType | null
+    _avg: PlanCuentasAvgAggregateOutputType | null
+    _sum: PlanCuentasSumAggregateOutputType | null
+    _min: PlanCuentasMinAggregateOutputType | null
+    _max: PlanCuentasMaxAggregateOutputType | null
   }
 
-  export type CuentaContableAvgAggregateOutputType = {
+  export type PlanCuentasAvgAggregateOutputType = {
     nivel: number | null
+    nivelMaximo: number | null
   }
 
-  export type CuentaContableSumAggregateOutputType = {
+  export type PlanCuentasSumAggregateOutputType = {
     nivel: number | null
+    nivelMaximo: number | null
   }
 
-  export type CuentaContableMinAggregateOutputType = {
+  export type PlanCuentasMinAggregateOutputType = {
     id: string | null
     empresaId: string | null
     codigo: string | null
-    nombre: string | null
-    descripcion: string | null
-    tipo: $Enums.TipoCuenta | null
+    codigoPadre: string | null
     nivel: number | null
-    cuentaPadreId: string | null
-    esMovimiento: boolean | null
+    nombre: string | null
+    nombreCompleto: string | null
+    nombreCorto: string | null
+    tipoMayor: string | null
+    tipoDetalle: string | null
+    naturaleza: string | null
+    permiteMovimiento: boolean | null
+    esAuxiliar: boolean | null
+    nivelMaximo: number | null
+    monedaPermitida: string | null
+    centroCostoObligatorio: boolean | null
+    proyectoObligatorio: boolean | null
+    requiereReferencia: boolean | null
+    requiereCliente: boolean | null
+    requiereProveedor: boolean | null
     activo: boolean | null
     fechaCreacion: Date | null
     fechaActualizacion: Date | null
   }
 
-  export type CuentaContableMaxAggregateOutputType = {
+  export type PlanCuentasMaxAggregateOutputType = {
     id: string | null
     empresaId: string | null
     codigo: string | null
-    nombre: string | null
-    descripcion: string | null
-    tipo: $Enums.TipoCuenta | null
+    codigoPadre: string | null
     nivel: number | null
-    cuentaPadreId: string | null
-    esMovimiento: boolean | null
+    nombre: string | null
+    nombreCompleto: string | null
+    nombreCorto: string | null
+    tipoMayor: string | null
+    tipoDetalle: string | null
+    naturaleza: string | null
+    permiteMovimiento: boolean | null
+    esAuxiliar: boolean | null
+    nivelMaximo: number | null
+    monedaPermitida: string | null
+    centroCostoObligatorio: boolean | null
+    proyectoObligatorio: boolean | null
+    requiereReferencia: boolean | null
+    requiereCliente: boolean | null
+    requiereProveedor: boolean | null
     activo: boolean | null
     fechaCreacion: Date | null
     fechaActualizacion: Date | null
   }
 
-  export type CuentaContableCountAggregateOutputType = {
+  export type PlanCuentasCountAggregateOutputType = {
     id: number
     empresaId: number
     codigo: number
-    nombre: number
-    descripcion: number
-    tipo: number
+    codigoPadre: number
     nivel: number
-    cuentaPadreId: number
-    esMovimiento: number
+    nombre: number
+    nombreCompleto: number
+    nombreCorto: number
+    tipoMayor: number
+    tipoDetalle: number
+    naturaleza: number
+    permiteMovimiento: number
+    esAuxiliar: number
+    nivelMaximo: number
+    monedaPermitida: number
+    centroCostoObligatorio: number
+    proyectoObligatorio: number
+    requiereReferencia: number
+    requiereCliente: number
+    requiereProveedor: number
     activo: number
     fechaCreacion: number
     fechaActualizacion: number
@@ -17190,392 +17179,472 @@ export namespace Prisma {
   }
 
 
-  export type CuentaContableAvgAggregateInputType = {
+  export type PlanCuentasAvgAggregateInputType = {
     nivel?: true
+    nivelMaximo?: true
   }
 
-  export type CuentaContableSumAggregateInputType = {
+  export type PlanCuentasSumAggregateInputType = {
     nivel?: true
+    nivelMaximo?: true
   }
 
-  export type CuentaContableMinAggregateInputType = {
+  export type PlanCuentasMinAggregateInputType = {
     id?: true
     empresaId?: true
     codigo?: true
-    nombre?: true
-    descripcion?: true
-    tipo?: true
+    codigoPadre?: true
     nivel?: true
-    cuentaPadreId?: true
-    esMovimiento?: true
+    nombre?: true
+    nombreCompleto?: true
+    nombreCorto?: true
+    tipoMayor?: true
+    tipoDetalle?: true
+    naturaleza?: true
+    permiteMovimiento?: true
+    esAuxiliar?: true
+    nivelMaximo?: true
+    monedaPermitida?: true
+    centroCostoObligatorio?: true
+    proyectoObligatorio?: true
+    requiereReferencia?: true
+    requiereCliente?: true
+    requiereProveedor?: true
     activo?: true
     fechaCreacion?: true
     fechaActualizacion?: true
   }
 
-  export type CuentaContableMaxAggregateInputType = {
+  export type PlanCuentasMaxAggregateInputType = {
     id?: true
     empresaId?: true
     codigo?: true
-    nombre?: true
-    descripcion?: true
-    tipo?: true
+    codigoPadre?: true
     nivel?: true
-    cuentaPadreId?: true
-    esMovimiento?: true
+    nombre?: true
+    nombreCompleto?: true
+    nombreCorto?: true
+    tipoMayor?: true
+    tipoDetalle?: true
+    naturaleza?: true
+    permiteMovimiento?: true
+    esAuxiliar?: true
+    nivelMaximo?: true
+    monedaPermitida?: true
+    centroCostoObligatorio?: true
+    proyectoObligatorio?: true
+    requiereReferencia?: true
+    requiereCliente?: true
+    requiereProveedor?: true
     activo?: true
     fechaCreacion?: true
     fechaActualizacion?: true
   }
 
-  export type CuentaContableCountAggregateInputType = {
+  export type PlanCuentasCountAggregateInputType = {
     id?: true
     empresaId?: true
     codigo?: true
-    nombre?: true
-    descripcion?: true
-    tipo?: true
+    codigoPadre?: true
     nivel?: true
-    cuentaPadreId?: true
-    esMovimiento?: true
+    nombre?: true
+    nombreCompleto?: true
+    nombreCorto?: true
+    tipoMayor?: true
+    tipoDetalle?: true
+    naturaleza?: true
+    permiteMovimiento?: true
+    esAuxiliar?: true
+    nivelMaximo?: true
+    monedaPermitida?: true
+    centroCostoObligatorio?: true
+    proyectoObligatorio?: true
+    requiereReferencia?: true
+    requiereCliente?: true
+    requiereProveedor?: true
     activo?: true
     fechaCreacion?: true
     fechaActualizacion?: true
     _all?: true
   }
 
-  export type CuentaContableAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CuentaContable to aggregate.
+     * Filter which PlanCuentas to aggregate.
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CuentaContables to fetch.
+     * Determine the order of PlanCuentas to fetch.
      */
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
+    orderBy?: PlanCuentasOrderByWithRelationInput | PlanCuentasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CuentaContableWhereUniqueInput
+    cursor?: PlanCuentasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CuentaContables from the position of the cursor.
+     * Take `±n` PlanCuentas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CuentaContables.
+     * Skip the first `n` PlanCuentas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned CuentaContables
+     * Count returned PlanCuentas
     **/
-    _count?: true | CuentaContableCountAggregateInputType
+    _count?: true | PlanCuentasCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CuentaContableAvgAggregateInputType
+    _avg?: PlanCuentasAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CuentaContableSumAggregateInputType
+    _sum?: PlanCuentasSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CuentaContableMinAggregateInputType
+    _min?: PlanCuentasMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CuentaContableMaxAggregateInputType
+    _max?: PlanCuentasMaxAggregateInputType
   }
 
-  export type GetCuentaContableAggregateType<T extends CuentaContableAggregateArgs> = {
-        [P in keyof T & keyof AggregateCuentaContable]: P extends '_count' | 'count'
+  export type GetPlanCuentasAggregateType<T extends PlanCuentasAggregateArgs> = {
+        [P in keyof T & keyof AggregatePlanCuentas]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCuentaContable[P]>
-      : GetScalarType<T[P], AggregateCuentaContable[P]>
+        : GetScalarType<T[P], AggregatePlanCuentas[P]>
+      : GetScalarType<T[P], AggregatePlanCuentas[P]>
   }
 
 
 
 
-  export type CuentaContableGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CuentaContableWhereInput
-    orderBy?: CuentaContableOrderByWithAggregationInput | CuentaContableOrderByWithAggregationInput[]
-    by: CuentaContableScalarFieldEnum[] | CuentaContableScalarFieldEnum
-    having?: CuentaContableScalarWhereWithAggregatesInput
+  export type PlanCuentasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlanCuentasWhereInput
+    orderBy?: PlanCuentasOrderByWithAggregationInput | PlanCuentasOrderByWithAggregationInput[]
+    by: PlanCuentasScalarFieldEnum[] | PlanCuentasScalarFieldEnum
+    having?: PlanCuentasScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CuentaContableCountAggregateInputType | true
-    _avg?: CuentaContableAvgAggregateInputType
-    _sum?: CuentaContableSumAggregateInputType
-    _min?: CuentaContableMinAggregateInputType
-    _max?: CuentaContableMaxAggregateInputType
+    _count?: PlanCuentasCountAggregateInputType | true
+    _avg?: PlanCuentasAvgAggregateInputType
+    _sum?: PlanCuentasSumAggregateInputType
+    _min?: PlanCuentasMinAggregateInputType
+    _max?: PlanCuentasMaxAggregateInputType
   }
 
-  export type CuentaContableGroupByOutputType = {
+  export type PlanCuentasGroupByOutputType = {
     id: string
     empresaId: string
     codigo: string
-    nombre: string
-    descripcion: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre: string | null
     nivel: number
-    cuentaPadreId: string | null
-    esMovimiento: boolean
+    nombre: string
+    nombreCompleto: string | null
+    nombreCorto: string | null
+    tipoMayor: string
+    tipoDetalle: string | null
+    naturaleza: string
+    permiteMovimiento: boolean
+    esAuxiliar: boolean
+    nivelMaximo: number
+    monedaPermitida: string
+    centroCostoObligatorio: boolean
+    proyectoObligatorio: boolean
+    requiereReferencia: boolean
+    requiereCliente: boolean
+    requiereProveedor: boolean
     activo: boolean
     fechaCreacion: Date
     fechaActualizacion: Date
-    _count: CuentaContableCountAggregateOutputType | null
-    _avg: CuentaContableAvgAggregateOutputType | null
-    _sum: CuentaContableSumAggregateOutputType | null
-    _min: CuentaContableMinAggregateOutputType | null
-    _max: CuentaContableMaxAggregateOutputType | null
+    _count: PlanCuentasCountAggregateOutputType | null
+    _avg: PlanCuentasAvgAggregateOutputType | null
+    _sum: PlanCuentasSumAggregateOutputType | null
+    _min: PlanCuentasMinAggregateOutputType | null
+    _max: PlanCuentasMaxAggregateOutputType | null
   }
 
-  type GetCuentaContableGroupByPayload<T extends CuentaContableGroupByArgs> = Prisma.PrismaPromise<
+  type GetPlanCuentasGroupByPayload<T extends PlanCuentasGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CuentaContableGroupByOutputType, T['by']> &
+      PickEnumerable<PlanCuentasGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CuentaContableGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PlanCuentasGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CuentaContableGroupByOutputType[P]>
-            : GetScalarType<T[P], CuentaContableGroupByOutputType[P]>
+              : GetScalarType<T[P], PlanCuentasGroupByOutputType[P]>
+            : GetScalarType<T[P], PlanCuentasGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CuentaContableSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PlanCuentasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     empresaId?: boolean
     codigo?: boolean
-    nombre?: boolean
-    descripcion?: boolean
-    tipo?: boolean
+    codigoPadre?: boolean
     nivel?: boolean
-    cuentaPadreId?: boolean
-    esMovimiento?: boolean
+    nombre?: boolean
+    nombreCompleto?: boolean
+    nombreCorto?: boolean
+    tipoMayor?: boolean
+    tipoDetalle?: boolean
+    naturaleza?: boolean
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: boolean
+    monedaPermitida?: boolean
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: boolean
     fechaActualizacion?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
-    cuentaPadre?: boolean | CuentaContable$cuentaPadreArgs<ExtArgs>
-    cuentasHijas?: boolean | CuentaContable$cuentasHijasArgs<ExtArgs>
-    _count?: boolean | CuentaContableCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cuentaContable"]>
+  }, ExtArgs["result"]["planCuentas"]>
 
-  export type CuentaContableSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PlanCuentasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     empresaId?: boolean
     codigo?: boolean
-    nombre?: boolean
-    descripcion?: boolean
-    tipo?: boolean
+    codigoPadre?: boolean
     nivel?: boolean
-    cuentaPadreId?: boolean
-    esMovimiento?: boolean
+    nombre?: boolean
+    nombreCompleto?: boolean
+    nombreCorto?: boolean
+    tipoMayor?: boolean
+    tipoDetalle?: boolean
+    naturaleza?: boolean
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: boolean
+    monedaPermitida?: boolean
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: boolean
     fechaActualizacion?: boolean
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
-    cuentaPadre?: boolean | CuentaContable$cuentaPadreArgs<ExtArgs>
-  }, ExtArgs["result"]["cuentaContable"]>
+  }, ExtArgs["result"]["planCuentas"]>
 
-  export type CuentaContableSelectScalar = {
+  export type PlanCuentasSelectScalar = {
     id?: boolean
     empresaId?: boolean
     codigo?: boolean
-    nombre?: boolean
-    descripcion?: boolean
-    tipo?: boolean
+    codigoPadre?: boolean
     nivel?: boolean
-    cuentaPadreId?: boolean
-    esMovimiento?: boolean
+    nombre?: boolean
+    nombreCompleto?: boolean
+    nombreCorto?: boolean
+    tipoMayor?: boolean
+    tipoDetalle?: boolean
+    naturaleza?: boolean
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: boolean
+    monedaPermitida?: boolean
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: boolean
     fechaActualizacion?: boolean
   }
 
-  export type CuentaContableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
-    cuentaPadre?: boolean | CuentaContable$cuentaPadreArgs<ExtArgs>
-    cuentasHijas?: boolean | CuentaContable$cuentasHijasArgs<ExtArgs>
-    _count?: boolean | CuentaContableCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CuentaContableIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     empresa?: boolean | EmpresaDefaultArgs<ExtArgs>
-    cuentaPadre?: boolean | CuentaContable$cuentaPadreArgs<ExtArgs>
   }
 
-  export type $CuentaContablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "CuentaContable"
+  export type $PlanCuentasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PlanCuentas"
     objects: {
       empresa: Prisma.$EmpresaPayload<ExtArgs>
-      cuentaPadre: Prisma.$CuentaContablePayload<ExtArgs> | null
-      cuentasHijas: Prisma.$CuentaContablePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       empresaId: string
       codigo: string
-      nombre: string
-      descripcion: string | null
-      tipo: $Enums.TipoCuenta
+      codigoPadre: string | null
       nivel: number
-      cuentaPadreId: string | null
-      esMovimiento: boolean
+      nombre: string
+      nombreCompleto: string | null
+      nombreCorto: string | null
+      tipoMayor: string
+      tipoDetalle: string | null
+      naturaleza: string
+      permiteMovimiento: boolean
+      esAuxiliar: boolean
+      nivelMaximo: number
+      monedaPermitida: string
+      centroCostoObligatorio: boolean
+      proyectoObligatorio: boolean
+      requiereReferencia: boolean
+      requiereCliente: boolean
+      requiereProveedor: boolean
       activo: boolean
       fechaCreacion: Date
       fechaActualizacion: Date
-    }, ExtArgs["result"]["cuentaContable"]>
+    }, ExtArgs["result"]["planCuentas"]>
     composites: {}
   }
 
-  type CuentaContableGetPayload<S extends boolean | null | undefined | CuentaContableDefaultArgs> = $Result.GetResult<Prisma.$CuentaContablePayload, S>
+  type PlanCuentasGetPayload<S extends boolean | null | undefined | PlanCuentasDefaultArgs> = $Result.GetResult<Prisma.$PlanCuentasPayload, S>
 
-  type CuentaContableCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<CuentaContableFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: CuentaContableCountAggregateInputType | true
+  type PlanCuentasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PlanCuentasFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PlanCuentasCountAggregateInputType | true
     }
 
-  export interface CuentaContableDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CuentaContable'], meta: { name: 'CuentaContable' } }
+  export interface PlanCuentasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PlanCuentas'], meta: { name: 'PlanCuentas' } }
     /**
-     * Find zero or one CuentaContable that matches the filter.
-     * @param {CuentaContableFindUniqueArgs} args - Arguments to find a CuentaContable
+     * Find zero or one PlanCuentas that matches the filter.
+     * @param {PlanCuentasFindUniqueArgs} args - Arguments to find a PlanCuentas
      * @example
-     * // Get one CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.findUnique({
+     * // Get one PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CuentaContableFindUniqueArgs>(args: SelectSubset<T, CuentaContableFindUniqueArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends PlanCuentasFindUniqueArgs>(args: SelectSubset<T, PlanCuentasFindUniqueArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one CuentaContable that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one PlanCuentas that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {CuentaContableFindUniqueOrThrowArgs} args - Arguments to find a CuentaContable
+     * @param {PlanCuentasFindUniqueOrThrowArgs} args - Arguments to find a PlanCuentas
      * @example
-     * // Get one CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.findUniqueOrThrow({
+     * // Get one PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CuentaContableFindUniqueOrThrowArgs>(args: SelectSubset<T, CuentaContableFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends PlanCuentasFindUniqueOrThrowArgs>(args: SelectSubset<T, PlanCuentasFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first CuentaContable that matches the filter.
+     * Find the first PlanCuentas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableFindFirstArgs} args - Arguments to find a CuentaContable
+     * @param {PlanCuentasFindFirstArgs} args - Arguments to find a PlanCuentas
      * @example
-     * // Get one CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.findFirst({
+     * // Get one PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CuentaContableFindFirstArgs>(args?: SelectSubset<T, CuentaContableFindFirstArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends PlanCuentasFindFirstArgs>(args?: SelectSubset<T, PlanCuentasFindFirstArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first CuentaContable that matches the filter or
+     * Find the first PlanCuentas that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableFindFirstOrThrowArgs} args - Arguments to find a CuentaContable
+     * @param {PlanCuentasFindFirstOrThrowArgs} args - Arguments to find a PlanCuentas
      * @example
-     * // Get one CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.findFirstOrThrow({
+     * // Get one PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CuentaContableFindFirstOrThrowArgs>(args?: SelectSubset<T, CuentaContableFindFirstOrThrowArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends PlanCuentasFindFirstOrThrowArgs>(args?: SelectSubset<T, PlanCuentasFindFirstOrThrowArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more CuentaContables that matches the filter.
+     * Find zero or more PlanCuentas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PlanCuentasFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all CuentaContables
-     * const cuentaContables = await prisma.cuentaContable.findMany()
+     * // Get all PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findMany()
      * 
-     * // Get first 10 CuentaContables
-     * const cuentaContables = await prisma.cuentaContable.findMany({ take: 10 })
+     * // Get first 10 PlanCuentas
+     * const planCuentas = await prisma.planCuentas.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const cuentaContableWithIdOnly = await prisma.cuentaContable.findMany({ select: { id: true } })
+     * const planCuentasWithIdOnly = await prisma.planCuentas.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CuentaContableFindManyArgs>(args?: SelectSubset<T, CuentaContableFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findMany">>
+    findMany<T extends PlanCuentasFindManyArgs>(args?: SelectSubset<T, PlanCuentasFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a CuentaContable.
-     * @param {CuentaContableCreateArgs} args - Arguments to create a CuentaContable.
+     * Create a PlanCuentas.
+     * @param {PlanCuentasCreateArgs} args - Arguments to create a PlanCuentas.
      * @example
-     * // Create one CuentaContable
-     * const CuentaContable = await prisma.cuentaContable.create({
+     * // Create one PlanCuentas
+     * const PlanCuentas = await prisma.planCuentas.create({
      *   data: {
-     *     // ... data to create a CuentaContable
+     *     // ... data to create a PlanCuentas
      *   }
      * })
      * 
      */
-    create<T extends CuentaContableCreateArgs>(args: SelectSubset<T, CuentaContableCreateArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends PlanCuentasCreateArgs>(args: SelectSubset<T, PlanCuentasCreateArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many CuentaContables.
-     * @param {CuentaContableCreateManyArgs} args - Arguments to create many CuentaContables.
+     * Create many PlanCuentas.
+     * @param {PlanCuentasCreateManyArgs} args - Arguments to create many PlanCuentas.
      * @example
-     * // Create many CuentaContables
-     * const cuentaContable = await prisma.cuentaContable.createMany({
+     * // Create many PlanCuentas
+     * const planCuentas = await prisma.planCuentas.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CuentaContableCreateManyArgs>(args?: SelectSubset<T, CuentaContableCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PlanCuentasCreateManyArgs>(args?: SelectSubset<T, PlanCuentasCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many CuentaContables and returns the data saved in the database.
-     * @param {CuentaContableCreateManyAndReturnArgs} args - Arguments to create many CuentaContables.
+     * Create many PlanCuentas and returns the data saved in the database.
+     * @param {PlanCuentasCreateManyAndReturnArgs} args - Arguments to create many PlanCuentas.
      * @example
-     * // Create many CuentaContables
-     * const cuentaContable = await prisma.cuentaContable.createManyAndReturn({
+     * // Create many PlanCuentas
+     * const planCuentas = await prisma.planCuentas.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many CuentaContables and only return the `id`
-     * const cuentaContableWithIdOnly = await prisma.cuentaContable.createManyAndReturn({ 
+     * // Create many PlanCuentas and only return the `id`
+     * const planCuentasWithIdOnly = await prisma.planCuentas.createManyAndReturn({ 
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -17585,28 +17654,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CuentaContableCreateManyAndReturnArgs>(args?: SelectSubset<T, CuentaContableCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "createManyAndReturn">>
+    createManyAndReturn<T extends PlanCuentasCreateManyAndReturnArgs>(args?: SelectSubset<T, PlanCuentasCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
-     * Delete a CuentaContable.
-     * @param {CuentaContableDeleteArgs} args - Arguments to delete one CuentaContable.
+     * Delete a PlanCuentas.
+     * @param {PlanCuentasDeleteArgs} args - Arguments to delete one PlanCuentas.
      * @example
-     * // Delete one CuentaContable
-     * const CuentaContable = await prisma.cuentaContable.delete({
+     * // Delete one PlanCuentas
+     * const PlanCuentas = await prisma.planCuentas.delete({
      *   where: {
-     *     // ... filter to delete one CuentaContable
+     *     // ... filter to delete one PlanCuentas
      *   }
      * })
      * 
      */
-    delete<T extends CuentaContableDeleteArgs>(args: SelectSubset<T, CuentaContableDeleteArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends PlanCuentasDeleteArgs>(args: SelectSubset<T, PlanCuentasDeleteArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one CuentaContable.
-     * @param {CuentaContableUpdateArgs} args - Arguments to update one CuentaContable.
+     * Update one PlanCuentas.
+     * @param {PlanCuentasUpdateArgs} args - Arguments to update one PlanCuentas.
      * @example
-     * // Update one CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.update({
+     * // Update one PlanCuentas
+     * const planCuentas = await prisma.planCuentas.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -17616,30 +17685,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CuentaContableUpdateArgs>(args: SelectSubset<T, CuentaContableUpdateArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends PlanCuentasUpdateArgs>(args: SelectSubset<T, PlanCuentasUpdateArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more CuentaContables.
-     * @param {CuentaContableDeleteManyArgs} args - Arguments to filter CuentaContables to delete.
+     * Delete zero or more PlanCuentas.
+     * @param {PlanCuentasDeleteManyArgs} args - Arguments to filter PlanCuentas to delete.
      * @example
-     * // Delete a few CuentaContables
-     * const { count } = await prisma.cuentaContable.deleteMany({
+     * // Delete a few PlanCuentas
+     * const { count } = await prisma.planCuentas.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CuentaContableDeleteManyArgs>(args?: SelectSubset<T, CuentaContableDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PlanCuentasDeleteManyArgs>(args?: SelectSubset<T, PlanCuentasDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CuentaContables.
+     * Update zero or more PlanCuentas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PlanCuentasUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many CuentaContables
-     * const cuentaContable = await prisma.cuentaContable.updateMany({
+     * // Update many PlanCuentas
+     * const planCuentas = await prisma.planCuentas.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -17649,56 +17718,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CuentaContableUpdateManyArgs>(args: SelectSubset<T, CuentaContableUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PlanCuentasUpdateManyArgs>(args: SelectSubset<T, PlanCuentasUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one CuentaContable.
-     * @param {CuentaContableUpsertArgs} args - Arguments to update or create a CuentaContable.
+     * Create or update one PlanCuentas.
+     * @param {PlanCuentasUpsertArgs} args - Arguments to update or create a PlanCuentas.
      * @example
-     * // Update or create a CuentaContable
-     * const cuentaContable = await prisma.cuentaContable.upsert({
+     * // Update or create a PlanCuentas
+     * const planCuentas = await prisma.planCuentas.upsert({
      *   create: {
-     *     // ... data to create a CuentaContable
+     *     // ... data to create a PlanCuentas
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the CuentaContable we want to update
+     *     // ... the filter for the PlanCuentas we want to update
      *   }
      * })
      */
-    upsert<T extends CuentaContableUpsertArgs>(args: SelectSubset<T, CuentaContableUpsertArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends PlanCuentasUpsertArgs>(args: SelectSubset<T, PlanCuentasUpsertArgs<ExtArgs>>): Prisma__PlanCuentasClient<$Result.GetResult<Prisma.$PlanCuentasPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of CuentaContables.
+     * Count the number of PlanCuentas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableCountArgs} args - Arguments to filter CuentaContables to count.
+     * @param {PlanCuentasCountArgs} args - Arguments to filter PlanCuentas to count.
      * @example
-     * // Count the number of CuentaContables
-     * const count = await prisma.cuentaContable.count({
+     * // Count the number of PlanCuentas
+     * const count = await prisma.planCuentas.count({
      *   where: {
-     *     // ... the filter for the CuentaContables we want to count
+     *     // ... the filter for the PlanCuentas we want to count
      *   }
      * })
     **/
-    count<T extends CuentaContableCountArgs>(
-      args?: Subset<T, CuentaContableCountArgs>,
+    count<T extends PlanCuentasCountArgs>(
+      args?: Subset<T, PlanCuentasCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CuentaContableCountAggregateOutputType>
+          : GetScalarType<T['select'], PlanCuentasCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a CuentaContable.
+     * Allows you to perform aggregations operations on a PlanCuentas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PlanCuentasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -17718,13 +17787,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CuentaContableAggregateArgs>(args: Subset<T, CuentaContableAggregateArgs>): Prisma.PrismaPromise<GetCuentaContableAggregateType<T>>
+    aggregate<T extends PlanCuentasAggregateArgs>(args: Subset<T, PlanCuentasAggregateArgs>): Prisma.PrismaPromise<GetPlanCuentasAggregateType<T>>
 
     /**
-     * Group by CuentaContable.
+     * Group by PlanCuentas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CuentaContableGroupByArgs} args - Group by arguments.
+     * @param {PlanCuentasGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -17739,14 +17808,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CuentaContableGroupByArgs,
+      T extends PlanCuentasGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CuentaContableGroupByArgs['orderBy'] }
-        : { orderBy?: CuentaContableGroupByArgs['orderBy'] },
+        ? { orderBy: PlanCuentasGroupByArgs['orderBy'] }
+        : { orderBy?: PlanCuentasGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -17795,24 +17864,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CuentaContableGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCuentaContableGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PlanCuentasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlanCuentasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the CuentaContable model
+   * Fields of the PlanCuentas model
    */
-  readonly fields: CuentaContableFieldRefs;
+  readonly fields: PlanCuentasFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for CuentaContable.
+   * The delegate class that acts as a "Promise-like" for PlanCuentas.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CuentaContableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PlanCuentasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     empresa<T extends EmpresaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmpresaDefaultArgs<ExtArgs>>): Prisma__EmpresaClient<$Result.GetResult<Prisma.$EmpresaPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    cuentaPadre<T extends CuentaContable$cuentaPadreArgs<ExtArgs> = {}>(args?: Subset<T, CuentaContable$cuentaPadreArgs<ExtArgs>>): Prisma__CuentaContableClient<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
-    cuentasHijas<T extends CuentaContable$cuentasHijasArgs<ExtArgs> = {}>(args?: Subset<T, CuentaContable$cuentasHijasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CuentaContablePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17839,385 +17906,361 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the CuentaContable model
+   * Fields of the PlanCuentas model
    */ 
-  interface CuentaContableFieldRefs {
-    readonly id: FieldRef<"CuentaContable", 'String'>
-    readonly empresaId: FieldRef<"CuentaContable", 'String'>
-    readonly codigo: FieldRef<"CuentaContable", 'String'>
-    readonly nombre: FieldRef<"CuentaContable", 'String'>
-    readonly descripcion: FieldRef<"CuentaContable", 'String'>
-    readonly tipo: FieldRef<"CuentaContable", 'TipoCuenta'>
-    readonly nivel: FieldRef<"CuentaContable", 'Int'>
-    readonly cuentaPadreId: FieldRef<"CuentaContable", 'String'>
-    readonly esMovimiento: FieldRef<"CuentaContable", 'Boolean'>
-    readonly activo: FieldRef<"CuentaContable", 'Boolean'>
-    readonly fechaCreacion: FieldRef<"CuentaContable", 'DateTime'>
-    readonly fechaActualizacion: FieldRef<"CuentaContable", 'DateTime'>
+  interface PlanCuentasFieldRefs {
+    readonly id: FieldRef<"PlanCuentas", 'String'>
+    readonly empresaId: FieldRef<"PlanCuentas", 'String'>
+    readonly codigo: FieldRef<"PlanCuentas", 'String'>
+    readonly codigoPadre: FieldRef<"PlanCuentas", 'String'>
+    readonly nivel: FieldRef<"PlanCuentas", 'Int'>
+    readonly nombre: FieldRef<"PlanCuentas", 'String'>
+    readonly nombreCompleto: FieldRef<"PlanCuentas", 'String'>
+    readonly nombreCorto: FieldRef<"PlanCuentas", 'String'>
+    readonly tipoMayor: FieldRef<"PlanCuentas", 'String'>
+    readonly tipoDetalle: FieldRef<"PlanCuentas", 'String'>
+    readonly naturaleza: FieldRef<"PlanCuentas", 'String'>
+    readonly permiteMovimiento: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly esAuxiliar: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly nivelMaximo: FieldRef<"PlanCuentas", 'Int'>
+    readonly monedaPermitida: FieldRef<"PlanCuentas", 'String'>
+    readonly centroCostoObligatorio: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly proyectoObligatorio: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly requiereReferencia: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly requiereCliente: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly requiereProveedor: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly activo: FieldRef<"PlanCuentas", 'Boolean'>
+    readonly fechaCreacion: FieldRef<"PlanCuentas", 'DateTime'>
+    readonly fechaActualizacion: FieldRef<"PlanCuentas", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * CuentaContable findUnique
+   * PlanCuentas findUnique
    */
-  export type CuentaContableFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter, which CuentaContable to fetch.
+     * Filter, which PlanCuentas to fetch.
      */
-    where: CuentaContableWhereUniqueInput
+    where: PlanCuentasWhereUniqueInput
   }
 
   /**
-   * CuentaContable findUniqueOrThrow
+   * PlanCuentas findUniqueOrThrow
    */
-  export type CuentaContableFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter, which CuentaContable to fetch.
+     * Filter, which PlanCuentas to fetch.
      */
-    where: CuentaContableWhereUniqueInput
+    where: PlanCuentasWhereUniqueInput
   }
 
   /**
-   * CuentaContable findFirst
+   * PlanCuentas findFirst
    */
-  export type CuentaContableFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter, which CuentaContable to fetch.
+     * Filter, which PlanCuentas to fetch.
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CuentaContables to fetch.
+     * Determine the order of PlanCuentas to fetch.
      */
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
+    orderBy?: PlanCuentasOrderByWithRelationInput | PlanCuentasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CuentaContables.
+     * Sets the position for searching for PlanCuentas.
      */
-    cursor?: CuentaContableWhereUniqueInput
+    cursor?: PlanCuentasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CuentaContables from the position of the cursor.
+     * Take `±n` PlanCuentas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CuentaContables.
+     * Skip the first `n` PlanCuentas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CuentaContables.
+     * Filter by unique combinations of PlanCuentas.
      */
-    distinct?: CuentaContableScalarFieldEnum | CuentaContableScalarFieldEnum[]
+    distinct?: PlanCuentasScalarFieldEnum | PlanCuentasScalarFieldEnum[]
   }
 
   /**
-   * CuentaContable findFirstOrThrow
+   * PlanCuentas findFirstOrThrow
    */
-  export type CuentaContableFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter, which CuentaContable to fetch.
+     * Filter, which PlanCuentas to fetch.
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CuentaContables to fetch.
+     * Determine the order of PlanCuentas to fetch.
      */
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
+    orderBy?: PlanCuentasOrderByWithRelationInput | PlanCuentasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CuentaContables.
+     * Sets the position for searching for PlanCuentas.
      */
-    cursor?: CuentaContableWhereUniqueInput
+    cursor?: PlanCuentasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CuentaContables from the position of the cursor.
+     * Take `±n` PlanCuentas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CuentaContables.
+     * Skip the first `n` PlanCuentas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CuentaContables.
+     * Filter by unique combinations of PlanCuentas.
      */
-    distinct?: CuentaContableScalarFieldEnum | CuentaContableScalarFieldEnum[]
+    distinct?: PlanCuentasScalarFieldEnum | PlanCuentasScalarFieldEnum[]
   }
 
   /**
-   * CuentaContable findMany
+   * PlanCuentas findMany
    */
-  export type CuentaContableFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter, which CuentaContables to fetch.
+     * Filter, which PlanCuentas to fetch.
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CuentaContables to fetch.
+     * Determine the order of PlanCuentas to fetch.
      */
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
+    orderBy?: PlanCuentasOrderByWithRelationInput | PlanCuentasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing CuentaContables.
+     * Sets the position for listing PlanCuentas.
      */
-    cursor?: CuentaContableWhereUniqueInput
+    cursor?: PlanCuentasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CuentaContables from the position of the cursor.
+     * Take `±n` PlanCuentas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CuentaContables.
+     * Skip the first `n` PlanCuentas.
      */
     skip?: number
-    distinct?: CuentaContableScalarFieldEnum | CuentaContableScalarFieldEnum[]
+    distinct?: PlanCuentasScalarFieldEnum | PlanCuentasScalarFieldEnum[]
   }
 
   /**
-   * CuentaContable create
+   * PlanCuentas create
    */
-  export type CuentaContableCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * The data needed to create a CuentaContable.
+     * The data needed to create a PlanCuentas.
      */
-    data: XOR<CuentaContableCreateInput, CuentaContableUncheckedCreateInput>
+    data: XOR<PlanCuentasCreateInput, PlanCuentasUncheckedCreateInput>
   }
 
   /**
-   * CuentaContable createMany
+   * PlanCuentas createMany
    */
-  export type CuentaContableCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many CuentaContables.
+     * The data used to create many PlanCuentas.
      */
-    data: CuentaContableCreateManyInput | CuentaContableCreateManyInput[]
+    data: PlanCuentasCreateManyInput | PlanCuentasCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * CuentaContable createManyAndReturn
+   * PlanCuentas createManyAndReturn
    */
-  export type CuentaContableCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PlanCuentasSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * The data used to create many CuentaContables.
+     * The data used to create many PlanCuentas.
      */
-    data: CuentaContableCreateManyInput | CuentaContableCreateManyInput[]
+    data: PlanCuentasCreateManyInput | PlanCuentasCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PlanCuentasIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * CuentaContable update
+   * PlanCuentas update
    */
-  export type CuentaContableUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * The data needed to update a CuentaContable.
+     * The data needed to update a PlanCuentas.
      */
-    data: XOR<CuentaContableUpdateInput, CuentaContableUncheckedUpdateInput>
+    data: XOR<PlanCuentasUpdateInput, PlanCuentasUncheckedUpdateInput>
     /**
-     * Choose, which CuentaContable to update.
+     * Choose, which PlanCuentas to update.
      */
-    where: CuentaContableWhereUniqueInput
+    where: PlanCuentasWhereUniqueInput
   }
 
   /**
-   * CuentaContable updateMany
+   * PlanCuentas updateMany
    */
-  export type CuentaContableUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update CuentaContables.
+     * The data used to update PlanCuentas.
      */
-    data: XOR<CuentaContableUpdateManyMutationInput, CuentaContableUncheckedUpdateManyInput>
+    data: XOR<PlanCuentasUpdateManyMutationInput, PlanCuentasUncheckedUpdateManyInput>
     /**
-     * Filter which CuentaContables to update
+     * Filter which PlanCuentas to update
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
   }
 
   /**
-   * CuentaContable upsert
+   * PlanCuentas upsert
    */
-  export type CuentaContableUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * The filter to search for the CuentaContable to update in case it exists.
+     * The filter to search for the PlanCuentas to update in case it exists.
      */
-    where: CuentaContableWhereUniqueInput
+    where: PlanCuentasWhereUniqueInput
     /**
-     * In case the CuentaContable found by the `where` argument doesn't exist, create a new CuentaContable with this data.
+     * In case the PlanCuentas found by the `where` argument doesn't exist, create a new PlanCuentas with this data.
      */
-    create: XOR<CuentaContableCreateInput, CuentaContableUncheckedCreateInput>
+    create: XOR<PlanCuentasCreateInput, PlanCuentasUncheckedCreateInput>
     /**
-     * In case the CuentaContable was found with the provided `where` argument, update it with this data.
+     * In case the PlanCuentas was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CuentaContableUpdateInput, CuentaContableUncheckedUpdateInput>
+    update: XOR<PlanCuentasUpdateInput, PlanCuentasUncheckedUpdateInput>
   }
 
   /**
-   * CuentaContable delete
+   * PlanCuentas delete
    */
-  export type CuentaContableDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
     /**
-     * Filter which CuentaContable to delete.
+     * Filter which PlanCuentas to delete.
      */
-    where: CuentaContableWhereUniqueInput
+    where: PlanCuentasWhereUniqueInput
   }
 
   /**
-   * CuentaContable deleteMany
+   * PlanCuentas deleteMany
    */
-  export type CuentaContableDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CuentaContables to delete
+     * Filter which PlanCuentas to delete
      */
-    where?: CuentaContableWhereInput
+    where?: PlanCuentasWhereInput
   }
 
   /**
-   * CuentaContable.cuentaPadre
+   * PlanCuentas without action
    */
-  export type CuentaContable$cuentaPadreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PlanCuentasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CuentaContable
+     * Select specific fields to fetch from the PlanCuentas
      */
-    select?: CuentaContableSelect<ExtArgs> | null
+    select?: PlanCuentasSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CuentaContableInclude<ExtArgs> | null
-    where?: CuentaContableWhereInput
-  }
-
-  /**
-   * CuentaContable.cuentasHijas
-   */
-  export type CuentaContable$cuentasHijasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CuentaContable
-     */
-    select?: CuentaContableSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CuentaContableInclude<ExtArgs> | null
-    where?: CuentaContableWhereInput
-    orderBy?: CuentaContableOrderByWithRelationInput | CuentaContableOrderByWithRelationInput[]
-    cursor?: CuentaContableWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CuentaContableScalarFieldEnum | CuentaContableScalarFieldEnum[]
-  }
-
-  /**
-   * CuentaContable without action
-   */
-  export type CuentaContableDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CuentaContable
-     */
-    select?: CuentaContableSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CuentaContableInclude<ExtArgs> | null
+    include?: PlanCuentasInclude<ExtArgs> | null
   }
 
 
@@ -18413,22 +18456,33 @@ export namespace Prisma {
   export type ModuloHistoricoScalarFieldEnum = (typeof ModuloHistoricoScalarFieldEnum)[keyof typeof ModuloHistoricoScalarFieldEnum]
 
 
-  export const CuentaContableScalarFieldEnum: {
+  export const PlanCuentasScalarFieldEnum: {
     id: 'id',
     empresaId: 'empresaId',
     codigo: 'codigo',
-    nombre: 'nombre',
-    descripcion: 'descripcion',
-    tipo: 'tipo',
+    codigoPadre: 'codigoPadre',
     nivel: 'nivel',
-    cuentaPadreId: 'cuentaPadreId',
-    esMovimiento: 'esMovimiento',
+    nombre: 'nombre',
+    nombreCompleto: 'nombreCompleto',
+    nombreCorto: 'nombreCorto',
+    tipoMayor: 'tipoMayor',
+    tipoDetalle: 'tipoDetalle',
+    naturaleza: 'naturaleza',
+    permiteMovimiento: 'permiteMovimiento',
+    esAuxiliar: 'esAuxiliar',
+    nivelMaximo: 'nivelMaximo',
+    monedaPermitida: 'monedaPermitida',
+    centroCostoObligatorio: 'centroCostoObligatorio',
+    proyectoObligatorio: 'proyectoObligatorio',
+    requiereReferencia: 'requiereReferencia',
+    requiereCliente: 'requiereCliente',
+    requiereProveedor: 'requiereProveedor',
     activo: 'activo',
     fechaCreacion: 'fechaCreacion',
     fechaActualizacion: 'fechaActualizacion'
   };
 
-  export type CuentaContableScalarFieldEnum = (typeof CuentaContableScalarFieldEnum)[keyof typeof CuentaContableScalarFieldEnum]
+  export type PlanCuentasScalarFieldEnum = (typeof PlanCuentasScalarFieldEnum)[keyof typeof PlanCuentasScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -18555,20 +18609,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'TipoCuenta'
-   */
-  export type EnumTipoCuentaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoCuenta'>
-    
-
-
-  /**
-   * Reference to a field of type 'TipoCuenta[]'
-   */
-  export type ListEnumTipoCuentaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoCuenta[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -18607,7 +18647,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaListRelationFilter
     productos?: ProductoListRelationFilter
     usuarios?: UsuarioListRelationFilter
-    cuentasContables?: CuentaContableListRelationFilter
+    planCuentas?: PlanCuentasListRelationFilter
   }
 
   export type EmpresaOrderByWithRelationInput = {
@@ -18629,7 +18669,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaOrderByRelationAggregateInput
     productos?: ProductoOrderByRelationAggregateInput
     usuarios?: UsuarioOrderByRelationAggregateInput
-    cuentasContables?: CuentaContableOrderByRelationAggregateInput
+    planCuentas?: PlanCuentasOrderByRelationAggregateInput
   }
 
   export type EmpresaWhereUniqueInput = Prisma.AtLeast<{
@@ -18654,7 +18694,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaListRelationFilter
     productos?: ProductoListRelationFilter
     usuarios?: UsuarioListRelationFilter
-    cuentasContables?: CuentaContableListRelationFilter
+    planCuentas?: PlanCuentasListRelationFilter
   }, "id" | "ruc">
 
   export type EmpresaOrderByWithAggregationInput = {
@@ -19548,103 +19588,152 @@ export namespace Prisma {
     fechaCreacion?: DateTimeWithAggregatesFilter<"ModuloHistorico"> | Date | string
   }
 
-  export type CuentaContableWhereInput = {
-    AND?: CuentaContableWhereInput | CuentaContableWhereInput[]
-    OR?: CuentaContableWhereInput[]
-    NOT?: CuentaContableWhereInput | CuentaContableWhereInput[]
-    id?: StringFilter<"CuentaContable"> | string
-    empresaId?: StringFilter<"CuentaContable"> | string
-    codigo?: StringFilter<"CuentaContable"> | string
-    nombre?: StringFilter<"CuentaContable"> | string
-    descripcion?: StringNullableFilter<"CuentaContable"> | string | null
-    tipo?: EnumTipoCuentaFilter<"CuentaContable"> | $Enums.TipoCuenta
-    nivel?: IntFilter<"CuentaContable"> | number
-    cuentaPadreId?: StringNullableFilter<"CuentaContable"> | string | null
-    esMovimiento?: BoolFilter<"CuentaContable"> | boolean
-    activo?: BoolFilter<"CuentaContable"> | boolean
-    fechaCreacion?: DateTimeFilter<"CuentaContable"> | Date | string
-    fechaActualizacion?: DateTimeFilter<"CuentaContable"> | Date | string
+  export type PlanCuentasWhereInput = {
+    AND?: PlanCuentasWhereInput | PlanCuentasWhereInput[]
+    OR?: PlanCuentasWhereInput[]
+    NOT?: PlanCuentasWhereInput | PlanCuentasWhereInput[]
+    id?: StringFilter<"PlanCuentas"> | string
+    empresaId?: StringFilter<"PlanCuentas"> | string
+    codigo?: StringFilter<"PlanCuentas"> | string
+    codigoPadre?: StringNullableFilter<"PlanCuentas"> | string | null
+    nivel?: IntFilter<"PlanCuentas"> | number
+    nombre?: StringFilter<"PlanCuentas"> | string
+    nombreCompleto?: StringNullableFilter<"PlanCuentas"> | string | null
+    nombreCorto?: StringNullableFilter<"PlanCuentas"> | string | null
+    tipoMayor?: StringFilter<"PlanCuentas"> | string
+    tipoDetalle?: StringNullableFilter<"PlanCuentas"> | string | null
+    naturaleza?: StringFilter<"PlanCuentas"> | string
+    permiteMovimiento?: BoolFilter<"PlanCuentas"> | boolean
+    esAuxiliar?: BoolFilter<"PlanCuentas"> | boolean
+    nivelMaximo?: IntFilter<"PlanCuentas"> | number
+    monedaPermitida?: StringFilter<"PlanCuentas"> | string
+    centroCostoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    proyectoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    requiereReferencia?: BoolFilter<"PlanCuentas"> | boolean
+    requiereCliente?: BoolFilter<"PlanCuentas"> | boolean
+    requiereProveedor?: BoolFilter<"PlanCuentas"> | boolean
+    activo?: BoolFilter<"PlanCuentas"> | boolean
+    fechaCreacion?: DateTimeFilter<"PlanCuentas"> | Date | string
+    fechaActualizacion?: DateTimeFilter<"PlanCuentas"> | Date | string
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
-    cuentaPadre?: XOR<CuentaContableNullableRelationFilter, CuentaContableWhereInput> | null
-    cuentasHijas?: CuentaContableListRelationFilter
   }
 
-  export type CuentaContableOrderByWithRelationInput = {
+  export type PlanCuentasOrderByWithRelationInput = {
     id?: SortOrder
     empresaId?: SortOrder
     codigo?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
-    tipo?: SortOrder
+    codigoPadre?: SortOrderInput | SortOrder
     nivel?: SortOrder
-    cuentaPadreId?: SortOrderInput | SortOrder
-    esMovimiento?: SortOrder
+    nombre?: SortOrder
+    nombreCompleto?: SortOrderInput | SortOrder
+    nombreCorto?: SortOrderInput | SortOrder
+    tipoMayor?: SortOrder
+    tipoDetalle?: SortOrderInput | SortOrder
+    naturaleza?: SortOrder
+    permiteMovimiento?: SortOrder
+    esAuxiliar?: SortOrder
+    nivelMaximo?: SortOrder
+    monedaPermitida?: SortOrder
+    centroCostoObligatorio?: SortOrder
+    proyectoObligatorio?: SortOrder
+    requiereReferencia?: SortOrder
+    requiereCliente?: SortOrder
+    requiereProveedor?: SortOrder
     activo?: SortOrder
     fechaCreacion?: SortOrder
     fechaActualizacion?: SortOrder
     empresa?: EmpresaOrderByWithRelationInput
-    cuentaPadre?: CuentaContableOrderByWithRelationInput
-    cuentasHijas?: CuentaContableOrderByRelationAggregateInput
   }
 
-  export type CuentaContableWhereUniqueInput = Prisma.AtLeast<{
+  export type PlanCuentasWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    empresaId_codigo?: CuentaContableEmpresaIdCodigoCompoundUniqueInput
-    AND?: CuentaContableWhereInput | CuentaContableWhereInput[]
-    OR?: CuentaContableWhereInput[]
-    NOT?: CuentaContableWhereInput | CuentaContableWhereInput[]
-    empresaId?: StringFilter<"CuentaContable"> | string
-    codigo?: StringFilter<"CuentaContable"> | string
-    nombre?: StringFilter<"CuentaContable"> | string
-    descripcion?: StringNullableFilter<"CuentaContable"> | string | null
-    tipo?: EnumTipoCuentaFilter<"CuentaContable"> | $Enums.TipoCuenta
-    nivel?: IntFilter<"CuentaContable"> | number
-    cuentaPadreId?: StringNullableFilter<"CuentaContable"> | string | null
-    esMovimiento?: BoolFilter<"CuentaContable"> | boolean
-    activo?: BoolFilter<"CuentaContable"> | boolean
-    fechaCreacion?: DateTimeFilter<"CuentaContable"> | Date | string
-    fechaActualizacion?: DateTimeFilter<"CuentaContable"> | Date | string
+    empresaId_codigo?: PlanCuentasEmpresaIdCodigoCompoundUniqueInput
+    AND?: PlanCuentasWhereInput | PlanCuentasWhereInput[]
+    OR?: PlanCuentasWhereInput[]
+    NOT?: PlanCuentasWhereInput | PlanCuentasWhereInput[]
+    empresaId?: StringFilter<"PlanCuentas"> | string
+    codigo?: StringFilter<"PlanCuentas"> | string
+    codigoPadre?: StringNullableFilter<"PlanCuentas"> | string | null
+    nivel?: IntFilter<"PlanCuentas"> | number
+    nombre?: StringFilter<"PlanCuentas"> | string
+    nombreCompleto?: StringNullableFilter<"PlanCuentas"> | string | null
+    nombreCorto?: StringNullableFilter<"PlanCuentas"> | string | null
+    tipoMayor?: StringFilter<"PlanCuentas"> | string
+    tipoDetalle?: StringNullableFilter<"PlanCuentas"> | string | null
+    naturaleza?: StringFilter<"PlanCuentas"> | string
+    permiteMovimiento?: BoolFilter<"PlanCuentas"> | boolean
+    esAuxiliar?: BoolFilter<"PlanCuentas"> | boolean
+    nivelMaximo?: IntFilter<"PlanCuentas"> | number
+    monedaPermitida?: StringFilter<"PlanCuentas"> | string
+    centroCostoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    proyectoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    requiereReferencia?: BoolFilter<"PlanCuentas"> | boolean
+    requiereCliente?: BoolFilter<"PlanCuentas"> | boolean
+    requiereProveedor?: BoolFilter<"PlanCuentas"> | boolean
+    activo?: BoolFilter<"PlanCuentas"> | boolean
+    fechaCreacion?: DateTimeFilter<"PlanCuentas"> | Date | string
+    fechaActualizacion?: DateTimeFilter<"PlanCuentas"> | Date | string
     empresa?: XOR<EmpresaRelationFilter, EmpresaWhereInput>
-    cuentaPadre?: XOR<CuentaContableNullableRelationFilter, CuentaContableWhereInput> | null
-    cuentasHijas?: CuentaContableListRelationFilter
   }, "id" | "empresaId_codigo">
 
-  export type CuentaContableOrderByWithAggregationInput = {
+  export type PlanCuentasOrderByWithAggregationInput = {
     id?: SortOrder
     empresaId?: SortOrder
     codigo?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrderInput | SortOrder
-    tipo?: SortOrder
+    codigoPadre?: SortOrderInput | SortOrder
     nivel?: SortOrder
-    cuentaPadreId?: SortOrderInput | SortOrder
-    esMovimiento?: SortOrder
+    nombre?: SortOrder
+    nombreCompleto?: SortOrderInput | SortOrder
+    nombreCorto?: SortOrderInput | SortOrder
+    tipoMayor?: SortOrder
+    tipoDetalle?: SortOrderInput | SortOrder
+    naturaleza?: SortOrder
+    permiteMovimiento?: SortOrder
+    esAuxiliar?: SortOrder
+    nivelMaximo?: SortOrder
+    monedaPermitida?: SortOrder
+    centroCostoObligatorio?: SortOrder
+    proyectoObligatorio?: SortOrder
+    requiereReferencia?: SortOrder
+    requiereCliente?: SortOrder
+    requiereProveedor?: SortOrder
     activo?: SortOrder
     fechaCreacion?: SortOrder
     fechaActualizacion?: SortOrder
-    _count?: CuentaContableCountOrderByAggregateInput
-    _avg?: CuentaContableAvgOrderByAggregateInput
-    _max?: CuentaContableMaxOrderByAggregateInput
-    _min?: CuentaContableMinOrderByAggregateInput
-    _sum?: CuentaContableSumOrderByAggregateInput
+    _count?: PlanCuentasCountOrderByAggregateInput
+    _avg?: PlanCuentasAvgOrderByAggregateInput
+    _max?: PlanCuentasMaxOrderByAggregateInput
+    _min?: PlanCuentasMinOrderByAggregateInput
+    _sum?: PlanCuentasSumOrderByAggregateInput
   }
 
-  export type CuentaContableScalarWhereWithAggregatesInput = {
-    AND?: CuentaContableScalarWhereWithAggregatesInput | CuentaContableScalarWhereWithAggregatesInput[]
-    OR?: CuentaContableScalarWhereWithAggregatesInput[]
-    NOT?: CuentaContableScalarWhereWithAggregatesInput | CuentaContableScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"CuentaContable"> | string
-    empresaId?: StringWithAggregatesFilter<"CuentaContable"> | string
-    codigo?: StringWithAggregatesFilter<"CuentaContable"> | string
-    nombre?: StringWithAggregatesFilter<"CuentaContable"> | string
-    descripcion?: StringNullableWithAggregatesFilter<"CuentaContable"> | string | null
-    tipo?: EnumTipoCuentaWithAggregatesFilter<"CuentaContable"> | $Enums.TipoCuenta
-    nivel?: IntWithAggregatesFilter<"CuentaContable"> | number
-    cuentaPadreId?: StringNullableWithAggregatesFilter<"CuentaContable"> | string | null
-    esMovimiento?: BoolWithAggregatesFilter<"CuentaContable"> | boolean
-    activo?: BoolWithAggregatesFilter<"CuentaContable"> | boolean
-    fechaCreacion?: DateTimeWithAggregatesFilter<"CuentaContable"> | Date | string
-    fechaActualizacion?: DateTimeWithAggregatesFilter<"CuentaContable"> | Date | string
+  export type PlanCuentasScalarWhereWithAggregatesInput = {
+    AND?: PlanCuentasScalarWhereWithAggregatesInput | PlanCuentasScalarWhereWithAggregatesInput[]
+    OR?: PlanCuentasScalarWhereWithAggregatesInput[]
+    NOT?: PlanCuentasScalarWhereWithAggregatesInput | PlanCuentasScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    empresaId?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    codigo?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    codigoPadre?: StringNullableWithAggregatesFilter<"PlanCuentas"> | string | null
+    nivel?: IntWithAggregatesFilter<"PlanCuentas"> | number
+    nombre?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    nombreCompleto?: StringNullableWithAggregatesFilter<"PlanCuentas"> | string | null
+    nombreCorto?: StringNullableWithAggregatesFilter<"PlanCuentas"> | string | null
+    tipoMayor?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    tipoDetalle?: StringNullableWithAggregatesFilter<"PlanCuentas"> | string | null
+    naturaleza?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    permiteMovimiento?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    esAuxiliar?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    nivelMaximo?: IntWithAggregatesFilter<"PlanCuentas"> | number
+    monedaPermitida?: StringWithAggregatesFilter<"PlanCuentas"> | string
+    centroCostoObligatorio?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    proyectoObligatorio?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    requiereReferencia?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    requiereCliente?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    requiereProveedor?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    activo?: BoolWithAggregatesFilter<"PlanCuentas"> | boolean
+    fechaCreacion?: DateTimeWithAggregatesFilter<"PlanCuentas"> | Date | string
+    fechaActualizacion?: DateTimeWithAggregatesFilter<"PlanCuentas"> | Date | string
   }
 
   export type EmpresaCreateInput = {
@@ -19666,7 +19755,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateInput = {
@@ -19688,7 +19777,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUpdateInput = {
@@ -19710,7 +19799,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateInput = {
@@ -19732,7 +19821,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateManyInput = {
@@ -20636,108 +20725,182 @@ export namespace Prisma {
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CuentaContableCreateInput = {
+  export type PlanCuentasCreateInput = {
     id?: string
     codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre?: string | null
     nivel: number
-    esMovimiento?: boolean
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: Date | string
     fechaActualizacion?: Date | string
-    empresa: EmpresaCreateNestedOneWithoutCuentasContablesInput
-    cuentaPadre?: CuentaContableCreateNestedOneWithoutCuentasHijasInput
-    cuentasHijas?: CuentaContableCreateNestedManyWithoutCuentaPadreInput
+    empresa: EmpresaCreateNestedOneWithoutPlanCuentasInput
   }
 
-  export type CuentaContableUncheckedCreateInput = {
-    id?: string
-    empresaId: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    cuentaPadreId?: string | null
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-    cuentasHijas?: CuentaContableUncheckedCreateNestedManyWithoutCuentaPadreInput
-  }
-
-  export type CuentaContableUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    empresa?: EmpresaUpdateOneRequiredWithoutCuentasContablesNestedInput
-    cuentaPadre?: CuentaContableUpdateOneWithoutCuentasHijasNestedInput
-    cuentasHijas?: CuentaContableUpdateManyWithoutCuentaPadreNestedInput
-  }
-
-  export type CuentaContableUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    cuentaPadreId?: NullableStringFieldUpdateOperationsInput | string | null
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    cuentasHijas?: CuentaContableUncheckedUpdateManyWithoutCuentaPadreNestedInput
-  }
-
-  export type CuentaContableCreateManyInput = {
+  export type PlanCuentasUncheckedCreateInput = {
     id?: string
     empresaId: string
     codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre?: string | null
     nivel: number
-    cuentaPadreId?: string | null
-    esMovimiento?: boolean
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: Date | string
     fechaActualizacion?: Date | string
   }
 
-  export type CuentaContableUpdateManyMutationInput = {
+  export type PlanCuentasUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
     nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    empresa?: EmpresaUpdateOneRequiredWithoutPlanCuentasNestedInput
+  }
+
+  export type PlanCuentasUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    empresaId?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
+    nivel?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
     activo?: BoolFieldUpdateOperationsInput | boolean
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CuentaContableUncheckedUpdateManyInput = {
+  export type PlanCuentasCreateManyInput = {
+    id?: string
+    empresaId: string
+    codigo: string
+    codigoPadre?: string | null
+    nivel: number
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
+    activo?: boolean
+    fechaCreacion?: Date | string
+    fechaActualizacion?: Date | string
+  }
+
+  export type PlanCuentasUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
+    nivel?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
+    activo?: BoolFieldUpdateOperationsInput | boolean
+    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PlanCuentasUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     empresaId?: StringFieldUpdateOperationsInput | string
     codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
     nivel?: IntFieldUpdateOperationsInput | number
-    cuentaPadreId?: NullableStringFieldUpdateOperationsInput | string | null
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
     activo?: BoolFieldUpdateOperationsInput | boolean
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20844,10 +21007,10 @@ export namespace Prisma {
     none?: UsuarioWhereInput
   }
 
-  export type CuentaContableListRelationFilter = {
-    every?: CuentaContableWhereInput
-    some?: CuentaContableWhereInput
-    none?: CuentaContableWhereInput
+  export type PlanCuentasListRelationFilter = {
+    every?: PlanCuentasWhereInput
+    some?: PlanCuentasWhereInput
+    none?: PlanCuentasWhereInput
   }
 
   export type SortOrderInput = {
@@ -20887,7 +21050,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CuentaContableOrderByRelationAggregateInput = {
+  export type PlanCuentasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -21598,84 +21761,97 @@ export namespace Prisma {
     fechaCreacion?: SortOrder
   }
 
-  export type EnumTipoCuentaFilter<$PrismaModel = never> = {
-    equals?: $Enums.TipoCuenta | EnumTipoCuentaFieldRefInput<$PrismaModel>
-    in?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    not?: NestedEnumTipoCuentaFilter<$PrismaModel> | $Enums.TipoCuenta
-  }
-
-  export type CuentaContableNullableRelationFilter = {
-    is?: CuentaContableWhereInput | null
-    isNot?: CuentaContableWhereInput | null
-  }
-
-  export type CuentaContableEmpresaIdCodigoCompoundUniqueInput = {
+  export type PlanCuentasEmpresaIdCodigoCompoundUniqueInput = {
     empresaId: string
     codigo: string
   }
 
-  export type CuentaContableCountOrderByAggregateInput = {
+  export type PlanCuentasCountOrderByAggregateInput = {
     id?: SortOrder
     empresaId?: SortOrder
     codigo?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
-    tipo?: SortOrder
+    codigoPadre?: SortOrder
     nivel?: SortOrder
-    cuentaPadreId?: SortOrder
-    esMovimiento?: SortOrder
+    nombre?: SortOrder
+    nombreCompleto?: SortOrder
+    nombreCorto?: SortOrder
+    tipoMayor?: SortOrder
+    tipoDetalle?: SortOrder
+    naturaleza?: SortOrder
+    permiteMovimiento?: SortOrder
+    esAuxiliar?: SortOrder
+    nivelMaximo?: SortOrder
+    monedaPermitida?: SortOrder
+    centroCostoObligatorio?: SortOrder
+    proyectoObligatorio?: SortOrder
+    requiereReferencia?: SortOrder
+    requiereCliente?: SortOrder
+    requiereProveedor?: SortOrder
     activo?: SortOrder
     fechaCreacion?: SortOrder
     fechaActualizacion?: SortOrder
   }
 
-  export type CuentaContableAvgOrderByAggregateInput = {
+  export type PlanCuentasAvgOrderByAggregateInput = {
     nivel?: SortOrder
+    nivelMaximo?: SortOrder
   }
 
-  export type CuentaContableMaxOrderByAggregateInput = {
+  export type PlanCuentasMaxOrderByAggregateInput = {
     id?: SortOrder
     empresaId?: SortOrder
     codigo?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
-    tipo?: SortOrder
+    codigoPadre?: SortOrder
     nivel?: SortOrder
-    cuentaPadreId?: SortOrder
-    esMovimiento?: SortOrder
+    nombre?: SortOrder
+    nombreCompleto?: SortOrder
+    nombreCorto?: SortOrder
+    tipoMayor?: SortOrder
+    tipoDetalle?: SortOrder
+    naturaleza?: SortOrder
+    permiteMovimiento?: SortOrder
+    esAuxiliar?: SortOrder
+    nivelMaximo?: SortOrder
+    monedaPermitida?: SortOrder
+    centroCostoObligatorio?: SortOrder
+    proyectoObligatorio?: SortOrder
+    requiereReferencia?: SortOrder
+    requiereCliente?: SortOrder
+    requiereProveedor?: SortOrder
     activo?: SortOrder
     fechaCreacion?: SortOrder
     fechaActualizacion?: SortOrder
   }
 
-  export type CuentaContableMinOrderByAggregateInput = {
+  export type PlanCuentasMinOrderByAggregateInput = {
     id?: SortOrder
     empresaId?: SortOrder
     codigo?: SortOrder
-    nombre?: SortOrder
-    descripcion?: SortOrder
-    tipo?: SortOrder
+    codigoPadre?: SortOrder
     nivel?: SortOrder
-    cuentaPadreId?: SortOrder
-    esMovimiento?: SortOrder
+    nombre?: SortOrder
+    nombreCompleto?: SortOrder
+    nombreCorto?: SortOrder
+    tipoMayor?: SortOrder
+    tipoDetalle?: SortOrder
+    naturaleza?: SortOrder
+    permiteMovimiento?: SortOrder
+    esAuxiliar?: SortOrder
+    nivelMaximo?: SortOrder
+    monedaPermitida?: SortOrder
+    centroCostoObligatorio?: SortOrder
+    proyectoObligatorio?: SortOrder
+    requiereReferencia?: SortOrder
+    requiereCliente?: SortOrder
+    requiereProveedor?: SortOrder
     activo?: SortOrder
     fechaCreacion?: SortOrder
     fechaActualizacion?: SortOrder
   }
 
-  export type CuentaContableSumOrderByAggregateInput = {
+  export type PlanCuentasSumOrderByAggregateInput = {
     nivel?: SortOrder
-  }
-
-  export type EnumTipoCuentaWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TipoCuenta | EnumTipoCuentaFieldRefInput<$PrismaModel>
-    in?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    not?: NestedEnumTipoCuentaWithAggregatesFilter<$PrismaModel> | $Enums.TipoCuenta
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTipoCuentaFilter<$PrismaModel>
-    _max?: NestedEnumTipoCuentaFilter<$PrismaModel>
+    nivelMaximo?: SortOrder
   }
 
   export type ClienteCreateNestedManyWithoutEmpresaInput = {
@@ -21734,11 +21910,11 @@ export namespace Prisma {
     connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
   }
 
-  export type CuentaContableCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput> | CuentaContableCreateWithoutEmpresaInput[] | CuentaContableUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutEmpresaInput | CuentaContableCreateOrConnectWithoutEmpresaInput[]
-    createMany?: CuentaContableCreateManyEmpresaInputEnvelope
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
+  export type PlanCuentasCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput> | PlanCuentasCreateWithoutEmpresaInput[] | PlanCuentasUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: PlanCuentasCreateOrConnectWithoutEmpresaInput | PlanCuentasCreateOrConnectWithoutEmpresaInput[]
+    createMany?: PlanCuentasCreateManyEmpresaInputEnvelope
+    connect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
   }
 
   export type ClienteUncheckedCreateNestedManyWithoutEmpresaInput = {
@@ -21797,11 +21973,11 @@ export namespace Prisma {
     connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
   }
 
-  export type CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput = {
-    create?: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput> | CuentaContableCreateWithoutEmpresaInput[] | CuentaContableUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutEmpresaInput | CuentaContableCreateOrConnectWithoutEmpresaInput[]
-    createMany?: CuentaContableCreateManyEmpresaInputEnvelope
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
+  export type PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput = {
+    create?: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput> | PlanCuentasCreateWithoutEmpresaInput[] | PlanCuentasUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: PlanCuentasCreateOrConnectWithoutEmpresaInput | PlanCuentasCreateOrConnectWithoutEmpresaInput[]
+    createMany?: PlanCuentasCreateManyEmpresaInputEnvelope
+    connect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -21936,18 +22112,18 @@ export namespace Prisma {
     deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
-  export type CuentaContableUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput> | CuentaContableCreateWithoutEmpresaInput[] | CuentaContableUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutEmpresaInput | CuentaContableCreateOrConnectWithoutEmpresaInput[]
-    upsert?: CuentaContableUpsertWithWhereUniqueWithoutEmpresaInput | CuentaContableUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: CuentaContableCreateManyEmpresaInputEnvelope
-    set?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    disconnect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    delete?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    update?: CuentaContableUpdateWithWhereUniqueWithoutEmpresaInput | CuentaContableUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: CuentaContableUpdateManyWithWhereWithoutEmpresaInput | CuentaContableUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
+  export type PlanCuentasUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput> | PlanCuentasCreateWithoutEmpresaInput[] | PlanCuentasUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: PlanCuentasCreateOrConnectWithoutEmpresaInput | PlanCuentasCreateOrConnectWithoutEmpresaInput[]
+    upsert?: PlanCuentasUpsertWithWhereUniqueWithoutEmpresaInput | PlanCuentasUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: PlanCuentasCreateManyEmpresaInputEnvelope
+    set?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    disconnect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    delete?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    connect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    update?: PlanCuentasUpdateWithWhereUniqueWithoutEmpresaInput | PlanCuentasUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: PlanCuentasUpdateManyWithWhereWithoutEmpresaInput | PlanCuentasUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: PlanCuentasScalarWhereInput | PlanCuentasScalarWhereInput[]
   }
 
   export type ClienteUncheckedUpdateManyWithoutEmpresaNestedInput = {
@@ -22062,18 +22238,18 @@ export namespace Prisma {
     deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
-  export type CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput = {
-    create?: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput> | CuentaContableCreateWithoutEmpresaInput[] | CuentaContableUncheckedCreateWithoutEmpresaInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutEmpresaInput | CuentaContableCreateOrConnectWithoutEmpresaInput[]
-    upsert?: CuentaContableUpsertWithWhereUniqueWithoutEmpresaInput | CuentaContableUpsertWithWhereUniqueWithoutEmpresaInput[]
-    createMany?: CuentaContableCreateManyEmpresaInputEnvelope
-    set?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    disconnect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    delete?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    update?: CuentaContableUpdateWithWhereUniqueWithoutEmpresaInput | CuentaContableUpdateWithWhereUniqueWithoutEmpresaInput[]
-    updateMany?: CuentaContableUpdateManyWithWhereWithoutEmpresaInput | CuentaContableUpdateManyWithWhereWithoutEmpresaInput[]
-    deleteMany?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
+  export type PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput = {
+    create?: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput> | PlanCuentasCreateWithoutEmpresaInput[] | PlanCuentasUncheckedCreateWithoutEmpresaInput[]
+    connectOrCreate?: PlanCuentasCreateOrConnectWithoutEmpresaInput | PlanCuentasCreateOrConnectWithoutEmpresaInput[]
+    upsert?: PlanCuentasUpsertWithWhereUniqueWithoutEmpresaInput | PlanCuentasUpsertWithWhereUniqueWithoutEmpresaInput[]
+    createMany?: PlanCuentasCreateManyEmpresaInputEnvelope
+    set?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    disconnect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    delete?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    connect?: PlanCuentasWhereUniqueInput | PlanCuentasWhereUniqueInput[]
+    update?: PlanCuentasUpdateWithWhereUniqueWithoutEmpresaInput | PlanCuentasUpdateWithWhereUniqueWithoutEmpresaInput[]
+    updateMany?: PlanCuentasUpdateManyWithWhereWithoutEmpresaInput | PlanCuentasUpdateManyWithWhereWithoutEmpresaInput[]
+    deleteMany?: PlanCuentasScalarWhereInput | PlanCuentasScalarWhereInput[]
   }
 
   export type EmpresaCreateNestedOneWithoutUsuariosInput = {
@@ -22760,80 +22936,18 @@ export namespace Prisma {
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutModuloHistoricoInput, UsuarioUpdateWithoutModuloHistoricoInput>, UsuarioUncheckedUpdateWithoutModuloHistoricoInput>
   }
 
-  export type EmpresaCreateNestedOneWithoutCuentasContablesInput = {
-    create?: XOR<EmpresaCreateWithoutCuentasContablesInput, EmpresaUncheckedCreateWithoutCuentasContablesInput>
-    connectOrCreate?: EmpresaCreateOrConnectWithoutCuentasContablesInput
+  export type EmpresaCreateNestedOneWithoutPlanCuentasInput = {
+    create?: XOR<EmpresaCreateWithoutPlanCuentasInput, EmpresaUncheckedCreateWithoutPlanCuentasInput>
+    connectOrCreate?: EmpresaCreateOrConnectWithoutPlanCuentasInput
     connect?: EmpresaWhereUniqueInput
   }
 
-  export type CuentaContableCreateNestedOneWithoutCuentasHijasInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentasHijasInput, CuentaContableUncheckedCreateWithoutCuentasHijasInput>
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentasHijasInput
-    connect?: CuentaContableWhereUniqueInput
-  }
-
-  export type CuentaContableCreateNestedManyWithoutCuentaPadreInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput> | CuentaContableCreateWithoutCuentaPadreInput[] | CuentaContableUncheckedCreateWithoutCuentaPadreInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentaPadreInput | CuentaContableCreateOrConnectWithoutCuentaPadreInput[]
-    createMany?: CuentaContableCreateManyCuentaPadreInputEnvelope
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-  }
-
-  export type CuentaContableUncheckedCreateNestedManyWithoutCuentaPadreInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput> | CuentaContableCreateWithoutCuentaPadreInput[] | CuentaContableUncheckedCreateWithoutCuentaPadreInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentaPadreInput | CuentaContableCreateOrConnectWithoutCuentaPadreInput[]
-    createMany?: CuentaContableCreateManyCuentaPadreInputEnvelope
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-  }
-
-  export type EnumTipoCuentaFieldUpdateOperationsInput = {
-    set?: $Enums.TipoCuenta
-  }
-
-  export type EmpresaUpdateOneRequiredWithoutCuentasContablesNestedInput = {
-    create?: XOR<EmpresaCreateWithoutCuentasContablesInput, EmpresaUncheckedCreateWithoutCuentasContablesInput>
-    connectOrCreate?: EmpresaCreateOrConnectWithoutCuentasContablesInput
-    upsert?: EmpresaUpsertWithoutCuentasContablesInput
+  export type EmpresaUpdateOneRequiredWithoutPlanCuentasNestedInput = {
+    create?: XOR<EmpresaCreateWithoutPlanCuentasInput, EmpresaUncheckedCreateWithoutPlanCuentasInput>
+    connectOrCreate?: EmpresaCreateOrConnectWithoutPlanCuentasInput
+    upsert?: EmpresaUpsertWithoutPlanCuentasInput
     connect?: EmpresaWhereUniqueInput
-    update?: XOR<XOR<EmpresaUpdateToOneWithWhereWithoutCuentasContablesInput, EmpresaUpdateWithoutCuentasContablesInput>, EmpresaUncheckedUpdateWithoutCuentasContablesInput>
-  }
-
-  export type CuentaContableUpdateOneWithoutCuentasHijasNestedInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentasHijasInput, CuentaContableUncheckedCreateWithoutCuentasHijasInput>
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentasHijasInput
-    upsert?: CuentaContableUpsertWithoutCuentasHijasInput
-    disconnect?: CuentaContableWhereInput | boolean
-    delete?: CuentaContableWhereInput | boolean
-    connect?: CuentaContableWhereUniqueInput
-    update?: XOR<XOR<CuentaContableUpdateToOneWithWhereWithoutCuentasHijasInput, CuentaContableUpdateWithoutCuentasHijasInput>, CuentaContableUncheckedUpdateWithoutCuentasHijasInput>
-  }
-
-  export type CuentaContableUpdateManyWithoutCuentaPadreNestedInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput> | CuentaContableCreateWithoutCuentaPadreInput[] | CuentaContableUncheckedCreateWithoutCuentaPadreInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentaPadreInput | CuentaContableCreateOrConnectWithoutCuentaPadreInput[]
-    upsert?: CuentaContableUpsertWithWhereUniqueWithoutCuentaPadreInput | CuentaContableUpsertWithWhereUniqueWithoutCuentaPadreInput[]
-    createMany?: CuentaContableCreateManyCuentaPadreInputEnvelope
-    set?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    disconnect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    delete?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    update?: CuentaContableUpdateWithWhereUniqueWithoutCuentaPadreInput | CuentaContableUpdateWithWhereUniqueWithoutCuentaPadreInput[]
-    updateMany?: CuentaContableUpdateManyWithWhereWithoutCuentaPadreInput | CuentaContableUpdateManyWithWhereWithoutCuentaPadreInput[]
-    deleteMany?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
-  }
-
-  export type CuentaContableUncheckedUpdateManyWithoutCuentaPadreNestedInput = {
-    create?: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput> | CuentaContableCreateWithoutCuentaPadreInput[] | CuentaContableUncheckedCreateWithoutCuentaPadreInput[]
-    connectOrCreate?: CuentaContableCreateOrConnectWithoutCuentaPadreInput | CuentaContableCreateOrConnectWithoutCuentaPadreInput[]
-    upsert?: CuentaContableUpsertWithWhereUniqueWithoutCuentaPadreInput | CuentaContableUpsertWithWhereUniqueWithoutCuentaPadreInput[]
-    createMany?: CuentaContableCreateManyCuentaPadreInputEnvelope
-    set?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    disconnect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    delete?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    connect?: CuentaContableWhereUniqueInput | CuentaContableWhereUniqueInput[]
-    update?: CuentaContableUpdateWithWhereUniqueWithoutCuentaPadreInput | CuentaContableUpdateWithWhereUniqueWithoutCuentaPadreInput[]
-    updateMany?: CuentaContableUpdateManyWithWhereWithoutCuentaPadreInput | CuentaContableUpdateManyWithWhereWithoutCuentaPadreInput[]
-    deleteMany?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
+    update?: XOR<XOR<EmpresaUpdateToOneWithWhereWithoutPlanCuentasInput, EmpresaUpdateWithoutPlanCuentasInput>, EmpresaUncheckedUpdateWithoutPlanCuentasInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -23071,23 +23185,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedEnumTipoCuentaFilter<$PrismaModel = never> = {
-    equals?: $Enums.TipoCuenta | EnumTipoCuentaFieldRefInput<$PrismaModel>
-    in?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    not?: NestedEnumTipoCuentaFilter<$PrismaModel> | $Enums.TipoCuenta
-  }
-
-  export type NestedEnumTipoCuentaWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TipoCuenta | EnumTipoCuentaFieldRefInput<$PrismaModel>
-    in?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TipoCuenta[] | ListEnumTipoCuentaFieldRefInput<$PrismaModel>
-    not?: NestedEnumTipoCuentaWithAggregatesFilter<$PrismaModel> | $Enums.TipoCuenta
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTipoCuentaFilter<$PrismaModel>
-    _max?: NestedEnumTipoCuentaFilter<$PrismaModel>
-  }
-
   export type ClienteCreateWithoutEmpresaInput = {
     id?: string
     createdAt?: Date | string
@@ -23296,43 +23393,63 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type CuentaContableCreateWithoutEmpresaInput = {
+  export type PlanCuentasCreateWithoutEmpresaInput = {
     id?: string
     codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre?: string | null
     nivel: number
-    esMovimiento?: boolean
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: Date | string
     fechaActualizacion?: Date | string
-    cuentaPadre?: CuentaContableCreateNestedOneWithoutCuentasHijasInput
-    cuentasHijas?: CuentaContableCreateNestedManyWithoutCuentaPadreInput
   }
 
-  export type CuentaContableUncheckedCreateWithoutEmpresaInput = {
+  export type PlanCuentasUncheckedCreateWithoutEmpresaInput = {
     id?: string
     codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre?: string | null
     nivel: number
-    cuentaPadreId?: string | null
-    esMovimiento?: boolean
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: Date | string
     fechaActualizacion?: Date | string
-    cuentasHijas?: CuentaContableUncheckedCreateNestedManyWithoutCuentaPadreInput
   }
 
-  export type CuentaContableCreateOrConnectWithoutEmpresaInput = {
-    where: CuentaContableWhereUniqueInput
-    create: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput>
+  export type PlanCuentasCreateOrConnectWithoutEmpresaInput = {
+    where: PlanCuentasWhereUniqueInput
+    create: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput>
   }
 
-  export type CuentaContableCreateManyEmpresaInputEnvelope = {
-    data: CuentaContableCreateManyEmpresaInput | CuentaContableCreateManyEmpresaInput[]
+  export type PlanCuentasCreateManyEmpresaInputEnvelope = {
+    data: PlanCuentasCreateManyEmpresaInput | PlanCuentasCreateManyEmpresaInput[]
     skipDuplicates?: boolean
   }
 
@@ -23559,38 +23676,49 @@ export namespace Prisma {
     resetTokenExpires?: DateTimeNullableFilter<"Usuario"> | Date | string | null
   }
 
-  export type CuentaContableUpsertWithWhereUniqueWithoutEmpresaInput = {
-    where: CuentaContableWhereUniqueInput
-    update: XOR<CuentaContableUpdateWithoutEmpresaInput, CuentaContableUncheckedUpdateWithoutEmpresaInput>
-    create: XOR<CuentaContableCreateWithoutEmpresaInput, CuentaContableUncheckedCreateWithoutEmpresaInput>
+  export type PlanCuentasUpsertWithWhereUniqueWithoutEmpresaInput = {
+    where: PlanCuentasWhereUniqueInput
+    update: XOR<PlanCuentasUpdateWithoutEmpresaInput, PlanCuentasUncheckedUpdateWithoutEmpresaInput>
+    create: XOR<PlanCuentasCreateWithoutEmpresaInput, PlanCuentasUncheckedCreateWithoutEmpresaInput>
   }
 
-  export type CuentaContableUpdateWithWhereUniqueWithoutEmpresaInput = {
-    where: CuentaContableWhereUniqueInput
-    data: XOR<CuentaContableUpdateWithoutEmpresaInput, CuentaContableUncheckedUpdateWithoutEmpresaInput>
+  export type PlanCuentasUpdateWithWhereUniqueWithoutEmpresaInput = {
+    where: PlanCuentasWhereUniqueInput
+    data: XOR<PlanCuentasUpdateWithoutEmpresaInput, PlanCuentasUncheckedUpdateWithoutEmpresaInput>
   }
 
-  export type CuentaContableUpdateManyWithWhereWithoutEmpresaInput = {
-    where: CuentaContableScalarWhereInput
-    data: XOR<CuentaContableUpdateManyMutationInput, CuentaContableUncheckedUpdateManyWithoutEmpresaInput>
+  export type PlanCuentasUpdateManyWithWhereWithoutEmpresaInput = {
+    where: PlanCuentasScalarWhereInput
+    data: XOR<PlanCuentasUpdateManyMutationInput, PlanCuentasUncheckedUpdateManyWithoutEmpresaInput>
   }
 
-  export type CuentaContableScalarWhereInput = {
-    AND?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
-    OR?: CuentaContableScalarWhereInput[]
-    NOT?: CuentaContableScalarWhereInput | CuentaContableScalarWhereInput[]
-    id?: StringFilter<"CuentaContable"> | string
-    empresaId?: StringFilter<"CuentaContable"> | string
-    codigo?: StringFilter<"CuentaContable"> | string
-    nombre?: StringFilter<"CuentaContable"> | string
-    descripcion?: StringNullableFilter<"CuentaContable"> | string | null
-    tipo?: EnumTipoCuentaFilter<"CuentaContable"> | $Enums.TipoCuenta
-    nivel?: IntFilter<"CuentaContable"> | number
-    cuentaPadreId?: StringNullableFilter<"CuentaContable"> | string | null
-    esMovimiento?: BoolFilter<"CuentaContable"> | boolean
-    activo?: BoolFilter<"CuentaContable"> | boolean
-    fechaCreacion?: DateTimeFilter<"CuentaContable"> | Date | string
-    fechaActualizacion?: DateTimeFilter<"CuentaContable"> | Date | string
+  export type PlanCuentasScalarWhereInput = {
+    AND?: PlanCuentasScalarWhereInput | PlanCuentasScalarWhereInput[]
+    OR?: PlanCuentasScalarWhereInput[]
+    NOT?: PlanCuentasScalarWhereInput | PlanCuentasScalarWhereInput[]
+    id?: StringFilter<"PlanCuentas"> | string
+    empresaId?: StringFilter<"PlanCuentas"> | string
+    codigo?: StringFilter<"PlanCuentas"> | string
+    codigoPadre?: StringNullableFilter<"PlanCuentas"> | string | null
+    nivel?: IntFilter<"PlanCuentas"> | number
+    nombre?: StringFilter<"PlanCuentas"> | string
+    nombreCompleto?: StringNullableFilter<"PlanCuentas"> | string | null
+    nombreCorto?: StringNullableFilter<"PlanCuentas"> | string | null
+    tipoMayor?: StringFilter<"PlanCuentas"> | string
+    tipoDetalle?: StringNullableFilter<"PlanCuentas"> | string | null
+    naturaleza?: StringFilter<"PlanCuentas"> | string
+    permiteMovimiento?: BoolFilter<"PlanCuentas"> | boolean
+    esAuxiliar?: BoolFilter<"PlanCuentas"> | boolean
+    nivelMaximo?: IntFilter<"PlanCuentas"> | number
+    monedaPermitida?: StringFilter<"PlanCuentas"> | string
+    centroCostoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    proyectoObligatorio?: BoolFilter<"PlanCuentas"> | boolean
+    requiereReferencia?: BoolFilter<"PlanCuentas"> | boolean
+    requiereCliente?: BoolFilter<"PlanCuentas"> | boolean
+    requiereProveedor?: BoolFilter<"PlanCuentas"> | boolean
+    activo?: BoolFilter<"PlanCuentas"> | boolean
+    fechaCreacion?: DateTimeFilter<"PlanCuentas"> | Date | string
+    fechaActualizacion?: DateTimeFilter<"PlanCuentas"> | Date | string
   }
 
   export type EmpresaCreateWithoutUsuariosInput = {
@@ -23611,7 +23739,7 @@ export namespace Prisma {
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutUsuariosInput = {
@@ -23632,7 +23760,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutUsuariosInput = {
@@ -23718,7 +23846,7 @@ export namespace Prisma {
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutUsuariosInput = {
@@ -23739,7 +23867,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type RolUpsertWithoutUsuariosInput = {
@@ -24084,7 +24212,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutModulosActivosInput = {
@@ -24105,7 +24233,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutModulosActivosInput = {
@@ -24181,7 +24309,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutModulosActivosInput = {
@@ -24202,7 +24330,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type ModuloUpsertWithoutEmpresasConModuloInput = {
@@ -24833,7 +24961,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutConfiguracionesInput = {
@@ -24854,7 +24982,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutConfiguracionesInput = {
@@ -24891,7 +25019,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutConfiguracionesInput = {
@@ -24912,7 +25040,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutFacturasInput = {
@@ -24933,7 +25061,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutFacturasInput = {
@@ -24954,7 +25082,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutFacturasInput = {
@@ -24991,7 +25119,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutFacturasInput = {
@@ -25012,7 +25140,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutProductosInput = {
@@ -25033,7 +25161,7 @@ export namespace Prisma {
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutProductosInput = {
@@ -25054,7 +25182,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutProductosInput = {
@@ -25091,7 +25219,7 @@ export namespace Prisma {
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutProductosInput = {
@@ -25112,7 +25240,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutClientesInput = {
@@ -25133,7 +25261,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutClientesInput = {
@@ -25154,7 +25282,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutClientesInput = {
@@ -25191,7 +25319,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutClientesInput = {
@@ -25212,7 +25340,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutMovimientosCajaInput = {
@@ -25233,7 +25361,7 @@ export namespace Prisma {
     facturas?: FacturaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutMovimientosCajaInput = {
@@ -25254,7 +25382,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutMovimientosCajaInput = {
@@ -25291,7 +25419,7 @@ export namespace Prisma {
     facturas?: FacturaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutMovimientosCajaInput = {
@@ -25312,7 +25440,7 @@ export namespace Prisma {
     facturas?: FacturaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaCreateWithoutModuloHistoricoInput = {
@@ -25333,7 +25461,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaCreateNestedManyWithoutEmpresaInput
     productos?: ProductoCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaUncheckedCreateWithoutModuloHistoricoInput = {
@@ -25354,7 +25482,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedCreateNestedManyWithoutEmpresaInput
     productos?: ProductoUncheckedCreateNestedManyWithoutEmpresaInput
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
-    cuentasContables?: CuentaContableUncheckedCreateNestedManyWithoutEmpresaInput
+    planCuentas?: PlanCuentasUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
   export type EmpresaCreateOrConnectWithoutModuloHistoricoInput = {
@@ -25461,7 +25589,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUpdateManyWithoutEmpresaNestedInput
   }
 
   export type EmpresaUncheckedUpdateWithoutModuloHistoricoInput = {
@@ -25482,7 +25610,7 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-    cuentasContables?: CuentaContableUncheckedUpdateManyWithoutEmpresaNestedInput
+    planCuentas?: PlanCuentasUncheckedUpdateManyWithoutEmpresaNestedInput
   }
 
   export type ModuloUpsertWithoutModuloHistoricoInput = {
@@ -25567,7 +25695,7 @@ export namespace Prisma {
     resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type EmpresaCreateWithoutCuentasContablesInput = {
+  export type EmpresaCreateWithoutPlanCuentasInput = {
     id?: string
     nombre: string
     ruc: string
@@ -25588,7 +25716,7 @@ export namespace Prisma {
     usuarios?: UsuarioCreateNestedManyWithoutEmpresaInput
   }
 
-  export type EmpresaUncheckedCreateWithoutCuentasContablesInput = {
+  export type EmpresaUncheckedCreateWithoutPlanCuentasInput = {
     id?: string
     nombre: string
     ruc: string
@@ -25609,98 +25737,23 @@ export namespace Prisma {
     usuarios?: UsuarioUncheckedCreateNestedManyWithoutEmpresaInput
   }
 
-  export type EmpresaCreateOrConnectWithoutCuentasContablesInput = {
+  export type EmpresaCreateOrConnectWithoutPlanCuentasInput = {
     where: EmpresaWhereUniqueInput
-    create: XOR<EmpresaCreateWithoutCuentasContablesInput, EmpresaUncheckedCreateWithoutCuentasContablesInput>
+    create: XOR<EmpresaCreateWithoutPlanCuentasInput, EmpresaUncheckedCreateWithoutPlanCuentasInput>
   }
 
-  export type CuentaContableCreateWithoutCuentasHijasInput = {
-    id?: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-    empresa: EmpresaCreateNestedOneWithoutCuentasContablesInput
-    cuentaPadre?: CuentaContableCreateNestedOneWithoutCuentasHijasInput
-  }
-
-  export type CuentaContableUncheckedCreateWithoutCuentasHijasInput = {
-    id?: string
-    empresaId: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    cuentaPadreId?: string | null
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-  }
-
-  export type CuentaContableCreateOrConnectWithoutCuentasHijasInput = {
-    where: CuentaContableWhereUniqueInput
-    create: XOR<CuentaContableCreateWithoutCuentasHijasInput, CuentaContableUncheckedCreateWithoutCuentasHijasInput>
-  }
-
-  export type CuentaContableCreateWithoutCuentaPadreInput = {
-    id?: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-    empresa: EmpresaCreateNestedOneWithoutCuentasContablesInput
-    cuentasHijas?: CuentaContableCreateNestedManyWithoutCuentaPadreInput
-  }
-
-  export type CuentaContableUncheckedCreateWithoutCuentaPadreInput = {
-    id?: string
-    empresaId: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-    cuentasHijas?: CuentaContableUncheckedCreateNestedManyWithoutCuentaPadreInput
-  }
-
-  export type CuentaContableCreateOrConnectWithoutCuentaPadreInput = {
-    where: CuentaContableWhereUniqueInput
-    create: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput>
-  }
-
-  export type CuentaContableCreateManyCuentaPadreInputEnvelope = {
-    data: CuentaContableCreateManyCuentaPadreInput | CuentaContableCreateManyCuentaPadreInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type EmpresaUpsertWithoutCuentasContablesInput = {
-    update: XOR<EmpresaUpdateWithoutCuentasContablesInput, EmpresaUncheckedUpdateWithoutCuentasContablesInput>
-    create: XOR<EmpresaCreateWithoutCuentasContablesInput, EmpresaUncheckedCreateWithoutCuentasContablesInput>
+  export type EmpresaUpsertWithoutPlanCuentasInput = {
+    update: XOR<EmpresaUpdateWithoutPlanCuentasInput, EmpresaUncheckedUpdateWithoutPlanCuentasInput>
+    create: XOR<EmpresaCreateWithoutPlanCuentasInput, EmpresaUncheckedCreateWithoutPlanCuentasInput>
     where?: EmpresaWhereInput
   }
 
-  export type EmpresaUpdateToOneWithWhereWithoutCuentasContablesInput = {
+  export type EmpresaUpdateToOneWithWhereWithoutPlanCuentasInput = {
     where?: EmpresaWhereInput
-    data: XOR<EmpresaUpdateWithoutCuentasContablesInput, EmpresaUncheckedUpdateWithoutCuentasContablesInput>
+    data: XOR<EmpresaUpdateWithoutPlanCuentasInput, EmpresaUncheckedUpdateWithoutPlanCuentasInput>
   }
 
-  export type EmpresaUpdateWithoutCuentasContablesInput = {
+  export type EmpresaUpdateWithoutPlanCuentasInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
@@ -25721,7 +25774,7 @@ export namespace Prisma {
     usuarios?: UsuarioUpdateManyWithoutEmpresaNestedInput
   }
 
-  export type EmpresaUncheckedUpdateWithoutCuentasContablesInput = {
+  export type EmpresaUncheckedUpdateWithoutPlanCuentasInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
     ruc?: StringFieldUpdateOperationsInput | string
@@ -25740,63 +25793,6 @@ export namespace Prisma {
     movimientosCaja?: MovimientoCajaUncheckedUpdateManyWithoutEmpresaNestedInput
     productos?: ProductoUncheckedUpdateManyWithoutEmpresaNestedInput
     usuarios?: UsuarioUncheckedUpdateManyWithoutEmpresaNestedInput
-  }
-
-  export type CuentaContableUpsertWithoutCuentasHijasInput = {
-    update: XOR<CuentaContableUpdateWithoutCuentasHijasInput, CuentaContableUncheckedUpdateWithoutCuentasHijasInput>
-    create: XOR<CuentaContableCreateWithoutCuentasHijasInput, CuentaContableUncheckedCreateWithoutCuentasHijasInput>
-    where?: CuentaContableWhereInput
-  }
-
-  export type CuentaContableUpdateToOneWithWhereWithoutCuentasHijasInput = {
-    where?: CuentaContableWhereInput
-    data: XOR<CuentaContableUpdateWithoutCuentasHijasInput, CuentaContableUncheckedUpdateWithoutCuentasHijasInput>
-  }
-
-  export type CuentaContableUpdateWithoutCuentasHijasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    empresa?: EmpresaUpdateOneRequiredWithoutCuentasContablesNestedInput
-    cuentaPadre?: CuentaContableUpdateOneWithoutCuentasHijasNestedInput
-  }
-
-  export type CuentaContableUncheckedUpdateWithoutCuentasHijasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    cuentaPadreId?: NullableStringFieldUpdateOperationsInput | string | null
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CuentaContableUpsertWithWhereUniqueWithoutCuentaPadreInput = {
-    where: CuentaContableWhereUniqueInput
-    update: XOR<CuentaContableUpdateWithoutCuentaPadreInput, CuentaContableUncheckedUpdateWithoutCuentaPadreInput>
-    create: XOR<CuentaContableCreateWithoutCuentaPadreInput, CuentaContableUncheckedCreateWithoutCuentaPadreInput>
-  }
-
-  export type CuentaContableUpdateWithWhereUniqueWithoutCuentaPadreInput = {
-    where: CuentaContableWhereUniqueInput
-    data: XOR<CuentaContableUpdateWithoutCuentaPadreInput, CuentaContableUncheckedUpdateWithoutCuentaPadreInput>
-  }
-
-  export type CuentaContableUpdateManyWithWhereWithoutCuentaPadreInput = {
-    where: CuentaContableScalarWhereInput
-    data: XOR<CuentaContableUpdateManyMutationInput, CuentaContableUncheckedUpdateManyWithoutCuentaPadreInput>
   }
 
   export type ClienteCreateManyEmpresaInput = {
@@ -25862,15 +25858,26 @@ export namespace Prisma {
     resetTokenExpires?: Date | string | null
   }
 
-  export type CuentaContableCreateManyEmpresaInput = {
+  export type PlanCuentasCreateManyEmpresaInput = {
     id?: string
     codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
+    codigoPadre?: string | null
     nivel: number
-    cuentaPadreId?: string | null
-    esMovimiento?: boolean
+    nombre: string
+    nombreCompleto?: string | null
+    nombreCorto?: string | null
+    tipoMayor: string
+    tipoDetalle?: string | null
+    naturaleza: string
+    permiteMovimiento?: boolean
+    esAuxiliar?: boolean
+    nivelMaximo?: number
+    monedaPermitida?: string
+    centroCostoObligatorio?: boolean
+    proyectoObligatorio?: boolean
+    requiereReferencia?: boolean
+    requiereCliente?: boolean
+    requiereProveedor?: boolean
     activo?: boolean
     fechaCreacion?: Date | string
     fechaActualizacion?: Date | string
@@ -26067,45 +26074,76 @@ export namespace Prisma {
     resetTokenExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type CuentaContableUpdateWithoutEmpresaInput = {
+  export type PlanCuentasUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
     nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
     activo?: BoolFieldUpdateOperationsInput | boolean
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    cuentaPadre?: CuentaContableUpdateOneWithoutCuentasHijasNestedInput
-    cuentasHijas?: CuentaContableUpdateManyWithoutCuentaPadreNestedInput
   }
 
-  export type CuentaContableUncheckedUpdateWithoutEmpresaInput = {
+  export type PlanCuentasUncheckedUpdateWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
     nivel?: IntFieldUpdateOperationsInput | number
-    cuentaPadreId?: NullableStringFieldUpdateOperationsInput | string | null
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
     activo?: BoolFieldUpdateOperationsInput | boolean
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    cuentasHijas?: CuentaContableUncheckedUpdateManyWithoutCuentaPadreNestedInput
   }
 
-  export type CuentaContableUncheckedUpdateManyWithoutEmpresaInput = {
+  export type PlanCuentasUncheckedUpdateManyWithoutEmpresaInput = {
     id?: StringFieldUpdateOperationsInput | string
     codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
+    codigoPadre?: NullableStringFieldUpdateOperationsInput | string | null
     nivel?: IntFieldUpdateOperationsInput | number
-    cuentaPadreId?: NullableStringFieldUpdateOperationsInput | string | null
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    nombre?: StringFieldUpdateOperationsInput | string
+    nombreCompleto?: NullableStringFieldUpdateOperationsInput | string | null
+    nombreCorto?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoMayor?: StringFieldUpdateOperationsInput | string
+    tipoDetalle?: NullableStringFieldUpdateOperationsInput | string | null
+    naturaleza?: StringFieldUpdateOperationsInput | string
+    permiteMovimiento?: BoolFieldUpdateOperationsInput | boolean
+    esAuxiliar?: BoolFieldUpdateOperationsInput | boolean
+    nivelMaximo?: IntFieldUpdateOperationsInput | number
+    monedaPermitida?: StringFieldUpdateOperationsInput | string
+    centroCostoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    proyectoObligatorio?: BoolFieldUpdateOperationsInput | boolean
+    requiereReferencia?: BoolFieldUpdateOperationsInput | boolean
+    requiereCliente?: BoolFieldUpdateOperationsInput | boolean
+    requiereProveedor?: BoolFieldUpdateOperationsInput | boolean
     activo?: BoolFieldUpdateOperationsInput | boolean
     fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
     fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -26419,64 +26457,6 @@ export namespace Prisma {
     rolId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CuentaContableCreateManyCuentaPadreInput = {
-    id?: string
-    empresaId: string
-    codigo: string
-    nombre: string
-    descripcion?: string | null
-    tipo: $Enums.TipoCuenta
-    nivel: number
-    esMovimiento?: boolean
-    activo?: boolean
-    fechaCreacion?: Date | string
-    fechaActualizacion?: Date | string
-  }
-
-  export type CuentaContableUpdateWithoutCuentaPadreInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    empresa?: EmpresaUpdateOneRequiredWithoutCuentasContablesNestedInput
-    cuentasHijas?: CuentaContableUpdateManyWithoutCuentaPadreNestedInput
-  }
-
-  export type CuentaContableUncheckedUpdateWithoutCuentaPadreInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    cuentasHijas?: CuentaContableUncheckedUpdateManyWithoutCuentaPadreNestedInput
-  }
-
-  export type CuentaContableUncheckedUpdateManyWithoutCuentaPadreInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    empresaId?: StringFieldUpdateOperationsInput | string
-    codigo?: StringFieldUpdateOperationsInput | string
-    nombre?: StringFieldUpdateOperationsInput | string
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-    tipo?: EnumTipoCuentaFieldUpdateOperationsInput | $Enums.TipoCuenta
-    nivel?: IntFieldUpdateOperationsInput | number
-    esMovimiento?: BoolFieldUpdateOperationsInput | boolean
-    activo?: BoolFieldUpdateOperationsInput | boolean
-    fechaCreacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    fechaActualizacion?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
 
 
   /**
@@ -26502,10 +26482,6 @@ export namespace Prisma {
      * @deprecated Use ModuloPermisoCountOutputTypeDefaultArgs instead
      */
     export type ModuloPermisoCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ModuloPermisoCountOutputTypeDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use CuentaContableCountOutputTypeDefaultArgs instead
-     */
-    export type CuentaContableCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CuentaContableCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use EmpresaDefaultArgs instead
      */
@@ -26567,9 +26543,9 @@ export namespace Prisma {
      */
     export type ModuloHistoricoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ModuloHistoricoDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use CuentaContableDefaultArgs instead
+     * @deprecated Use PlanCuentasDefaultArgs instead
      */
-    export type CuentaContableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CuentaContableDefaultArgs<ExtArgs>
+    export type PlanCuentasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PlanCuentasDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

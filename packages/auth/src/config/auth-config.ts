@@ -38,21 +38,16 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        console.log('🔑 Intentando login con:', credentials);
-
         if (!credentials?.email || !credentials?.password) {
-          console.log('❌ Faltan credenciales');
           return null;
         }
         
         try {
           // VALIDAR: Verificar que prisma.usuario exista antes de usar
           if (!prisma.usuario) {
-            console.log('❌ prisma.usuario no existe');
             throw new Error('prisma.usuario no existe')
           }
           
-          console.log('🔍 Buscando usuario con email:', credentials.email);
           const usuario = await prisma.usuario.findUnique({
             where: { email: credentials.email },
             include: { 
@@ -60,33 +55,25 @@ export const authOptions: NextAuthOptions = {
               rol: true 
             }
           })
-          
-          console.log('👤 Usuario encontrado:', usuario);
 
           if (!usuario) {
-            console.log('❌ Usuario no encontrado');
             return null;
           }
           
           if (!usuario.activo) {
-            console.log('❌ Usuario inactivo');
             return null;
           }
 
           // 🚨 Validar empresa activa
           if (!usuario.empresa?.activo) {
-            console.log('❌ Empresa inactiva');
             return null;
           }
 
           // ✅ Validar password con bcrypt
           const validPassword = await bcrypt.compare(credentials.password, usuario.password);
           if (!validPassword) {
-            console.log('❌ Contraseña incorrecta');
             return null;
           }
-          
-          console.log('✅ Usuario y contraseña válidos, retornando datos');
           return {
             id: usuario.id,
             email: usuario.email,
@@ -118,16 +105,11 @@ export const authOptions: NextAuthOptions = {
         where: { email },
         include: { empresa: true, rol: true }
       }) as import('@contafacil/database').UserWithEmpresa | null;
-      console.log('🛡️ [SESSION CALLBACK] Email:', email);
-      console.log('🛡️ [SESSION CALLBACK] Usuario:', usuario);
-      console.log('🛡️ [SESSION CALLBACK] Empresa:', usuario?.empresa);
       if (!usuario || !usuario.empresa || !usuario.empresa.activo) {
-        console.log('❌ [SESSION CALLBACK] Sesión invalidada para:', email);
         throw new Error('Empresa no activa');
       }
       session.user.empresaId = usuario.empresaId;
       session.user.rol = usuario.rol?.nombre || '';
-      console.log('✅ [SESSION CALLBACK] Sesión válida para:', email);
       return session;
     }
   },
