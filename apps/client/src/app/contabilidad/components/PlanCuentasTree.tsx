@@ -101,7 +101,7 @@ export default function PlanCuentasTree() {
   const cargarCuentas = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/contabilidad/cuentas')
+      const response = await fetch('/api/contabilidad/plan-cuentas')
       const data = await response.json()
       
       if (data.success) {

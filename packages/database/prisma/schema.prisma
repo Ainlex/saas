@@ -27,7 +27,7 @@ model Empresa {
   movimientosCaja    MovimientoCaja[]
   productos          Producto[]
   usuarios           Usuario[]
-  cuentasContables   CuentaContable[]
+  planCuentas        PlanCuentas[]
 
   @@map("empresas")
 }
@@ -221,29 +221,53 @@ enum PlanType {
   EMPRESARIAL
 }
 
-model CuentaContable {
-  id                  String   @id @default(cuid())
-  empresaId          String   // Multi-tenant OBLIGATORIO
-  codigo             String   // "1.1.01.001"
-  nombre             String   // "Caja"
-  descripcion        String?
-  tipo               TipoCuenta
-  nivel              Int      // 1,2,3,4 jerarquía
-  cuentaPadreId      String?
-  esMovimiento       Boolean  @default(true)
-  activo             Boolean  @default(true)
-  fechaCreacion      DateTime @default(now())
-  fechaActualizacion DateTime @updatedAt
+model PlanCuentas {
+  id                    String   @id @default(cuid())
+  empresaId             String   // Multi-tenant obligatorio
   
-  // Relaciones
-  empresa            Empresa          @relation(fields: [empresaId], references: [id])
-  cuentaPadre        CuentaContable?  @relation("CuentaHijos", fields: [cuentaPadreId], references: [id])
-  cuentasHijas       CuentaContable[] @relation("CuentaHijos")
+  // CÓDIGO JERÁRQUICO PROFESIONAL
+  codigo                String   // 1.1.01.001 (4 niveles máximo)
+  codigoPadre           String?  // Para jerarquía
+  nivel                 Int      // 1, 2, 3, 4
+  
+  // DESCRIPCIÓN EXTENDIDA
+  nombre                String   // Nombre principal
+  nombreCompleto        String?  // Descripción extendida
+  nombreCorto           String?  // Para reportes
+  
+  // CLASIFICACIÓN CONTABLE
+  tipoMayor             String   // ACTIVO, PASIVO, PATRIMONIO, INGRESOS, GASTOS
+  tipoDetalle           String?  // Corriente, No Corriente, etc.
+  naturaleza            String   // DEUDORA, ACREEDORA
+  
+  // CONTROL MOVIMIENTO
+  permiteMovimiento     Boolean  @default(true)  // Si acepta asientos directos
+  esAuxiliar            Boolean  @default(false) // Cuenta auxiliar
+  nivelMaximo           Int      @default(4)     // Nivel máximo permitido
+  
+  // MONEDAS Y CENTROS DE COSTO
+  monedaPermitida       String   @default("GUARANIES") // GUARANIES, USD, MIXTA
+  centroCostoObligatorio Boolean @default(false)
+  proyectoObligatorio   Boolean  @default(false)
+  
+  // CONFIGURACIÓN AVANZADA
+  requiereReferencia    Boolean  @default(false)
+  requiereCliente       Boolean  @default(false)
+  requiereProveedor     Boolean  @default(false)
+  
+  // CAMPOS ESTÁNDAR OBLIGATORIOS
+  activo                Boolean  @default(true)
+  fechaCreacion         DateTime @default(now())
+  fechaActualizacion    DateTime @updatedAt
+  
+  // RELACIONES ESTÁNDAR
+  empresa               Empresa  @relation(fields: [empresaId], references: [id])
   
   @@unique([empresaId, codigo])
-  @@map("cuentas_contables")
+  @@map("plan_cuentas")
 }
 
+// Mantener enum existente para compatibilidad
 enum TipoCuenta {
   ACTIVO
   PASIVO

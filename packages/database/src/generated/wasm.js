@@ -255,16 +255,27 @@ exports.Prisma.ModuloHistoricoScalarFieldEnum = {
   fechaCreacion: 'fechaCreacion'
 };
 
-exports.Prisma.CuentaContableScalarFieldEnum = {
+exports.Prisma.PlanCuentasScalarFieldEnum = {
   id: 'id',
   empresaId: 'empresaId',
   codigo: 'codigo',
-  nombre: 'nombre',
-  descripcion: 'descripcion',
-  tipo: 'tipo',
+  codigoPadre: 'codigoPadre',
   nivel: 'nivel',
-  cuentaPadreId: 'cuentaPadreId',
-  esMovimiento: 'esMovimiento',
+  nombre: 'nombre',
+  nombreCompleto: 'nombreCompleto',
+  nombreCorto: 'nombreCorto',
+  tipoMayor: 'tipoMayor',
+  tipoDetalle: 'tipoDetalle',
+  naturaleza: 'naturaleza',
+  permiteMovimiento: 'permiteMovimiento',
+  esAuxiliar: 'esAuxiliar',
+  nivelMaximo: 'nivelMaximo',
+  monedaPermitida: 'monedaPermitida',
+  centroCostoObligatorio: 'centroCostoObligatorio',
+  proyectoObligatorio: 'proyectoObligatorio',
+  requiereReferencia: 'requiereReferencia',
+  requiereCliente: 'requiereCliente',
+  requiereProveedor: 'requiereProveedor',
   activo: 'activo',
   fechaCreacion: 'fechaCreacion',
   fechaActualizacion: 'fechaActualizacion'
@@ -305,14 +316,6 @@ exports.PlanType = exports.$Enums.PlanType = {
   EMPRESARIAL: 'EMPRESARIAL'
 };
 
-exports.TipoCuenta = exports.$Enums.TipoCuenta = {
-  ACTIVO: 'ACTIVO',
-  PASIVO: 'PASIVO',
-  PATRIMONIO: 'PATRIMONIO',
-  INGRESO: 'INGRESO',
-  GASTO: 'GASTO'
-};
-
 exports.Prisma.ModelName = {
   Empresa: 'Empresa',
   Usuario: 'Usuario',
@@ -329,7 +332,7 @@ exports.Prisma.ModelName = {
   Cliente: 'Cliente',
   MovimientoCaja: 'MovimientoCaja',
   ModuloHistorico: 'ModuloHistorico',
-  CuentaContable: 'CuentaContable'
+  PlanCuentas: 'PlanCuentas'
 };
 
 /**
