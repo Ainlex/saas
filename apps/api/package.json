@@ -7,20 +7,25 @@
     "start": "next start --port 3002"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "bcryptjs": "^2.4.3",
-    "next-auth": "^4.24.5",
-    "zod": "^3.22.0",
     "@contafacil/auth": "workspace:*",
     "@contafacil/database": "workspace:*",
-    "@contafacil/shared": "workspace:*"
+    "@contafacil/shared": "workspace:*",
+    "bcryptjs": "^2.4.3",
+    "multer": "^2.0.1",
+    "next": "14.2.3",
+    "next-auth": "^4.24.5",
+    "next-connect": "^1.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "xlsx": "^0.18.5",
+    "zod": "^3.22.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/multer": "^2.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
-    "@types/bcryptjs": "^2.4.2"
+    "@types/xlsx": "^0.0.36",
+    "typescript": "^5.0.0"
   }
 }
